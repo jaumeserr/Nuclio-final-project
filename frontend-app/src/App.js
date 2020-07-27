@@ -1,21 +1,21 @@
 import React from 'react';
-import Home from "./pages/home/home.view";
 import {
-  BrowserRouter as Router,
-  Link,
-  Switch,
-  Route,
+    BrowserRouter as Router,
+    Link,
+
+    Route, Switch
 } from "react-router-dom";
-import PinForm from "./components/pinForm/pinForm.view";
-import ListPins from "./components/listPins/listPins.view";
 import Board from "./components/board/board.view";
-import {BOARD, BOARD_FORM, HOME, LIST_PINS, PINS_FORM} from "./routes/routes";
+import ListPins from "./components/listPins/listPins.view";
+import PinForm from "./components/pinForm/pinForm.view";
+import Home from "./pages/home/home.view";
+import { BOARD, BOARD_FORM, HOME, LIST_PINS, PINS_FORM } from "./routes/routes";
 
 function App() {
     return (
         <Router>
             <div>
-                <p>SkyScanner Nuclio</p>
+                <p>SkyScanner Nuclio Project</p>
                 <ul>
                     <li>
                         <Link to={HOME}>Home</Link>
