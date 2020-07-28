@@ -1,8 +1,6 @@
 body{
     margin: 0 10px;
     background-color: gainsboro;
-
-
 }
 .__container{
     text-align: center;
@@ -27,33 +25,8 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-}
 
-header {
-    width: 100%;
-    display: inline-flex;
-    align-items: center;
-    justify-content: space-between;
-}
-.__container__butt{
-    display: flex;
 
-}
-.__container__nav{
-    margin: 20px 20px;
-    justify-content:space-between;
-    background-color: rgba(0, 0, 255, 0.56);
-    border-radius: 20px;
-    padding: 10px 20px;
-    outline: none;
-    border: transparent;
-    color: white;
-    cursor: pointer;
-    font-family: -apple-system, serif;
-    font-size: 16px;
-}
-.__container__nav:hover{
-    background-color: #1e3c99;
 }
 
 h1{
@@ -76,8 +49,6 @@ p{
     flex-wrap: wrap;
     box-shadow: 0px 0px 3px 0px rgba(0 0 0 .7);
     overflow: hidden;
-
-
 
 }
 .__container__img{
@@ -148,11 +119,7 @@ input::placeholder{
     background-color: #1e3c99;
 
 }
-.__light-box{
-    position: fixed;
-    top: 0;
-    left: 0;
-}
+
 
 
 

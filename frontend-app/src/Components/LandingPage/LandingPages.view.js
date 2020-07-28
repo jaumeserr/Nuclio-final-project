@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './LandingPages.module.css';
-import logo from '../../assets/logo.png';
 import boreal from '../../assets/boreal.jpg';
 import Australia from '../../assets/Australia.jpg';
 import playa from '../../assets/playa.jpg';
@@ -19,16 +18,6 @@ const LandingPages = () => {
     return (
         <div>
             <div className={styles.__container}>
-                <header className={styles.__navigation}>
-                    <div>
-                        <img src ={logo} alt ="logo" className={styles.__logo}/>
-                    </div>
-                    <div className={styles.__container_butt}>
-                        <button className= {styles.__container__nav}>Login</button>
-                        <button className= {styles.__container__nav}>Register</button>
-                    </div>
-                </header>
-
                 <section className={styles.__container__body}>
                     <div className={styles.__container__text}>
                         <h1 className={styles.__title}>Bienvenidos a Skyscanner</h1>
@@ -60,7 +49,6 @@ const LandingPages = () => {
                         </a>
                     </div>
                 </section>
-
                 <footer>
                     <div className={styles.__container__footer}>
                         <div className={styles.__container__input}>
