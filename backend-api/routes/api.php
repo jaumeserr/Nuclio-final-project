@@ -1,18 +1,46 @@
 <?php
 
-use Illuminate\Http\Request;
+/*
+|--------------------------------------------------------------------------
+| Airport Routes
+|--------------------------------------------------------------------------
+*/
+Route::group([
+
+    'prefix' => 'airport'
+
+], function ($router) {
+
+    Route::get('', 'AirportController@all');
+
+});
 
 /*
 |--------------------------------------------------------------------------
-| API Routes
+| Flight Instances Routes
 |--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
-|
 */
+Route::group([
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+    'prefix' => 'flight_instance'
+
+], function ($router) {
+
+    Route::get('', 'FlightInstanceController@all');
+
+});
+
+/*
+|--------------------------------------------------------------------------
+| Flight Consts Routes
+|--------------------------------------------------------------------------
+*/
+Route::group([
+
+    'prefix' => 'flight_consts'
+
+], function ($router) {
+
+    Route::get('', 'FlightConstancesController@all');
+
 });
