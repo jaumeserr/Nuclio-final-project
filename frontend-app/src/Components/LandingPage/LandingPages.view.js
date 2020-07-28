@@ -28,6 +28,7 @@ const LandingPages = () => {
                         <button className= {styles.__container__nav}>Register</button>
                     </div>
                 </header>
+
                 <section className={styles.__container__body}>
                     <div className={styles.__container__text}>
                         <h1 className={styles.__title}>Bienvenidos a Skyscanner</h1>
@@ -36,6 +37,7 @@ const LandingPages = () => {
                         <button className= {styles.__container__button}>Conocenos</button>
                     </div>
                 </section>
+
                 <section className={styles.__container__gallery}>
                     <div className={styles.__container_img}>
                         <a href="#imagen1">
@@ -58,6 +60,7 @@ const LandingPages = () => {
                         </a>
                     </div>
                 </section>
+
                 <footer>
                     <div className={styles.__container__footer}>
                         <div className={styles.__container__input}>

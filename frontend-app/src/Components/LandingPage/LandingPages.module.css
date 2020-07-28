@@ -78,6 +78,7 @@ p{
     overflow: hidden;
 
 
+
 }
 .__container__img{
     width: 100%;
@@ -146,6 +147,11 @@ input::placeholder{
 .__container__enlace:hover{
     background-color: #1e3c99;
 
+}
+.__light-box{
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 
 
