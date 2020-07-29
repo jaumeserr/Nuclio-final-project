@@ -1,6 +1,7 @@
 body{
     margin: 0 10px;
     background-color: gainsboro;
+
 }
 .__container{
     text-align: center;
@@ -25,7 +26,6 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-
 
 }
 
@@ -87,8 +87,10 @@ input{
 input::placeholder{
     color: white;
     font-family: -apple-system, serif;
+    outline: none;
+    border: transparent;
 }
-.__container__enlace {
+.__container__enlaceflight {
     padding: 10px 10px;
     background-color: rgba(0, 0, 255, 0.56);
     border-radius: 20px;
@@ -104,6 +106,8 @@ input::placeholder{
     font-size: 20px;
     cursor: pointer;
     font-family: -apple-system, serif;
+    outline: none;
+    border: transparent;
 }
 .__container__icon{
     display: inline;

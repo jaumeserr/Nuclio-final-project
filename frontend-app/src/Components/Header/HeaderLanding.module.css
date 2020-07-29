@@ -3,6 +3,7 @@ header {
     align-items: center;
     justify-content: space-between;
     display: inline-flex;
+
 }
 
 .__logo{
@@ -14,6 +15,7 @@ header {
 }
 .__container__butt{
     display: flex;
+
 
 }
 .__container__nav:hover {

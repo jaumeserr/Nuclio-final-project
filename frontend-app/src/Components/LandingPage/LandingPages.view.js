@@ -13,17 +13,23 @@ import youtube from '../../assets/youtube.png';
 import githut from '../../assets/git.png';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub }from '@fortawesome/free-brands-svg-icons';
+import Header from "../Header/HeaderLanding.view";
 
-const LandingPages = () => {
-    return (
+
+    const submit = () => {
+        alert("hola");
+    }
+    const LandingPages = () => {
+        return (
         <div>
             <div className={styles.__container}>
+                <Header/>
                 <section className={styles.__container__body}>
                     <div className={styles.__container__text}>
-                        <h1 className={styles.__title}>Bienvenidos a Skyscanner</h1>
+                        <h1 className={styles.__title}>Welcome to Skyscanner</h1>
                     </div>
-                    <div className={styles.__container__enlace}>
-                        <button className= {styles.__container__button}>Conocenos</button>
+                    <div className={styles.__container__enlaceflight}>
+                        <button type={"submit"}  onClick={submit} value="Vuelos" className= {styles.__container__button}>Flights</button>
                     </div>
                 </section>
 

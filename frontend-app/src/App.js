@@ -6,7 +6,6 @@ import Header from './Components/Header/HeaderLanding.view';
 function App() {
     return (
         <div>
-            <Header/>
             <LandingPages />
         </div>
     );
