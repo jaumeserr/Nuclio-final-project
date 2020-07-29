@@ -32,6 +32,7 @@
         ],
         "no-param-reassign": "off",
         "no-underscore-dangle": "off",
+        "prettier/prettier": "error",
         "arrow-parens": "off",
         "object-curly-newline": ["error", {"ImportDeclaration": { "consistent": true }, "ExportDeclaration": { "consistent": true }}],
         "sort-vars": "error",
