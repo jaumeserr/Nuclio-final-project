@@ -7,7 +7,7 @@
 */
 Route::group([
 
-    'prefix' => 'airport'
+    'prefix' => 'airports'
 
 ], function ($router) {
 
@@ -22,7 +22,7 @@ Route::group([
 */
 Route::group([
 
-    'prefix' => 'flight_instance'
+    'prefix' => 'flight_instances'
 
 ], function ($router) {
 
@@ -41,6 +41,6 @@ Route::group([
 
 ], function ($router) {
 
-    Route::get('', 'FlightConstancesController@all');
+    Route::get('', 'FlightConstController@all');
 
 });
