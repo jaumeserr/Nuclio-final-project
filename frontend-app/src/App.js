@@ -1,12 +1,13 @@
 import React from 'react';
 import LandingPages from "./Components/LandingPage/LandingPages.view";
-import Header from './Components/Header/HeaderLanding.view';
+import SimpleReactLightbox from 'simple-react-lightbox';
 
 function App() {
     return (
         <div>
-            <Header />
+            <SimpleReactLightbox>
             <LandingPages />
+            </SimpleReactLightbox>
         </div>
     );
 }

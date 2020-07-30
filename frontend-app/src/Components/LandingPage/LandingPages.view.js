@@ -14,14 +14,16 @@ import githut from '../../assets/git.png';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub }from '@fortawesome/free-brands-svg-icons';
 import Header from "../Header/HeaderLanding.view";
+import { SRLWrapper } from 'simple-react-lightbox';
 
 
     const submit = () => {
-        alert("hola");
+        console.log("hola");
     }
     const LandingPages = () => {
         return (
         <div>
+
             <div className={styles.__container}>
                 <Header/>
                 <section className={styles.__container__body}>
@@ -35,6 +37,7 @@ import Header from "../Header/HeaderLanding.view";
 
                 <section className={styles.__container__gallery}>
                     <div className={styles.__container_img}>
+                        <SRLWrapper>
                         <a href="#imagen1">
                            <img src= {boreal} alt="Boreal" className={styles.__img}/>
                         </a>
@@ -53,6 +56,7 @@ import Header from "../Header/HeaderLanding.view";
                         <a href={"#imagen6"}>
                         <img src= {Rio} alt="Rio" className={styles.__img}/>
                         </a>
+                            </SRLWrapper>
                     </div>
                 </section>
                 <footer>
