@@ -1,0 +1,40 @@
+header {
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    display: inline-flex;
+}
+
+.__logo{
+    width: 250px;
+    margin-left: 30px;
+    height: 45px;
+    margin-top: 10px;
+    padding: 15px auto;
+}
+.__container__butt{
+    display: flex;
+
+}
+.__container__nav:hover {
+    background-color: #1e3c99;
+}
+.__container__enlace:hover {
+    background-color: #1e3c99;
+}
+.__container__nav{
+    margin: 20px 20px;
+    justify-content:space-between;
+    background-color: rgba(0, 0, 255, 0.56);
+    border-radius: 20px;
+    padding: 10px;
+    outline: none;
+    border: transparent;
+    color: white;
+    cursor: pointer;
+    font-family: -apple-system, serif;
+    font-size: 16px;
+}
+.__container__nav:hover{
+    background-color: #1e3c99;
+}
