@@ -2,16 +2,16 @@ version: '3'
 services:
 
   #PHP Service
-  app:
+  skyscannerApp:
     build:
       context: .
       dockerfile: Dockerfile
     image: nuclio-php-image/php
-    container_name: app
+    container_name: skyscannerApp
     restart: unless-stopped
     tty: true
     environment:
-      SERVICE_NAME: app
+      SERVICE_NAME: skyscannerApp
       SERVICE_TAGS: dev
     working_dir: /var/www
     volumes:
@@ -21,9 +21,9 @@ services:
       - app-network
 
   #Nginx Service
-  webserver:
+  skyscannerWebserver:
     image: nginx:alpine
-    container_name: webserver
+    container_name: skyscannerWebserver
     restart: unless-stopped
     tty: true
     ports:
@@ -36,20 +36,20 @@ services:
       - app-network
 
   #MySQL Service
-  db:
+  skyscannerDB:
     image: mysql:5.7.22
-    container_name: db
+    container_name: skyscannerDB
     restart: unless-stopped
     tty: true
     ports:
       - "3306:3306"
     environment:
-      MYSQL_DATABASE: laravel
+      MYSQL_DATABASE: skyscannerNuclio
       MYSQL_ROOT_PASSWORD: your_mysql_root_password
       SERVICE_TAGS: dev
       SERVICE_NAME: mysql
     volumes:
-      - dbdata:/var/lib/mysql/
+      - ./dbdata:/var/lib/mysql/
       - ./mysql/my.cnf:/etc/mysql/my.cnf
     networks:
       - app-network
