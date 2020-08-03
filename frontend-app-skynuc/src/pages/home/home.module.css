@@ -1,6 +1,7 @@
 body{
     margin: 0 10px;
     background-color: gainsboro;
+
 }
 .__container{
     text-align: center;
@@ -25,7 +26,6 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-
 
 }
 
@@ -87,10 +87,12 @@ input{
 input::placeholder{
     color: white;
     font-family: -apple-system, serif;
+    outline: none;
+    border: transparent;
 }
-.__container__enlace {
+.__container__enlaceflight {
     padding: 10px 10px;
-    background-color: rgba(0, 0, 255, 0.56);
+    background-color: rgba(0, 0, 255, 0.76);
     border-radius: 20px;
     display: block;
     position: relative;
@@ -104,7 +106,10 @@ input::placeholder{
     font-size: 20px;
     cursor: pointer;
     font-family: -apple-system, serif;
+    outline: none;
+    border: transparent;
 }
+
 .__container__icon{
     display: inline;
     width: 32px;
@@ -113,11 +118,15 @@ input::placeholder{
     flex-wrap: wrap;
     flex-direction: row;
     cursor: pointer;
+
 }
 
-.__container__enlace:hover{
+.__container__enlaceflight:hover{
     background-color: #1e3c99;
 
+}
+.__container__button:active{
+    transform: scale(0.9,0.9);
 }
 
 
