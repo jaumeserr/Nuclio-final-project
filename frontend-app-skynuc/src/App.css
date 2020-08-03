@@ -5,6 +5,9 @@
 .App-logo {
   height: 40vmin;
 }
+.__container__enlaceflight:active{
+  transform: scale(0,90);
+}
 
 .App-header {
   background-color: #282c34;
