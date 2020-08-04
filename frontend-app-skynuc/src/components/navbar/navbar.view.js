@@ -1,14 +1,16 @@
-import React from 'reafct';
-import styles from './navbar.module.css'
-import user from '/user-circle-solid.png'
+import React from 'react';
+import styles from './navbar.module.css';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
 
 
-const navbar = () ={
+const Navbar = () => {
     return (
-        <div className={style_container}>
-        <h1>Skyscanner</h1>
-        <img className={styles._image} src={user} />
+        <div className={styles._container}>
+            <h1>Skyscanner</h1>
+            <FontAwesomeIcon icon={faUserCircle} size="3x" />
         </div>
     );
 }
+
 export default Navbar; 
