@@ -2,10 +2,12 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Nunito-Italic', sans-serif !important;  
+
 }
 
 .body {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  
   font-size: 16px;
   color: #4d4d4d;
 }
@@ -15,23 +17,37 @@
 }
 
 .button {
-  border: 1px solid black;
-  border-radius: 5px;
-  font-size: 20px;
-  height: 30px;
-  padding: 0 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  padding: 10px 30px;
+  cursor: pointer;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  margin:0 10px;
+  border-bottom: 2px solid grey;
+  border-left: 2px solid grey;
+  outline: none;
+  margin-top: 15px;
+  border: 1px solid gainsboro;
+  letter-spacing: 2px;
 }
 
 .button-primary {
   background-color: #0171E4;
+  color:white;
+  
 }
 
 .button-primary:hover {
-  background-color:lightblue;
+  background-color: gainsboro;
+  color:#4d4d4d;
 }
 
 .button-primary:active {
-  background-color:navy;
+  background-color:blue;
 }
 
 .button-danger {
@@ -40,4 +56,9 @@
 
 .button-warning {
   background-color: yellow;
+}
+h2{
+  margin-top: 15px;
+  font-size: 35px;
+  font-style: italic;
 }
