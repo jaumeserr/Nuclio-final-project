@@ -1,0 +1,11 @@
+._container {
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: cemter;
+}
+
+._image {
+    width: 40px;
+    height: 40px;
+}
