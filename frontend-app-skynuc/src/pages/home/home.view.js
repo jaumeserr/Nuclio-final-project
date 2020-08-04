@@ -16,7 +16,7 @@ import { SRLWrapper } from 'simple-react-lightbox';
 
 
     const submit = () => {
-        alert("hola");
+        alert("This button will search flights eventually");
     }
     const Home = () => {
         return (
@@ -28,9 +28,7 @@ import { SRLWrapper } from 'simple-react-lightbox';
                     <div className={styles.__container__text}>
                         <h1 className={styles.__title}>Welcome to Skyscanner</h1>
                     </div>
-                    <div className={styles.__container__enlaceflight}>
-                        <button type={"submit"}  onClick={submit} value="Vuelos" className= {styles.__container__button}>Flights</button>
-                    </div>
+                        <button type={"submit"} onClick={submit} value="Vuelos" className= 'button button-primary'>Flights</button>
                 </section>
                 <section className={styles.__container__gallery}>
                     <div className={styles.__container_img}>
