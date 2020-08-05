@@ -1,43 +1,25 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+.App {
+  text-align: center;
 }
 
-.body {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 16px;
-  color: #4d4d4d;
+.App-logo {
+  height: 40vmin;
+}
+.__container__enlaceflight:active{
+  transform: scale(0,90);
 }
 
-.h1{
-  font-size: 16px;
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
 }
 
-.button {
-  border: 1px solid black;
-  border-radius: 5px;
-  font-size: 20px;
-  height: 30px;
-  padding: 0 20px;
-}
-
-.button-primary {
-  background-color: #0171E4;
-}
-
-.button-primary:hover {
-  background-color:lightblue;
-}
-
-.button-primary:active {
-  background-color:navy;
-}
-
-.button-danger {
-  background-color: red;
-}
-
-.button-warning {
-  background-color: yellow;
+.App-link {
+  color: #09d3ac;
 }
