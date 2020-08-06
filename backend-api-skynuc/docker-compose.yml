@@ -2,12 +2,12 @@ version: '3'
 services:
 
   #PHP Service
-  skyscannerApp:
+  skyscannerapp:
     build:
       context: .
       dockerfile: Dockerfile
     image: nuclio-php-image/php
-    container_name: skyscannerApp
+    container_name: skyscannerapp
     restart: unless-stopped
     tty: true
     environment:
@@ -21,9 +21,9 @@ services:
       - app-network
 
   #Nginx Service
-  skyscannerWebserver:
+  skyscannerwebserver:
     image: nginx:alpine
-    container_name: skyscannerWebserver
+    container_name: skyscannerwebserver
     restart: unless-stopped
     tty: true
     ports:
@@ -36,9 +36,9 @@ services:
       - app-network
 
   #MySQL Service
-  skyscannerDB:
+  skyscannerdb:
     image: mysql:5.7.22
-    container_name: skyscannerDB
+    container_name: skyscannerdb
     restart: unless-stopped
     tty: true
     ports:
