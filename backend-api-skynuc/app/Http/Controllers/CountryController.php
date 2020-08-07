@@ -36,5 +36,17 @@ class CountryController extends Controller {
         return response()->json($country);
     }
 
+    /**
+     * Return a given country by name
+     *
+     * @param $name
+     * @return JsonResponse
+     */
+    public function getByName($name)
+    {
+        Log::info('Retrieving country with name: ' .$name);
+        $country = Country::findOrFail($name);
+        return response()->json($country);
+    }
 }
 
