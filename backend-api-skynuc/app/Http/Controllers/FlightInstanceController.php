@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Log;
+use App\Http\Controllers\Controller;
 
 class FlightInstanceController extends Controller {
 
@@ -17,7 +18,7 @@ class FlightInstanceController extends Controller {
      */
     public function all()
     {
-        Log::info('Retrieving all flight instance');
+        Log::info('Retrieving all flight instances');
         return response()->json(FlightInstance::all());
     }
 
