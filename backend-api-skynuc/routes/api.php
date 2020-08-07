@@ -1,10 +1,62 @@
 <?php
 
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Route;
+
+/*
+|--------------------------------------------------------------------------
+| API Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register API routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| is assigned the "api" middleware group. Enjoy building your API!
+|
+*/
+
+
+
+/*
+|--------------------------------------------------------------------------
+| Country Routes
+|--------------------------------------------------------------------------
+*/
+
+Route::group([
+
+    'prefix' => 'countries'
+
+], function ($router) {
+
+    Route::get('', 'CountryController@all');
+
+});
+
+
+/*
+|--------------------------------------------------------------------------
+| City Routes
+|--------------------------------------------------------------------------
+*/
+
+Route::group([
+
+    'prefix' => 'cities'
+
+], function ($router) {
+
+    Route::get('', 'CityController@all');
+
+});
+
+
 /*
 |--------------------------------------------------------------------------
 | Airport Routes
 |--------------------------------------------------------------------------
 */
+
 Route::group([
 
     'prefix' => 'airports'
@@ -15,26 +67,30 @@ Route::group([
 
 });
 
+
 /*
 |--------------------------------------------------------------------------
-| Flight Instances Routes
+| Airline Routes
 |--------------------------------------------------------------------------
 */
+
 Route::group([
 
-    'prefix' => 'flight_instances'
+    'prefix' => 'airlines'
 
 ], function ($router) {
 
-    Route::get('', 'FlightInstanceController@all');
+    Route::get('', 'AirlineController@all');
 
 });
+
 
 /*
 |--------------------------------------------------------------------------
 | Flight Consts Routes
 |--------------------------------------------------------------------------
 */
+
 Route::group([
 
     'prefix' => 'flight_consts'
@@ -42,5 +98,22 @@ Route::group([
 ], function ($router) {
 
     Route::get('', 'FlightConstController@all');
+
+});
+
+
+/*
+|--------------------------------------------------------------------------
+| Flight Instances Routes
+|--------------------------------------------------------------------------
+*/
+
+Route::group([
+
+    'prefix' => 'flight_instances'
+
+], function ($router) {
+
+    Route::get('', 'FlightInstanceController@all');
 
 });
