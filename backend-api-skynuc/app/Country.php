@@ -6,6 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Country extends Model {
 
+
+    /**
+     * To assign a primary key other than 'id'
+     *
+     * @var
+     */
+    protected $primaryKey = 'a3_iso_code';
+    public $incrementing = false;
+
     /**
      * The attributes that are mass assignable.
      *

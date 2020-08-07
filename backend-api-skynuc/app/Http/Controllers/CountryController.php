@@ -19,9 +19,16 @@ class CountryController extends Controller {
     public function all()
     {
         Log::info('Retrieving all countries');
-        return response()->json(Country::all());
+        $country = Country::all();
+        return response()->json($country);
     }
 
+    /**
+     * Return a given country by a3_iso_code
+     *
+     * @param $a3_iso_code
+     * @return JsonResponse
+     */
     public function getByCode($a3_iso_code)
     {
         Log::info('Retrieving country with a3_iso_code: ' .$a3_iso_code);

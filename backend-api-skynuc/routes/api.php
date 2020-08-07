@@ -30,7 +30,7 @@ Route::group([
 ], function ($router) {
 
     Route::get('', 'CountryController@all');
-    Route::get('{id}', 'CountryController@getByCode');
+    Route::get('{a3_iso_code}', 'CountryController@getByCode');
     Route::get('{name}', 'CountryController@getByName');
 
 });
