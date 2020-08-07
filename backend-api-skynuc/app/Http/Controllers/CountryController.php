@@ -22,5 +22,12 @@ class CountryController extends Controller {
         return response()->json(Country::all());
     }
 
+    public function getByCode($a3_iso_code)
+    {
+        Log::info('Retrieving country with a3_iso_code: ' .$a3_iso_code);
+        $country = Country::findOrFail($a3_iso_code);
+        return response()->json($country);
+    }
+
 }
 

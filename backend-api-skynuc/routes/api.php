@@ -30,6 +30,8 @@ Route::group([
 ], function ($router) {
 
     Route::get('', 'CountryController@all');
+    Route::get('{id}', 'CountryController@getByCode');
+    Route::get('{name}', 'CountryController@getByName');
 
 });
 
