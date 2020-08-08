@@ -31,7 +31,11 @@ Route::group([
 
     Route::get('', 'CountryController@all');
     Route::get('{a3_iso_code}', 'CountryController@getByCode');
-    Route::get('{name}', 'CountryController@getByName');
+    // Route::get('{name}', 'CountryController@getByName');
+
+
+    Route::get('search/{query}', 'CountryController@search');
+
 
 });
 

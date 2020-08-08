@@ -11,6 +11,30 @@ use App\Http\Controllers\Controller;
 
 class CountryController extends Controller {
 
+
+    /** PINS !!!!!
+     * Show a list of all of the countries matching the search.
+     *
+     * @param $query
+     * @return JsonResponse
+     */
+    public function search($query)
+    {
+        Log::info('Retrieving all countries related to ->' .$query);
+        $countries = Country::where('name', 'LIKE', '%' . $query . '%')->get();
+        // Same as:
+        // $boards = DB::select('
+        // SELECT * FROM countries
+        // WHERE name LIKE '%green%'
+        // ');
+
+        Log::info('Retrieving query ->' . $countries);
+        return response()->json($countries);
+    }
+
+
+
+
     /**
      * Show a list of all of the application's countries.
      *
@@ -18,6 +42,11 @@ class CountryController extends Controller {
      */
     public function all()
     {
+
+        $name = $request->query('name'); // <- si he añadido "?name=x", aquí recupero este "x"
+        //$countries = Countries::where('name', $name)->get();
+        //$countries = Countries::where('name', 'hola')->get();
+
         Log::info('Retrieving all countries');
         $country = Country::all();
         return response()->json($country);
@@ -42,11 +71,11 @@ class CountryController extends Controller {
      * @param $name
      * @return JsonResponse
      */
-    public function getByName($name)
-    {
-        Log::info('Retrieving country with name: ' .$name);
-        $country = Country::findOrFail($name);
-        return response()->json($country);
-    }
+    // public function getByName($name)
+    // {
+    //     Log::info('Retrieving country with name: ' .$name);
+    //     $country = Country::findOrFail($name);
+    //     return response()->json($country);
+    // }
 }
 
