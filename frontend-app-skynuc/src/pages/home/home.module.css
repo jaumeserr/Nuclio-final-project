@@ -16,7 +16,7 @@ body{
 }
 .__container__body{
     box-sizing: border-box;
-    background-image: linear-gradient(to right, rgba(79, 172, 254, 0.59) 0%, rgba(0, 242, 254, 0.62) 100%), url("../../assets/globos2.jpg");
+    background-image: linear-gradient(to right, rgba(79, 172, 254, 0.59) 0%, rgba(0, 242, 254, 0.62) 100%), url("../../assets/images/globos2.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
