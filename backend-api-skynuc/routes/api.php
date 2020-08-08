@@ -29,9 +29,9 @@ Route::group([
 
 ], function ($router) {
 
-    Route::get('', 'CountryController@all');
-    // Route::get('{name}', 'CountryController@all');
-    // Route::get('{name?}', 'CountryController@all');
+    // Route::get('', 'CountryController@all');
+    Route::get('list/{name}', 'CountryController@all');
+    // Route::get('list/{name?}', 'CountryController@all');
 
 
     // NOTE: Esta ruta de abajo FUNCIONA pero es temporal
@@ -41,6 +41,7 @@ Route::group([
         // Lo ideal sería:
             // localhost/api/countries?name=Germany
     Route::get('search/{query}', 'CountryController@search');
+
 
     Route::get('{a3_iso_code}', 'CountryController@getByCode');
 

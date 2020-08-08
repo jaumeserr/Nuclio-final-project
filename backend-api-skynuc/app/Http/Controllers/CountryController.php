@@ -17,13 +17,13 @@ class CountryController extends Controller {
      * @return JsonResponse
      */
     
-    public function all()
-    // public function all($name)
+    // public function all()
+    public function all($name)
     // public function all(Request $name)
 
     {
 
-        // PART 1 - Get according to a path param (query):
+        // --> PART 1 - Get ONE country according to a path param (query):
 
             // Consultar SOURCES below!
                 // 1. Brief and clear example 
@@ -32,18 +32,33 @@ class CountryController extends Controller {
                 // https://laravel.com/docs/7.x/requests#retrieving-input
 
         Log::info('Retrieving data for country ->' .$name);
-        $name = $request->query('name'); // <- si he añadido "?name=x", aquÍ recupero este "x"
-        $countries = Country::where('name', $name)->get();
-        return response()->json($countries);
+        $name = $request->query('name'); // <- si he añadido "?name=x", aquí recupero este "x"
+        $country = Country::where('name', $name)->get();
+        return response()->json($country);
 
 
-        // PART 2 - Get all countries (what we used to have in this function before):
+        // --> PART 2 - Get ALL countries (what we used to have in this function before):
 
         // Log::info('Retrieving all countries');
         // $country = Country::all();
         // return response()->json($country);
 
-        // ---> HOW to have both PART 1 and 2 in this SAME FUNCTION? Should they be 2 SEPARATE functions?
+
+        // --> Once PART 1 works, address this:
+        // In order to have both PART 1 and 2 in this SAME FUNCTION we need to use CONDITIONALS
+        // Ruth's guess:
+
+        // $name = $request->query('name'); // <- si he añadido "?name=x", aquí recupero este "x"
+        //     ->when($name . 'CONTIENE UN VALOR PORQUE HE AÑADIDO "?name=x"...'{
+        //         Log::info('Retrieving data for country ->' .$name);
+        //         $country = Country::where('name', $name)->get();
+        //     });
+        //     ->when($name 'NO CONTIENE NINGUN VALOR PORQUE NO HE AÑADIDO "?name=x"...'{
+        //         Log::info('Retrieving all countries');
+        //         $country = Country::all();
+        //     });
+        //     return response()->json($country);
+
     }
 
 
