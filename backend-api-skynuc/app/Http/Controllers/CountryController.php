@@ -28,7 +28,9 @@ class CountryController extends Controller {
             // Consultar SOURCES below!
                 // 1. Brief and clear example 
                 // https://www.itsolutionstuff.com/post/how-to-get-query-strings-value-in-laravel-5example.html
-                // 2. Laravel documentation (go to "Retrieving Input From The Query String"):
+                // 2. Another short example (check the answer with the code for 3 files):
+                // https://stackoverflow.com/questions/24744825/laravel-queries-strings
+                // 3. Laravel documentation (go to "Retrieving Input From The Query String"):
                 // https://laravel.com/docs/7.x/requests#retrieving-input
 
         Log::info('Retrieving data for country ->' .$name);
