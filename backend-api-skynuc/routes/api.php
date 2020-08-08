@@ -30,12 +30,19 @@ Route::group([
 ], function ($router) {
 
     Route::get('', 'CountryController@all');
-    Route::get('{a3_iso_code}', 'CountryController@getByCode');
-    // Route::get('{name}', 'CountryController@getByName');
+    // Route::get('{name}', 'CountryController@all');
+    // Route::get('{name?}', 'CountryController@all');
 
 
+    // NOTE: Esta ruta de abajo FUNCIONA pero es temporal
+    // Usando el ejemplo de Germany:
+        // Ahora tiene esta forma:
+            // localhost/api/countries/search/Germany
+        // Lo ideal sería:
+            // localhost/api/countries?name=Germany
     Route::get('search/{query}', 'CountryController@search');
 
+    Route::get('{a3_iso_code}', 'CountryController@getByCode');
 
 });
 

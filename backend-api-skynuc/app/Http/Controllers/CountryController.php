@@ -11,8 +11,46 @@ use App\Http\Controllers\Controller;
 
 class CountryController extends Controller {
 
+    /**
+     * Show a list of all of the application's countries.
+     *
+     * @return JsonResponse
+     */
+    
+    public function all()
+    // public function all($name)
+    // public function all(Request $name)
 
-    /** PINS !!!!!
+    {
+
+        // PART 1 - Get according to a path param (query):
+
+            // Consultar SOURCES below!
+                // 1. Brief and clear example 
+                // https://www.itsolutionstuff.com/post/how-to-get-query-strings-value-in-laravel-5example.html
+                // 2. Laravel documentation (go to "Retrieving Input From The Query String"):
+                // https://laravel.com/docs/7.x/requests#retrieving-input
+
+        Log::info('Retrieving data for country ->' .$name);
+        $name = $request->query('name'); // <- si he añadido "?name=x", aquÍ recupero este "x"
+        $countries = Country::where('name', $name)->get();
+        return response()->json($countries);
+
+
+        // PART 2 - Get all countries (what we used to have in this function before):
+
+        // Log::info('Retrieving all countries');
+        // $country = Country::all();
+        // return response()->json($country);
+
+        // ---> HOW to have both PART 1 and 2 in this SAME FUNCTION? Should they be 2 SEPARATE functions?
+    }
+
+
+
+    // NOTE: Esta función de abajo FUNCIONA pero es temporal. Mirar nota en api.php
+
+    /**
      * Show a list of all of the countries matching the search.
      *
      * @param $query
@@ -20,13 +58,13 @@ class CountryController extends Controller {
      */
     public function search($query)
     {
-        Log::info('Retrieving all countries related to ->' .$query);
-        $countries = Country::where('name', 'LIKE', '%' . $query . '%')->get();
-        // Same as:
-        // $boards = DB::select('
-        // SELECT * FROM countries
-        // WHERE name LIKE '%green%'
-        // ');
+        Log::info('Retrieving data for country ->' .$query);
+        $countries = Country::where('name', $query)->get();
+        // The line above is the same as:
+            // $boards = DB::select('
+            // SELECT * FROM countries
+            // WHERE name = 'Germany' (<-- example)
+            // ');
 
         Log::info('Retrieving query ->' . $countries);
         return response()->json($countries);
@@ -35,22 +73,6 @@ class CountryController extends Controller {
 
 
 
-    /**
-     * Show a list of all of the application's countries.
-     *
-     * @return JsonResponse
-     */
-    public function all()
-    {
-
-        $name = $request->query('name'); // <- si he añadido "?name=x", aquí recupero este "x"
-        //$countries = Countries::where('name', $name)->get();
-        //$countries = Countries::where('name', 'hola')->get();
-
-        Log::info('Retrieving all countries');
-        $country = Country::all();
-        return response()->json($country);
-    }
 
     /**
      * Return a given country by a3_iso_code
@@ -65,17 +87,5 @@ class CountryController extends Controller {
         return response()->json($country);
     }
 
-    /**
-     * Return a given country by name
-     *
-     * @param $name
-     * @return JsonResponse
-     */
-    // public function getByName($name)
-    // {
-    //     Log::info('Retrieving country with name: ' .$name);
-    //     $country = Country::findOrFail($name);
-    //     return response()->json($country);
-    // }
 }
 
