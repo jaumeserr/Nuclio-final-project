@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Log;
+use App\Http\Controllers\Controller;
 
 class FlightConstController extends Controller {
 
@@ -17,7 +18,7 @@ class FlightConstController extends Controller {
      */
     public function all()
     {
-        Log::info('Retrieving all flight const');
+        Log::info('Retrieving all flight consts');
         return response()->json(FlightConst::all());
     }
 
