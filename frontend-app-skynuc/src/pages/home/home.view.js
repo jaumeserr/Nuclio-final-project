@@ -11,33 +11,28 @@ import instagram from '../../assets/images/instagram-bosquejado.png';
 import twitter from '../../assets/images/twitter.png';
 import youtube from '../../assets/images/youtube.png';
 import githut from '../../assets/images/git.png';
-import Header from "../../components/header/header.view";
+import Header from '../../components/header/header.view';
 import { SRLWrapper } from 'simple-react-lightbox';
+import ButtonFlightSearch from '../../components/buttonflightsearch/buttonflightsearch.view';
 
 
-    const submit = () => {
-        alert("hola");
-    }
     const Home = () => {
         return (
         <div>
-
             <div className={styles.__container}>
                 <Header/>
                 <section className={styles.__container__body}>
                     <div className={styles.__container__text}>
                         <h1 className={styles.__title}>Welcome to Skyscanner</h1>
                     </div>
-                    <div className={styles.__container__enlaceflight}>
-                        <button type={"submit"}  onClick={submit} value="Vuelos" className= {styles.__container__button}>Flights</button>
-                    </div>
+                    <ButtonFlightSearch/>
                 </section>
                 <section className={styles.__container__gallery}>
                     <div className={styles.__container_img}>
                         <h2>Our Work</h2>
                         <SRLWrapper>
                             <a href="#imagen1">
-                            <img src= {boreal} alt="Boreal" className={styles.__img}/>
+                                <img src= {boreal} alt="Boreal" className={styles.__img}/>
                             </a>
                             <a href ="#imagen2">
                                 <img src= {Australia} alt="Australia" className={styles.__img}/>
