@@ -21,7 +21,7 @@ h2 {
 }
 
 .button {
-  border: none;
+
   border-radius: 8px;
   font-size: 18px;
   padding: 10px 30px;
@@ -31,17 +31,21 @@ h2 {
   -ms-border-radius: 8px;
   -o-border-radius: 8px;
   margin:0 10px;
-  border-bottom: 2px solid grey;
-  border-left: 2px solid grey;
   outline: none;
   margin-top: 15px;
   border: 1px solid gainsboro;
   letter-spacing: 2px;
+  webkit-box-shadow: 2px 2px 3px 0px rgba(89,79,89,1);
+  -moz-box-shadow: 2px 2px 3px 0px rgba(89,79,89,1);
+  box-shadow: 2px 2px 3px 0px rgba(89,79,89,1);
+
+
 }
 
 .button-primary {
   background-color: #0171E4;
   color:white;
+
 }
 
 .button-primary:hover {
