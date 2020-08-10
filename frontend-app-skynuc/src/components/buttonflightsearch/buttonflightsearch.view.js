@@ -5,9 +5,9 @@ import React, { useState } from 'react';
 const ButtonFlightSearch = () => {
 
     const baseUrl = 'http://localhost/api';
-    const [infoFlights, setInfoFlights] = useState('hola');
+    const [infoFlights, setInfoFlights] = useState({});
     
-    const SubmitData = () => {
+    const submitData = () => {
 
         const url = `${baseUrl}/countries/DEU`;
         const options = {
@@ -15,7 +15,7 @@ const ButtonFlightSearch = () => {
             headers: new Headers(),
             mode: 'cors',
         };
-        
+
         fetch(url, options)
             .then((response) => {
                 if (response.status >= 200 || response.status < 300) {
@@ -26,18 +26,19 @@ const ButtonFlightSearch = () => {
             .then((payload) => {
                 console.log('Data from DB loaded');
                 setInfoFlights(payload);
-                console.log(setInfoFlights)
             })
             .catch((error) => console.log(error));
+
     };
 
     return (
         <div>
-            <button type="submit" 
-            onClick={SubmitData} 
+            {console.log(infoFlights)}
+            <button type="submit"
+            onClick={submitData}
             value="Vuelos" 
             className="button button-primary">
-                Flights
+                Search Flights
             </button>
         </div>
     );
