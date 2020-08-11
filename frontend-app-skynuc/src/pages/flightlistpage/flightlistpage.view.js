@@ -58,6 +58,7 @@ const FlightListPage = () => {
                             name={city.name}
                             country_a3_iso_code={city.country_a3_iso_code}
                             id={city.id}
+                            key={city.id}
                         />
                     );
                 })}
