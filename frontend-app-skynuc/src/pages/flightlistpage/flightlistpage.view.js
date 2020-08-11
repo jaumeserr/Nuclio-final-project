@@ -8,7 +8,7 @@ import styles from './flightlistpage.module.css';
 
 const FlightListPage = () => {
 
-    const [pins, setPins] = useState([]);
+    const [infoFlights, setInfoFlights] = useState([]);
 
     useEffect(() => {
         const url = 'http://localhost/api/cities';
@@ -26,7 +26,7 @@ const FlightListPage = () => {
                 })
             .then(payload => {
                     console.log("Data from DB loaded");
-                    setPins(payload);
+                    setInfoFlights(payload);
                 })
             .catch(error => console.log(error));
     }, []);
@@ -52,12 +52,12 @@ const FlightListPage = () => {
             className = {styles.__masonry__grid}
             columnClassName = {styles.__masonry__grid__column}
             >
-                {pins && pins.map(pin => {
+                {infoFlights && infoFlights.map(city => {
                     return (
                         <FlightCard
-                            name={pin.name}
-                            country_a3_iso_code={pin.country_a3_iso_code}
-                            id={pin.id}
+                            name={city.name}
+                            country_a3_iso_code={city.country_a3_iso_code}
+                            id={city.id}
                         />
                     );
                 })}
@@ -69,21 +69,4 @@ const FlightListPage = () => {
 export default FlightListPage;
 
 // ASK - Spinner - Com fer que aparegui només quan no han arribat els pins? MAYBE un ternari ? o un useSate isLoading, setIsLoading
-
-
-{/*
-    import React from 'react';
-import Navbar from './components/navbar/navbar.view';
-import styles from './flightlistpage.module.css';
-
-function FlightListPage() {
-    return (
-        <div>
-            <Navbar/>
-        </div>
-    );
-}
-
-export default FlightListPage;
-*/}
 
