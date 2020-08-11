@@ -1,0 +1,89 @@
+.__spinner {
+    display: flex;
+    justify-content: center;
+}
+
+/** MASONRY USED **/
+/* SOURCE: https://github.com/paulcollett/react-masonry-css */
+/* SOURCE demo: https://paulcollett.github.io/react-masonry-css/demo/ */
+
+
+.__masonry__grid {
+    background-color: white;
+    display: -webkit-box; /* Not needed if autoprefixing */
+    display: -ms-flexbox; /* Not needed if autoprefixing */
+    display: flex;
+    margin: auto;
+    /* margin: 20px 150px 20px 150px; */
+    /* margin-left: -30px; gutter size offset */
+    width: 70%; /* auto */
+    align-self: center;
+}
+
+.__masonry__grid__column {
+    padding-left: 30px; /* gutter size */
+    padding: 30px 30px 30px 30px;
+    background-clip: padding-box;
+}
+
+/* Style your items */
+.__masonry__grid__column > div {         /* change div to reference your elements you put in <Masonry> */
+    background: white;
+    margin-bottom: 30px;
+}
+
+/* Optional, different gutter size on mobile */
+@media (max-width: 1000px) {
+    .__masonry__grid {
+        /* margin: 20px 70px 20px 70px; */
+        /* margin-left: -15px; /* gutter size offset */
+    }
+    .__masonry__grid__column {
+        /* padding-left: 15px; /* gutter size offset */
+    }
+    .__masonry__grid__column > div {
+        margin-bottom: 15px; /* space between items */
+    }
+}
+
+
+
+
+
+
+/** SIMPLER MASONRY ALTERNATIVES **/
+
+/** Number 1 **/
+/* SOURCE: https://w3bits.com/flexbox-masonry/ */
+
+/*
+.__container {
+    display: flex;
+    flex-flow: column wrap;
+    max-height: 800px;
+    margin-left: -8px; // Adjustment for the gutter
+    width: 100%;
+}
+
+.__item {
+    margin: 0 8px 8px 0; // Some gutter
+}
+*/
+
+
+/** Number 2 **/
+/* SOURCE: https://w3bits.com/css-masonry/ */
+
+/*
+.__container {
+    column-count: 4;
+    column-gap: 1em;
+}
+
+.__item {
+    background-color: #eee;
+    display: inline-block;
+    margin: 0 0 1em;
+    width: 100%;
+}
+*/
