@@ -8,10 +8,10 @@ const Header = () => {
             <div>
                 <img src ={logo} alt ="logo" className={styles.__logo}/>
             </div>
-            <div className={styles.__container_butt}>
+            {/*<div className={styles.__container_butt}>
                 <button className= 'button button-primary'>Login</button>
                 <button className= 'button button-primary'>Register</button>
-            </div>
+            </div>*/}
         </header>
     );
 }
