@@ -32,7 +32,7 @@ class CountryController extends Controller {
     public function getByCode($a3_iso_code)
     {
         Log::info('Retrieving country with a3_iso_code: ' .$a3_iso_code);
-        $country = Country::findOrFail($a3_iso_code);
+        $country = Country::where('a3_iso_code', $a3_iso_code)->get();
         return response()->json($country);
     }
 
@@ -45,7 +45,7 @@ class CountryController extends Controller {
     public function getByName($name)
     {
         Log::info('Retrieving country with name: ' .$name);
-        $country = Country::findOrFail($name);
+        $country = Country::where('name', $name)->get();
         return response()->json($country);
     }
 }
