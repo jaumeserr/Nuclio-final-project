@@ -21,10 +21,12 @@ const FlightListPage = () => {
 
 
         // --> MORE THAN ONE FETCH
+        // var urls = ['http://localhost/api/airlines', 'http://localhost/api/cities'];
+
         // SOURCE (Promise): https://gomakethings.com/waiting-for-multiple-all-api-responses-to-complete-with-the-vanilla-js-promise.all-method/
 
         // Promise.all([
-        //     // fetch('http://localhost/api/airlines', options),
+        //     fetch('http://localhost/api/airlines', options),
         //     fetch('http://localhost/api/cities', options)
         // ]).then(response => {
         //     return Promise.all(response.map(response => {
@@ -37,7 +39,6 @@ const FlightListPage = () => {
         // }).catch(error => {
         //     console.log(error);
         // });
-
 
 
 
@@ -72,9 +73,12 @@ const FlightListPage = () => {
         600: 1
     };
 
+    // console.log (infoFlights);
+
     return (
         <>
             <Navbar/>
+
 
             <div className={styles.__spinner}>
                 <FontAwesomeIcon icon={faSpinner} size="2x" spin /> 
@@ -85,13 +89,14 @@ const FlightListPage = () => {
             className = {styles.__masonry__grid}
             columnClassName = {styles.__masonry__grid__column}
             >
-                {infoFlights && infoFlights.map(city => {
+                {infoFlights && infoFlights.map(data => {
                     return (
                         <FlightCard
-                            name={city.name}
-                            country_a3_iso_code={city.country_a3_iso_code}
-                            id={city.id}
-                            key={city.id}
+                            name={data.name}
+                            country_a3_iso_code={data.country_a3_iso_code}
+                            // id={data[1][0].id}
+                            id={data.id}
+                            key={data.id}
                         />
                     );
                 })}

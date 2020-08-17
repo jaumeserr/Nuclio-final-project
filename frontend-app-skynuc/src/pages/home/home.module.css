@@ -34,11 +34,7 @@ h1{
     font-size: 65px;
     font-weight: bolder;
 }
-p{
-    margin-top: 15px;
-    font-size: 25px;
-    font-weight: bold;
-}
+
 .__container__gallery{
     display: flex;
     background-color: rgba(99, 107, 111, 0.58);;
