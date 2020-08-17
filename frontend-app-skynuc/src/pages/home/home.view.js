@@ -13,8 +13,8 @@ import youtube from '../../assets/images/youtube.png';
 import githut from '../../assets/images/git.png';
 import Header from '../../components/header/header.view';
 import { SRLWrapper } from 'simple-react-lightbox';
+import { Link } from 'react-router-dom';
 import ButtonFlightSearch from '../../components/buttonflightsearch/buttonflightsearch.view';
-
 
     const Home = () => {
         return (
@@ -25,7 +25,8 @@ import ButtonFlightSearch from '../../components/buttonflightsearch/buttonflight
                     <div className={styles.__container__text}>
                         <h1 className={styles.__title}>Welcome to Skyscanner</h1>
                     </div>
-                    <ButtonFlightSearch/>
+                    <Link to="/flights"><ButtonFlightSearch/></Link>
+                    
                 </section>
                 <section className={styles.__container__gallery}>
                     <div className={styles.__container_img}>
