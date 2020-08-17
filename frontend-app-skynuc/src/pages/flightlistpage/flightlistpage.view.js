@@ -6,16 +6,45 @@ import FlightCard from '../../components/flightcard/flightCard.view';
 import Navbar from '../../components/navbar/navbar.view';
 import styles from './flightlistpage.module.css';
 
+
+const baseUrl = 'http://localhost/api';
+
 const FlightListPage = () => {
 
     const [infoFlights, setInfoFlights] = useState([]);
 
     useEffect(() => {
-        const url = 'http://localhost/api/cities';
         const options = {
             method: 'GET',
             headers: new Headers(),
         };
+
+
+        // --> MORE THAN ONE FETCH
+        // var urls = ['http://localhost/api/airlines', 'http://localhost/api/cities'];
+
+        // SOURCE (Promise): https://gomakethings.com/waiting-for-multiple-all-api-responses-to-complete-with-the-vanilla-js-promise.all-method/
+
+        // Promise.all([
+        //     fetch('http://localhost/api/airlines', options),
+        //     fetch('http://localhost/api/cities', options)
+        // ]).then(response => {
+        //     return Promise.all(response.map(response => {
+        //         return response.json();
+        //     }));
+        // }).then(payload => {
+        //     console.log(payload);
+        //     console.log("Data from DB loaded");
+        //     setInfoFlights(payload);
+        // }).catch(error => {
+        //     console.log(error);
+        // });
+
+
+
+        // --> ONE SINGLE FETCH
+
+        const url = `${baseUrl}/cities`;
 
         fetch(url, options)
             .then(response => {
@@ -25,11 +54,16 @@ const FlightListPage = () => {
                     return Promise.reject(response.status);
                 })
             .then(payload => {
+                    console.log(payload);
                     console.log("Data from DB loaded");
                     setInfoFlights(payload);
                 })
             .catch(error => console.log(error));
+
+
     }, []);
+
+
 
     const breakpointColumnsObj = {
         default: 1,
@@ -39,9 +73,12 @@ const FlightListPage = () => {
         600: 1
     };
 
+    // console.log (infoFlights);
+
     return (
         <>
             <Navbar/>
+
 
             <div className={styles.__spinner}>
                 <FontAwesomeIcon icon={faSpinner} size="2x" spin /> 
@@ -52,12 +89,14 @@ const FlightListPage = () => {
             className = {styles.__masonry__grid}
             columnClassName = {styles.__masonry__grid__column}
             >
-                {infoFlights && infoFlights.map(city => {
+                {infoFlights && infoFlights.map(data => {
                     return (
                         <FlightCard
-                            name={city.name}
-                            country_a3_iso_code={city.country_a3_iso_code}
-                            id={city.id}
+                            name={data.name}
+                            country_a3_iso_code={data.country_a3_iso_code}
+                            // id={data[1][0].id}
+                            id={data.id}
+                            key={data.id}
                         />
                     );
                 })}

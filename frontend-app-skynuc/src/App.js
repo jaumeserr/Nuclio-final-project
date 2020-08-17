@@ -4,12 +4,12 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import './assets/fonts.css';
 import FlightListPage from './pages/flightlistpage/flightlistpage.view';
+import FlightCard from './components/flightcard/flightCard.view'
 import Home from './pages/home/home.view';
 import Login from './components/login/login.view';
 import Register from './components/register/register.view';
 import Navbar from './components/navbar/navbar.view';
 // import { FLIGHT_LIST, HOME } from './routes/routes';
-
 
 function App() {
     return (
@@ -39,5 +39,3 @@ function App() {
 }
 
 export default App;
-
-// import FlightCard from './components/flightcard/flightcard.view'
