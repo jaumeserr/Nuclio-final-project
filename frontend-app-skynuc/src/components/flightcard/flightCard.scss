@@ -5,32 +5,48 @@
 
 
 body, html {
-    font-family: 'Montserrat', sans-serif;
+    // font-family: 'Montserrat', sans-serif;
+    // font-size: 10px;
+
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 55px !important;
+
+
 }
 
 
-
+/* ELIMINAR QUAN MODEL JA NO CALGUI */
 img {
-
     width: auto;
+}
+
+/* COMENTAR QUAN DISSENY ESTIGUI FET */
+
+#flight_card_container, #box_top_airline, #box_bottom, #box_left_container, #box_right_container, #box_left, #box_right, #box_left_left, #box_left_right, #box_left_right_inner, #box_left_right_inner_dpt, #box_left_right_inner_duration, #box_left_right_inner_arr {
+    border: 0.5px;
+    border-style: solid;
+    border-color: #000;
+    border-radius: 25px;
 
 }
 
 
-#flight_card{
-    height:300px;
-    border:0.5px;
-    border-color:#000;
-    border-style: solid;
-    border-radius: 25px;
+#flight_card_container {
+    height: 400px;
     background: grey;
-    margin: 40px 40px 40px 40px;
+    margin: 10px 10px 60px 10px;
+    // margin-bottom: 60px;
 
+    border: 0.5px;
+    border-style: solid;
+    border-color: #000;
+    border-radius: 25px;
+    
     // box-shadow: 5px 5px 5px 5px darken(transparent, 0%);
     transition: .25s;
 
-    display:flex;
-    flex-direction:column;
+    display: flex;
+    flex-direction: column;
     justify-content: space-between;
     text-align: center;  
 
@@ -49,75 +65,198 @@ img {
 
 
 
-#airline{
+#box_top_airline {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 40%;
-    text-align: center;
+    align-items: flex-start;
+    padding-left: 0px;
+
+    // height: 80px;
+    flex-grow: 1;
     background-color:#01A3E2;
-    border-radius: 25px;
+
 }
 
-#boxes_left_and_right{
-    display:flex;
-    flex-direction:row;
+#box_top_airline img {
+    width: 200px;
+    height: auto;
+}
+
+#box_bottom{
+    display: flex;
+    flex-direction: row;
     justify-content: space-around;
-    text-align: center;
-}
-
-#box_left{
-    order:1;
-    flex-grow: 6; 
-}
-
-#box_right{
-    order:2;
+    
+    // height: 220px; // FIXME
     flex-grow: 3;
-    display:flex;
-    flex-direction:column;
-    justify-content: space-between;
-    text-align: center; 
+
+    background-color:red;
+
+}
+
+#box_left_container, #box_right_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#box_left_container {
+    // order: 1;
+    flex-grow: 2;
+    background-color:lightgoldenrodyellow;
+
+}
+
+#box_right_container {
+    // order: 2;
+    flex-grow: 1;
+    background-color:rgb(6, 77, 82);
+
     // height: 100%;
-    // min-height: 100%; 
+    // min-height: 100%;
 }
 
 #box_left, #box_right{
-    border: 0.5px;
-    border-style: solid;
-    border-color: #000;
-    display:block;
-    height: 215px;
-    border-radius: 25px;
-    text-decoration:none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+
+    font-style: italic;
+
+    // display: block;
+    // height: 215px;
+}
+
+#box_left{
+    // height: 90%;
     background-color:aqua;
+
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: center;
+    // align-items: center;
+
+    display: flex;
+    flex-direction: row;
+    // justify-content: space-around;
+    // align-items: center;
+    // align-content: center;
+    // height: 220px; // FIXME
+
+
 }
 
-#box_right_price{
+#box_right{
+    height: auto;
+    // height: 200px;
+    background-color:lightblue;
 
-    text-align: center;
-    height: 50%;
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: center;
+    // align-items: center;
+    // flex-basis: 10%;
+
+}
+
+#box_left p{
+    // height: 50%;
+    
+    // padding: 10px 10px 10px 10px;
+    // margin: 5px 5px 5px 5px;
+
+
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: center;
+    // align-items: center;
+
+}
+
+#box_right p{
+    padding: 10px 10px 10px 10px;
+    margin: 10px 10px 10px 10px;
+
+
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: center;
+    // align-items: center;
+
+}
+
+#box_left_left {
+    // order: 2;
+    flex-grow: 1;
     background-color:pink;
-    border-radius: 25px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    padding: 0px 10px 0px 0px;
+    // height: 100%;
+    // min-height: 100%;
 }
 
-#box_right_see_flight{
-    text-align: center;
-    height: 50%;
+#box_left_left img {
+    width: 70px;
+    height: auto;
+}
+
+#box_left_right {
+    flex-grow: 5;
     background-color:lightgreen;
-    border-radius: 25px;
 
+
+}
+
+#box_left_right_inner {
+    background-color:palevioletred;
+
+    display: flex;
+    flex-direction: row;
+
+    padding: 10px 10px 10px 10px; //FIXME
+    margin: 10px 10px 10px 10px;
+}
+
+#box_left_right_inner p {
+    padding: 10px 5px;
+}
+
+#box_left_right_inner_dpt {
+    background-color:lightgrey;
+    // padding: 10px 10px 10px 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    // align-items: center;
+    // flex-basis: 10%;
+
+}
+
+#box_left_right_inner_duration {
+    background-color:lightgrey;
+    // padding: 10px 10px 10px 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
+#box_left_right_inner_duration img {
+    width: 100px;
+    height: auto;
+}
 
-
+#box_left_right_inner_arr {
+    background-color:lightgrey;
+    // padding: 10px 10px 10px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
 
 /*************************************/
@@ -126,26 +265,26 @@ img {
 
 
 
-.__button-primary {
-  border: none;
-  box-shadow: none;
-  font-family: inherit;
-  background-color:transparent;
-  color: blue;
-  font-size: 15px;
-  transition:.25s;
+// .__button-primary {
+//   border: none;
+//   box-shadow: none;
+//   font-family: inherit;
+//   background-color:transparent;
+//   color: blue;
+//   font-size: 15px;
+//   transition:.25s;
   
-  i{
-    padding-right:4px;
-  }
-}
+//   i{
+//     padding-right:4px;
+//   }
+// }
 
-.__button-primary:link, .button-primary:visited{
-    text-decoration:none;
-    background-color:aqua;
-}
+// .__button-primary:link, .button-primary:visited{
+//     text-decoration:none;
+//     background-color:aqua;
+// }
 
-.__button-primary:hover, .button-primary:hover{
-    color: #000;
-    background-color:coral;
-}
+// .__button-primary:hover, .button-primary:hover{
+//     color: #000;
+//     background-color:coral;
+// }

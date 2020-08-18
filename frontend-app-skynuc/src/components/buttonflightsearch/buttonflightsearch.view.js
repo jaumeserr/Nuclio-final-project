@@ -1,47 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { FLIGHT_LIST } from '../../routes/routes';
 
 
 
 const ButtonFlightSearch = () => {
-
-    const baseUrl = 'http://localhost/api';
-    const [infoFlights, setInfoFlights] = useState({});
-    
-    const submitData = () => {
-
-        const url = `${baseUrl}/countries/DEU`;
-        const options = {
-            method: 'GET',
-            headers: new Headers(),
-            mode: 'cors',
-        };
-
-        fetch(url, options)
-            .then((response) => {
-                if (response.status >= 200 || response.status < 300) {
-                    return response.json();
-                }
-                return Promise.reject(response.status);
-            })
-            .then((payload) => {
-                console.log('Data from DB loaded');
-                setInfoFlights(payload);
-            })
-            .catch((error) => console.log(error));
-
-    };
-
     return (
         <div>
-            {console.log(infoFlights)}
-            <button type="submit"
-            onClick={submitData}
-            value="Vuelos" 
-            className="button button-primary">
-                Search Flights
-            </button>
+            <button type="submit" className="button button-primary">Flight List</button>
         </div>
     );
 };
 
 export default ButtonFlightSearch;
+
+
+// onClick={submitData}
