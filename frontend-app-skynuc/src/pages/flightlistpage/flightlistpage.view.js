@@ -12,6 +12,7 @@ const baseUrl = 'http://localhost/api';
 const FlightListPage = () => {
 
     const [infoFlights, setInfoFlights] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         const options = {
@@ -36,6 +37,7 @@ const FlightListPage = () => {
         //     console.log(payload);
         //     console.log("Data from DB loaded");
         //     setInfoFlights(payload);
+        //     setIsLoading(false);
         // }).catch(error => {
         //     console.log(error);
         // });
@@ -57,6 +59,7 @@ const FlightListPage = () => {
                     console.log(payload);
                     console.log("Data from DB loaded");
                     setInfoFlights(payload);
+                    setIsLoading(false);
                 })
             .catch(error => console.log(error));
 
@@ -79,10 +82,11 @@ const FlightListPage = () => {
         <>
             <Navbar/>
 
-
+            {isLoading &&
             <div className={styles.__spinner}>
                 <FontAwesomeIcon icon={faSpinner} size="2x" spin /> 
             </div>
+            }
 
             <Masonry
             breakpointCols={breakpointColumnsObj}
