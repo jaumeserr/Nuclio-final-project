@@ -30,11 +30,10 @@ Route::group([
 ], function ($router) {
 
     Route::get('', 'CountryController@all');
-    Route::get('country/{a3_iso_code}', 'CountryController@getByCode');
-    Route::get('country/{name}', 'CountryController@getByName');
+    Route::get('code/{a3_iso_code}', 'CountryController@getByCode');
+    Route::get('name/{name}', 'CountryController@getByName');
 
 });
-
 
 /*
 |--------------------------------------------------------------------------
@@ -83,6 +82,8 @@ Route::group([
 ], function ($router) {
 
     Route::get('', 'AirlineController@all');
+    Route::get('code/{two_letter_code}', 'AirlineController@getByCode');
+    Route::get('name/{name}', 'AirlineController@getByName');
 
 });
 

@@ -22,5 +22,30 @@ class AirlineController extends Controller {
         return response()->json(Airline::all());
     }
 
+    /**
+     * Return a given airline by two_letter_code
+     *
+     * @param $two_letter_code
+     * @return JsonResponse
+     */
+    public function getByCode($two_letter_code)
+    {
+        Log::info('Retrieving Airline by two_letter_code: '.$two_letter_code);
+        $airline = Airline::where('two_letter_code', $two_letter_code)->first();
+        return response()->json($airline);
+    }
+
+    /**
+     * Return a given airline by name
+     *
+     * @param $name
+     * @return JsonResponse
+     */
+    public function getByName($name)
+    {
+        Log::info('Retrieving Airline by name: '.$name);
+        $airline = Airline::where('name', $name)->first();
+        return response()->json($airline);
+    }
 }
 

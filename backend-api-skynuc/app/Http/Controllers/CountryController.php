@@ -29,10 +29,9 @@ class CountryController extends Controller {
      * @param $a3_iso_code
      * @return JsonResponse
      */
-    public function getByCode($a3_iso_code)
-    {
-        Log::info('Retrieving country with a3_iso_code: ' .$a3_iso_code);
-        $country = Country::where('a3_iso_code', $a3_iso_code)->get();
+    public function getByCode($a3_iso_code) {
+        Log::info('Retrieving a country by a3_iso_code: '.$a3_iso_code);
+        $country = Country::where('a3_iso_code', $a3_iso_code)->first();
         return response()->json($country);
     }
 
@@ -42,10 +41,9 @@ class CountryController extends Controller {
      * @param $name
      * @return JsonResponse
      */
-    public function getByName($name)
-    {
-        Log::info('Retrieving country with name: ' .$name);
-        $country = Country::where('name', $name)->get();
+    public function getByName($name) {
+        Log::info('Retrieving a country by name: '.$name);
+        $country = Country::where('name', $name)->first();
         return response()->json($country);
     }
 }
