@@ -8,7 +8,9 @@ import FlightCard from './components/flightcard/flightCard.view'
 import Home from './pages/home/home.view';
 import Login from './components/login/login.view';
 import Register from './components/register/register.view';
+import UserInfo from './components/userinfo/userInfo.view';
 import Navbar from './components/navbar/navbar.view';
+import { FLIGHT_LIST, LOGIN, REGISTER, USER_INFO, NAVBAR } from './routes/routes';
 // import { FLIGHT_LIST, HOME } from './routes/routes';
 
 function App() {
@@ -22,14 +24,20 @@ function App() {
                         <Route exact path="/">
                             <Home />
                         </Route>
-                        <Route path="/login">
+                        <Route path={LOGIN}>
                             <Login />
                         </Route>
-                        <Route path="/register"> 
+                        <Route path={REGISTER}> 
                             <Register />
                         </Route>
-                        <Route path="/flights">
+                        <Route path={FLIGHT_LIST}>
                             <FlightListPage />
+                        </Route>
+                        <Route path={USER_INFO}>
+                            <UserInfo />
+                        </Route>
+                        <Route path={NAVBAR}>
+                            <Navbar />
                         </Route>
                     </Switch>
                 </div>
