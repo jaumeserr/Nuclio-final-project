@@ -17,9 +17,9 @@ function App() {
         <Router>
             <div>
                 {/* <FlightCard /> */}
-                <FlightListPage />
+                {/* <FlightListPage /> */}
 
-                {/* <div>
+                <div>
                     <Switch>
                         <Route exact path="/">
                             <SimpleReactLightbox>
@@ -42,7 +42,7 @@ function App() {
                             <Navbar />
                         </Route>
                     </Switch>
-                </div> */}
+                </div>
             </div>   
         </Router>
     );
