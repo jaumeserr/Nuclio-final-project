@@ -27,6 +27,7 @@ body, html {
     /* width: 100%; */
     width: auto;
     align-self: center;
+    padding: 60px 60px 60px 60px;
 }
 
 .__masonry__grid__column {
