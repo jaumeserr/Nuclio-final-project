@@ -1,25 +1,69 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* font-family: 'Nunito-Italic', sans-serif !important;   */
+}
+
+.body { 
+  font-size: 16px;
+  color: #860505;
+}
+
+.h1 {
+  font-size: 16px;
+}
+
+h2 {
+  margin-top: 15px;
+  font-size: 35px;
+  font-style: italic;
+}
+
+.button {
+
+  border-radius: 8px;
+  font-size: 18px;
+  padding: 10px 30px;
+  cursor: pointer;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  margin:0 10px;
+  outline: none;
+  margin-top: 15px;
+  border: 1px solid gainsboro;
+  letter-spacing: 2px;
+  webkit-box-shadow: 2px 2px 3px 0px rgba(89,79,89,1);
+  -moz-box-shadow: 2px 2px 3px 0px rgba(89,79,89,1);
+  box-shadow: 2px 2px 3px 0px rgba(89,79,89,1);
+
+
+}
+
+.button-primary {
+  background-color: #0171E4;
+  color:white;
+
+}
+
+.button-primary:hover {
+  background-color: gainsboro;
+  color:#4d4d4d;
+}
+
+.button-primary:active {
+  background-color:blue;
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-}
+
 .__container__enlaceflight:active{
   transform: scale(0,90);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
 
-.App-link {
-  color: #09d3ac;
-}

@@ -1,42 +1,41 @@
 import React from 'react';
 import styles from './home.module.css';
-import boreal from '../../assets/boreal.jpg';
-import Australia from '../../assets/Australia.jpg';
-import playa from '../../assets/playa.jpg';
-import Paris from '../../assets/Paris.jpg';
-import Egypt from '../../assets/Egytp.jpg'
-import Rio from '../../assets/Rio.jpg'
-import facebook from '../../assets/facebook.png';
-import instagram from '../../assets/instagram-bosquejado.png';
-import twitter from '../../assets/twitter.png';
-import youtube from '../../assets/youtube.png';
-import githut from '../../assets/git.png';
-import Header from "../../components/header/header.view";
+import boreal from '../../assets/images/boreal.jpg';
+import Australia from '../../assets/images/Australia.jpg';
+import playa from '../../assets/images/playa.jpg';
+import Paris from '../../assets/images/Paris.jpg';
+import Egypt from '../../assets/images/Egytp.jpg'
+import Rio from '../../assets/images/Rio.jpg'
+import facebook from '../../assets/images/facebook.png';
+import instagram from '../../assets/images/instagram-bosquejado.png';
+import twitter from '../../assets/images/twitter.png';
+import youtube from '../../assets/images/youtube.png';
+import githut from '../../assets/images/git.png';
+import Navbar from '../../components/navbar/navbar.view';
 import { SRLWrapper } from 'simple-react-lightbox';
+import { Link } from 'react-router-dom';
+import ButtonFlightSearch from '../../components/buttonflightsearch/buttonflightsearch.view';
+import { FLIGHT_LIST } from '../../routes/routes';
 
-
-    const submit = () => {
-        alert("hola");
-    }
     const Home = () => {
         return (
         <div>
-
+            <Navbar/>
             <div className={styles.__container}>
-                <Header/>
+
                 <section className={styles.__container__body}>
                     <div className={styles.__container__text}>
                         <h1 className={styles.__title}>Welcome to Skyscanner</h1>
                     </div>
-                    <div className={styles.__container__enlaceflight}>
-                        <button type={"submit"}  onClick={submit} value="Vuelos" className= {styles.__container__button}>Flights</button>
-                    </div>
+                    <Link to={FLIGHT_LIST}><ButtonFlightSearch/></Link>
+                    
                 </section>
                 <section className={styles.__container__gallery}>
                     <div className={styles.__container_img}>
+                        <h2>Our Work</h2>
                         <SRLWrapper>
                             <a href="#imagen1">
-                            <img src= {boreal} alt="Boreal" className={styles.__img}/>
+                                <img src= {boreal} alt="Boreal" className={styles.__img}/>
                             </a>
                             <a href ="#imagen2">
                                 <img src= {Australia} alt="Australia" className={styles.__img}/>

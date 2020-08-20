@@ -1,4 +1,4 @@
-.__navigation {
+header {
     width: 100%;
     align-items: center;
     justify-content: space-between;
@@ -37,3 +37,5 @@
 .__container__nav:active {
     transform: scale(0.9, 0.9);
 }
+
+
