@@ -1,12 +1,11 @@
-body{
-    margin: 0 10px;
-    background-color: gainsboro;
-
+.body{
+    /* background-color: green; */
 }
+
 .__container{
     text-align: center;
-
 }
+
 .__logo{
     width: 250px;
     margin-left: 30px;
@@ -14,6 +13,7 @@ body{
     margin-top: 10px;
     padding: 15px auto;
 }
+
 .__container__body{
     box-sizing: border-box;
     background-image: linear-gradient(to right, rgba(79, 172, 254, 0.59) 0%, rgba(0, 242, 254, 0.62) 100%), url("../../assets/images/globos2.jpg");
@@ -26,7 +26,6 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-
 }
 
 h1{
@@ -45,20 +44,21 @@ h1{
     flex-wrap: wrap;
     box-shadow: 0px 0px 3px 0px rgba(0 0 0 .7);
     overflow: hidden;
-
 }
+
 .__container__img{
     width: 100%;
     display: flex;
     align-items: center;
     object-fit: cover;
 }
+
 .__img{
     width: 350px;
     height: 350px;
     margin: 10px 20px;
-
 }
+
 footer{
     display: flex;
     justify-content: center;
@@ -67,7 +67,6 @@ footer{
     height: auto;
     margin-top: 7px;
     background-color: rgba(99, 107, 111, 0.9);
-
 }
 
 input{
@@ -80,12 +79,14 @@ input{
     border: 1px solid #ffffff;
     outline: none;
 }
+
 input::placeholder{
     color: white;
     font-family: -apple-system, serif;
     outline: none;
     border: transparent;
 }
+
 .__container__enlaceflight {
     padding: 10px 10px;
     background-color: rgba(0, 0, 255, 0.76);
@@ -94,6 +95,7 @@ input::placeholder{
     position: relative;
     width: 0 95% 0 95%;
 }
+
 .__container__button{
     background: transparent;
     border: none;
@@ -114,23 +116,13 @@ input::placeholder{
     flex-wrap: wrap;
     flex-direction: row;
     cursor: pointer;
-
 }
 
 .__container__enlaceflight:hover{
     background-color: #1e3c99;
-
 }
+
 .__container__button:active{
     transform: scale(0.9,0.9);
 }
-
-
-
-
-
-
-
-
-
 
