@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import Masonry from 'react-masonry-css';
 import FlightCard from '../../components/flightcard/flightCard.view';
 import Navbar from '../../components/navbar/navbar.view';
+import Loader from '../../components/loader/loader.view';
 import styles from './flightlistpage.module.css';
 
 
@@ -82,12 +83,8 @@ const FlightListPage = () => {
         <>
             <Navbar/>
 
-            {isLoading &&
-            <div className={styles.__spinner}>
-                <FontAwesomeIcon icon={faSpinner} size="2x" spin /> 
-            </div>
-            }
-
+            {isLoading && <Loader />}
+            
             <Masonry
             breakpointCols={breakpointColumnsObj}
             className = {styles.__masonry__grid}
@@ -98,7 +95,6 @@ const FlightListPage = () => {
                         <FlightCard
                             name={data.name}
                             country_a3_iso_code={data.country_a3_iso_code}
-                            // id={data[1][0].id}
                             id={data.id}
                             key={data.id}
                         />
@@ -112,5 +108,4 @@ const FlightListPage = () => {
 
 export default FlightListPage;
 
-// ASK - Spinner - Com fer que aparegui només quan no han arribat els pins? MAYBE un ternari ? o un useSate isLoading, setIsLoading
 
