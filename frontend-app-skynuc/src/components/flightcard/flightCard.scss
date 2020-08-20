@@ -4,35 +4,31 @@
 /* Design inspiration:  https://codepen.io/jamiehalvorson/embed/KNyRNV?default-tab=result&theme-id=0 */
 
 
-body, html {
+* {
     // font-family: 'Montserrat', sans-serif;
-    // font-size: 10px;
 
-    font-family: 'Montserrat', sans-serif !important;
-    font-size: 55px !important;
-
-
+    // font-size: 15px;
 }
 
 
 /* ELIMINAR QUAN MODEL JA NO CALGUI */
-img {
-    width: auto;
+
+#image_model {
+    width: 700px;
 }
 
 /* COMENTAR QUAN DISSENY ESTIGUI FET */
 
-#flight_card_container, #box_top_airline, #box_bottom, #box_left_container, #box_right_container, #box_left, #box_right, #box_left_left, #box_left_right, #box_left_right_inner, #box_left_right_inner_dpt, #box_left_right_inner_duration, #box_left_right_inner_arr {
+#flight_card_container, #box_top_airline, #box_bottom, #box_left_container, #box_right_container, #box_left, #box_right, #box_left_left, #box_left_right, #box_left_right_inner, #box_left_right_inner_dpt, #box_left_right_inner_duration, #box_left_right_inner_arr, p {
     border: 0.5px;
     border-style: solid;
     border-color: #000;
     border-radius: 25px;
-
 }
 
 
 #flight_card_container {
-    height: 400px;
+    height: 300px;
     background: grey;
     margin: 10px 10px 60px 10px;
     // margin-bottom: 60px;
@@ -79,8 +75,9 @@ img {
 }
 
 #box_top_airline img {
-    width: 200px;
+    width: 100px;
     height: auto;
+    padding-left: 20px;
 }
 
 #box_bottom{
@@ -125,8 +122,6 @@ img {
     justify-content: center;
     align-items: center;
     align-content: center;
-
-    font-style: italic;
 
     // display: block;
     // height: 215px;
@@ -194,7 +189,7 @@ img {
     // order: 2;
     flex-grow: 1;
     background-color:pink;
-    padding: 0px 10px 0px 0px;
+    margin: 0px 10px 0px 0px;
     // height: 100%;
     // min-height: 100%;
 }

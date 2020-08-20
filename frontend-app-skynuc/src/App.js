@@ -1,26 +1,28 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-// import SimpleReactLightbox from 'simple-react-lightbox';
+import SimpleReactLightbox from 'simple-react-lightbox';
 import './App.css';
 import './assets/fonts.css';
-import FlightListPage from './pages/flightlistpage/flightlistpage.view';
-import FlightCard from './components/flightcard/flightCard.view'
-import Home from './pages/home/home.view';
+import FlightCard from './components/flightcard/flightCard.view';
 import Login from './components/login/login.view';
 import Register from './components/register/register.view';
-import Navbar from './components/navbar/navbar.view';
-// import { FLIGHT_LIST, HOME } from './routes/routes';
+import FlightListPage from './pages/flightlistpage/flightlistpage.view';
+import Home from './pages/home/home.view';
+import { FLIGHT_LIST, HOME } from './routes/routes';
 
 function App() {
     return (
         <Router>
             <div>
-                {/* <Home /> */}
+                {/* <FlightCard /> */}
+                <FlightListPage />
 
-                <div>
+                {/* <div>
                     <Switch>
                         <Route exact path="/">
-                            <Home />
+                            <SimpleReactLightbox>
+                                <Home />
+                            </SimpleReactLightbox>
                         </Route>
                         <Route path="/login">
                             <Login />
@@ -28,11 +30,11 @@ function App() {
                         <Route path="/register"> 
                             <Register />
                         </Route>
-                        <Route path="/flights">
+                        <Route path={FLIGHT_LIST}>
                             <FlightListPage />
                         </Route>
                     </Switch>
-                </div>
+                </div> */}
             </div>   
         </Router>
     );

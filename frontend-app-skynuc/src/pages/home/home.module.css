@@ -53,7 +53,7 @@ h1{
     align-items: center;
     object-fit: cover;
 }
-img{
+.__img{
     width: 350px;
     height: 350px;
     margin: 10px 20px;

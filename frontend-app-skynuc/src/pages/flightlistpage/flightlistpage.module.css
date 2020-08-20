@@ -1,16 +1,24 @@
 * {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 10px;
+    /* font-family: 'Montserrat', sans-serif; */
+    /* font-family: 'Nunito-Italic', sans-serif !important; */
+
+    font-size: 15px;
 }
 
 body, html {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 10px;
+
 }
 
 .__spinner {
     display: flex;
     justify-content: center;
+    background: pink;
+
+
+    vertical-align: middle;
+
+    align-items: center;
+    align-content: center;
 }
 
 /** MASONRY USED **/
