@@ -46,7 +46,7 @@ const FlightCard = ({id, country_a3_iso_code, name}) => {
             </div>
         </div>
 
-        <img id="image_model" src= {"https://user-images.githubusercontent.com/38922857/89059615-cc3c1700-d361-11ea-9c26-66466d4d0105.png"} ></img>
+        <img id="image_model" src= {"https://user-images.githubusercontent.com/38922857/89059615-cc3c1700-d361-11ea-9c26-66466d4d0105.png"} alt="modelo"></img>
 
         </>
     );

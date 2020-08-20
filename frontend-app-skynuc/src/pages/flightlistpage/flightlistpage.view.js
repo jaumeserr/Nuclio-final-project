@@ -1,10 +1,8 @@
-import { faSpinner } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from 'react';
 import Masonry from 'react-masonry-css';
 import FlightCard from '../../components/flightcard/flightCard.view';
-import Navbar from '../../components/navbar/navbar.view';
 import Loader from '../../components/loader/loader.view';
+import Navbar from '../../components/navbar/navbar.view';
 import styles from './flightlistpage.module.css';
 
 

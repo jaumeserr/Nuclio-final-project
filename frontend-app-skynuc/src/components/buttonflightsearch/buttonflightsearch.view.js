@@ -1,8 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { FLIGHT_LIST } from '../../routes/routes';
-
-
 
 const ButtonFlightSearch = () => {
     return (
@@ -13,6 +9,3 @@ const ButtonFlightSearch = () => {
 };
 
 export default ButtonFlightSearch;
-
-
-// onClick={submitData}

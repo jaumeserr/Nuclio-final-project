@@ -3,14 +3,16 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import SimpleReactLightbox from 'simple-react-lightbox';
 import './App.css';
 import './assets/fonts.css';
-import FlightCard from './components/flightcard/flightCard.view';
+import { FLIGHT_LIST, LOGIN, REGISTER, USER_INFO, NAVBAR } from './routes/routes';
 import Login from './components/login/login.view';
 import Register from './components/register/register.view';
 import UserInfo from './components/userinfo/userInfo.view';
 import Navbar from './components/navbar/navbar.view';
-import { FLIGHT_LIST, LOGIN, REGISTER, USER_INFO, NAVBAR } from './routes/routes';
-import FlightListPage from './pages/flightlistpage/flightlistpage.view';
+
 import Home from './pages/home/home.view';
+import FlightListPage from './pages/flightlistpage/flightlistpage.view';
+import FlightCard from './components/flightcard/flightCard.view';
+
 
 function App() {
     return (
