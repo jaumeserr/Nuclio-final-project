@@ -16,8 +16,7 @@ class CountryController extends Controller {
      *
      * @return JsonResponse
      */
-    public function all()
-    {
+    public function all(){
         Log::info('Retrieving all countries');
         $country = Country::all();
         return response()->json($country);
