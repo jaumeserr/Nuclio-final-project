@@ -22,5 +22,46 @@ class CityController extends Controller {
         return response()->json(City::all());
     }
 
+    /**
+     * Return a given cities by Id.
+     * 
+     * @param $id
+     * @return Jsonresponse
+     */
+
+    public function getById($id)
+    {
+        Log::info('Retrieving City by id: '.$id);
+        $city = City::where('id', $id)->first();
+        return response()->json($city);
+    }
+
+     /**
+     * Return a given cities by name.
+     * 
+     * @param $name
+     * @return Jsonresponse
+     */
+
+    public function getByName($name)
+    {
+        Log::info('Retrieving City by name: '.$name);
+        $city = City::where('name', $name)->first();
+        return response()->json($city);
+    }
+
+     /**
+     * Return a given cities by country_a3_iso_code.
+     * 
+     * @param $country_a3_iso_code
+     * @return Jsonresponse
+     */
+
+    public function getByCode($country_a3_iso_code)
+    {
+        Log::info('Retrieving City by country_a3_iso_code: '.$country_a3_iso_code);
+        $city = City::where('country_a3_iso_code', $country_a3_iso_code)->first();
+        return response()->json($city);
+    }
 }
 
