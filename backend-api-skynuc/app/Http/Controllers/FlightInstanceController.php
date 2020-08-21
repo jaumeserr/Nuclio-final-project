@@ -45,7 +45,7 @@ class FlightInstanceController extends Controller {
      */
 
 
-    public function getByDpt($dpt_datetime)
+    public function getByDptDatetime($dpt_datetime)
     {
         Log::info('Retrieving flightinstance by dpt_datetime: '.$dpt_datetime);
         $flightinstance = FlightInstance::where('dpt_datetime', $dpt_datetime)->first();
@@ -60,7 +60,7 @@ class FlightInstanceController extends Controller {
      */
 
 
-    public function getByArr($arr_datetime)
+    public function getByArrDatetime($arr_datetime)
     {
         Log::info('Retrieving flightinstance by arr_datetime: '.$arr_datetime);
         $flightinstance = FlightInstance::where('arr_datetime', $arr_datetime)->first();
@@ -75,7 +75,7 @@ class FlightInstanceController extends Controller {
      */
 
 
-    public function getByFlight($flight_consts_flight_num)
+    public function getByFlightNum($flight_consts_flight_num)
     {
         Log::info('Retrieving flightinstance by flight_consts_flight_num: '.$flight_consts_flight_num);
         $flightinstance = FlightInstance::where('flight_consts_flight_num', $flight_consts_flight_num)->first();

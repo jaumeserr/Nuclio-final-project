@@ -57,7 +57,7 @@ class CityController extends Controller {
      * @return Jsonresponse
      */
 
-    public function getByCode($country_a3_iso_code)
+    public function getByCountryCode($country_a3_iso_code)
     {
         Log::info('Retrieving City by country_a3_iso_code: '.$country_a3_iso_code);
         $city = City::where('country_a3_iso_code', $country_a3_iso_code)->first();

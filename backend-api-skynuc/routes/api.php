@@ -50,7 +50,7 @@ Route::group([
     Route::get('', 'CityController@all');
     Route::get('id/{id}', 'CityController@getById');
     Route::get('name/{name}', 'CityController@getByName');
-    Route::get('code/{country_a3_iso_code}', 'CityController@getByCode');
+    Route::get('country_code/{country_a3_iso_code}', 'CityController@getByCountryCode');
 
 });
 
@@ -125,9 +125,9 @@ Route::group([
 
     Route::get('', 'FlightInstanceController@all');
     Route::get('id/{id}', 'FlightInstanceController@getById');
-    Route::get('dpt_datetime/{dpt_datetime}', 'FlightInstanceController@getByDpt');
-    Route::get('arr_datetime/{arr_datetime}', 'FlightInstanceController@getByArr');
-    Route::get('flight_consts_flight_num/{flight_consts_flight_num}', 'FlightInstanceController@getByFlight');
+    Route::get('dpt_datetime/{dpt_datetime}', 'FlightInstanceController@getByDptDatetime');
+    Route::get('arr_datetime/{arr_datetime}', 'FlightInstanceController@getByArrDatetime');
+    Route::get('flight_num/{flight_consts_flight_num}', 'FlightInstanceController@getByFlightNum');
     Route::get('price_eur/{price_eur}', 'FlightInstanceController@getByPrice');
 
 
