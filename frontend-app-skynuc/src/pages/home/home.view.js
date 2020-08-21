@@ -11,21 +11,23 @@ import instagram from '../../assets/images/instagram-bosquejado.png';
 import twitter from '../../assets/images/twitter.png';
 import youtube from '../../assets/images/youtube.png';
 import githut from '../../assets/images/git.png';
-import Header from '../../components/header/header.view';
+import Navbar from '../../components/navbar/navbar.view';
 import { SRLWrapper } from 'simple-react-lightbox';
 import { Link } from 'react-router-dom';
 import ButtonFlightSearch from '../../components/buttonflightsearch/buttonflightsearch.view';
+import { FLIGHT_LIST } from '../../routes/routes';
 
     const Home = () => {
         return (
         <div>
+            <Navbar/>
             <div className={styles.__container}>
-                <Header/>
+
                 <section className={styles.__container__body}>
                     <div className={styles.__container__text}>
                         <h1 className={styles.__title}>Welcome to Skyscanner</h1>
                     </div>
-                    <Link to="/flights"><ButtonFlightSearch/></Link>
+                    <Link to={FLIGHT_LIST}><ButtonFlightSearch/></Link>
                     
                 </section>
                 <section className={styles.__container__gallery}>

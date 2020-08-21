@@ -2,12 +2,12 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Nunito-Italic', sans-serif !important;  
+  /* font-family: 'Nunito-Italic', sans-serif !important;   */
 }
 
 .body { 
   font-size: 16px;
-  color: #4d4d4d;
+  color: #860505;
 }
 
 .h1 {
@@ -61,29 +61,9 @@ h2 {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-}
 
 .__container__enlaceflight:active{
   transform: scale(0,90);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
 
-.App-link {
-  color: #09d3ac;
-}
-
-.button-warning {
-  background-color: yellow;
-}

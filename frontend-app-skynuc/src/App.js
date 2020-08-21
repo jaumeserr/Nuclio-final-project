@@ -1,35 +1,47 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-// import SimpleReactLightbox from 'simple-react-lightbox';
+import SimpleReactLightbox from 'simple-react-lightbox';
 import './App.css';
 import './assets/fonts.css';
-import FlightListPage from './pages/flightlistpage/flightlistpage.view';
-import FlightCard from './components/flightcard/flightCard.view'
-import Home from './pages/home/home.view';
+import { FLIGHT_LIST, LOGIN, REGISTER, USER_INFO, NAVBAR } from './routes/routes';
 import Login from './components/login/login.view';
 import Register from './components/register/register.view';
+import UserInfo from './components/userinfo/userInfo.view';
 import Navbar from './components/navbar/navbar.view';
-// import { FLIGHT_LIST, HOME } from './routes/routes';
+
+import Home from './pages/home/home.view';
+import FlightListPage from './pages/flightlistpage/flightlistpage.view';
+import FlightCard from './components/flightcard/flightCard.view';
+
 
 function App() {
     return (
         <Router>
             <div>
-                {/* <Home /> */}
+                {/* <FlightCard /> */}
+                {/* <FlightListPage /> */}
 
                 <div>
                     <Switch>
                         <Route exact path="/">
-                            <Home />
+                            <SimpleReactLightbox>
+                                <Home />
+                            </SimpleReactLightbox>
                         </Route>
-                        <Route path="/login">
+                        <Route path={LOGIN}>
                             <Login />
                         </Route>
-                        <Route path="/register"> 
+                        <Route path={REGISTER}> 
                             <Register />
                         </Route>
-                        <Route path="/flights">
+                        <Route path={FLIGHT_LIST}>
                             <FlightListPage />
+                        </Route>
+                        <Route path={USER_INFO}>
+                            <UserInfo />
+                        </Route>
+                        <Route path={NAVBAR}>
+                            <Navbar />
                         </Route>
                     </Switch>
                 </div>

@@ -8,10 +8,8 @@ body, html {
     font-size: 10px;
 }
 
-.__spinner {
-    display: flex;
-    justify-content: center;
-}
+
+
 
 /** MASONRY USED **/
 /* SOURCE: https://github.com/paulcollett/react-masonry-css */
@@ -29,6 +27,7 @@ body, html {
     /* width: 100%; */
     width: auto;
     align-self: center;
+    padding: 60px 60px 60px 60px;
 }
 
 .__masonry__grid__column {
