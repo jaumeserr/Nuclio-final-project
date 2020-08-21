@@ -21,16 +21,16 @@ const FlightCard = ({id, country_a3_iso_code, name}) => {
                             <div id="box_left_right_inner">
                                 <div id="box_left_right_inner_dpt">
                                     <p style = {{background: "darkgreen", color: "white", fontWeight: "bold", fontSize: "24px"}}>17:15</p>
-                                    <p style = {{background: "darkgreen", color: "white", textAlign: "right"}}>BCN</p>
+                                    <p style = {{background: "darkgreen", color: "white", textAlign: "right", fontSize: "15px"}}>BCN</p>
                                 </div>
                                 <div id="box_left_right_inner_duration">
                                     <p style = {{background: "darkgreen", color: "white"}}>2h 20min</p>
                                     <img src={flight_arrow} alt="Flight arrow"/>
-                                    <p style = {{background: "yellow", color: "green"}}>Directo</p>
+                                    <p style = {{background: "yellow", color: "green"}}>Direct</p>
                                 </div>
                                 <div id="box_left_right_inner_arr">
                                     <p style = {{background: "darkgreen", color: "white", fontWeight: "bold", fontSize: "24px"}}>19:35</p>
-                                    <p style = {{background: "darkgreen", color: "white", textAlign: "left"}}>AMS</p>
+                                    <p style = {{background: "darkgreen", color: "white", textAlign: "left", fontSize: "15px"}}>AMS</p>
                                 </div>
                             </div>
                         </div>
