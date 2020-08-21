@@ -31,7 +31,11 @@ Route::group([
 
     Route::get('', 'CountryController@all');
     Route::get('code/{a3_iso_code}', 'CountryController@getByCode');
-    Route::get('name/{name}', 'CountryController@getByName');
+    // Route::get('name/{name}', 'CountryController@getByName');
+
+
+    Route::get('nametest', 'CountryController@getByNameTest');
+
 
 });
 

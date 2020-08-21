@@ -45,5 +45,28 @@ class CountryController extends Controller {
         $country = Country::where('name', $name)->first();
         return response()->json($country);
     }
+
+
+
+
+    /** TEST !!!
+     * Return a given country by name
+     *
+     * @param $name
+     * @return JsonResponse
+     */
+    public function getByNameTest() {
+        // Log::info('Retrieving a country by name: '.$name);
+        $name = Request::get('opcion');
+        // return $name.' - '.$opcion;
+        return response()->json($name);
+
+        // $country = Country::where('name', $name)->first();
+        // return response()->json($country);
+    }
+
+
+
+
 }
 
