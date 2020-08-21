@@ -25,42 +25,42 @@ const FlightListPage = () => {
 
         // SOURCE (Promise): https://gomakethings.com/waiting-for-multiple-all-api-responses-to-complete-with-the-vanilla-js-promise.all-method/
 
-        Promise.all([
-            fetch('http://localhost/api/airlines', options),
-            fetch('http://localhost/api/cities', options)
-        ]).then(response => {
-            return Promise.all(response.map(response => {
-                return response.json();
-            }));
-        }).then(payload => {
-            console.log(payload);
-            console.log("Data from DB loaded");
-            setInfoFlights(payload);
-            setIsLoading(false);
-        }).catch(error => {
-            console.log(error);
-        });
+        // Promise.all([
+        //     fetch('http://localhost/api/airlines', options),
+        //     fetch('http://localhost/api/cities', options)
+        // ]).then(response => {
+        //     return Promise.all(response.map(response => {
+        //         return response.json();
+        //     }));
+        // }).then(payload => {
+        //     console.log(payload);
+        //     console.log("Data from DB loaded");
+        //     setInfoFlights(payload);
+        //     setIsLoading(false);
+        // }).catch(error => {
+        //     console.log(error);
+        // });
 
 
 
         // --> ONE SINGLE FETCH
 
-        // const url = `${baseUrl}/cities`;
+        const url = `${baseUrl}/cities`;
 
-        // fetch(url, options)
-        //     .then(response => {
-        //             if (response.status === 200) {
-        //                 return response.json();
-        //             }
-        //             return Promise.reject(response.status);
-        //         })
-        //     .then(payload => {
-        //             console.log(payload);
-        //             console.log("Data from DB loaded");
-        //             setInfoFlights(payload);
-        //             setIsLoading(false);
-        //         })
-        //     .catch(error => console.log(error));
+        fetch(url, options)
+            .then(response => {
+                    if (response.status === 200) {
+                        return response.json();
+                    }
+                    return Promise.reject(response.status);
+                })
+            .then(payload => {
+                    console.log(payload);
+                    console.log("Data from DB loaded");
+                    setInfoFlights(payload);
+                    setIsLoading(false);
+                })
+            .catch(error => console.log(error));
 
 
     }, []);

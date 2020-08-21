@@ -1,4 +1,5 @@
 
+import PropTypes from 'prop-types';
 import React from 'react';
 import flight_arrow from '../../assets/images/flight_arrow.png';
 import './flightCard.scss';
@@ -53,11 +54,11 @@ const FlightCard = ({id, country_a3_iso_code, name}) => {
 };
 
 
-// FlightCard.propTypes = {
-//     id: PropTypes.number.isRequired,
-//     country_a3_iso_code: PropTypes.string.isRequired,
-//     name: PropTypes.string.isRequired,
-// }
+FlightCard.propTypes = {
+    id: PropTypes.number.isRequired,
+    country_a3_iso_code: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+}
 
 
 export default FlightCard;
