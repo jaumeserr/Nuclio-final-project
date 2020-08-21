@@ -37,9 +37,9 @@ Route::group([
     // NOTE: Esta ruta de abajo FUNCIONA pero es temporal
     // Usando el ejemplo de Germany:
         // Ahora tiene esta forma:
-            // localhost/api/countries/search/Germany
-        // Lo ideal sería:
-            // localhost/api/countries?name=Germany
+            // localhost/api/airlines/name/Air France
+        // Lo ideal sería con param:
+            // localhost/api/airlines?name=Air+France
     Route::get('search/{query}', 'CountryController@search');
     
     Route::get('{a3_iso_code}', 'CountryController@getByCode');
