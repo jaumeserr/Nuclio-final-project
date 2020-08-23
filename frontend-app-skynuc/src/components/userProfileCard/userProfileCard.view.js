@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
 import userProfilePicture from '../../assets/images/user_profile_avatars/user_profile_avatar_1.png';
-import PopUpForm from '../popUpForm_TEST/popUpForm.js';
+import PopUpForm from '../popUpForm/popUpForm.js';
 import './userProfileCard.css';
 
 const UserProfileCard = () => {
@@ -11,41 +10,22 @@ const UserProfileCard = () => {
         setIsOpen(!isOpen);
     };
 
-    const Paragraph = styled.a`
-        font-weight: 700;
-    `;
-
     const userAirline = 'Vueling';
 
     return (
         <>
-
-                {isOpen && (
-                    <PopUpForm
-                        content={
-                            <>
-                                <b>Title Popup</b>
-                                <p>
-                                    Lorem ipsum dolor popup.
-                                </p>
-                                <button>Test button in popup</button>
-                            </>
-                        }
-                        handleClose={togglePopup}
-                    />
-                )}
-
+            {isOpen && <PopUpForm handleClose={togglePopup} />}
 
             {/* <Navbar/> */}
             <div className="wrapper">
                 <div className="profile-card js-profile-card">
                     <div className="profile-card__img">
-                        <img src={userProfilePicture} alt="profile card" />
+                        <img src={userProfilePicture} alt="profile card" title="Business vector created by Freepik.com" />
                     </div>
                     <div className="profile-card__cnt js-profile-cnt">
                         <div className="profile-card__name">Karom Germain</div>
                         <div className="profile-card__txt">
-                            Flight Administrator from <Paragraph>{userAirline}</Paragraph>
+                            Flight Administrator from <b>{userAirline}</b>
                         </div>
                         <div className="profile-card-ctr">
                             <div className="profile-card-ctr-box">
@@ -60,78 +40,23 @@ const UserProfileCard = () => {
                                 </button>
                             </div>
                             <div className="profile-card-ctr-box">
-                                <button className="profile-card__button button--green js-message-btn">
+                                <button
+                                    className="profile-card__button button--green js-message-btn"
+                                    onClick={togglePopup}
+                                >
                                     Add flight
                                 </button>
                                 <button className="profile-card__button button--yellow js-message-btn">
                                     Modify flight
                                 </button>
-                                <button
-                                    className="profile-card__button button--red js-message-btn"
-                                    onClick={togglePopup}
-                                >
+                                <button className="profile-card__button button--red js-message-btn">
                                     Delete flight
                                 </button>
                             </div>
                         </div>
                     </div>
-                    <div className="profile-card-message js-message">
-                        <form className="profile-card-form">
-                            <div className="profile-card-form__container">
-
-                                <label htmlFor="dpt-datetime">Departure date and time:</label>
-                                <input
-                                    type="datetime-local"
-                                    id="dpt-datetime"
-                                    name="dpt-datetime"
-                                    min="2020-08-01T00:00"
-                                    max="2020-12-31T00:00"
-                                />
-                                <label htmlFor="dpt-city">Departure city:</label>
-                                <select name="dpt-city" id="dpt-city">
-                                    <option value="BCN">Barcelona</option>
-                                    <option value="MAD">Madrid</option>
-                                </select>
-                                <label htmlFor="arr-datetime">Arrival date and time:</label>
-                                <input
-                                    type="datetime-local"
-                                    id="arr-datetime"
-                                    name="arr-datetime"
-                                    min="2020-08-01T00:00"
-                                    max="2020-12-31T00:00"
-                                />
-                                <label htmlFor="arr-city">Arrival city:</label>
-                                <select name="arr-city" id="arr-city">
-                                    <option value="BCN">Barcelona</option>
-                                    <option value="MAD">Madrid</option>
-                                </select>
-                                <label htmlFor="price">Price (€):</label>
-                                <input
-                                    type="number"
-                                    id="price"
-                                    name="price"
-                                    min={1}
-                                    max={1500}
-                                    defaultValue={0}
-                                    step=".01"
-                                />
-                            </div>
-                            <div className="profile-card-form__bottom">
-                                <button className="profile-card__button form__button button--blue js-message-close">
-                                    Send
-                                </button>
-                                <button className="profile-card__button form__button button--gray js-message-close">
-                                    Cancel
-                                </button>
-                            </div>
-                        </form>
-                        <div className="profile-card__overlay js-message-close" />
-                    </div>
                 </div>
             </div>
-            <a href="https://www.freepik.com/vectors/business">
-                Business vector created by Freepik
-            </a>
         </>
     );
 };
