@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import userProfilePicture from '../../assets/images/user_profile_avatars/user_profile_avatar_1.png';
+import PopUpForm from './popUpForm.js';
 import './userProfileCard.css';
 
 const UserProfileCard = () => {
+    const [isOpen, setIsOpen] = useState(false);
+
+    const togglePopup = () => {
+        setIsOpen(!isOpen);
+    };
+
     const Paragraph = styled.a`
         font-weight: 700;
     `;
@@ -12,6 +19,23 @@ const UserProfileCard = () => {
 
     return (
         <>
+
+                {isOpen && (
+                    <PopUpForm
+                        content={
+                            <>
+                                <b>Title Popup</b>
+                                <p>
+                                    Lorem ipsum dolor popup.
+                                </p>
+                                <button>Test button in popup</button>
+                            </>
+                        }
+                        handleClose={togglePopup}
+                    />
+                )}
+
+
             {/* <Navbar/> */}
             <div className="wrapper">
                 <div className="profile-card js-profile-card">
@@ -42,7 +66,10 @@ const UserProfileCard = () => {
                                 <button className="profile-card__button button--yellow js-message-btn">
                                     Modify flight
                                 </button>
-                                <button className="profile-card__button button--red js-message-btn">
+                                <button
+                                    className="profile-card__button button--red js-message-btn"
+                                    onClick={togglePopup}
+                                >
                                     Delete flight
                                 </button>
                             </div>
@@ -51,10 +78,7 @@ const UserProfileCard = () => {
                     <div className="profile-card-message js-message">
                         <form className="profile-card-form">
                             <div className="profile-card-form__container">
-                                {/* <textarea
-                                    placeholder="Type your message here"
-                                    defaultValue={'hola'}
-                                /> */}
+
                                 <label htmlFor="dpt-datetime">Departure date and time:</label>
                                 <input
                                     type="datetime-local"
