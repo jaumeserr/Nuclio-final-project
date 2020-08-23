@@ -50,7 +50,46 @@ const UserProfileCard = () => {
                     <div className="profile-card-message js-message">
                         <form className="profile-card-form">
                             <div className="profile-card-form__container">
-                                <textarea placeholder="Type your message here" defaultValue={''} />
+                                {/* <textarea
+                                    placeholder="Type your message here"
+                                    defaultValue={'hola'}
+                                /> */}
+                                <label htmlFor="dpt-datetime">Departure date and time:</label>
+                                <input
+                                    type="datetime-local"
+                                    id="dpt-datetime"
+                                    name="dpt-datetime"
+                                    min="2020-08-01T00:00"
+                                    max="2020-12-31T00:00"
+                                />
+                                <label htmlFor="dpt-city">Departure city:</label>
+                                <select name="dpt-city" id="dpt-city">
+                                    <option value="BCN">Barcelona</option>
+                                    <option value="MAD">Madrid</option>
+                                </select>
+                                <label htmlFor="arr-datetime">Arrival date and time:</label>
+                                <input
+                                    type="datetime-local"
+                                    id="arr-datetime"
+                                    name="arr-datetime"
+                                    min="2020-08-01T00:00"
+                                    max="2020-12-31T00:00"
+                                />
+                                <label htmlFor="arr-city">Arrival city:</label>
+                                <select name="arr-city" id="arr-city">
+                                    <option value="BCN">Barcelona</option>
+                                    <option value="MAD">Madrid</option>
+                                </select>
+                                <label htmlFor="price">Price (€):</label>
+                                <input
+                                    type="number"
+                                    id="price"
+                                    name="price"
+                                    min={1}
+                                    max={1500}
+                                    defaultValue={0}
+                                    step=".01"
+                                />
                             </div>
                             <div className="profile-card-form__bottom">
                                 <button className="profile-card__button form__button button--blue js-message-close">
@@ -66,7 +105,7 @@ const UserProfileCard = () => {
                 </div>
             </div>
             <a href="https://www.freepik.com/vectors/business">
-                Business vector created by freepik - www.freepik.com
+                Business vector created by Freepik
             </a>
         </>
     );
