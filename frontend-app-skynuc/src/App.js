@@ -12,6 +12,7 @@ import Navbar from './components/navbar/navbar.view';
 import Home from './pages/home/home.view';
 import FlightListPage from './pages/flightlistpage/flightlistpage.view';
 import FlightCard from './components/flightcard/flightCard.view';
+import UserProfileCard from 'components/userProfileCard/userProfileCard.view';
 
 
 function App() {
@@ -20,8 +21,8 @@ function App() {
             <div>
                 {/* <FlightCard /> */}
                 {/* <FlightListPage /> */}
-
-                <div>
+                <UserProfileCard/>
+                {/* <div>
                     <Switch>
                         <Route exact path="/">
                             <SimpleReactLightbox>
@@ -31,7 +32,7 @@ function App() {
                         <Route path={LOGIN}>
                             <Login />
                         </Route>
-                        <Route path={REGISTER}> 
+                        <Route path={REGISTER}>
                             <Register />
                         </Route>
                         <Route path={FLIGHT_LIST}>
@@ -44,8 +45,8 @@ function App() {
                             <Navbar />
                         </Route>
                     </Switch>
-                </div>
-            </div>   
+                </div> */}
+            </div>
         </Router>
     );
 }

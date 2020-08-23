@@ -28,7 +28,7 @@ import { FLIGHT_LIST } from '../../routes/routes';
                         <h1 className={styles.__title}>Welcome to Skyscanner</h1>
                     </div>
                     <Link to={FLIGHT_LIST}><ButtonFlightSearch/></Link>
-                    
+
                 </section>
                 <section className={styles.__container__gallery}>
                     <div className={styles.__container_img}>

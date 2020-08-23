@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <!-- SOURCE: https://codepen.io/JavaScriptJunkie/pen/jvRGZy -->
+
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>My profile</title>
+        <meta name="description" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="./userProfileCard.css" />
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="profile-card js-profile-card">
+                <div class="profile-card__img">
+                    <img src="../../assets/images/user-profile-picture.png" alt="profile card" />
+                </div>
+
+                <div class="profile-card__cnt js-profile-cnt">
+                    <div class="profile-card__name">Karina Erdem</div>
+                    <div class="profile-card__txt">
+                        Flight Administrator from <strong>Vueling</strong>
+                    </div>
+
+                    <div class="profile-card-ctr">
+                        <div class="profile-card-ctr-box">
+                            <div class="profile-card-inf">
+                                <div class="profile-card-inf__item">
+                                    <div class="profile-card-inf__number">16</div>
+                                    <div class="profile-card-inf__txt">Flights added</div>
+                                </div>
+                            </div>
+                            <button class="profile-card__button button--blue">
+                                List my flights
+                            </button>
+                        </div>
+
+                        <div class="profile-card-ctr-box">
+                            <button class="profile-card__button button--green js-message-btn">
+                                Add flight
+                            </button>
+                            <button class="profile-card__button button--yellow js-message-btn">
+                                Modify flight
+                            </button>
+                            <button class="profile-card__button button--red js-message-btn">
+                                Delete flight
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profile-card-message js-message">
+                    <form class="profile-card-form">
+                        <div class="profile-card-form__container">
+                            <textarea placeholder="Type your message here"></textarea>
+                        </div>
+
+                        <div class="profile-card-form__bottom">
+                            <button
+                                class="profile-card__button form__button button--blue js-message-close"
+                            >
+                                Send
+                            </button>
+
+                            <button
+                                class="profile-card__button form__button button--gray js-message-close"
+                            >
+                                Cancel
+                            </button>
+                        </div>
+                    </form>
+
+                    <div class="profile-card__overlay js-message-close"></div>
+                </div>
+            </div>
+        </div>
+
+        <script src="./userProfileCard.js" async defer></script>
+    </body>
+</html>
