@@ -4,7 +4,7 @@ import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import styles from './navbar.module.css';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/images/logo.png';
-import { LOGIN, REGISTER, USER_INFO, HOME } from '../../routes/routes';
+import {LOGIN, REGISTER, USER_INFO, HOME } from '../../routes/routes';
 
 const Navbar = () => {
     return (
