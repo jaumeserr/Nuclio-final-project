@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import userProfilePicture from '../../assets/images/user_profile_avatars/user_profile_avatar_1.png';
-import PopUpForm from './popUpForm.js';
+import PopUpForm from '../popUpForm_TEST/popUpForm.js';
 import './userProfileCard.css';
 
 const UserProfileCard = () => {
