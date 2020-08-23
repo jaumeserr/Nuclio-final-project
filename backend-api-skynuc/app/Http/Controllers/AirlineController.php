@@ -19,8 +19,7 @@ class AirlineController extends Controller {
     public function all()
     {
         Log::info('Retrieving all airlines');
-        $airline = Airline::all();
-        return response()->json(['data' => $airline]);
+        return response()->json(Airline::all());
     }
 
 }
