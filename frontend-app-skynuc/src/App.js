@@ -12,7 +12,7 @@ import Navbar from './components/navbar/navbar.view';
 import Home from './pages/home/home.view';
 import FlightListPage from './pages/flightlistpage/flightlistpage.view';
 import FlightCard from './components/flightcard/flightCard.view';
-import UserProfileCard from 'components/userProfileCard/userProfileCard.view';
+import UserProfileCard from './components/userProfileCard/userProfileCard.view';
 
 
 function App() {

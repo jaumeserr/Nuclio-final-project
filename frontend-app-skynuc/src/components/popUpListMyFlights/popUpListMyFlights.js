@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect } from 'react';
-import './popUpForm.css';
+import './popUpListMyFlights.css';
 
-const PopUpForm = ({ handleClose }) => {
+const PopUpListMyFlights = ({ handleClose }) => {
 
     const handleKeyUp = useCallback(
         (e) => {
@@ -117,6 +117,6 @@ const PopUpForm = ({ handleClose }) => {
     );
 };
 
-export default PopUpForm;
+export default PopUpListMyFlights;
 
 // SOURCE (Esc key): https://medium.com/@pppped/build-a-simple-responsive-modal-with-react-and-jss-updated-with-hooks-8cf821b1e205

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import userProfilePicture from '../../assets/images/user_profile_avatars/user_profile_avatar_1.png';
-import PopUpForm from '../popUpForm/popUpForm.js';
+import PopUpAddFlight from '../popUpAddFlight/popUpAddFlight.js';
 import './userProfileCard.css';
+import Navbar from '../navbar/navbar.view';
 
 const UserProfileCard = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -21,9 +22,9 @@ const UserProfileCard = () => {
     return (
         <>
             {/* {isOpen && <PopUpForm handleClose={closePopUp} handleSendData={sendFlightDataToDB} />} */}
-            {isOpen && <PopUpForm handleClose={togglePopUp} />}
+            {isOpen && <PopUpAddFlight handleClose={togglePopUp} />}
 
-            {/* <Navbar/> */}
+            <Navbar/>
 
             <div className="wrapper">
                 {/* <div className="profile-card js-profile-card"> */}

@@ -25,5 +25,3 @@ yarn-error.log*
 
 # custom
 .idea/
-jsconfig.json
-/src/assets/images/sources/

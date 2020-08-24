@@ -10,12 +10,12 @@
 
 .box {
     position: relative;
-    /* margin: 0 auto; */
-    height: auto;
-    /* max-height: 170vh; */
-    margin-top: calc(100vh - 61vh - 40px);
+    margin-top: calc(100vh - 55vh - 40px);
     background: #fff;
     overflow: auto;
+
+    /* FIXME: set height to 450px to see scroll, or auto to use without scroll */
+    height: auto;
 
     box-shadow: 0 4px 30px rgba(15, 22, 56, 0.35);
     max-width: 60%;
@@ -23,29 +23,19 @@
     margin-right: auto;
     border-radius: 10px;
     padding: 25px;
-    /* transform: scale(0.8); */
-    /* position: relative; */
     z-index: 3;
     transition: all 0.3s;
     transition-delay: 0.1s;
-
-    /* display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;  */
-    /* FIXME */
-
-    pointer-events: auto;
-    /* FIXME */
-
 }
 
 .close-icon {
     content: 'x';
     cursor: pointer;
+
     position: fixed;
     right: calc(20% - 12px);
-    top: calc(100vh - 62vh - 42px);
+    top: calc(100vh - 56vh - 42px);
+
     background: #ededed;
     width: 27px;
     height: 27px;
@@ -72,22 +62,21 @@
 }
 
 .profile-card-form__container {
-    /* background-color: pink; */
     height: auto;
     width: auto;
     position: relative;
-    /* top: 3em; */
-
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     justify-content: space-around;
     align-items: center;
     margin: 65px auto 20px auto;
 
-    /* FIXME height: 200px a box? */
-    overflow-y: scroll;
-
+    /* FIXME */
+    /* overflow-y: scroll; */
+    overflow: auto;
+    /* FIXME: set height to 450px to see scroll, or auto to use without scroll */
+    height: 200px;
 }
 
 .profile-card-form__container input,
@@ -126,7 +115,6 @@ select:focus {
 
 .profile-card-form-price__container {
     flex-basis: 100%;
-    /* background: brown; */
     display: flex;
     justify-content: center;
 }
@@ -134,7 +122,6 @@ select:focus {
 .profile-card-form__bottom {
     display: flex;
     justify-content: center;
-    /* margin-top: 30px; */
 }
 @media screen and (max-width: 576px) {
     .profile-card-form__bottom {
