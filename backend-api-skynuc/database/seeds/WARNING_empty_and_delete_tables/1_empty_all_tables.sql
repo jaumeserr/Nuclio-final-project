@@ -6,5 +6,3 @@ TRUNCATE TABLE flight_instances;
 TRUNCATE TABLE flight_consts;
 TRUNCATE TABLE airlines;
 TRUNCATE TABLE airports;
-TRUNCATE TABLE cities;
-TRUNCATE TABLE countries;
