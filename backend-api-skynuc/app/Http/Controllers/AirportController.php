@@ -12,7 +12,7 @@ use App\Http\Controllers\Controller;
 class AirportController extends Controller {
 
     /**
-     * Show a list of all of the application's airports.
+     * Show a list of all of the application's airports
      *
      * @return JsonResponse
      */
@@ -24,7 +24,7 @@ class AirportController extends Controller {
 
     /**
      * Return a given airport by iata
-     * 
+     *
      * @param $iata
      * @return Jsonresponse
      */
@@ -32,27 +32,27 @@ class AirportController extends Controller {
 
     public function getByIata($iata)
     {
-        Log::info('Retrieving Airport by iata: '.$iata);
+        Log::info('Retrieving airport by iata: '.$iata);
         $airport = Airport::where('iata', $iata)->first();
         return response()->json($airport);
     }
 
 
      /**
-     * Return a given airport by name
-     * 
-     * @param $name
+     * Return a given airport by city name
+     *
+     * @param $city_name
      * @return Jsonresponse
      */
 
-    public function getByCity_Name($city_name)
+    public function getByCityName($city_name)
     {
-        Log::info('Retrieving Airport by City_name: '.$city_name);
+        Log::info('Retrieving airport by city name: '.$city_name);
         $airport = Airport::where('city_name', $city_name)->first();
         return response()->json($airport);
-        
+
     }
 
-    
+
 }
 

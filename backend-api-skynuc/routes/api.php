@@ -31,8 +31,8 @@ Route::group([
 
     Route::get('', 'AirportController@all');
     Route::get('iata/{iata}', 'AirportController@getByIata');
-    Route::get('city_name/{city_name}', 'AirportController@getByCity_Name');
-   
+    Route::get('city_name/{city_name}', 'AirportController@getByCityName');
+
 
 });
 

@@ -35,7 +35,7 @@ class Airport extends Model {
      * @var array
      */
     protected $fillable = [
-        'iata', 'city_name', 
+        'iata', 'city_name',
     ];
 
 }
