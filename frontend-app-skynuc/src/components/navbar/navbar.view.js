@@ -4,7 +4,7 @@ import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import styles from './navbar.module.css';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/images/logo.png';
-import { LOGIN, REGISTER, USER_INFO, HOME } from '../../routes/routes';
+import { LOGIN, REGISTER, USER_PROFILE, HOME } from '../../routes/routes';
 
 const Navbar = () => {
     return (
@@ -12,7 +12,7 @@ const Navbar = () => {
             <Link to={HOME}><img src ={logo} alt ="logo" className={styles.__logo}/></Link>
             <Link to={LOGIN}><button className= 'button button-primary'>Login</button></Link>
             <Link to={REGISTER}><button className= 'button button-primary'>Register</button></Link>
-            <Link to={USER_INFO}><FontAwesomeIcon icon={faUserCircle} size="3x" /></Link>
+            <Link to={USER_PROFILE}><FontAwesomeIcon icon={faUserCircle} size="3x" /></Link>
         </div>
     );
 };
