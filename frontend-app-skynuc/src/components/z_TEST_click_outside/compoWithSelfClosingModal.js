@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import UseOnClickOutside from './useOnClickOutside'
 
-function SelfClosingModal() {
+function CompoWithSelfClosingModal() {
     // Create a ref that we add to the element for which we want to detect outside clicks
     const ref = useRef();
     // State for our modal
@@ -20,4 +20,4 @@ function SelfClosingModal() {
     );
 }
 
-export default SelfClosingModal;
+export default CompoWithSelfClosingModal;

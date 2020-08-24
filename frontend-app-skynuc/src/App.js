@@ -13,7 +13,6 @@ import Home from './pages/home/home.view';
 import FlightListPage from './pages/flightlistpage/flightlistpage.view';
 import FlightCard from './components/flightcard/flightCard.view';
 import UserProfileCard from 'components/userProfileCard/userProfileCard.view';
-import SelfClosingModal from 'components/userProfileCard/selfClosingModal';
 
 
 function App() {
@@ -22,8 +21,7 @@ function App() {
             <div>
                 {/* <FlightCard /> */}
                 {/* <FlightListPage /> */}
-                {/* <UserProfileCard/> */}
-                <SelfClosingModal/>
+                <UserProfileCard/>
 
                 {/* <div>
                     <Switch>
