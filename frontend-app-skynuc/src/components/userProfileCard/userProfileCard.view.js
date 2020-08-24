@@ -10,15 +10,24 @@ const UserProfileCard = () => {
         setIsOpen(!isOpen);
     };
 
+    // const sendFlightDataToDB = () => {
+    //     alert ("Here goes POST fetch to DB - PARENT COMPONENT")
+    // };
+
     const userAirline = 'Vueling';
 
     return (
         <>
+            {/* {isOpen && <PopUpForm handleClose={togglePopup} handleSendData={sendFlightDataToDB} />} */}
             {isOpen && <PopUpForm handleClose={togglePopup} />}
 
             {/* <Navbar/> */}
             <div className="wrapper">
-                <div className="profile-card js-profile-card">
+                {/* <div className="profile-card js-profile-card"> */}
+                <div className={`profile-card ${isOpen ? "active" : ""} js-profile-card`}>
+
+
+
                     <div className="profile-card__img">
                         <img src={userProfilePicture} alt="profile card" title="Business vector created by Freepik.com" />
                     </div>

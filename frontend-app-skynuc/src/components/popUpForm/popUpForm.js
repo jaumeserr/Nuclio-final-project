@@ -1,7 +1,14 @@
 import React from 'react';
 import './popUpForm.css';
 
+
 const PopUpForm = (props) => {
+
+    const sendFlightDataToDB_2 = () => {
+        alert ("Here goes POST fetch to DB - CHILDREN COMPONENT")
+    };
+
+
     return (
         <div className="popup-box">
             <div className="box">
@@ -57,7 +64,9 @@ const PopUpForm = (props) => {
                     </div>
                 </div>
                 <div className="profile-card-form__bottom">
-                    <button className="profile-card__button form__button button--green js-message-close">
+                    {/* <button className="profile-card__button form__button button--green js-message-close" onClick={props.handleSendData}> */}
+                    <button className="profile-card__button form__button button--green js-message-close" onClick={sendFlightDataToDB_2}>
+
                         Send
                     </button>
                     <button className="profile-card__button form__button button--gray js-message-close" onClick={props.handleClose}>
@@ -69,6 +78,8 @@ const PopUpForm = (props) => {
                     x
                 </span>
             </div>
+            <div class="profile-card__overlay" onClick={props.handleClose}></div>
+
         </div>
     );
 };

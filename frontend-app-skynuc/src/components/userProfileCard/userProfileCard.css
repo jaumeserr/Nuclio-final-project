@@ -318,11 +318,9 @@ a:hover {
     position: absolute;
     top: 0;
     left: 0;
-    pointer-events: none;
+    pointer-events: auto;
     opacity: 0;
     background: rgba(22, 33, 72, 0.35);
     border-radius: 12px;
     transition: all 0.3s;
 }
-
-/* -------------- */
