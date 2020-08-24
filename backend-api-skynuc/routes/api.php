@@ -19,44 +19,6 @@ use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
-| Country Routes
-|--------------------------------------------------------------------------
-*/
-
-Route::group([
-
-    'prefix' => 'countries'
-
-], function ($router) {
-
-    Route::get('', 'CountryController@all');
-    Route::get('code/{a3_iso_code}', 'CountryController@getByCode');
-    Route::get('name/{name}', 'CountryController@getByName');
-
-});
-
-/*
-|--------------------------------------------------------------------------
-| City Routes
-|--------------------------------------------------------------------------
-*/
-
-Route::group([
-
-    'prefix' => 'cities'
-
-], function ($router) {
-
-    Route::get('', 'CityController@all');
-    Route::get('id/{id}', 'CityController@getById');
-    Route::get('name/{name}', 'CityController@getByName');
-    Route::get('country_code/{country_a3_iso_code}', 'CityController@getByCountryCode');
-
-});
-
-
-/*
-|--------------------------------------------------------------------------
 | Airport Routes
 |--------------------------------------------------------------------------
 */
@@ -69,8 +31,8 @@ Route::group([
 
     Route::get('', 'AirportController@all');
     Route::get('iata/{iata}', 'AirportController@getByIata');
-    Route::get('name/{name}', 'AirportController@getByName');
-    Route::get('city_id/{city_id}', 'AirportController@getByCityId');
+    Route::get('city_name/{city_name}', 'AirportController@getByCity_Name');
+   
 
 });
 

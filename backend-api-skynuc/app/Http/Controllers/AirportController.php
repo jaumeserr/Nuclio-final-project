@@ -45,26 +45,14 @@ class AirportController extends Controller {
      * @return Jsonresponse
      */
 
-    public function getByName($name)
+    public function getByCity_Name($city_name)
     {
-        Log::info('Retrieving Airport by name: '.$name);
-        $airport = Airport::where('name', $name)->first();
+        Log::info('Retrieving Airport by City_name: '.$city_name);
+        $airport = Airport::where('city_name', $city_name)->first();
         return response()->json($airport);
         
     }
 
-     /**
-     * Return a given airport by city_id
-     * 
-     * @param $city_id
-     * @return Jsonresponse
-     */
-
-    public function getByCityId($city_id)
-    {
-        Log::info('Retrieveing Airport by city_id: '.$city_id);
-        $airport = Airport::where('city_id', $city_id)->first();
-        return response()->json($airport);
-    }
+    
 }
 
