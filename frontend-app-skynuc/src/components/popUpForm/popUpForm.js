@@ -1,13 +1,36 @@
-import React from 'react';
+import React, { useCallback, useEffect } from 'react';
 import './popUpForm.css';
 
+const PopUpForm = ({ handleClose }) => {
 
-const PopUpForm = (props) => {
+    const handleKeyUp = useCallback(
+        (e) => {
+            const keys = {
+                27: () => {
+                    e.preventDefault();
+                    handleClose();
+                    window.removeEventListener('keyup', handleKeyUp, false);
+                },
+            };
+
+            if (keys[e.keyCode]) {
+                keys[e.keyCode]();
+            }
+        },
+        [handleClose],
+    );
+
+    useEffect(() => {
+        window.addEventListener('keyup', handleKeyUp, false);
+
+        return () => {
+            window.removeEventListener('keyup', handleKeyUp, false);
+        };
+    }, [handleKeyUp]);
 
     const sendFlightDataToDB_2 = () => {
-        alert ("Here goes POST fetch to DB - CHILDREN COMPONENT")
+        alert('Here goes POST fetch to DB - CHILDREN COMPONENT');
     };
-
 
     return (
         <div className="popup-box">
@@ -65,21 +88,25 @@ const PopUpForm = (props) => {
                 </div>
                 <div className="profile-card-form__bottom">
                     {/* <button className="profile-card__button form__button button--green js-message-close" onClick={props.handleSendData}> */}
-                    <button className="profile-card__button form__button button--green js-message-close" onClick={sendFlightDataToDB_2}>
-
+                    <button
+                        className="profile-card__button form__button button--green js-message-close"
+                        onClick={sendFlightDataToDB_2}
+                    >
                         Send
                     </button>
-                    <button className="profile-card__button form__button button--gray js-message-close" onClick={props.handleClose}>
+                    <button
+                        className="profile-card__button form__button button--gray js-message-close"
+                        onClick={handleClose}
+                    >
                         Cancel
                     </button>
                 </div>
 
-                <span className="close-icon" onClick={props.handleClose}>
+                <span className="close-icon" onClick={handleClose}>
                     x
                 </span>
             </div>
-            <div class="profile-card__overlay" onClick={props.handleClose}></div>
-
+            <div class="profile-card__overlay" onClick={handleClose}></div>
         </div>
     );
 };

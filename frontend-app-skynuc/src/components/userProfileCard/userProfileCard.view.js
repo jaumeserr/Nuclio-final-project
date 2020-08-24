@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import userProfilePicture from '../../assets/images/user_profile_avatars/user_profile_avatar_1.png';
+import userProfilePicture from '../../assets/images/user_profile_avatars/user_profile_avatar_2.png';
 import PopUpForm from '../popUpForm/popUpForm.js';
 import './userProfileCard.css';
 
@@ -24,12 +24,13 @@ const UserProfileCard = () => {
             {/* <Navbar/> */}
             <div className="wrapper">
                 {/* <div className="profile-card js-profile-card"> */}
-                <div className={`profile-card ${isOpen ? "active" : ""} js-profile-card`}>
-
-
-
+                <div className={`profile-card ${isOpen ? 'active' : ''} js-profile-card`}>
                     <div className="profile-card__img">
-                        <img src={userProfilePicture} alt="profile card" title="Business vector created by Freepik.com" />
+                        <img
+                            src={userProfilePicture}
+                            alt="profile card"
+                            title="Business vector created by Freepik.com"
+                        />
                     </div>
                     <div className="profile-card__cnt js-profile-cnt">
                         <div className="profile-card__name">Karom Germain</div>
