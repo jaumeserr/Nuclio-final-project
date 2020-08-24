@@ -6,7 +6,7 @@ import './userProfileCard.css';
 const UserProfileCard = () => {
     const [isOpen, setIsOpen] = useState(false);
 
-    const togglePopup = () => {
+    const closePopUp = () => {
         setIsOpen(!isOpen);
     };
 
@@ -18,8 +18,8 @@ const UserProfileCard = () => {
 
     return (
         <>
-            {/* {isOpen && <PopUpForm handleClose={togglePopup} handleSendData={sendFlightDataToDB} />} */}
-            {isOpen && <PopUpForm handleClose={togglePopup} />}
+            {/* {isOpen && <PopUpForm handleClose={closePopUp} handleSendData={sendFlightDataToDB} />} */}
+            {isOpen && <PopUpForm handleClose={closePopUp} />}
 
             {/* <Navbar/> */}
             <div className="wrapper">
@@ -51,7 +51,7 @@ const UserProfileCard = () => {
                             <div className="profile-card-ctr-box">
                                 <button
                                     className="profile-card__button button--green js-message-btn"
-                                    onClick={togglePopup}
+                                    onClick={closePopUp}
                                 >
                                     Add flight
                                 </button>
