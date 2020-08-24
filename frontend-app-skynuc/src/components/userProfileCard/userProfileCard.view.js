@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import userProfilePicture from '../../assets/images/user_profile_avatars/user_profile_avatar_2.png';
+import userProfilePicture from '../../assets/images/user_profile_avatars/user_profile_avatar_1.png';
 import PopUpForm from '../popUpForm/popUpForm.js';
 import './userProfileCard.css';
 
 const UserProfileCard = () => {
     const [isOpen, setIsOpen] = useState(false);
 
-    const closePopUp = () => {
+    const togglePopUp = () => {
         setIsOpen(!isOpen);
     };
 
@@ -14,14 +14,17 @@ const UserProfileCard = () => {
     //     alert ("Here goes POST fetch to DB - PARENT COMPONENT")
     // };
 
+    const userName = 'Karom Germain';
     const userAirline = 'Vueling';
+    const flightsAdded = '16';
 
     return (
         <>
             {/* {isOpen && <PopUpForm handleClose={closePopUp} handleSendData={sendFlightDataToDB} />} */}
-            {isOpen && <PopUpForm handleClose={closePopUp} />}
+            {isOpen && <PopUpForm handleClose={togglePopUp} />}
 
             {/* <Navbar/> */}
+
             <div className="wrapper">
                 {/* <div className="profile-card js-profile-card"> */}
                 <div className={`profile-card ${isOpen ? 'active' : ''} js-profile-card`}>
@@ -33,7 +36,7 @@ const UserProfileCard = () => {
                         />
                     </div>
                     <div className="profile-card__cnt js-profile-cnt">
-                        <div className="profile-card__name">Karom Germain</div>
+                        <div className="profile-card__name">{userName}</div>
                         <div className="profile-card__txt">
                             Flight Administrator from <b>{userAirline}</b>
                         </div>
@@ -41,7 +44,9 @@ const UserProfileCard = () => {
                             <div className="profile-card-ctr-box">
                                 <div className="profile-card-inf">
                                     <div className="profile-card-inf__item">
-                                        <div className="profile-card-inf__number">16</div>
+                                        <div className="profile-card-inf__number">
+                                            {flightsAdded}
+                                        </div>
                                         <div className="profile-card-inf__txt">Flights added</div>
                                     </div>
                                 </div>
@@ -52,7 +57,7 @@ const UserProfileCard = () => {
                             <div className="profile-card-ctr-box">
                                 <button
                                     className="profile-card__button button--green js-message-btn"
-                                    onClick={closePopUp}
+                                    onClick={togglePopUp}
                                 >
                                     Add flight
                                 </button>

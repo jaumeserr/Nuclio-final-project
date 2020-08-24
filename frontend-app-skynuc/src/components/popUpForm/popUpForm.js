@@ -112,3 +112,5 @@ const PopUpForm = ({ handleClose }) => {
 };
 
 export default PopUpForm;
+
+// SOURCE (Esc key): https://medium.com/@pppped/build-a-simple-responsive-modal-with-react-and-jss-updated-with-hooks-8cf821b1e205
