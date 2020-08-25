@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import userProfilePicture from '../../assets/images/user_profile_avatars/user_profile_avatar_1.png';
-import PopUpAddFlight from '../popUpAddFlight/popUpAddFlight.js';
+import PopUpBox from '../popUpBox/popUpBox.view.js';
 import './userProfileCard.css';
 import Navbar from '../navbar/navbar.view';
 
@@ -22,7 +22,7 @@ const UserProfileCard = () => {
     return (
         <>
             {/* {isOpen && <PopUpForm handleClose={closePopUp} handleSendData={sendFlightDataToDB} />} */}
-            {isOpen && <PopUpAddFlight handleClose={togglePopUp} />}
+            {isOpen && <PopUpBox handleClose={togglePopUp} />}
 
             <Navbar/>
 
