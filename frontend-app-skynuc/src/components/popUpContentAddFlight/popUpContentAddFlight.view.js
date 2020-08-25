@@ -72,7 +72,7 @@ const PopUpContentAddFlight = ({ handleClose }) => {
                     onClick={handleClose}
                     // FIXME: onClick={handleClose} - Not working
                 >
-                    Cancel
+                    Cancel-NOT-WORKING
                 </button>
             </div>
         </>
