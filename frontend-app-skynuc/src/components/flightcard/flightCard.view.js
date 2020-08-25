@@ -3,6 +3,7 @@ import React from 'react';
 import flight_arrow from '../../assets/images/flight_arrow.png';
 import './flightCard.scss';
 
+
 const FlightCard = ({id, country_a3_iso_code, name}) => {
     return (
         <>

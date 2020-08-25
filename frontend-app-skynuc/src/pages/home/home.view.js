@@ -27,7 +27,7 @@ import SearchBox from "../../components/searchBox/searchBox.view";
                 <section className={styles.__container__body}>
                     <SearchBox />
                     <Link to={FLIGHT_LIST}><ButtonFlightSearch/></Link>
-                    
+
                 </section>
                 <section className={styles.__container__gallery}>
                     <div className={styles.__container_img}>
