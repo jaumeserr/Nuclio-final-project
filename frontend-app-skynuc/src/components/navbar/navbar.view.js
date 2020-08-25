@@ -1,18 +1,26 @@
-import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
-import styles from './navbar.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/images/logo.png';
-import { LOGIN, REGISTER, USER_INFO, HOME } from '../../routes/routes';
+import { HOME, LOGIN, REGISTER, USER_PROFILE } from '../../routes/routes';
+import styles from './navbar.module.css';
 
 const Navbar = () => {
     return (
         <div className={styles.__container}>
-            <Link to={HOME}><img src ={logo} alt ="logo" className={styles.__logo}/></Link>
-            <Link to={LOGIN}><button className= 'button button-primary'>Login</button></Link>
-            <Link to={REGISTER}><button className= 'button button-primary'>Register</button></Link>
-            <Link to={USER_INFO}><FontAwesomeIcon icon={faUserCircle} size="3x" /></Link>
+            <Link to={HOME}>
+                <img src={logo} alt="logo" className={styles.__logo} />
+            </Link>
+            <Link to={LOGIN}>
+                <button className="button button-primary">Login</button>
+            </Link>
+            <Link to={REGISTER}>
+                <button className="button button-primary">Register</button>
+            </Link>
+            <Link to={USER_PROFILE}>
+                <FontAwesomeIcon icon={faUserCircle} size="3x" />
+            </Link>
         </div>
     );
 };

@@ -19,42 +19,6 @@ use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
-| Country Routes
-|--------------------------------------------------------------------------
-*/
-
-Route::group([
-
-    'prefix' => 'countries'
-
-], function ($router) {
-
-    Route::get('', 'CountryController@all');
-    Route::get('{a3_iso_code}', 'CountryController@getByCode');
-    Route::get('{name}', 'CountryController@getByName');
-
-});
-
-
-/*
-|--------------------------------------------------------------------------
-| City Routes
-|--------------------------------------------------------------------------
-*/
-
-Route::group([
-
-    'prefix' => 'cities'
-
-], function ($router) {
-
-    Route::get('', 'CityController@all');
-
-});
-
-
-/*
-|--------------------------------------------------------------------------
 | Airport Routes
 |--------------------------------------------------------------------------
 */
@@ -66,6 +30,9 @@ Route::group([
 ], function ($router) {
 
     Route::get('', 'AirportController@all');
+    Route::get('iata/{iata}', 'AirportController@getByIata');
+    Route::get('city_name/{city_name}', 'AirportController@getByCityName');
+
 
 });
 
@@ -83,6 +50,8 @@ Route::group([
 ], function ($router) {
 
     Route::get('', 'AirlineController@all');
+    Route::get('code/{two_letter_code}', 'AirlineController@getByCode');
+    Route::get('name/{name}', 'AirlineController@getByName');
 
 });
 
@@ -117,5 +86,12 @@ Route::group([
 ], function ($router) {
 
     Route::get('', 'FlightInstanceController@all');
+    Route::get('id/{id}', 'FlightInstanceController@getById');
+    Route::get('dpt_datetime/{dpt_datetime}', 'FlightInstanceController@getByDptDatetime');
+    Route::get('arr_datetime/{arr_datetime}', 'FlightInstanceController@getByArrDatetime');
+    Route::get('flight_num/{flight_consts_flight_num}', 'FlightInstanceController@getByFlightNum');
+    Route::get('price_eur/{price_eur}', 'FlightInstanceController@getByPrice');
+
+
 
 });

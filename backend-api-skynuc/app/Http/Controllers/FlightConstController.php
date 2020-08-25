@@ -12,7 +12,7 @@ use App\Http\Controllers\Controller;
 class FlightConstController extends Controller {
 
     /**
-     * Show a list of all of the application's flight Consts.
+     * Show a list of all of the application's flight consts
      *
      * @return JsonResponse
      */

@@ -19,7 +19,7 @@
 
 /* COMENTAR QUAN DISSENY ESTIGUI FET */
 
-#flight_card_container, #box_top_airline, #box_bottom, #box_left_container, #box_right_container, #box_left, #box_right, #box_left_left, #box_left_right, #box_left_right_inner, #box_left_right_inner_dpt, #box_left_right_inner_duration, #box_left_right_inner_arr, p {
+#flight_card_container, #box_top_airline, #box_bottom, #box_left_container, #box_right_container, #box_left, #box_right, #box_left_left, #box_left_right, #box_left_right_inner, #box_left_right_inner_dpt, #box_left_right_inner_duration, #box_left_right_inner_arr p {
     border: 0.5px;
     border-style: solid;
     border-color: #000;
@@ -37,14 +37,14 @@
     border-style: solid;
     border-color: #000;
     border-radius: 25px;
-    
+
     // box-shadow: 5px 5px 5px 5px darken(transparent, 0%);
     transition: .25s;
 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    text-align: center;  
+    text-align: center;
 
     &:hover {
     box-shadow: 1px 1px 1px 1px darken(grey, 2%);
@@ -84,7 +84,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    
+
     // height: 220px; // FIXME
     flex-grow: 3;
 
@@ -161,7 +161,7 @@
 
 #box_left p{
     // height: 50%;
-    
+
     // padding: 10px 10px 10px 10px;
     // margin: 5px 5px 5px 5px;
 
@@ -217,7 +217,7 @@
 }
 
 #box_left_right_inner p {
-    padding: 10px 5px;
+    // padding: 10px 5px;
 }
 
 #box_left_right_inner_dpt {
@@ -268,7 +268,7 @@
 //   color: blue;
 //   font-size: 15px;
 //   transition:.25s;
-  
+
 //   i{
 //     padding-right:4px;
 //   }

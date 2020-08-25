@@ -6,5 +6,3 @@ DROP TABLE flight_instances;
 DROP TABLE flight_consts;
 DROP TABLE airlines;
 DROP TABLE airports;
-DROP TABLE cities;
-DROP TABLE countries;

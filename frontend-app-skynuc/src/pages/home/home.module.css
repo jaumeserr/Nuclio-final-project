@@ -16,7 +16,8 @@
 
 .__container__body{
     box-sizing: border-box;
-    background-image: linear-gradient(to right, rgba(79, 172, 254, 0.59) 0%, rgba(0, 242, 254, 0.62) 100%), url("../../assets/images/globos2.jpg");
+    background-image: linear-gradient(-20deg, #0169dfa2 0%, #5191daa4 100%), url("../../assets/images/globos2.jpg");
+    /* background-image: linear-gradient(to right, rgba(79, 172, 254, 0.59) 0%, rgba(0, 242, 254, 0.62) 100%), url("../../assets/images/globos2.jpg"); */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -28,7 +29,7 @@
     flex-direction: column;
 }
 
-h1{
+.__title{
     align-items: center;
     font-size: 65px;
     font-weight: bolder;
@@ -59,7 +60,7 @@ h1{
     margin: 10px 20px;
 }
 
-footer{
+.__container__footer{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -69,7 +70,7 @@ footer{
     background-color: rgba(99, 107, 111, 0.9);
 }
 
-input{
+.__container__input{
     background: rgba(99, 107, 111, 0.9);
     width: 350px;
     text-align: center;
@@ -80,7 +81,7 @@ input{
     outline: none;
 }
 
-input::placeholder{
+.__container__input::placeholder{
     color: white;
     font-family: -apple-system, serif;
     outline: none;
