@@ -5,6 +5,7 @@ import flight_arrow from '../../assets/images/flight_arrow.png';
 import './flightCard.scss';
 
 const FlightCard = ({flight_num}) => {
+
     return (
         <>
 
@@ -60,10 +61,5 @@ FlightCard.propTypes = {
     dpt_airport_iata: PropTypes.string.isRequired,
     arr_airport_iata: PropTypes.string.isRequired,
 }
-
-
-
-
-
 
 export default FlightCard;

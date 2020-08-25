@@ -12,7 +12,7 @@ use App\Http\Controllers\Controller;
 class AirlineController extends Controller {
 
     /**
-     * Show a list of all of the application's airlines.
+     * Show a list of all of the application's airlines
      *
      * @return JsonResponse
      */
@@ -23,14 +23,14 @@ class AirlineController extends Controller {
     }
 
     /**
-     * Return a given airline by two_letter_code
+     * Return a given airline by code
      *
      * @param $two_letter_code
      * @return JsonResponse
      */
     public function getByCode($two_letter_code)
     {
-        Log::info('Retrieving Airline by two_letter_code: '.$two_letter_code);
+        Log::info('Retrieving airline by code: '.$two_letter_code);
         $airline = Airline::where('two_letter_code', $two_letter_code)->first();
         return response()->json($airline);
     }
@@ -43,7 +43,7 @@ class AirlineController extends Controller {
      */
     public function getByName($name)
     {
-        Log::info('Retrieving Airline by name: '.$name);
+        Log::info('Retrieving airline by name: '.$name);
         $airline = Airline::where('name', $name)->first();
         return response()->json($airline);
     }

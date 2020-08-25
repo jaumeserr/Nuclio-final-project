@@ -1,41 +1,10 @@
-header {
-    width: 100%;
-    align-items: center;
-    justify-content: space-between;
-    display: inline-flex;
-    position: fixed;
+.__wrapper {
     top: 0;
     left: 0;
-    background-color: blue;
-    z-index: 10;
-
-}
-.__logo{
-    width: 250px;
-    margin-left: 30px;
-    height: 45px;
-    margin-top: 10px;
-    padding: 15px auto;
-}
-.__container__butt{
-    display: flex;
-
-}
-.__container__nav{
-    margin: 20px 20px;
-    justify-content:space-between;
-    background-color: rgba(0, 0, 255, 0.7);
-    border-radius: 20px;
-    padding: 10px;
-    outline: none;
-    border: transparent;
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    padding: 50px 20px;
+    background-image: linear-gradient(-20deg, #0169df 0%, #5191da 100%);
     color: white;
-    cursor: pointer;
-    font-family: -apple-system, serif;
-    font-size: 16px;
 }
-.__container__nav:active {
-    transform: scale(0.9, 0.9);
-}
-
-
