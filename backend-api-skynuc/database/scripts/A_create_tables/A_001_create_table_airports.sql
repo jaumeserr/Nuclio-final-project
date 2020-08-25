@@ -5,5 +5,5 @@ CREATE TABLE IF NOT EXISTS airports
 
     PRIMARY KEY (iata),
 
-    INDEX (city_name),
+    INDEX (city_name)
 );

@@ -16,6 +16,7 @@ import { SRLWrapper } from 'simple-react-lightbox';
 import { Link } from 'react-router-dom';
 import ButtonFlightSearch from '../../components/buttonflightsearch/buttonflightsearch.view';
 import { FLIGHT_LIST } from '../../routes/routes';
+import SearchBox from "../../components/searchBox/searchBox.view";
 
     const Home = () => {
         return (
@@ -24,9 +25,7 @@ import { FLIGHT_LIST } from '../../routes/routes';
             <div className={styles.__container}>
 
                 <section className={styles.__container__body}>
-                    <div className={styles.__container__text}>
-                        <h1 className={styles.__title}>Welcome to Skyscanner</h1>
-                    </div>
+                    <SearchBox />
                     <Link to={FLIGHT_LIST}><ButtonFlightSearch/></Link>
 
                 </section>
