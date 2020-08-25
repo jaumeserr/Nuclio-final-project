@@ -4,7 +4,7 @@ import React from 'react';
 import flight_arrow from '../../assets/images/flight_arrow.png';
 import './flightCard.scss';
 
-const FlightCard = ({flight_num}) => {
+const FlightCard = ({flight_num, dpt_airport_iata, arr_airport_iata}) => {
 
     return (
         <>
@@ -23,7 +23,7 @@ const FlightCard = ({flight_num}) => {
                             <div id="box_left_right_inner">
                                 <div id="box_left_right_inner_dpt">
                                     <p style = {{background: "darkgreen", color: "white", fontWeight: "bold", fontSize: "24px"}}>17:15</p>
-                                    <p style = {{background: "darkgreen", color: "white", textAlign: "right", fontSize: "15px"}}>BCN</p>
+                                    <p style = {{background: "darkgreen", color: "white", textAlign: "right", fontSize: "15px"}}>{dpt_airport_iata}}</p>
                                 </div>
                                 <div id="box_left_right_inner_duration">
                                     <p style = {{background: "darkgreen", color: "white"}}>2h 20min</p>
@@ -32,7 +32,7 @@ const FlightCard = ({flight_num}) => {
                                 </div>
                                 <div id="box_left_right_inner_arr">
                                     <p style = {{background: "darkgreen", color: "white", fontWeight: "bold", fontSize: "24px"}}>19:35</p>
-                                    <p style = {{background: "darkgreen", color: "white", textAlign: "left", fontSize: "15px"}}>AMS</p>
+                                    <p style = {{background: "darkgreen", color: "white", textAlign: "left", fontSize: "15px"}}>{arr_airport_iata}</p>
                                 </div>
                             </div>
                         </div>
@@ -48,7 +48,7 @@ const FlightCard = ({flight_num}) => {
             </div>
         </div>
 
-        <img id="image_model" src= {"https://user-images.githubusercontent.com/38922857/89059615-cc3c1700-d361-11ea-9c26-66466d4d0105.png"} alt="modelo"></img>
+        {/* <img id="image_model" src= {"https://user-images.githubusercontent.com/38922857/89059615-cc3c1700-d361-11ea-9c26-66466d4d0105.png"} alt="modelo"></img> */}
 
         </>
     );

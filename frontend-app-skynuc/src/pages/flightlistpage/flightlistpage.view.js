@@ -79,6 +79,8 @@ const FlightListPage = () => {
 
     return (
         <>
+                <div className={styles.__wrapper}>
+
             <Navbar/>
 
             {isLoading && <Loader />}
@@ -100,7 +102,7 @@ const FlightListPage = () => {
                     );
                 })}
             </Masonry>
-
+</div>
         </>
     );
 };

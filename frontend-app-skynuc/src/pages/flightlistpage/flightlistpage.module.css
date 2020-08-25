@@ -1,14 +1,13 @@
-* {
-    font-family: 'Montserrat', sans-serif;
-    /* font-size: 10px; NO ACTIVAR */
+.__wrapper {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    padding: 50px 20px;
+    background-image: linear-gradient(-20deg, #0169df 0%, #5191da 100%);
+    color: white;
 }
-
-body, html {
-    font-family: 'Montserrat', sans-serif;
-    /* font-size: 10px; NO ACTIVAR */
-}
-
-
 
 
 /** MASONRY USED **/
@@ -17,14 +16,12 @@ body, html {
 
 
 .__masonry__grid {
-    background-color: white;
+    background: rgba(255, 255, 255, 0.5);
     display: -webkit-box; /* Not needed if autoprefixing */
     display: -ms-flexbox; /* Not needed if autoprefixing */
     display: flex;
     margin: auto;
-    /* margin: 20px 150px 20px 150px; */
-    /* margin-left: -30px; gutter size offset */
-    /* width: 100%; */
+    margin: 40px 150px 20px 150px;
     width: auto;
     align-self: center;
     padding: 60px 60px 60px 60px;

@@ -1,5 +1,5 @@
 import PopUpContentAddFlight from 'components/popUpContentAddFlight/popUpContentAddFlight.view';
-import React, { useState } from 'react';
+import React from 'react';
 import UseKeyPress from '../../utils/useKeyPress';
 import './popUpBox.css';
 
