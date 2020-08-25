@@ -19,7 +19,7 @@ const PopUpBox = ({ handleClose }) => {
             <div className="popup-box">
                 <div className="box">
                     {/* <PopUpContentAddFlight handleClose={togglePopUp} /> */}
-                    {/* // FIXME: How to */}
+                    {/* // FIXME: How to make Cancel button work in the following component? */}
                     <PopUpContentAddFlight />
 
                     <span className="close-icon" onClick={handleClose}>
