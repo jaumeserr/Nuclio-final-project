@@ -120,7 +120,7 @@ const SearchBox = () => {
                 <div className={styles.__inputBox}>
                     <label className={styles.__label}>A</label><br />
                     <select
-                        className={styles.__select}
+                        className={`${styles.__select} ${styles.__destination}`}
                         value={destinationIata}
                         onChange={(e) => {setDestinationIata(e.target.value)}}
                     >
