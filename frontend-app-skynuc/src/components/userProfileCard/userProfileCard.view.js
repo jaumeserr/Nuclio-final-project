@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import userProfilePicture from '../../assets/images/user_profile_avatars/user_profile_avatar_1.png';
+import Navbar from '../navbar/navbar.view';
 import PopUpBox from '../popUpBox/popUpBox.view.js';
 import './userProfileCard.css';
-import Navbar from '../navbar/navbar.view';
 
 const UserProfileCard = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -15,7 +15,7 @@ const UserProfileCard = () => {
     //     alert ("Here goes POST fetch to DB - PARENT COMPONENT")
     // };
 
-    const userName = 'Karom Germain';
+    const userName = 'Karom Germaine';
     const userAirline = 'Vueling';
     const flightsAdded = '16';
 

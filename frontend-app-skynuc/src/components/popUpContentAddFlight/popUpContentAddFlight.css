@@ -58,11 +58,10 @@
 
 .profile-card-form__container {
     height: auto;
-    width: auto;
+    width: 91%;
     position: relative;
     display: flex;
     flex-direction: column;
-    /* flex-wrap: wrap; */
     justify-content: space-around;
     align-items: center;
     margin: 65px auto 20px auto;
@@ -72,44 +71,75 @@
     height: auto;
 }
 
+@media screen and (max-width: 576px) {
+    .profile-card-form__container_and_bottom {
+        overflow: scroll;
+        height: 300px;
+        margin-top: 30px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .profile-card-form-dpt,
+    .profile-card-form-arr,
+    .profile-card-form-flightnum-price {
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        /* FIXME: Media query not working */
+    }
+}
+
+.profile-card-form-dpt,
+.profile-card-form-arr,
+.profile-card-form-flightnum_price {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: right;
+    width: 100%;
+}
+
+.profile-card-form-flightnum_price {
+    justify-content: center;
+}
+
 .profile-card-form__container input,
-label,
-select {
+.profile-card-form__container label,
+.profile-card-form__container select {
     margin: 15px 5px;
     padding: 3px 3px;
     font-weight: 500;
     font-size: 17px;
-    resize: none;
     color: #324e63;
     transition: all 0.3s;
+    min-width: 110px;
 }
 
 .profile-card-form__container input,
-select {
+.profile-card-form__container select {
     border: 2px solid #dcdcdc;
     border-radius: 10px;
     outline: none;
 }
 
 .profile-card-form__container label {
-    /* min-width: 400px; */
+    min-width: 130px;
 }
 
 .profile-card-form__container input:focus,
-select:focus {
+.profile-card-form__container select:focus {
     outline: none;
     border-color: #0ead31;
 }
 
-.profile-card-form-dpt__container,
-.profile-card-form-arr__container {
-    flex-basis: 50%;
+.profile-card-form-flightnum_price input {
+    width: 127px;
 }
 
-.profile-card-form-price__container {
-    flex-basis: 100%;
-    display: flex;
-    justify-content: center;
+.profile-card-form-flightnum_price label {
+    min-width: 120px;
 }
 
 .profile-card-form__bottom {
