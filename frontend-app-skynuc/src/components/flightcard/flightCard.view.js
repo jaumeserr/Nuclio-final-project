@@ -1,10 +1,11 @@
 
+import PropTypes from 'prop-types';
 import React from 'react';
 import flight_arrow from '../../assets/images/flight_arrow.png';
 import './flightCard.scss';
 
+const FlightCard = ({flight_num, dpt_airport_iata, arr_airport_iata}) => {
 
-const FlightCard = ({id, country_a3_iso_code, name}) => {
     return (
         <>
 
@@ -22,7 +23,7 @@ const FlightCard = ({id, country_a3_iso_code, name}) => {
                             <div id="box_left_right_inner">
                                 <div id="box_left_right_inner_dpt">
                                     <p style = {{background: "darkgreen", color: "white", fontWeight: "bold", fontSize: "24px"}}>17:15</p>
-                                    <p style = {{background: "darkgreen", color: "white", textAlign: "right", fontSize: "15px"}}>BCN</p>
+                                    <p style = {{background: "darkgreen", color: "white", textAlign: "right", fontSize: "15px"}}>{dpt_airport_iata}}</p>
                                 </div>
                                 <div id="box_left_right_inner_duration">
                                     <p style = {{background: "darkgreen", color: "white"}}>2h 20min</p>
@@ -31,7 +32,7 @@ const FlightCard = ({id, country_a3_iso_code, name}) => {
                                 </div>
                                 <div id="box_left_right_inner_arr">
                                     <p style = {{background: "darkgreen", color: "white", fontWeight: "bold", fontSize: "24px"}}>19:35</p>
-                                    <p style = {{background: "darkgreen", color: "white", textAlign: "left", fontSize: "15px"}}>AMS</p>
+                                    <p style = {{background: "darkgreen", color: "white", textAlign: "left", fontSize: "15px"}}>{arr_airport_iata}</p>
                                 </div>
                             </div>
                         </div>
@@ -40,25 +41,25 @@ const FlightCard = ({id, country_a3_iso_code, name}) => {
                 </div>
                 <div id="box_right_container">
                     <div id="box_right">
-                        <p style = {{background: "darkred", color: "white", fontSize: "20px"}}>Price: {id}</p>
+                        <p style = {{background: "darkred", color: "white", fontSize: "20px"}}>Price: {flight_num}</p>
                         <p style = {{background: "darkgreen", color: "white"}}>Flight button</p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <img id="image_model" src= {"https://user-images.githubusercontent.com/38922857/89059615-cc3c1700-d361-11ea-9c26-66466d4d0105.png"} alt="modelo"></img>
+        {/* <img id="image_model" src= {"https://user-images.githubusercontent.com/38922857/89059615-cc3c1700-d361-11ea-9c26-66466d4d0105.png"} alt="modelo"></img> */}
 
         </>
     );
 };
 
 
-// FlightCard.propTypes = {
-//     id: PropTypes.number.isRequired,
-//     country_a3_iso_code: PropTypes.string.isRequired,
-//     name: PropTypes.string.isRequired,
-// }
-
+FlightCard.propTypes = {
+    flight_num: PropTypes.string.isRequired,
+    airline_two_letter_code: PropTypes.string.isRequired,
+    dpt_airport_iata: PropTypes.string.isRequired,
+    arr_airport_iata: PropTypes.string.isRequired,
+}
 
 export default FlightCard;

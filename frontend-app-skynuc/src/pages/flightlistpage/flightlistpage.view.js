@@ -25,42 +25,42 @@ const FlightListPage = () => {
 
         // SOURCE (Promise): https://gomakethings.com/waiting-for-multiple-all-api-responses-to-complete-with-the-vanilla-js-promise.all-method/
 
-        Promise.all([
-            fetch('http://localhost/api/airlines', options),
-            fetch('http://localhost/api/cities', options)
-        ]).then(response => {
-            return Promise.all(response.map(response => {
-                return response.json();
-            }));
-        }).then(payload => {
-            console.log(payload);
-            console.log("Data from DB loaded");
-            setInfoFlights(payload);
-            setIsLoading(false);
-        }).catch(error => {
-            console.log(error);
-        });
+        // Promise.all([
+        //     fetch('http://localhost/api/airlines', options),
+        //     fetch('http://localhost/api/cities', options)
+        // ]).then(response => {
+        //     return Promise.all(response.map(response => {
+        //         return response.json();
+        //     }));
+        // }).then(payload => {
+        //     console.log(payload);
+        //     console.log("Data from DB loaded");
+        //     setInfoFlights(payload);
+        //     setIsLoading(false);
+        // }).catch(error => {
+        //     console.log(error);
+        // });
 
 
 
         // --> ONE SINGLE FETCH
 
-        // const url = `${baseUrl}/cities`;
+        const url = `${baseUrl}/flight_consts`;
 
-        // fetch(url, options)
-        //     .then(response => {
-        //             if (response.status === 200) {
-        //                 return response.json();
-        //             }
-        //             return Promise.reject(response.status);
-        //         })
-        //     .then(payload => {
-        //             console.log(payload);
-        //             console.log("Data from DB loaded");
-        //             setInfoFlights(payload);
-        //             setIsLoading(false);
-        //         })
-        //     .catch(error => console.log(error));
+        fetch(url, options)
+            .then(response => {
+                    if (response.status === 200) {
+                        return response.json();
+                    }
+                    return Promise.reject(response.status);
+                })
+            .then(payload => {
+                    console.log(payload);
+                    console.log("Data from DB loaded");
+                    setInfoFlights(payload);
+                    setIsLoading(false);
+                })
+            .catch(error => console.log(error));
 
 
     }, []);
@@ -79,10 +79,12 @@ const FlightListPage = () => {
 
     return (
         <>
+                <div className={styles.__wrapper}>
+
             <Navbar/>
 
             {isLoading && <Loader />}
-            
+
             <Masonry
             breakpointCols={breakpointColumnsObj}
             className = {styles.__masonry__grid}
@@ -91,15 +93,16 @@ const FlightListPage = () => {
                 {infoFlights && infoFlights.map(data => {
                     return (
                         <FlightCard
-                            name={data.name}
-                            country_a3_iso_code={data.country_a3_iso_code}
-                            id={data.id}
-                            key={data.id}
+                            flight_num={data.flight_num}
+                            airline_two_letter_code={data.airline_two_letter_code}
+                            dpt_airport_iata={data.dpt_airport_iata}
+                            arr_airport_iata={data.arr_airport_iata}
+                            key={data.flight_num}
                         />
                     );
                 })}
             </Masonry>
-            
+</div>
         </>
     );
 };

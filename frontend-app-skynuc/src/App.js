@@ -5,11 +5,8 @@ import './App.css';
 import './assets/fonts.css';
 import { FLIGHT_LIST, LOGIN, REGISTER, USER_PROFILE } from './routes/routes';
 import Login from './components/login/login.view';
-import Register from './components/register/register.view';
-import Navbar from './components/navbar/navbar.view';
-import Home from './pages/home/home.view';
+import Register from './components/register/register.view';import Home from './pages/home/home.view';
 import FlightListPage from './pages/flightlistpage/flightlistpage.view';
-import FlightCard from './components/flightcard/flightCard.view';
 import UserProfileCard from './components/userProfileCard/userProfileCard.view';
 
 function App() {
@@ -48,3 +45,5 @@ function App() {
 }
 
 export default App;
+
+// import FlightCard from './components/flightcard/flightCard.view';
