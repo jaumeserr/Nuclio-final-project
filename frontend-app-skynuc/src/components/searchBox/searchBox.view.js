@@ -109,10 +109,10 @@ const SearchBox = () => {
                     >
                         <option value="">Seleccione Origen</option>
                         {origins && origins.map(origin => {
-                            const {id, name, iata} = origin
+                            const {city_name, iata} = origin
 
                             return (
-                                <option key={id} value={iata}>{name} ({iata})</option>
+                                <option key={iata} value={iata}>{city_name} ({iata})</option>
                             )
                         })}
                     </select>
@@ -126,10 +126,10 @@ const SearchBox = () => {
                     >
                         <option value="">Seleccione Destino</option>
                         {destinations && destinations.map(destination => {
-                            const {id, name, iata} = destination
+                            const {city_name, iata} = destination
 
                             return (
-                                <option key={id} value={iata}>{name} ({iata})</option>
+                                <option key={iata} value={iata}>{city_name} ({iata})</option>
                             )
                         })}
                     </select>
