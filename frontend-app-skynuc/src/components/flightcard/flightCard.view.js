@@ -4,7 +4,7 @@ import React from 'react';
 import flight_arrow from '../../assets/images/flight_arrow.png';
 import './flightCard.scss';
 
-const FlightCard = ({id, country_a3_iso_code, name}) => {
+const FlightCard = ({flight_num}) => {
     return (
         <>
 
@@ -40,7 +40,7 @@ const FlightCard = ({id, country_a3_iso_code, name}) => {
                 </div>
                 <div id="box_right_container">
                     <div id="box_right">
-                        <p style = {{background: "darkred", color: "white", fontSize: "20px"}}>Price: {id}</p>
+                        <p style = {{background: "darkred", color: "white", fontSize: "20px"}}>Price: {flight_num}</p>
                         <p style = {{background: "darkgreen", color: "white"}}>Flight button</p>
                     </div>
                 </div>
@@ -55,10 +55,15 @@ const FlightCard = ({id, country_a3_iso_code, name}) => {
 
 
 FlightCard.propTypes = {
-    id: PropTypes.number.isRequired,
-    country_a3_iso_code: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
+    flight_num: PropTypes.string.isRequired,
+    airline_two_letter_code: PropTypes.string.isRequired,
+    dpt_airport_iata: PropTypes.string.isRequired,
+    arr_airport_iata: PropTypes.string.isRequired,
 }
+
+
+
+
 
 
 export default FlightCard;

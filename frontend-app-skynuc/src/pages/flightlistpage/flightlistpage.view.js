@@ -45,7 +45,7 @@ const FlightListPage = () => {
 
         // --> ONE SINGLE FETCH
 
-        const url = `${baseUrl}/cities`;
+        const url = `${baseUrl}/flight_consts`;
 
         fetch(url, options)
             .then(response => {
@@ -82,7 +82,7 @@ const FlightListPage = () => {
             <Navbar/>
 
             {isLoading && <Loader />}
-            
+
             <Masonry
             breakpointCols={breakpointColumnsObj}
             className = {styles.__masonry__grid}
@@ -91,15 +91,16 @@ const FlightListPage = () => {
                 {infoFlights && infoFlights.map(data => {
                     return (
                         <FlightCard
-                            name={data.name}
-                            country_a3_iso_code={data.country_a3_iso_code}
-                            id={data.id}
-                            key={data.id}
+                            flight_num={data.flight_num}
+                            airline_two_letter_code={data.airline_two_letter_code}
+                            dpt_airport_iata={data.dpt_airport_iata}
+                            arr_airport_iata={data.arr_airport_iata}
+                            key={data.flight_num}
                         />
                     );
                 })}
             </Masonry>
-            
+
         </>
     );
 };
