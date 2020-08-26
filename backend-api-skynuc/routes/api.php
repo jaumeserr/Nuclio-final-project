@@ -54,7 +54,7 @@ Route::group([
     Route::get('name', 'AirlineController@getByName');
 
 
-    Route::get('flightcarddata', 'AirlineController@flightCardData');
+    // Route::get('flightcarddata', 'AirlineController@flightCardData');
 
 });
 
@@ -72,6 +72,10 @@ Route::group([
 ], function ($router) {
 
     Route::get('', 'FlightConstController@all');
+
+
+    Route::get('flightcarddata', 'FlightConstController@flightCardData');
+
 
 });
 

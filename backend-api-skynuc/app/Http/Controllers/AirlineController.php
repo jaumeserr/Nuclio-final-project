@@ -42,21 +42,48 @@ class AirlineController extends Controller {
      * @return JsonResponse
      */
 
-    public function getByName(Request $request)
+    public function getByName(Request $name)
     {
         Log::info('Retrieving airline by name: '.$name);
         $name = $request->query('name');
-        $airline = Airline::where('name', $name)->first();
+        $airline = Airline::where('name', 'LIKE', '%' . $name . '%')->first();
         return response()->json($airline);
     }
 
-        // ------> ANTIGUA - TO BE DELETED: //FIXME: Jaume, ALL old versions deleted???
+    // ------> ANTIGUA - Usar como modelo para cambiar los otros controladores, HOSMAN:
+    //FIXME: Jaume, ALL old versions deleted???
     // public function getByName($name)
     // {
     //     Log::info('Retrieving airline by name: '.$name);
     //     $airline = Airline::where('name', $name)->first();
     //     return response()->json($airline);
     // }
+
+        // CONDICIONAL ! NO BORRAR!
+        // --> Once PART 1 works, address this:
+        // In order to have both PART 1 and 2 in this SAME FUNCTION we need to use CONDITIONALS
+        // Ruth's guess:
+
+        // $name = $request->query('name'); // <- si he añadido "?name=x", aquí recupero este "x"
+        //     ->when($name . 'CONTIENE UN VALOR PORQUE HE AÑADIDO "?name=x"...'{
+        //         Log::info('Retrieving data for country ->' .$name);
+        //         $country = Country::where('name', $name)->get();
+        //     });
+        //     ->when($name 'NO CONTIENE NINGUN VALOR PORQUE NO HE AÑADIDO "?name=x"...'{
+        //         Log::info('Retrieving all countries');
+        //         $country = Country::all();
+        //     });
+        //     return response()->json($country);
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -68,12 +95,12 @@ class AirlineController extends Controller {
      *
      * @return JsonResponse
      */
-    public function flightCardData()
-    {
-        Log::info('Retrieving all airlines with corresp. flight consts and their corresp. flight instances');
-        $airlines = Airline::with('flight_consts.flight_instances')->get();
-        return response()->json($airlines);
-    }
+    // public function flightCardData()
+    // {
+    //     Log::info('Retrieving all airlines with corresp. flight consts and their corresp. flight instances');
+    //     $airlines = Airline::with('flightConsts.flightInstances')->get();
+    //     return response()->json($airlines);
+    // }
 
 
 

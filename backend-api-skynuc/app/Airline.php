@@ -40,7 +40,7 @@ class Airline extends Model {
      * Get the flight consts for the given airline.
      * It says: One airline has many flight consts
      */
-    public function flightConst()
+    public function flightConsts()
     {
         return $this->hasMany('App\FlightConst');
     }
