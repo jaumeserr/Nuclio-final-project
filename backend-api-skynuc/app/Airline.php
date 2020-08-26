@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class flightConst extends Model {
+class Airline extends Model {
 
     /**
      * The primary key associated with the table.
@@ -42,6 +42,6 @@ class flightConst extends Model {
      */
     public function flightConst()
     {
-        return $this->hasMany('App\flightConst');
+        return $this->hasMany('App\FlightConst');
     }
 }
