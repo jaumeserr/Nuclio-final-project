@@ -41,11 +41,42 @@ class AirlineController extends Controller {
      * @param $name
      * @return JsonResponse
      */
-    public function getByName($name)
+
+    public function getByName(Request $request)
     {
         Log::info('Retrieving airline by name: '.$name);
+        $name = $request->query('name');
         $airline = Airline::where('name', $name)->first();
         return response()->json($airline);
     }
+
+        // ------> ANTIGUA - TO BE DELETED: //FIXME: Jaume, ALL old versions deleted???
+    // public function getByName($name)
+    // {
+    //     Log::info('Retrieving airline by name: '.$name);
+    //     $airline = Airline::where('name', $name)->first();
+    //     return response()->json($airline);
+    // }
+
+
+
+
+    /**
+     * Show a list of all of the application's airlines
+     * with their corresponding flight consts
+     * and the corresponding flight instances of these flight consts
+     *
+     * @return JsonResponse
+     */
+    public function flightCardData()
+    {
+        Log::info('Retrieving all airlines with corresp. flight consts and their corresp. flight instances');
+        $airlines = Airline::with('flight_consts.flight_instances')->get();
+        return response()->json($airlines);
+    }
+
+
+
+
 }
 

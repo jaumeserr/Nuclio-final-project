@@ -25,4 +25,13 @@ class FlightInstance extends Model {
         'arr_datetime' => 'datetime',
     ];
 
+    /**
+     * Get the flight const that owns the flight instance.
+     * It says: One flight instance belongs to a flight const
+     */
+    public function flightConst()
+    {
+        return $this->belongsTo('App\FlightConst');
+    }
+
 }
