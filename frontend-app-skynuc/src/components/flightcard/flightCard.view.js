@@ -29,7 +29,7 @@ const FlightCard = ({ flight_num, dpt_airport_iata, arr_airport_iata }) => {
                                             17:15
                                         </p>
                                         <p style={{ textAlign: 'right', fontSize: '20px' }}>
-                                            {dpt_airport_iata}}
+                                            {dpt_airport_iata}
                                         </p>
                                     </div>
                                     <div id="box_left_right_inner_duration">
