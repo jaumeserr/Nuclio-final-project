@@ -116,8 +116,3 @@
     font-size: 20px;
     padding: 8px 12px;
 }
-
-.__radio {
-    display: flex;
-    flex-direction: row;
-}

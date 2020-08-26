@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import styles from './searchBox.module.css';
+import axios from 'axios';
 
 const SearchBox = () => {
 
@@ -13,9 +14,29 @@ const SearchBox = () => {
     const [airlines, setAirlines] = useState('');
     const [airlinesCode, setAirlinesCode] = useState('');
 
-
     useEffect(() => {
-        const url = 'http://localhost/api/airports';
+        axios.get('http://localhost/api/airports')
+            .then(res => {
+                setOrigins(res.data);
+                setDestinations(res.data);
+            })
+            .catch(err => console.log(err));
+
+        axios.get('http://localhost/api/flight_instances')
+            .then(res => {
+                setDates(res.data);
+            })
+            .catch(err => console.log(err));
+
+        axios.get('http://localhost/api/airlines')
+            .then(res => {
+                setAirlines(res.data);
+            })
+            .catch(err => console.log(err));
+    }, []);
+
+
+        /*const url = 'http://localhost/api/airports';
         const options = {
             method: 'GET',
             header: new Headers(),
@@ -36,9 +57,9 @@ const SearchBox = () => {
                 setDestinations(payload)
             })
             .catch(error => console.log(error));
-    }, []);
+    }, []);*/
 
-    useEffect(() => {
+    /*useEffect(() => {
         const url = 'http://localhost/api/flight_instances';
         const options = {
             method: 'GET',
@@ -82,7 +103,7 @@ const SearchBox = () => {
                 setAirlines(payload);
             })
             .catch(error => console.log(error));
-    }, []);
+    }, []);*/
 
     //Falla consistencia en las fechas, por ejemplo TAP 23.08.2020 que en el resto es 20200823
     const mySwitchAirline = (airlinesCode) => {
