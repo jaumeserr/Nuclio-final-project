@@ -70,15 +70,15 @@ class FlightInstanceController extends Controller {
     /**
      * Return a given flight instance by flight num
      *
-     * @param $flight_consts_flight_num
+     * @param $flight_const_flight_num
      * @return Jsonresponse
      */
 
 
-    public function getByFlightNum($flight_consts_flight_num)
+    public function getByFlightNum($flight_const_flight_num)
     {
-        Log::info('Retrieving flight instance by flight num: '.$flight_consts_flight_num);
-        $flightinstance = FlightInstance::where('flight_consts_flight_num', $flight_consts_flight_num)->first();
+        Log::info('Retrieving flight instance by flight num: '.$flight_const_flight_num);
+        $flightinstance = FlightInstance::where('flight_const_flight_num', $flight_const_flight_num)->first();
         return response()->json($flightinstance);
     }
 

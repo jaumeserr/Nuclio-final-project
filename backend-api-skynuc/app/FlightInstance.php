@@ -12,7 +12,7 @@ class FlightInstance extends Model {
      * @var array
      */
     protected $fillable = [
-        'id', 'dpt_datetime', 'arr_datetime', 'flight_consts_flight_num', 'price_eur'
+        'id', 'dpt_datetime', 'arr_datetime', 'flight_const_flight_num', 'price_eur'
     ];
 
     /**
