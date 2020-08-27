@@ -42,7 +42,7 @@ class Airport extends Model {
      * Get the flight consts for the given airport.
      * It says: One airport has many flight consts
      */
-    public function flightConsts()
+    public function flightConsts2()
     {
         return $this->hasMany('App\FlightConsts');
     }

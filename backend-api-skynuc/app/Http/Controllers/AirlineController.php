@@ -11,6 +11,7 @@ use App\Http\Controllers\Controller;
 
 class AirlineController extends Controller {
 
+
     /**
      * Show a list of all of the application's airlines
      *
@@ -42,13 +43,33 @@ class AirlineController extends Controller {
      * @return JsonResponse
      */
 
-    public function getByName(Request $name)
+    public function getByName(Request $request)
     {
-        Log::info('Retrieving airline by name: '.$name);
         $name = $request->query('name');
-        $airline = Airline::where('name', 'LIKE', '%' . $name . '%')->first();
+        Log::info('Retrieving airline by name: '.$name);
+        $airline = Airline::where('name', 'LIKE', '%' . $name . '%')->get();
         return response()->json($airline);
     }
+
+    // ----> CONDICIONAL !!! NO BORRAR!
+    // public function getAllOrByNameConditional(Request $request)
+    // {
+    //     // si he añadido "?name=x", en la línea siguiente recupero este "x"
+    //     $name = $request->query('name');
+    //     //  ->when($name . 'CONTIENE UN VALOR PORQUE HE AÑADIDO "?name=x"...'{
+    //         ->when(request()->has('name'), function($name){
+    //             Log::info('Retrieving airline by name: '.$name);
+    //             $airline = Airline::where('name', 'LIKE', '%' . $name . '%')->get();
+    //         });
+    //         ->when($name 'NO CONTIENE NINGUN VALOR PORQUE NO HE AÑADIDO "?name=x"...'{
+    //             Log::info('Retrieving all airlines');
+    //             $airline = Airline::all();
+    //         });
+    //         return response()->json($airline);
+    // }
+
+
+
 
     // ------> ANTIGUA - Usar como modelo para cambiar los otros controladores, HOSMAN:
     //FIXME: Jaume, ALL old versions deleted???
@@ -59,33 +80,6 @@ class AirlineController extends Controller {
     //     return response()->json($airline);
     // }
 
-        // CONDICIONAL ! NO BORRAR!
-        // --> Once PART 1 works, address this:
-        // In order to have both PART 1 and 2 in this SAME FUNCTION we need to use CONDITIONALS
-        // Ruth's guess:
-
-        // $name = $request->query('name'); // <- si he añadido "?name=x", aquí recupero este "x"
-        //     ->when($name . 'CONTIENE UN VALOR PORQUE HE AÑADIDO "?name=x"...'{
-        //         Log::info('Retrieving data for country ->' .$name);
-        //         $country = Country::where('name', $name)->get();
-        //     });
-        //     ->when($name 'NO CONTIENE NINGUN VALOR PORQUE NO HE AÑADIDO "?name=x"...'{
-        //         Log::info('Retrieving all countries');
-        //         $country = Country::all();
-        //     });
-        //     return response()->json($country);
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     /**
@@ -95,12 +89,12 @@ class AirlineController extends Controller {
      *
      * @return JsonResponse
      */
-    // public function flightCardData()
-    // {
-    //     Log::info('Retrieving all airlines with corresp. flight consts and their corresp. flight instances');
-    //     $airlines = Airline::with('flightConsts.flightInstances')->get();
-    //     return response()->json($airlines);
-    // }
+    public function flightCardData_A()
+    {
+        Log::info('Retrieving all airlines with corresp. flight consts and their corresp. flight instances');
+        $airlines = Airline::with('flightConsts.flightInstances')->get();
+        return response()->json($airlines);
+    }
 
 
 

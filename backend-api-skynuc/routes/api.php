@@ -51,10 +51,11 @@ Route::group([
 
     Route::get('', 'AirlineController@all');
     Route::get('code/{two_letter_code}', 'AirlineController@getByCode');
+
     Route::get('name', 'AirlineController@getByName');
+    Route::get('nameconditional', 'AirlineController@getAllOrByNameConditional');
 
-
-    // Route::get('flightcarddata', 'AirlineController@flightCardData');
+    Route::get('flightcarddata_A', 'AirlineController@flightCardData_A');
 
 });
 
@@ -73,8 +74,7 @@ Route::group([
 
     Route::get('', 'FlightConstController@all');
 
-
-    Route::get('flightcarddata', 'FlightConstController@flightCardData');
+    Route::get('flightcarddata_FC', 'FlightConstController@flightCardData_FC');
 
 
 });
