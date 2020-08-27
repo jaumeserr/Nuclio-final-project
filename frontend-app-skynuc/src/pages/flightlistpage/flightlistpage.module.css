@@ -20,16 +20,17 @@
     display: -webkit-box; /* Not needed if autoprefixing */
     display: -ms-flexbox; /* Not needed if autoprefixing */
     display: flex;
-    margin: auto;
-    margin: 40px 150px 20px 150px;
+    margin: 80px 150px 80px 150px;
     width: auto;
     align-self: center;
-    padding: 60px 60px 60px 60px;
+    /* justify-items: center; */
+    padding: 30px;
+    border-radius: 25px;
 }
 
 .__masonry__grid__column {
-    padding-left: 30px; /* gutter size */
-    padding: 30px 30px 30px 30px;
+    /* padding-left: 30px;  */
+    padding: 30px;
     background-clip: padding-box;
 }
 

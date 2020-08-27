@@ -22,7 +22,7 @@ class Airport extends Model {
 
     public $incrementing = false;
 
-     /**
+    /**
      * The "type" of the auto-incrementing ID.
 
      * @var string
@@ -38,4 +38,12 @@ class Airport extends Model {
         'iata', 'city_name',
     ];
 
+    /**   ??????????? // FIXME
+     * Get the flight consts for the given airport.
+     * It says: One airport has many flight consts
+     */
+    public function flightConsts2()
+    {
+        return $this->hasMany('App\FlightConsts');
+    }
 }

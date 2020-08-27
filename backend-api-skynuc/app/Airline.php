@@ -36,4 +36,12 @@ class Airline extends Model {
         'two_letter_code', 'name', 'logo_url',
     ];
 
+    /**
+     * Get the flight consts for the given airline.
+     * It says: One airline has many flight consts
+     */
+    public function flightConsts()
+    {
+        return $this->hasMany('App\FlightConst');
+    }
 }

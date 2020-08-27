@@ -14,8 +14,10 @@ const PopUpContentAddFlight = ({ handleClose }) => {
                 </p>
             </div>
 
+            <div className="profile-card-form__container_and_bottom">
+
             <div className="profile-card-form__container">
-                <div className="profile-card-form-dpt__container">
+                <div className="profile-card-form-dpt">
                     <label htmlFor="dpt-datetime">Departure date and time:</label>
                     <input
                         type="datetime-local"
@@ -30,8 +32,7 @@ const PopUpContentAddFlight = ({ handleClose }) => {
                         <option value="MAD">Madrid</option>
                     </select>
                 </div>
-
-                <div className="profile-card-form-arr__container">
+                <div className="profile-card-form-arr">
                     <label htmlFor="arr-datetime">Arrival date and time:</label>
                     <input
                         type="datetime-local"
@@ -46,7 +47,14 @@ const PopUpContentAddFlight = ({ handleClose }) => {
                         <option value="MAD">Madrid</option>
                     </select>
                 </div>
-                <div className="profile-card-form-price__container">
+                <div className="profile-card-form-flightnum_price">
+                    <label htmlFor="flightnum">Flight number:</label>
+                    <input
+                        type="text"
+                        id="flightnum"
+                        name="flightnum"
+                        placeholder= "Ex: 1111"
+                    />
                     <label htmlFor="price">Price (€):</label>
                     <input
                         type="number"
@@ -72,8 +80,9 @@ const PopUpContentAddFlight = ({ handleClose }) => {
                     onClick={handleClose}
                     // FIXME: onClick={handleClose} - Not working
                 >
-                    Cancel
+                    Cancel-NOT-WORKING
                 </button>
+            </div>
             </div>
         </>
     );
