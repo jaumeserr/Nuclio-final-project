@@ -12,7 +12,7 @@ class FlightInstance extends Model {
      * @var array
      */
     protected $fillable = [
-        'id', 'dpt_datetime', 'arr_datetime', 'flight_consts_flight_num', 'price_eur'
+        'id', 'dpt_datetime', 'arr_datetime', 'flight_const_flight_num', 'price_eur'
     ];
 
     /**
@@ -24,5 +24,14 @@ class FlightInstance extends Model {
         'dpt_datetime' => 'datetime',
         'arr_datetime' => 'datetime',
     ];
+
+    /**
+     * Get the flight const that owns the flight instance.
+     * It says: One flight instance belongs to a flight const
+     */
+    public function flightConst()
+    {
+        return $this->belongsTo('App\FlightConst');
+    }
 
 }
