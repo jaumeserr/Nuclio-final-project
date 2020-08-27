@@ -11,6 +11,7 @@ use App\Http\Controllers\Controller;
 
 class AirlineController extends Controller {
 
+
     /**
      * Show a list of all of the application's airlines
      *
@@ -44,20 +45,40 @@ class AirlineController extends Controller {
 
     public function getByName(Request $request)
     {
-        Log::info('Retrieving airline by name: '.$name);
         $name = $request->query('name');
-        $airline = Airline::where('name', $name)->first();
+        Log::info('Retrieving airline by name: '.$name);
+        $airline = Airline::where('name', 'LIKE', '%' . $name . '%')->get();
         return response()->json($airline);
     }
 
-        // ------> ANTIGUA - TO BE DELETED: //FIXME: Jaume, ALL old versions deleted???
+    // ----> CONDICIONAL !!! NO BORRAR!
+    // public function getAllOrByNameConditional(Request $request)
+    // {
+    //     // si he añadido "?name=x", en la línea siguiente recupero este "x"
+    //     $name = $request->query('name');
+    //     //  ->when($name . 'CONTIENE UN VALOR PORQUE HE AÑADIDO "?name=x"...'{
+    //         ->when(request()->has('name'), function($name){
+    //             Log::info('Retrieving airline by name: '.$name);
+    //             $airline = Airline::where('name', 'LIKE', '%' . $name . '%')->get();
+    //         });
+    //         ->when($name 'NO CONTIENE NINGUN VALOR PORQUE NO HE AÑADIDO "?name=x"...'{
+    //             Log::info('Retrieving all airlines');
+    //             $airline = Airline::all();
+    //         });
+    //         return response()->json($airline);
+    // }
+
+
+
+
+    // ------> ANTIGUA - Usar como modelo para cambiar los otros controladores, HOSMAN:
+    //FIXME: Jaume, ALL old versions deleted???
     // public function getByName($name)
     // {
     //     Log::info('Retrieving airline by name: '.$name);
     //     $airline = Airline::where('name', $name)->first();
     //     return response()->json($airline);
     // }
-
 
 
 
@@ -68,10 +89,10 @@ class AirlineController extends Controller {
      *
      * @return JsonResponse
      */
-    public function flightCardData()
+    public function flightCardData_A()
     {
         Log::info('Retrieving all airlines with corresp. flight consts and their corresp. flight instances');
-        $airlines = Airline::with('flight_consts.flight_instances')->get();
+        $airlines = Airline::with('flightConsts.flightInstances')->get();
         return response()->json($airlines);
     }
 

@@ -1,4 +1,4 @@
-id,dpt_datetime,arr_datetime,flight_consts_flight_num,price_eur
+id,dpt_datetime,arr_datetime,flight_const_flight_num,price_eur
 1,2020-08-01 18:21:47,2020-08-01 20:51:47,1113,1257.72
 2,2020-08-02 06:28:08,2020-08-02 08:58:08,5551,411.05
 3,2020-08-02 23:57:28,2020-08-03 02:27:28,1113,1248.51
