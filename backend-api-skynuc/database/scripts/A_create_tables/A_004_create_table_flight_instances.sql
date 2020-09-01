@@ -5,6 +5,8 @@ CREATE TABLE IF NOT EXISTS flight_instances
     arr_datetime                DATETIME        NOT NULL,
     flight_const_flight_num     CHAR(4)         NOT NULL,
     price_eur                   DECIMAL(6,2)    NOT NULL,
+    created_at                  TIMESTAMP       NULL DEFAULT NOW(),
+    updated_at                  TIMESTAMP       NULL DEFAULT NOW(),
 
     PRIMARY KEY (id),
 
