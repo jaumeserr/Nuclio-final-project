@@ -1,9 +1,11 @@
 CREATE TABLE IF NOT EXISTS flight_consts
 (
-    flight_num                  CHAR(4)     NOT NULL,
-    airline_two_letter_code     CHAR(2)     NOT NULL,
-    dpt_airport_iata            CHAR(3)     NOT NULL,
-    arr_airport_iata            CHAR(3)     NOT NULL,
+    flight_num                  CHAR(4)         NOT NULL,
+    airline_two_letter_code     CHAR(2)         NOT NULL,
+    dpt_airport_iata            CHAR(3)         NOT NULL,
+    arr_airport_iata            CHAR(3)         NOT NULL,
+    created_at                  TIMESTAMP       NULL DEFAULT NOW(),
+    updated_at                  TIMESTAMP       NULL DEFAULT NOW(),
 
     PRIMARY KEY (flight_num),
 
