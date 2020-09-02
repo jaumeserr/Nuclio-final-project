@@ -3,7 +3,7 @@ import React from 'react';
 import flight_arrow from '../../assets/images/flight_arrow.png';
 import './flightCard.scss';
 
-const FlightCard = ({ flight_num, dpt_airport_iata, arr_airport_iata }) => {
+const FlightCard = ({ dpt_datetime, arr_datetime, price_eur, logo_url, dpt_airport_iata, arr_airport_iata }) => {
     return (
         <>
             <div id="flight_card_container">
@@ -18,8 +18,9 @@ const FlightCard = ({ flight_num, dpt_airport_iata, arr_airport_iata }) => {
                         <div id="box_left">
                             <div id="box_left_left">
                                 <img
-                                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/KLM_logo.svg/1024px-KLM_logo.svg.png"
+                                    src={logo_url}
                                     alt="KLM logo 2"
+                                    // height={500}
                                 />
                             </div>
                             <div id="box_left_right">
@@ -51,7 +52,7 @@ const FlightCard = ({ flight_num, dpt_airport_iata, arr_airport_iata }) => {
                     </div>
                     <div id="box_right_container">
                         <div id="box_right">
-                            <p style={{ fontSize: '20px' }}>Price: {flight_num}</p>
+                            <p style={{ fontSize: '20px' }}>Price: {price_eur}</p>
                             <p
                                 style={{
                                     fontSize: '20px',
@@ -78,6 +79,10 @@ FlightCard.propTypes = {
     airline_two_letter_code: PropTypes.string.isRequired,
     dpt_airport_iata: PropTypes.string.isRequired,
     arr_airport_iata: PropTypes.string.isRequired,
+
+    dpt_datetime: PropTypes.string.isRequired,
+    arr_datetime: PropTypes.string.isRequired,
+    price_eur: PropTypes.number.isRequired,
 };
 
 export default FlightCard;
