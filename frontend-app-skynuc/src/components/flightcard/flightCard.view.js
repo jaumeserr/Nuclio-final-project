@@ -5,19 +5,19 @@ import './flightCard.scss';
 
 const FlightCard = ({ dpt_datetime, arr_datetime, price_eur, dpt_airport_iata, arr_airport_iata, logo_url, airline_two_letter_code }) => {
 
-    // FIXME - JAUME? - change background dynamically
+    // FIXME - JAUME? - change background dynamically?
     var Status = {airline_two_letter_code}
 
     return (
         <>
             <div id="flight_card_container">
-                {/* FIXME - JAUME? - change background dynamically */}
+                {/* FIXME - JAUME? - change background dynamically? */}
                 <div id="box_top_airline" data-status="{{Status}}" className="mystatus">
                     <img
                         src={logo_url}
                         // src="https://www.pikpng.com/pngl/b/448-4484691_clients-about-ping-media-klm-transparent-logo-white.png"
                         alt="airline logo 1"
-                    />
+                    /> // FIXME - JAUME? - change background dynamically?
                 </div>
                 <div id="box_bottom">
                     <div id="box_left_container">

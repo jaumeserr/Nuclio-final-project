@@ -55,11 +55,17 @@
     flex-grow: 1;
 }
 
+
+
+
 // SOURCE (go to part 3): https://support.awesome-table.com/hc/en-us/articles/115001399529-Use-CSS-to-change-the-style-of-each-row-depending-on-the-content
 //FIXME - change background dynamically
 .mystatus[data-status='AF'] {
     background-color: red;
 }
+
+
+
 
 
 
