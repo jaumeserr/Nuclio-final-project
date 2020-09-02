@@ -15,7 +15,8 @@
 
     border: 0.01px;
     border-style: solid;
-    border-color: #01a3e2;
+    border-color: #01a2e250;
+    // border-color: #01a3e2;
     border-radius: 25px;
 
     // box-shadow: 5px 5px 5px 5px darken(transparent, 0%);
@@ -27,7 +28,7 @@
     text-align: center;
 
     &:hover {
-        box-shadow: 1px 1px 1px 1px darken(grey, 2%);
+        box-shadow: 1px 1px 1px 1px darken(grey, 1%);
         // cursor: pointer;
         transform: translate(5px, 0);
 
@@ -45,13 +46,22 @@
     justify-content: center;
     align-items: flex-start;
     padding-left: 0px;
-    background-color: #01a3e2;
+    background-color: #01a2e250;
+    // background-color: #01a3e2;
     border-top-right-radius: 25px;
     border-top-left-radius: 25px;
 
     // height: 80px;
     flex-grow: 1;
 }
+
+// SOURCE (go to part 3): https://support.awesome-table.com/hc/en-us/articles/115001399529-Use-CSS-to-change-the-style-of-each-row-depending-on-the-content
+//FIXME - change background dynamically
+.mystatus[data-status='AF'] {
+    background-color: red;
+}
+
+
 
 #box_top_airline img {
     width: 100px;
@@ -166,7 +176,7 @@
 }
 
 #box_left_left img {
-    width: 70px;
+    width: 100px;
     height: auto;
 }
 

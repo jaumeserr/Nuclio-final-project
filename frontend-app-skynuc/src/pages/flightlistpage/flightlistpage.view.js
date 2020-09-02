@@ -43,8 +43,6 @@ const FlightListPage = () => {
         600: 1,
     };
 
-    // console.log (infoFlights);
-
     return (
         <>
             <div className={styles.__wrapper}>
@@ -61,23 +59,16 @@ const FlightListPage = () => {
                         infoFlights.map((data) => {
                             return (
                                 <FlightCard
-                                    key={data.dpt_datetime}
-                                    // FIXME: which key?
-                                    // dpt_datetime={data.dpt_datetime}
+                                    key={data.id}
+                                    // FIXME: JAUME? - moment.js para dpt_datetime y arr_datetime?
+                                    dpt_datetime={data.dpt_datetime}
                                     arr_datetime={data.arr_datetime}
-                                    // price_eur={data.price_eur}
-                                    // price_eur={data.flight_const.airline.two_letter_code}
-                                    price_eur={data.dpt_datetime}
+                                    price_eur={parseFloat(data.price_eur)}
+                                    dpt_airport_iata={data.flight_const.dpt_airport_iata}
+                                    arr_airport_iata={data.flight_const.arr_airport_iata}
+                                    logo_url={data.flight_const.airline.logo_url}
 
-                                    // {data.flight_const.map(innerdata => {
-                                    //     <FlightCard
-                                    //         dpt_airport_iata={innerdata.dpt_airport_iata}
-                                    //         arr_airport_iata={innerdata.arr_airport_iata}
-                                    //     />
-                                    // )};
-
-                                    // Aún un paso más adentro:
-                                    // logo_url={data.logo_url}
+                                    airline_two_letter_code={data.flight_const.airline_two_letter_code}
                                 />
                             );
                         })}
