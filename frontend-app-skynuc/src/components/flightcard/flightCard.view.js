@@ -31,10 +31,12 @@ const FlightCard = ({
     };
 
     const calculateTime = () => {
-        var arr = arr_datetime;
-        var dpt = dpt_datetime;
         let timeString = moment
-            .utc(moment(arr, 'YYYY/MM/DD HH:mm:ss').diff(moment(dpt, 'YYYY/MM/DD HH:mm:ss')))
+            .utc(
+                moment(arr_datetime, 'YYYY/MM/DD HH:mm:ss').diff(
+                    moment(dpt_datetime, 'YYYY/MM/DD HH:mm:ss'),
+                ),
+            )
             .format('H[h ]mm[min]');
         return timeString;
     };
