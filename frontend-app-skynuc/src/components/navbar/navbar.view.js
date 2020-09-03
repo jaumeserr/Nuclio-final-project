@@ -13,10 +13,10 @@ const Navbar = () => {
                 <img src={logo} alt="logo" className={styles.__logo} />
             </Link>
             <Link to={LOGIN}>
-                <button className="button button-primary">Login</button>
+                <button className="button button--blue">Login</button>
             </Link>
             <Link to={REGISTER}>
-                <button className="button button-primary">Register</button>
+                <button className="button button--blue">Register</button>
             </Link>
             <Link to={USER_PROFILE}>
                 <FontAwesomeIcon icon={faUserCircle} size="3x" />

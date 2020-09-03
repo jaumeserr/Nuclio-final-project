@@ -1,60 +1,65 @@
+import moment from 'moment';
 import PropTypes from 'prop-types';
 import React from 'react';
 import flight_arrow from '../../assets/images/flight_arrow.png';
 import './flightCard.scss';
 
-const FlightCard = ({ dpt_datetime, arr_datetime, price_eur, dpt_airport_iata, arr_airport_iata, logo_url, airline_two_letter_code }) => {
-
-    const mySwitchAirlineBackground = (airline_two_letter_code) => {
-        switch(airline_two_letter_code) {
+const FlightCard = ({
+    dpt_datetime,
+    arr_datetime,
+    price_eur,
+    dpt_airport_iata,
+    arr_airport_iata,
+    logo_url,
+    airline_two_letter_code,
+}) => {
+    const mySwitchAirlineColor = (airline_two_letter_code) => {
+        switch (airline_two_letter_code) {
             case 'KL':
-                return '#e4f6fc';
+                return '#01A3E4';
             case 'AF':
-                return '#ffffff';
+                return '#2C3E82';
             case 'IB':
-                return '#D7192D';
+                return '#D71F29';
             case 'VY':
                 return '#ffcc00';
             case 'TP':
-                return '#ffffff';
+                return '#76AE01';
+            default:
+                return '#a9a9a9';
         }
-    }
+    };
 
     const calculateTime = () => {
-        let startHour = dpt_datetime.substring(11, 13);
-        let endHour = arr_datetime.substring(11, 13);
-
-        let startMinutes = dpt_datetime.substring(14, 16);
-        let endMinutes = arr_datetime.substring(14, 16);
-
-        let restHours = endHour - startHour;
-        let restMinutes = endMinutes - startMinutes;
-
-        let timeString = `${restHours}h ${restMinutes}min`
+        var arr = arr_datetime;
+        var dpt = dpt_datetime;
+        let timeString = moment
+            .utc(moment(arr, 'YYYY/MM/DD HH:mm:ss').diff(moment(dpt, 'YYYY/MM/DD HH:mm:ss')))
+            .format('H[h ]mm[min]');
         return timeString;
-    }
+    };
 
     return (
         <>
-            <div id="flight_card_container">
-                <div id="box_top_airline" style={{
-                    backgroundColor: mySwitchAirlineBackground (airline_two_letter_code),
-                }} data-status="{{Status}}" className="mystatus">
-                    <img
-                        src={logo_url}
-                        // src="https://www.pikpng.com/pngl/b/448-4484691_clients-about-ping-media-klm-transparent-logo-white.png"
-                        alt="airline logo 1"
-                    />
+            <div
+                id="flight_card_container"
+                style={{
+                    borderColor: mySwitchAirlineColor(airline_two_letter_code),
+                }}
+            >
+                <div
+                    id="box_top_airline"
+                    style={{
+                        backgroundColor: mySwitchAirlineColor(airline_two_letter_code),
+                    }}
+                >
+                    <img src={logo_url} alt="airline logo 1" />
                 </div>
                 <div id="box_bottom">
                     <div id="box_left_container">
                         <div id="box_left">
                             <div id="box_left_left">
-                                <img
-                                    src={logo_url}
-                                    alt="airline logo 2"
-                                    // height={500}
-                                />
+                                <img src={logo_url} alt="airline logo 2" />
                             </div>
                             <div id="box_left_right">
                                 <div id="box_left_right_inner">
@@ -85,24 +90,32 @@ const FlightCard = ({ dpt_datetime, arr_datetime, price_eur, dpt_airport_iata, a
                     </div>
                     <div id="box_right_container">
                         <div id="box_right">
-                            <p style={{ fontSize: '20px' }}>Price: {price_eur} €</p>
+                            <p style={{ fontSize: '24px', fontWeight: 'bold' }}>{price_eur} €</p>
                             <p
                                 style={{
-                                    fontSize: '20px',
+                                    fontSize: '18px',
                                     fontWeight: 'bold',
-                                    backgroundColor: '#01a3e2',
-                                    color: 'white',
+                                    backgroundColor: '#d4d4d4',
+                                    color: 'black',
                                     borderRadius: 25,
                                 }}
                             >
-                                Flight button
+                                See flight &rarr;
                             </p>
+                            {/* <a
+                                className="button button--gray-soft-shadow"
+                                target="_blank"
+                                href={'http://www.google.es'}
+                                style={{
+                                    border: '5 px solid',
+                                }}
+                            >
+                                See flight &rarr;
+                            </a> */}
                         </div>
                     </div>
                 </div>
             </div>
-
-            {/* <img id="image_model" src= {"https://user-images.githubusercontent.com/38922857/89059615-cc3c1700-d361-11ea-9c26-66466d4d0105.png"} alt="modelo"></img> */}
         </>
     );
 };
