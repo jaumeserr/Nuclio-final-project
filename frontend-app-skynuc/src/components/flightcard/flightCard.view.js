@@ -30,7 +30,7 @@ const FlightCard = ({
         }
     };
 
-    const calculateTime = () => {
+    const calculateDuration = () => {
         let timeString = moment
             .utc(
                 moment(arr_datetime, 'YYYY/MM/DD HH:mm:ss').diff(
@@ -67,20 +67,20 @@ const FlightCard = ({
                                 <div id="box_left_right_inner">
                                     <div id="box_left_right_inner_dpt">
                                         <p style={{ fontWeight: 'bold', fontSize: '34px' }}>
-                                            {dpt_datetime.substring(11, 16)}
+                                            {moment(dpt_datetime).format("HH:mm")}
                                         </p>
                                         <p style={{ textAlign: 'right', fontSize: '20px' }}>
                                             {dpt_airport_iata}
                                         </p>
                                     </div>
                                     <div id="box_left_right_inner_duration">
-                                        <p>{calculateTime()}</p>
+                                        <p>{calculateDuration()}</p>
                                         <img src={flight_arrow} alt="Flight arrow" />
                                         <p>Direct</p>
                                     </div>
                                     <div id="box_left_right_inner_arr">
                                         <p style={{ fontWeight: 'bold', fontSize: '34px' }}>
-                                            {arr_datetime.substring(11, 16)}
+                                            {moment(arr_datetime).format("HH:mm")}
                                         </p>
                                         <p style={{ textAlign: 'left', fontSize: '20px' }}>
                                             {arr_airport_iata}
