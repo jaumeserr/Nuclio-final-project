@@ -1,18 +1,18 @@
 import React from 'react';
 import styles from './home.module.css';
-import boreal from '../../assets/images/boreal.jpg';
-import Australia from '../../assets/images/Australia.jpg';
-import playa from '../../assets/images/playa.jpg';
-import Paris from '../../assets/images/Paris.jpg';
-import Egypt from '../../assets/images/Egytp.jpg'
-import Rio from '../../assets/images/Rio.jpg'
+// import boreal from '../../assets/images/boreal.jpg';
+// import Australia from '../../assets/images/Australia.jpg';
+// import playa from '../../assets/images/playa.jpg';
+// import Paris from '../../assets/images/Paris.jpg';
+// import Egypt from '../../assets/images/Egytp.jpg'
+// import Rio from '../../assets/images/Rio.jpg'
 import facebook from '../../assets/images/facebook.png';
 import instagram from '../../assets/images/instagram-bosquejado.png';
 import twitter from '../../assets/images/twitter.png';
 import youtube from '../../assets/images/youtube.png';
 import githut from '../../assets/images/git.png';
 import Navbar from '../../components/navbar/navbar.view';
-import { SRLWrapper } from 'simple-react-lightbox';
+// import { SRLWrapper } from 'simple-react-lightbox';
 import { Link } from 'react-router-dom';
 import ButtonFlightSearch from '../../components/buttonflightsearch/buttonflightsearch.view';
 import { FLIGHT_LIST } from '../../routes/routes';
@@ -27,9 +27,11 @@ import SearchBox from "../../components/searchBox/searchBox.view";
                 <section className={styles.__container__body}>
                     <SearchBox />
                     <Link to={FLIGHT_LIST}><ButtonFlightSearch/></Link>
-
                 </section>
-                <section className={styles.__container__gallery}>
+
+                {/* Seccion comentada por el momento no se usara  */}
+
+                {/* <section className={styles.__container__gallery}>
                     <div className={styles.__container_img}>
                         <h2>Our Work</h2>
                         <SRLWrapper>
@@ -53,11 +55,12 @@ import SearchBox from "../../components/searchBox/searchBox.view";
                             </a>
                         </SRLWrapper>
                     </div>
-                </section>
+                </section> */}
                 <footer>
                     <div className={styles.__container__footer}>
-                        <div className={styles.__container__input}>
-                            <input type="email" className={styles.__container__input} id="usr" placeholder={"Write yor Email"}/>
+                        <div className={styles.__container__enlace_adm}>
+                            <a href="Usuario_Admin">Usuario_Admin</a>
+                            
                         </div>
                         <div className={styles.container__icon}>
                             <a href="http://facebook.com/Skyscanner">
