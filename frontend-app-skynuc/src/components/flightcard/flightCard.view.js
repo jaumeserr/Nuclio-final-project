@@ -5,19 +5,46 @@ import './flightCard.scss';
 
 const FlightCard = ({ dpt_datetime, arr_datetime, price_eur, dpt_airport_iata, arr_airport_iata, logo_url, airline_two_letter_code }) => {
 
-    // FIXME - JAUME? - change background dynamically?
-    var Status = {airline_two_letter_code}
+    const mySwitchAirlineBackground = (airline_two_letter_code) => {
+        switch(airline_two_letter_code) {
+            case 'KL':
+                return '#e4f6fc';
+            case 'AF':
+                return '#ffffff';
+            case 'IB':
+                return '#D7192D';
+            case 'VY':
+                return '#ffcc00';
+            case 'TP':
+                return '#ffffff';
+        }
+    }
+
+    const calculateTime = () => {
+        let startHour = dpt_datetime.substring(11, 13);
+        let endHour = arr_datetime.substring(11, 13);
+
+        let startMinutes = dpt_datetime.substring(14, 16);
+        let endMinutes = arr_datetime.substring(14, 16);
+
+        let restHours = endHour - startHour;
+        let restMinutes = endMinutes - startMinutes;
+
+        let timeString = `${restHours}h ${restMinutes}min`
+        return timeString;
+    }
 
     return (
         <>
             <div id="flight_card_container">
-                {/* FIXME - JAUME? - change background dynamically? */}
-                <div id="box_top_airline" data-status="{{Status}}" className="mystatus">
+                <div id="box_top_airline" style={{
+                    backgroundColor: mySwitchAirlineBackground (airline_two_letter_code),
+                }} data-status="{{Status}}" className="mystatus">
                     <img
                         src={logo_url}
                         // src="https://www.pikpng.com/pngl/b/448-4484691_clients-about-ping-media-klm-transparent-logo-white.png"
                         alt="airline logo 1"
-                    /> // FIXME - JAUME? - change background dynamically?
+                    />
                 </div>
                 <div id="box_bottom">
                     <div id="box_left_container">
@@ -33,20 +60,20 @@ const FlightCard = ({ dpt_datetime, arr_datetime, price_eur, dpt_airport_iata, a
                                 <div id="box_left_right_inner">
                                     <div id="box_left_right_inner_dpt">
                                         <p style={{ fontWeight: 'bold', fontSize: '34px' }}>
-                                            {dpt_datetime}
+                                            {dpt_datetime.substring(11, 16)}
                                         </p>
                                         <p style={{ textAlign: 'right', fontSize: '20px' }}>
                                             {dpt_airport_iata}
                                         </p>
                                     </div>
                                     <div id="box_left_right_inner_duration">
-                                        <p>2h 20min (com calcular?)</p> // FIXME: JAUME, se t'acut?
+                                        <p>{calculateTime()}</p>
                                         <img src={flight_arrow} alt="Flight arrow" />
                                         <p>Direct</p>
                                     </div>
                                     <div id="box_left_right_inner_arr">
                                         <p style={{ fontWeight: 'bold', fontSize: '34px' }}>
-                                            {arr_datetime}
+                                            {arr_datetime.substring(11, 16)}
                                         </p>
                                         <p style={{ textAlign: 'left', fontSize: '20px' }}>
                                             {arr_airport_iata}
