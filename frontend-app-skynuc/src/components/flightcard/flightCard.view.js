@@ -1,45 +1,86 @@
+import moment from 'moment';
 import PropTypes from 'prop-types';
 import React from 'react';
 import flight_arrow from '../../assets/images/flight_arrow.png';
 import './flightCard.scss';
 
-const FlightCard = ({ flight_num, dpt_airport_iata, arr_airport_iata }) => {
+const FlightCard = ({
+    dpt_datetime,
+    arr_datetime,
+    price_eur,
+    dpt_airport_iata,
+    arr_airport_iata,
+    logo_url,
+    airline_two_letter_code,
+}) => {
+    const mySwitchAirlineColor = (airline_two_letter_code) => {
+        switch (airline_two_letter_code) {
+            case 'KL':
+                return '#01A3E4';
+            case 'AF':
+                return '#2C3E82';
+            case 'IB':
+                return '#D71F29';
+            case 'VY':
+                return '#ffcc00';
+            case 'TP':
+                return '#76AE01';
+            default:
+                return '#a9a9a9';
+        }
+    };
+
+    const calculateDuration = () => {
+        let timeString = moment
+            .utc(
+                moment(arr_datetime, 'YYYY/MM/DD HH:mm:ss').diff(
+                    moment(dpt_datetime, 'YYYY/MM/DD HH:mm:ss'),
+                ),
+            )
+            .format('H[h ]mm[min]');
+        return timeString;
+    };
+
     return (
         <>
-            <div id="flight_card_container">
-                <div id="box_top_airline">
-                    <img
-                        src="https://www.pikpng.com/pngl/b/448-4484691_clients-about-ping-media-klm-transparent-logo-white.png"
-                        alt="KLM logo 1"
-                    />
+            <div
+                id="flight_card_container"
+                style={{
+                    borderColor: mySwitchAirlineColor(airline_two_letter_code),
+                }}
+            >
+                <div
+                    id="box_top_airline"
+                    style={{
+                        backgroundColor: mySwitchAirlineColor(airline_two_letter_code),
+                    }}
+                >
+                    <img src={logo_url} alt="airline logo 1" />
                 </div>
                 <div id="box_bottom">
                     <div id="box_left_container">
                         <div id="box_left">
                             <div id="box_left_left">
-                                <img
-                                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/KLM_logo.svg/1024px-KLM_logo.svg.png"
-                                    alt="KLM logo 2"
-                                />
+                                <img src={logo_url} alt="airline logo 2" />
                             </div>
                             <div id="box_left_right">
                                 <div id="box_left_right_inner">
                                     <div id="box_left_right_inner_dpt">
                                         <p style={{ fontWeight: 'bold', fontSize: '34px' }}>
-                                            17:15
+                                            {moment(dpt_datetime).format("HH:mm")}
                                         </p>
                                         <p style={{ textAlign: 'right', fontSize: '20px' }}>
                                             {dpt_airport_iata}
                                         </p>
                                     </div>
                                     <div id="box_left_right_inner_duration">
-                                        <p>2h 20min</p>
+                                        <p>{calculateDuration()}</p>
                                         <img src={flight_arrow} alt="Flight arrow" />
                                         <p>Direct</p>
                                     </div>
                                     <div id="box_left_right_inner_arr">
                                         <p style={{ fontWeight: 'bold', fontSize: '34px' }}>
-                                            19:35
+                                            {moment(arr_datetime).format("HH:mm")}
                                         </p>
                                         <p style={{ textAlign: 'left', fontSize: '20px' }}>
                                             {arr_airport_iata}
@@ -51,33 +92,43 @@ const FlightCard = ({ flight_num, dpt_airport_iata, arr_airport_iata }) => {
                     </div>
                     <div id="box_right_container">
                         <div id="box_right">
-                            <p style={{ fontSize: '20px' }}>Price: {flight_num}</p>
+                            <p style={{ fontSize: '24px', fontWeight: 'bold' }}>{price_eur} €</p>
                             <p
                                 style={{
-                                    fontSize: '20px',
+                                    fontSize: '18px',
                                     fontWeight: 'bold',
-                                    backgroundColor: '#01a3e2',
-                                    color: 'white',
+                                    backgroundColor: '#d4d4d4',
+                                    color: 'black',
                                     borderRadius: 25,
                                 }}
                             >
-                                Flight button
+                                See flight &rarr;
                             </p>
+                            {/* <a
+                                className="button button--gray-soft-shadow"
+                                target="_blank"
+                                href={'http://www.google.es'}
+                                style={{
+                                    border: '5 px solid',
+                                }}
+                            >
+                                See flight &rarr;
+                            </a> */}
                         </div>
                     </div>
                 </div>
             </div>
-
-            {/* <img id="image_model" src= {"https://user-images.githubusercontent.com/38922857/89059615-cc3c1700-d361-11ea-9c26-66466d4d0105.png"} alt="modelo"></img> */}
         </>
     );
 };
 
 FlightCard.propTypes = {
-    flight_num: PropTypes.string.isRequired,
-    airline_two_letter_code: PropTypes.string.isRequired,
+    dpt_datetime: PropTypes.string.isRequired,
+    arr_datetime: PropTypes.string.isRequired,
+    price_eur: PropTypes.number.isRequired,
     dpt_airport_iata: PropTypes.string.isRequired,
     arr_airport_iata: PropTypes.string.isRequired,
+    logo_url: PropTypes.string.isRequired,
 };
 
 export default FlightCard;

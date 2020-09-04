@@ -15,7 +15,6 @@
 
     border: 0.01px;
     border-style: solid;
-    border-color: #01a3e2;
     border-radius: 25px;
 
     // box-shadow: 5px 5px 5px 5px darken(transparent, 0%);
@@ -27,14 +26,12 @@
     text-align: center;
 
     &:hover {
-        box-shadow: 1px 1px 1px 1px darken(grey, 2%);
+        box-shadow: 1px 1px 1px 1px darken(grey, 1%);
         // cursor: pointer;
         transform: translate(5px, 0);
 
         // .button-primary {
         //     transform: translate(10px, 0);
-        //     text-transform: uppercase;
-
         // }
     }
 }
@@ -45,18 +42,18 @@
     justify-content: center;
     align-items: flex-start;
     padding-left: 0px;
-    background-color: #01a3e2;
-    border-top-right-radius: 25px;
-    border-top-left-radius: 25px;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
 
-    // height: 80px;
+    height: 50px;
     flex-grow: 1;
 }
 
 #box_top_airline img {
-    width: 100px;
-    height: auto;
-    padding-left: 20px;
+    width: auto;
+    height: 50px;
+    margin-left: 40px;
+    filter: brightness(0) invert(1);
 }
 
 #box_bottom {
@@ -160,14 +157,14 @@
 #box_left_left {
     // order: 2;
     flex-grow: 1;
-    margin: 0px 30px 0px 0px;
+    margin-right: 45px;
     // height: 100%;
     // min-height: 100%;
 }
 
 #box_left_left img {
-    width: 70px;
-    height: auto;
+    width: auto;
+    height: 50px;
 }
 
 #box_left_right {
@@ -229,41 +226,11 @@
     height: 70%;
 }
 
-/*************************************/
 
-// .__button-primary {
-//   border: none;
-//   box-shadow: none;
-//   font-family: inherit;
-//   background-color:transparent;
-//   color: blue;
-//   font-size: 15px;
-//   transition:.25s;
-
-//   i{
-//     padding-right:4px;
-//   }
-// }
-
-// .__button-primary:link, .button-primary:visited{
-//     text-decoration:none;
-//     background-color:aqua;
-// }
-
-// .__button-primary:hover, .button-primary:hover{
-//     color: #000;
-//     background-color:coral;
-// }
 
 /* _____________________________ */
 /* ___________DESIGN____________ */
 /* _____________________________ */
-
-/* ELIMINAR QUAN MODEL JA NO CALGUI */
-
-#image_model {
-    width: 700px;
-}
 
 // #flight_card_container,
 // #box_top_airline,
@@ -287,6 +254,10 @@
 
 // #flight_card_container {
 //     background: grey;
+// }
+
+// #box_top_airline img {
+//     background: pink;
 // }
 
 // #box_bottom {
