@@ -17,7 +17,6 @@ import Navbar from '../../components/navbar/navbar.view';
 import { Link } from 'react-router-dom';
 import SearchBox from '../../components/searchBox/searchBox.view';
 import { FLIGHT_LIST } from '../../routes/routes';
-import styles from './home.module.css';
 
 const Home = () => {
     return (
