@@ -82,22 +82,5 @@ class AirlineController extends Controller {
 
 
 
-    /**
-     * Show a list of all of the application's airlines
-     * with their corresponding flight consts
-     * and the corresponding flight instances of these flight consts
-     *
-     * @return JsonResponse
-     */
-    public function flightCardData_A()
-    {
-        Log::info('Retrieving all airlines with corresp. flight consts and their corresp. flight instances');
-        $airlines = Airline::with('flightConsts.flightInstances')->get();
-        return response()->json($airlines);
-    }
-
-
-
-
 }
 

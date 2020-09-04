@@ -55,8 +55,6 @@ Route::group([
     Route::get('name', 'AirlineController@getByName');
     Route::get('nameconditional', 'AirlineController@getAllOrByNameConditional');
 
-    Route::get('flightcarddata_A', 'AirlineController@flightCardData_A');
-
 });
 
 
@@ -73,8 +71,6 @@ Route::group([
 ], function ($router) {
 
     Route::get('', 'FlightConstController@all');
-
-    Route::get('flightcarddata_FC', 'FlightConstController@flightCardData_FC');
 
 
 });
@@ -99,6 +95,7 @@ Route::group([
     Route::get('flight_num/{flight_const_flight_num}', 'FlightInstanceController@getByFlightNum');
     Route::get('price_eur/{price_eur}', 'FlightInstanceController@getByPrice');
 
+    Route::get('flightcarddata', 'FlightInstanceController@flightCardData');
 
 
 });
