@@ -1,21 +1,46 @@
 import React from 'react';
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0386371faf1a6896c8f9be780faf12b24c5ad4c6
+import styles from './home.module.css';
+// import { SRLWrapper } from 'simple-react-lightbox';
+// import boreal from '../../assets/images/boreal.jpg';
+// import Australia from '../../assets/images/Australia.jpg';
+// import playa from '../../assets/images/playa.jpg';
+// import Paris from '../../assets/images/Paris.jpg';
+// import Egypt from '../../assets/images/Egytp.jpg'
+// import Rio from '../../assets/images/Rio.jpg'
+<<<<<<< HEAD
+=======
 import { Link } from 'react-router-dom';
 import { SRLWrapper } from 'simple-react-lightbox';
 import Australia from '../../assets/images/Australia.jpg';
 import boreal from '../../assets/images/boreal.jpg';
 import Egypt from '../../assets/images/Egytp.jpg';
+>>>>>>> origin/develop
+=======
+>>>>>>> 0386371faf1a6896c8f9be780faf12b24c5ad4c6
 import facebook from '../../assets/images/facebook.png';
 import githut from '../../assets/images/git.png';
 import instagram from '../../assets/images/instagram-bosquejado.png';
-import Paris from '../../assets/images/Paris.jpg';
-import playa from '../../assets/images/playa.jpg';
-import Rio from '../../assets/images/Rio.jpg';
 import twitter from '../../assets/images/twitter.png';
 import youtube from '../../assets/images/youtube.png';
 import Navbar from '../../components/navbar/navbar.view';
+<<<<<<< HEAD
+<<<<<<< HEAD
+// import { SRLWrapper } from 'simple-react-lightbox';
+import { Link } from 'react-router-dom';
+import ButtonFlightSearch from '../../components/buttonflightsearch/buttonflightsearch.view';
+=======
 import SearchBox from '../../components/searchBox/searchBox.view';
+>>>>>>> origin/develop
+=======
+import { Link } from 'react-router-dom';
+import SearchBox from '../../components/searchBox/searchBox.view';
+>>>>>>> 0386371faf1a6896c8f9be780faf12b24c5ad4c6
 import { FLIGHT_LIST } from '../../routes/routes';
-import styles from './home.module.css';
 
 const Home = () => {
     return (
@@ -24,6 +49,13 @@ const Home = () => {
             <div className={styles.__container}>
                 <section className={styles.__container__body}>
                     <SearchBox />
+<<<<<<< HEAD
+<<<<<<< HEAD
+                    <Link to={FLIGHT_LIST}><ButtonFlightSearch/></Link>
+=======
+=======
+
+>>>>>>> 0386371faf1a6896c8f9be780faf12b24c5ad4c6
                     <Link to={FLIGHT_LIST}>
                         <button
                             type="submit"
@@ -35,8 +67,15 @@ const Home = () => {
                             Flight List
                         </button>
                     </Link>
+<<<<<<< HEAD
+>>>>>>> origin/develop
+=======
+>>>>>>> 0386371faf1a6896c8f9be780faf12b24c5ad4c6
                 </section>
-                <section className={styles.__container__gallery}>
+
+                {/* Seccion comentada por el momento no se usara  */}
+
+                {/* <section className={styles.__container__gallery}>
                     <div className={styles.__container_img}>
                         <h2>Our Work</h2>
                         <SRLWrapper>
@@ -60,9 +99,15 @@ const Home = () => {
                             </a>
                         </SRLWrapper>
                     </div>
-                </section>
+                </section> */}
                 <footer>
                     <div className={styles.__container__footer}>
+<<<<<<< HEAD
+<<<<<<< HEAD
+                        <div className={styles.__container__enlace_adm}>
+                            <a href="Usuario_Admin">Usuario_Admin</a>
+                            
+=======
                         <div className={styles.__container__input}>
                             <input
                                 type="email"
@@ -70,6 +115,13 @@ const Home = () => {
                                 id="usr"
                                 placeholder={'Write yor Email'}
                             />
+>>>>>>> origin/develop
+=======
+
+                        <div className={styles.__container__enlace_adm}>
+                            <a href="Usuario_Admin">Usuario_Admin</a>
+                            
+>>>>>>> 0386371faf1a6896c8f9be780faf12b24c5ad4c6
                         </div>
                         <div className={styles.container__icon}>
                             <a href="http://facebook.com/Skyscanner">
