@@ -6,17 +6,15 @@ import styles from './home.module.css';
 // import Paris from '../../assets/images/Paris.jpg';
 // import Egypt from '../../assets/images/Egytp.jpg'
 // import Rio from '../../assets/images/Rio.jpg'
+import { Link } from 'react-router-dom';
 import facebook from '../../assets/images/facebook.png';
 import instagram from '../../assets/images/instagram-bosquejado.png';
 import twitter from '../../assets/images/twitter.png';
 import youtube from '../../assets/images/youtube.png';
 import githut from '../../assets/images/git.png';
 import Navbar from '../../components/navbar/navbar.view';
-// import { SRLWrapper } from 'simple-react-lightbox';
-import { Link } from 'react-router-dom';
-import ButtonFlightSearch from '../../components/buttonflightsearch/buttonflightsearch.view';
+import SearchBox from '../../components/searchBox/searchBox.view';
 import { FLIGHT_LIST } from '../../routes/routes';
-import SearchBox from "../../components/searchBox/searchBox.view";
 
     const Home = () => {
         return (
@@ -26,7 +24,19 @@ import SearchBox from "../../components/searchBox/searchBox.view";
 
                 <section className={styles.__container__body}>
                     <SearchBox />
-                    <Link to={FLIGHT_LIST}><ButtonFlightSearch/></Link>
+
+                    <Link to={FLIGHT_LIST}>
+                        <button
+                            type="submit"
+                            className="button button--blue"
+                            style={{
+                                border: '1px solid',
+                            }}
+                        >
+                            Flight List
+                        </button>
+                    </Link>
+
                 </section>
 
                 {/* Seccion comentada por el momento no se usara  */}
@@ -58,9 +68,10 @@ import SearchBox from "../../components/searchBox/searchBox.view";
                 </section> */}
                 <footer>
                     <div className={styles.__container__footer}>
+
                         <div className={styles.__container__enlace_adm}>
-                            <a href="Usuario_Admin">Usuario_Admin</a>
-                           
+                            <a href="Usuario_Admin">Acceder como usuario admin</a>
+                    
                         </div>
                         <div className={styles.container__icon}>
                             <a href="http://facebook.com/Skyscanner">
