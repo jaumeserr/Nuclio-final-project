@@ -57,7 +57,7 @@ const UserProfileCard = () => {
                             </div>
                             <div className="profile-card-ctr-box">
                                 <button
-                                    className="button button--green js-message-btn"
+                                    className="button button--green form__button js-message-btn"
                                     onClick={togglePopUp}
                                 >
                                     Add flight

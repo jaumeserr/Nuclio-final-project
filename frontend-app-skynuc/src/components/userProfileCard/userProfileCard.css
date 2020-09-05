@@ -1,9 +1,8 @@
-@import url('https://fonts.googleapis.com/css?family=Quicksand:400,500,600,700&subset=latin-ext');
 
-html {
+/* html {
     position: relative;
     overflow-x: hidden !important;
-}
+} */
 
 
 .wrapper {
@@ -13,8 +12,6 @@ html {
     height: auto;
     min-height: 100vh;
     padding: 190px 20px 50px 20px;
-    /* background-image: linear-gradient(-20deg, #0169df 0%, #5191da 100%); */
-
 }
 @media screen and (max-width: 768px) {
     .wrapper {
@@ -147,7 +144,7 @@ a:hover {
 }
 @media screen and (max-width: 576px) {
     .profile-card-ctr {
-        flex-wrap: wrap;
+        /* flex-wrap: wrap; */
     }
 }
 
@@ -159,6 +156,9 @@ a:hover {
     margin: auto;
 }
 
+/* .form__button {
+    min-width: 410px;
+} */
 
 
 /** MESSAGE **/

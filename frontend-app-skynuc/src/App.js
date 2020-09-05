@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import GlobalStyle from 'styles/globalStyles';
 import './App.css';
-import './assets/fonts.css';
 import Login from './components/login/login.view';
 import Register from './components/register/register.view';
 import UserProfileCard from './components/userProfileCard/userProfileCard.view';
