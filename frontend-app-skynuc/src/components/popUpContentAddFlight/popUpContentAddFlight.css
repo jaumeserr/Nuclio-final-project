@@ -151,3 +151,8 @@
         flex-wrap: wrap;
     }
 }
+
+
+.form__button {
+    min-width: 110px;
+}

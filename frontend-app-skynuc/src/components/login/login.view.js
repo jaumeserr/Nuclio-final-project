@@ -7,7 +7,7 @@ const Login = () => {
         <div className={styles.__wrapper}>
             <Navbar />
             <div>
-            <h1 style={{marginTop: 200, textAlign: "center"}}>Login</h1>
+                <h1 style={{ marginTop: 200, textAlign: 'center' }}>Login</h1>
             </div>
         </div>
     );

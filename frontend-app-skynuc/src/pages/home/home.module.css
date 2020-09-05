@@ -106,17 +106,17 @@
     margin-top: 20px;
     justify-content: space-between;
     margin-left: 15px;
-  
+
   }
-  
+
   .__container__icon{
     display: inline;
     flex-wrap: wrap;
     flex-direction: row;
     cursor: pointer;
     margin: 0 10px;
-    
+
   }
-  
-  
+
+
 

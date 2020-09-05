@@ -8,7 +8,7 @@
 
 .__title {
     padding-bottom: 48px;
-    color: rgb(255, 254, 254);
+    color: white;
     font-size: 37px;
     text-shadow: 2px 2px 2px #324e63;
 }
@@ -115,6 +115,7 @@
 .__inputPassengers p {
     font-size: 20px;
     padding: 8px 12px;
+    color: white;
 }
 
 .__radio {
