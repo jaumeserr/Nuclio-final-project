@@ -1,0 +1,23 @@
+
+
+
+.__container__footer{
+
+    display: flex;
+    align-items: center;
+    margin-top: 135px;
+    justify-content: space-between;
+    padding: 10px 15px;
+    background-color: white;
+  
+  }
+  
+  .__container__icon{
+
+    display: inline;
+    flex-wrap: wrap;
+    flex-direction: row;
+    cursor: pointer;
+    margin: 0 10px;
+    
+  }

@@ -7,14 +7,10 @@ import styles from './home.module.css';
 // import Egypt from '../../assets/images/Egytp.jpg'
 // import Rio from '../../assets/images/Rio.jpg'
 import { Link } from 'react-router-dom';
-import facebook from '../../assets/images/facebook.png';
-import instagram from '../../assets/images/instagram-bosquejado.png';
-import twitter from '../../assets/images/twitter.png';
-import youtube from '../../assets/images/youtube.png';
-import githut from '../../assets/images/git.png';
 import Navbar from '../../components/navbar/navbar.view';
 import SearchBox from '../../components/searchBox/searchBox.view';
 import { FLIGHT_LIST } from '../../routes/routes';
+import Footer from '../../footer/footer.view';
 
     const Home = () => {
         return (
@@ -39,34 +35,7 @@ import { FLIGHT_LIST } from '../../routes/routes';
 
                 </section>
 
-                
-                <footer>
-                    <div className={styles.__container__footer}>
-
-                        <div className={styles.__container__enlace_adm}>
-                            <a href="Usuario_Admin">Acceder como usuario admin</a>
-                    
-                        </div>
-
-                        <div className={styles.container__icon}>
-                            <a href="http://facebook.com/Skyscanner">
-                            <img src={facebook} alt="Facebook" className={styles.__container__icon}/>
-                            </a>
-                            <a href="https://www.instagram.com/skyscanner_es/?hl=es">
-                                <img src={instagram} alt="Instagram" className={styles.__container__icon}/>
-                            </a>
-                            <a href="https://twitter.com/skyscanner_es">
-                                <img src={twitter} alt="Twitter" className={styles.__container__icon}/>
-                            </a>
-                            <a href="https://www.youtube.com/watch?v=j4-hJuMaUas">
-                                <img src={youtube} alt="Youtube" className={styles.__container__icon}/>
-                            </a>
-                            <a href="https://github.com/jaumeserr/Skyscanner-Nuclio">
-                                <img src={githut} alt="Githut" className={styles.__container__icon}/>
-                            </a>
-                        </div>
-                    </div>
-                </footer>
+                <Footer/>
             </div>
         </div>
     );
