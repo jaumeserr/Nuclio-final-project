@@ -1,12 +1,20 @@
-.body{
-    /* background-color: green; */
+.__wrapper {
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* height: 100%; */
+    min-height: 100vh;
+    padding-top: 150px;
+    background-image: linear-gradient(-20deg, #0169dfa2 0%, #5191daa4 100%),
+        url('../../assets/images/globos2.jpg');
+    color: white;
 }
 
-.__container{
+.__container {
     text-align: center;
 }
 
-.__logo{
+.__logo {
     width: 250px;
     margin-left: 30px;
     height: 45px;
@@ -14,22 +22,22 @@
     padding: 15px auto;
 }
 
-.__container__body{
+/* .__container__body{
     box-sizing: border-box;
-    background-image: linear-gradient(-20deg, #0169dfa2 0%, #5191daa4 100%), url("../../assets/images/globos2.jpg");
-    /* background-image: linear-gradient(to right, rgba(79, 172, 254, 0.59) 0%, rgba(0, 242, 254, 0.62) 100%), url("../../assets/images/globos2.jpg"); */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     display: flex;
-    height: 650px;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-}
 
-.__title{
+    background-image: linear-gradient(-20deg, #0169dfa2 0%, #5191daa4 100%), url("../../assets/images/globos2.jpg");
+    height :100%
+} */
+
+.__title {
     align-items: center;
     font-size: 65px;
     font-weight: bolder;
@@ -70,53 +78,20 @@
     background-color: rgba(99, 107, 111, 0.9);
 } */
 
-.__container__enlaceflight {
-    padding: 10px 10px;
-    background-color: rgba(0, 0, 255, 0.76);
-    border-radius: 20px;
-    display: block;
-    position: relative;
-    width: 0 95% 0 95%;
-}
-
-.__container__button{
-    background: transparent;
-    border: none;
-    text-align: center;
-    color: white;
-    font-size: 20px;
-    cursor: pointer;
-    font-family: -apple-system, serif;
-    outline: none;
-    border: transparent;
-}
-
-.__container__enlaceflight:hover{
-    background-color: #1e3c99;
-}
-
-.__container__button:active{
-    transform: scale(0.9,0.9);
-}
-
-.__container__footer{
+.__container__footer {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 20px;
     justify-content: space-between;
-    margin-left: 15px;
+    padding: 10px 15px;
+    background-color: aliceblue;
+}
 
-  }
-
-  .__container__icon{
+.__container__icon {
     display: inline;
     flex-wrap: wrap;
     flex-direction: row;
     cursor: pointer;
     margin: 0 10px;
-
-  }
-
-
-
+}
