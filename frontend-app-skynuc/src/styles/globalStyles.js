@@ -20,7 +20,13 @@ body {
     color: #324e63;
 }
 
-${'' /* .global_wrapper {
+a,
+a:hover {
+    text-decoration: none;
+}
+
+${
+    '' /* .global_wrapper {
     top: 0;
     left: 0;
     width: 100%;
@@ -28,7 +34,8 @@ ${'' /* .global_wrapper {
     min-height: 100vh;
     padding: 50px 20px;
     color: red;
-} */}
+} */
+}
 
 /** BUTTONS **/
 
