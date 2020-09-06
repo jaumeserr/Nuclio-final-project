@@ -2,13 +2,10 @@
     top: 0;
     left: 0;
     width: 100%;
-<<<<<<< HEAD
     height: 100%; 
     min-height: 100vh; 
-=======
     /* height: 100%; */
     min-height: 100vh;
->>>>>>> origin/develop
     padding-top: 150px;
     background-image: linear-gradient(-20deg, #0169dfa2 0%, #5191daa4 100%),
         url('../../assets/images/globos2.jpg');
@@ -17,12 +14,9 @@
 
 .__container {
     text-align: center;
-<<<<<<< HEAD
     justify-content: center;
     align-content: center;
     
-=======
->>>>>>> origin/develop
 }
 
 .__logo {
@@ -89,13 +83,6 @@
     background-color: rgba(99, 107, 111, 0.9);
 } */
 
-<<<<<<< HEAD
-
-
-  
-  
-
-=======
 .__container__footer {
     display: flex;
     justify-content: center;
@@ -113,4 +100,3 @@
     cursor: pointer;
     margin: 0 10px;
 }
->>>>>>> origin/develop
