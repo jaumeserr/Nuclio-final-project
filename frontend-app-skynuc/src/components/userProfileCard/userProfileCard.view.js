@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import userProfilePicture from '../../assets/images/user_profile_avatars/user_profile_avatar_1.png';
-import Navbar from '../navbar/navbar.view';
-import PopUpBox from '../popUpBox/popUpBox.view.js';
+import userProfilePicture from 'assets/images/user_profile_avatars/user_profile_avatar_1.png';
+import Navbar from 'components/navbar/navbar.view';
+import PopUpBox from 'components/popUpBox/popUpBox.view.js';
 import './userProfileCard.css';
 
 const UserProfileCard = () => {
@@ -51,21 +51,21 @@ const UserProfileCard = () => {
                                         <div className="profile-card-inf__txt">Flights added</div>
                                     </div>
                                 </div>
-                                <button className="profile-card__button button--blue">
+                                <button className="button button--blue">
                                     List my flights
                                 </button>
                             </div>
                             <div className="profile-card-ctr-box">
                                 <button
-                                    className="profile-card__button button--green js-message-btn"
+                                    className="button button--green js-message-btn"
                                     onClick={togglePopUp}
                                 >
                                     Add flight
                                 </button>
-                                <button className="profile-card__button button--yellow js-message-btn">
+                                <button className="button button--yellow js-message-btn">
                                     Modify flight
                                 </button>
-                                <button className="profile-card__button button--red js-message-btn">
+                                <button className="button button--red js-message-btn">
                                     Delete flight
                                 </button>
                             </div>

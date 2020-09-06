@@ -7,7 +7,7 @@ const Register = () => {
         <div className={styles.__wrapper}>
             <Navbar />
             <div>
-            <h1 style={{marginTop: 200, textAlign: "center"}}>Register</h1>
+                <h1 style={{ marginTop: 200, textAlign: 'center' }}>Register</h1>
             </div>
         </div>
     );

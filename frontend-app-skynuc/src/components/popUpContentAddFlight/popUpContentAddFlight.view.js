@@ -70,13 +70,13 @@ const PopUpContentAddFlight = ({ handleClose }) => {
             <div className="profile-card-form__bottom">
                 {/* <button className="profile-card__button form__button button--green js-message-close" onClick={props.handleSendData}> */}
                 <button
-                    className="profile-card__button form__button button--green js-message-close"
+                    className="button form__button button--green js-message-close"
                     onClick={sendFlightDataToDB_2}
                 >
                     Send
                 </button>
                 <button
-                    className="profile-card__button form__button button--gray js-message-close"
+                    className="button form__button button--gray js-message-close"
                     onClick={handleClose}
                     // FIXME: onClick={handleClose} - Not working
                 >
