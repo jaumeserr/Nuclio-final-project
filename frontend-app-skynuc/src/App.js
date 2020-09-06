@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import GlobalStyle from 'styles/globalStyles';
-import './App.css';
+import './App.scss';
 import Login from './components/login/login.view';
 import Register from './components/register/register.view';
 import UserProfileCard from './components/userProfileCard/userProfileCard.view';
@@ -12,7 +11,7 @@ import { FLIGHT_LIST, LOGIN, REGISTER, USER_PROFILE } from './routes/routes';
 function App() {
     return (
         <Router>
-            <GlobalStyle />
+            {/* <GlobalStyle /> */}
             <Switch>
                 <Route exact path="/">
                     <Home />
@@ -35,3 +34,5 @@ function App() {
 }
 
 export default App;
+
+// import GlobalStyle from 'styles/globalStyles';

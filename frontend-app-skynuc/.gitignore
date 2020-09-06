@@ -25,3 +25,6 @@ yarn-error.log*
 
 # custom
 .idea/
+
+# sass
+/src/styles/dist

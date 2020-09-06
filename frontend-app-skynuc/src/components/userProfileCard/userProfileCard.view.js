@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import userProfilePicture from 'assets/images/user_profile_avatars/user_profile_avatar_1.png';
 import Navbar from 'components/navbar/navbar.view';
 import PopUpBox from 'components/popUpBox/popUpBox.view.js';
-import './userProfileCard.css';
+import './userProfileCard.module.css';
 
 const UserProfileCard = () => {
     const [isOpen, setIsOpen] = useState(false);

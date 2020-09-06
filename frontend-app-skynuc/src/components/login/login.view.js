@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from '../navbar/navbar.view';
-import styles from './login.module.css';
+import styles from './login.module.scss';
 
 const Login = () => {
     return (

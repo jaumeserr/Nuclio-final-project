@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from '../navbar/navbar.view';
-import styles from './register.module.css';
+import styles from './register.module.scss';
 
 const Register = () => {
     return (
