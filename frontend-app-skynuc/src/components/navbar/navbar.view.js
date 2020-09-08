@@ -22,9 +22,9 @@ const Navbar = () => {
             <div className={styles.__navlinks}>
                 <Link to={LOGIN}>
                     <button
-                    // disabled
-                    // disabled className="button"
-                    className={`button ${isDisabled ? 'inactive' : 'button--blue-outline'}`}
+                        // disabled
+                        type="button" disabled className="button"
+                        // className={`button ${isDisabled ? 'inactive' : 'button--blue-outline'}`}
                     >
                         Login
                     </button>

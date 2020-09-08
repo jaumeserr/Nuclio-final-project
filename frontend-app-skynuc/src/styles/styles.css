@@ -1,11 +1,9 @@
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     /* font-family: 'Quicksand', sans-serif; */
     font-family: 'Roboto', sans-serif;
-
 }
 
 body {
@@ -15,7 +13,7 @@ body {
     /* background: teal; */
     /* background-image: linear-gradient(-20deg, #0169df 0%, #5191da 100%); */
     /* color: #324e63; */
-    background-color: #EEF6FF;
+    background-color: #eef6ff;
 }
 
 a,
@@ -33,31 +31,31 @@ a:hover {
     color: red;
 } */
 
-
 /** BUTTONS **/
 
 .button {
     background: none;
     border: none;
-    /* font-family: 'Quicksand', sans-serif; */
     font-weight: 600;
     font-size: 17px;
     padding: 0px 15px;
-    /* min-width: 170px; */
     border-radius: 4px;
-    /* border-radius: 50px; */
     min-height: 45px;
-    color: #fff;
-    cursor: pointer;
+    color: red;
+    /* cursor: pointer; */
+
+    /* border-radius: 50px; */
+    /* min-width: 170px; */
+    /* font-family: 'Quicksand', sans-serif; */
     /* backface-visibility: hidden; */
     /* transition: all 0.1s; */
 }
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
     .button {
         margin: 15px 25px;
     }
-}
-@media screen and (max-width: 576px) {
+} */
+/* @media screen and (max-width: 576px) {
     .button {
         min-width: inherit;
         margin: 0;
@@ -68,15 +66,14 @@ a:hover {
     .button:last-child {
         margin-bottom: 0;
     }
-}
-.button:focus {
+} */
+/* .button:focus {
     outline: none !important;
-}
-@media screen and (min-width: 768px) {
+} */
+/* @media screen and (min-width: 768px) {
     .button:hover {
-        /* transform: scale(1.01); */
     }
-}
+}*/
 .button:disabled {
     background-color: pink;
     color: rgba(17, 17, 17, 0.48);
@@ -84,13 +81,13 @@ a:hover {
     pointer-events: none !important;
     font-weight: normal !important;
 }
-.button.inactive {
+/* .button.inactive {
     background-color: lightgreen;
     color: rgba(17, 17, 17, 0.48);
     cursor: not-allowed !important;
     pointer-events: none !important;
     font-weight: normal !important;
-}
+} */
 
 /* .button:first-child {
     margin-left: 0;
@@ -99,17 +96,15 @@ a:hover {
     margin-right: 0;
 } */
 
-
-
 .button.button--blue-solid {
-    background-color: #3182CE;
+    background-color: #3182ce;
 }
 .button.button--blue-solid:hover {
     background-color: #2a6fb0;
 }
 .button.button--blue-outline {
-    border: 1.5px solid #0770E3;
-    color: #0770E3;
+    border: 1.5px solid #0770e3;
+    color: #0770e3;
     font-weight: normal;
 }
 .button.button--blue-outline:hover {
