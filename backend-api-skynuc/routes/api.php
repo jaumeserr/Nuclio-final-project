@@ -33,7 +33,6 @@ Route::group([
     Route::get('iata/{iata}', 'AirportController@getByIata');
     Route::get('city_name/{city_name}', 'AirportController@getByCityName');
 
-
 });
 
 
@@ -72,7 +71,6 @@ Route::group([
 
     Route::get('', 'FlightConstController@all');
 
-
 });
 
 
@@ -94,8 +92,22 @@ Route::group([
     Route::get('arr_datetime/{arr_datetime}', 'FlightInstanceController@getByArrDatetime');
     Route::get('flight_num/{flight_const_flight_num}', 'FlightInstanceController@getByFlightNum');
     Route::get('price_eur/{price_eur}', 'FlightInstanceController@getByPrice');
-
     Route::get('flightcarddata', 'FlightInstanceController@flightCardData');
 
+});
+
+/*
+|--------------------------------------------------------------------------
+| Search Routes
+|--------------------------------------------------------------------------
+*/
+
+Route::group([
+
+    'prefix' => 'search'
+
+], function ($router) {
+
+    Route::get('', 'SearchController@search');
 
 });

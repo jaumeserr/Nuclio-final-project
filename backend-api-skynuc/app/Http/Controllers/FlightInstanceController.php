@@ -28,8 +28,6 @@ class FlightInstanceController extends Controller {
      * @param $id
      * @return Jsonresponse
      */
-
-
     public function getById($id)
     {
         Log::info('Retrieving flight instance by id: '.$id);
@@ -43,8 +41,6 @@ class FlightInstanceController extends Controller {
      * @param $dpt_datetime
      * @return Jsonresponse
      */
-
-
     public function getByDptDatetime($dpt_datetime)
     {
         Log::info('Retrieving flight instance by dpt datetime: '.$dpt_datetime);
@@ -58,8 +54,6 @@ class FlightInstanceController extends Controller {
      * @param $arr_datetime
      * @return Jsonresponse
      */
-
-
     public function getByArrDatetime($arr_datetime)
     {
         Log::info('Retrieving flight instance by arr datetime: '.$arr_datetime);
@@ -73,8 +67,6 @@ class FlightInstanceController extends Controller {
      * @param $flight_const_flight_num
      * @return Jsonresponse
      */
-
-
     public function getByFlightNum($flight_const_flight_num)
     {
         Log::info('Retrieving flight instance by flight num: '.$flight_const_flight_num);
@@ -88,8 +80,6 @@ class FlightInstanceController extends Controller {
      * @param $price_eur
      * @return Jsonresponse
      */
-
-
     public function getByPrice($price_eur)
     {
         Log::info('Retrieving flight instance by price: '.$price_eur);
@@ -113,7 +103,4 @@ class FlightInstanceController extends Controller {
         $flightinstance = FlightInstance::with('flightConst.airline')->get();
         return response()->json($flightinstance);
     }
-
-
-
 }
