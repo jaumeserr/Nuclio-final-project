@@ -1,0 +1,38 @@
+.__container {
+    width: 100%;
+    background-color: #17385C;
+    border-radius: 0px 0px 12px 12px;
+    height: 70px;
+    padding: 0 38px;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+.__spaceGrow {
+    flex-grow: 1;
+}
+
+.__routeBlock {
+    display: flex;
+}
+
+.__separator {
+    width: 40px;
+    background-image: url('../../assets/images/searchBar/arrow_searchBar.png');
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.__img {
+    background-color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 26px;
+    background-image: url('../../assets/images/searchBar/magnifiyer.png');
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+

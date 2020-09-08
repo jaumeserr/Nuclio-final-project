@@ -3,6 +3,7 @@ import FlightCard from '../../components/flightcard/flightCard.view';
 import Loader from '../../components/loader/loader.view';
 import styles from './flightListPage.module.css';
 import axios from "axios";
+import SearchBar from "../../components/searchBar/searchBar.view";
 
 
 const FlightListPage = () => {
@@ -26,7 +27,7 @@ const FlightListPage = () => {
                 LEFT
             </div>
             <div className={styles.__center}>
-                SEARCHBAR
+                <SearchBar />
                 <p className={styles.__foundText}>We have found {infoFlights.length} flights for you</p>
                 {isLoading && <Loader />}
                 {infoFlights && infoFlights.map((data) => {
