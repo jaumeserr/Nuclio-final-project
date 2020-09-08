@@ -71,4 +71,14 @@ class FlightConst extends Model {
     {
         return $this->hasOne('App\Airport', 'arr_airport_iata');
     }
+
+//    public function isArrival($arrival)
+//    {
+//        return $this->arrAirport()->
+//    }
+//
+//    public function isDeparture($departure)
+//    {
+//
+//    }
 }
