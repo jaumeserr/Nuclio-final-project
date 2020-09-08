@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
 import userProfilePicture from 'assets/images/user_profile_avatars/user_profile_avatar_1.png';
 import Navbar from 'components/navbar/navbar.view';
 import PopUpBox from 'components/popUpBox/popUpBox.view.js';
+import React, { useState } from 'react';
 import './userProfileCard.css';
 
 const UserProfileCard = () => {
@@ -24,7 +24,7 @@ const UserProfileCard = () => {
             {/* {isOpen && <PopUpForm handleClose={closePopUp} handleSendData={sendFlightDataToDB} />} */}
             {isOpen && <PopUpBox handleClose={togglePopUp} />}
 
-            <Navbar/>
+            <Navbar />
 
             <div className="wrapper">
                 {/* <div className="profile-card js-profile-card"> */}
@@ -51,7 +51,7 @@ const UserProfileCard = () => {
                                         <div className="profile-card-inf__txt">Flights added</div>
                                     </div>
                                 </div>
-                                <button className="button button--blue">
+                                <button className="button button--blue-solid">
                                     List my flights
                                 </button>
                             </div>

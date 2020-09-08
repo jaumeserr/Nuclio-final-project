@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import GlobalStyle from 'styles/globalStyles';
 import './App.css';
 import Login from './components/login/login.view';
 import Register from './components/register/register.view';
@@ -12,7 +11,6 @@ import { FLIGHT_LIST, LOGIN, REGISTER, USER_PROFILE } from './routes/routes';
 function App() {
     return (
         <Router>
-            <GlobalStyle />
             <Switch>
                 <Route exact path="/">
                     <Home />

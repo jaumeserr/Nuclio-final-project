@@ -221,7 +221,7 @@ const SearchBox = () => {
                     Ver Vuelos &rarr;
                 </a>
                 {/* <a
-                    className="button button--blue"
+                    className="button button--blue-solid"
                     target="_blank"
                     href={mySwitchAirline(airlinesCode)}
                     style={{
