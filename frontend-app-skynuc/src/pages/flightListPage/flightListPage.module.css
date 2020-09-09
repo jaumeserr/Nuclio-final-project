@@ -1,0 +1,21 @@
+.__container {
+    background-color: #eef6ff;
+    display: flex;
+    height: 100vh;
+}
+
+.__aside {
+    width: 300px;
+}
+
+.__center {
+    width: 842px;
+}
+
+.__foundText {
+    font-size: 12px;
+    color: #000000;
+    margin: 25px 0 17px;
+}
+
+

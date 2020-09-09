@@ -4,7 +4,7 @@ import './App.css';
 import Login from './components/login/login.view';
 import Register from './components/register/register.view';
 import UserProfileCard from './components/userProfileCard/userProfileCard.view';
-import FlightListPage from './pages/flightlistpage/flightlistpage.view';
+import FlightListPage from './pages/flightListPage/flightListPage.view';
 import Home from './pages/home/home.view';
 import { FLIGHT_LIST, LOGIN, REGISTER, USER_PROFILE } from './routes/routes';
 
