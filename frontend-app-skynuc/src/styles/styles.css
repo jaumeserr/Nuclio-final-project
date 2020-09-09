@@ -41,7 +41,7 @@ a:hover {
     padding: 0px 15px;
     border-radius: 4px;
     min-height: 45px;
-    color: red;
+    color: white;
     /* cursor: pointer; */
 
     /* border-radius: 50px; */
@@ -75,7 +75,7 @@ a:hover {
     }
 }*/
 .button:disabled {
-    background-color: pink;
+    background-color: none;
     color: rgba(17, 17, 17, 0.48);
     cursor: not-allowed !important;
     pointer-events: none !important;

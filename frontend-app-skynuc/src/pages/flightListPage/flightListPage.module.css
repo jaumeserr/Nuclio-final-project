@@ -2,6 +2,7 @@
     background-color: #eef6ff;
     display: flex;
     height: 100vh;
+    padding-top: 250px;
 }
 
 .__aside {
