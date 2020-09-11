@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './searchBar.module.css';
-import magnifiyer from '../../assets/images/searchBar/magnifiyer.png';
 
 const SearchBar = () => {
     return (
