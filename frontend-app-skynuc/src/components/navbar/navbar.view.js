@@ -1,37 +1,43 @@
+import Button from 'components/button/button.view';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../../assets/images/skyreader_logo.png';
-import { HOME, LOGIN, REGISTER } from '../../routes/routes';
+import logoSkyreader from '../../assets/images/logo_skyreader.svg';
+import { HOME, LOGIN, REGISTER, USER_PROFILE } from '../../routes/routes';
 import styles from './navbar.module.css';
 
 const Navbar = () => {
-    const [isDisabled, setIsDisabled] = useState(true);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-    const toggleAbility = () => {
-        setIsDisabled(!isDisabled);
+    const toggleLoggedIn = () => {
+        setIsLoggedIn(!isLoggedIn);
     };
 
     return (
         <div className={styles.__container}>
             <Link to={HOME}>
-                <div className={styles.__logo}>
-                    <img src={logo} alt="logo" />
-                    <p>skyreader</p>
-                </div>
+                <img src={logoSkyreader} alt="Logo Skyreader" />
             </Link>
             <div className={styles.__navlinks}>
-                <Link to={LOGIN}>
-                    <button
-                        // disabled
-                        type="button" disabled className="button"
-                        // className={`button ${isDisabled ? 'inactive' : 'button--blue-outline'}`}
-                    >
-                        Login
-                    </button>
-                </Link>
-                <Link to={REGISTER}>
-                    <button className="button button--blue-outline">Register</button>
-                </Link>
+                {!isLoggedIn && (
+                    <>
+                        <Link to={LOGIN}>
+                            <Button content={'Login'} style={'blue__outline'} disabled={true} />
+                        </Link>
+                        <Link to={REGISTER}>
+                            <Button content={'Register'} style={'blue__outline'} />
+                        </Link>
+                    </>
+                )}
+                {isLoggedIn && (
+                    <>
+                        <Link to={HOME}>
+                            <Button content={'Logout'} style={'blue__outline'} />
+                        </Link>
+                        <Link to={USER_PROFILE}>
+                            <Button content={'Profile'} style={'blue__outline'} />
+                        </Link>
+                    </>
+                )}
             </div>
         </div>
     );

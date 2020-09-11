@@ -3,10 +3,11 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import Login from './components/login/login.view';
 import Register from './components/register/register.view';
-import UserProfileCard from './components/userProfileCard/userProfileCard.view';
+import UserProfile from './components/userProfile/userProfile.view';
+import AdminUserProfile from './components/adminUserProfile/adminUserProfile.view';
 import FlightListPage from './pages/flightListPage/flightListPage.view';
 import Home from './pages/home/home.view';
-import { FLIGHT_LIST, LOGIN, REGISTER, USER_PROFILE } from './routes/routes';
+import { ADMIN_USER_PROFILE, FLIGHT_LIST, LOGIN, REGISTER, USER_PROFILE } from './routes/routes';
 
 function App() {
     return (
@@ -24,8 +25,11 @@ function App() {
                 <Route path={FLIGHT_LIST}>
                     <FlightListPage />
                 </Route>
+                <Route path={ADMIN_USER_PROFILE}>
+                    <AdminUserProfile />
+                </Route>
                 <Route path={USER_PROFILE}>
-                    <UserProfileCard />
+                    <UserProfile />
                 </Route>
             </Switch>
         </Router>

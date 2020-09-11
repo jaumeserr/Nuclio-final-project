@@ -2,7 +2,7 @@ import React from 'react';
 import { Spinner } from 'react-awesome-spinners';
 import styles from './loader.module.css';
 
-function Loader() {
+function Loader () {
     return (
         <div className={styles.__loader__container}>
             <div className={styles.__loader}>
