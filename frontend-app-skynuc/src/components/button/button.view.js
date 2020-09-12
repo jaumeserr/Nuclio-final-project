@@ -2,19 +2,27 @@ import cx from 'classnames';
 import React from 'react';
 import styles from './button.module.css';
 
-const Button = ({ content, style, action, disabled }) => {
+const Button = ({
+    action,
+    content,
+    style,
+    disabled = false
+}) => {
     return (
         <button
-            type="button"
+            type = "button"
             disabled = {disabled}
-            className={cx(styles.button, styles.[style])}
-            onClick={action}
+            className = { cx(styles.button, styles.[style])}
+            onClick = {action}
         >
-            {content}
+        {content}
         </button>
     );
 };
 
 export default Button;
 
-//FIXME: [style] - It works but "identifyer expected"
+// USAGE (all props are optional):
+// <Button content={'Login'} style={'blue__outline'} action={togglePopUp} disabled={true} />
+
+//FIXME: styles.[style] - It works but "identifyer expected"
