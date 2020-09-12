@@ -34,8 +34,8 @@ const FlightListPage = () => {
                         We have found {infoFlights.length} flights for you
                     </p>
                     {isLoading && <Loader />}
-                    {!isLoading && infoFlights.lenght !== 0 && <NoResults/>}
-                    {!isLoading && infoFlights.lenght === 0 &&
+                    {!isLoading && infoFlights.lenght === 0 && <NoResults/>}
+                    {!isLoading && infoFlights.lenght !== 0 &&
                         infoFlights.map((data) => {
                             return (
                                 <FlightCard
