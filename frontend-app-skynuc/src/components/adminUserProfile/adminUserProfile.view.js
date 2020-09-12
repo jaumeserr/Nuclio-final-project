@@ -1,10 +1,11 @@
 import userProfilePicture from 'assets/images/user_profile_avatars/user_profile_avatar_1.png';
+import Button from 'components/button/button.view';
 import Navbar from 'components/navbar/navbar.view';
 import PopUpBox from 'components/popUpBox/popUpBox.view.js';
 import React, { useState } from 'react';
-import './userProfileCard.css';
+import './adminUserProfile.css';
 
-const UserProfileCard = () => {
+const AdminUserProfile = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     const togglePopUp = () => {
@@ -51,23 +52,16 @@ const UserProfileCard = () => {
                                         <div className="profile-card-inf__txt">Flights added</div>
                                     </div>
                                 </div>
-                                <button className="button button--blue-solid">
-                                    List my flights
-                                </button>
+                                <Button content={'List my flights'} style={'blue__solid'} />
                             </div>
                             <div className="profile-card-ctr-box">
-                                <button
-                                    className="button button--green form__button js-message-btn"
-                                    onClick={togglePopUp}
-                                >
-                                    Add flight
-                                </button>
-                                <button className="button button--yellow js-message-btn">
-                                    Modify flight
-                                </button>
-                                <button className="button button--red js-message-btn">
-                                    Delete flight
-                                </button>
+                                <Button
+                                    content={'Add flight'}
+                                    style={'green__solid'}
+                                    action={togglePopUp}
+                                />
+                                <Button content={'Modify flight'} style={'yellow__solid'} />
+                                <Button content={'Delete flight'} style={'red__solid'} />
                             </div>
                         </div>
                     </div>
@@ -77,7 +71,7 @@ const UserProfileCard = () => {
     );
 };
 
-export default UserProfileCard;
+export default AdminUserProfile;
 
 // SOURCE: https://codepen.io/JavaScriptJunkie/pen/jvRGZy
 
