@@ -59,9 +59,7 @@ const SearchBox = () => {
     return (
         <div className={styles.__container}>
             <div>
-                <div className={styles.__label}>
-                    Where
-                </div>
+                <div className={styles.__label}>Where</div>
                 <div className={styles.__inputBoxGroup}>
                     <select
                         className={styles.__select}
@@ -72,15 +70,15 @@ const SearchBox = () => {
                     >
                         <option value="">From</option>
                         {origins &&
-                        origins.map((origin) => {
-                            const { city_name, iata } = origin;
+                            origins.map((origin) => {
+                                const { city_name, iata } = origin;
 
-                            return (
-                                <option key={iata} value={iata}>
-                                    {city_name} ({iata})
-                                </option>
-                            );
-                        })}
+                                return (
+                                    <option key={iata} value={iata}>
+                                        {city_name} ({iata})
+                                    </option>
+                                );
+                            })}
                     </select>
                     <div className={styles.__separator}></div>
                     <select
@@ -92,22 +90,20 @@ const SearchBox = () => {
                     >
                         <option value="">To</option>
                         {destinations &&
-                        destinations.map((destination) => {
-                            const { city_name, iata } = destination;
+                            destinations.map((destination) => {
+                                const { city_name, iata } = destination;
 
-                            return (
-                                <option key={iata} value={iata}>
-                                    {city_name} ({iata})
-                                </option>
-                            );
-                        })}
+                                return (
+                                    <option key={iata} value={iata}>
+                                        {city_name} ({iata})
+                                    </option>
+                                );
+                            })}
                     </select>
                 </div>
             </div>
             <div>
-                <div className={styles.__label}>
-                    When
-                </div>
+                <div className={styles.__label}>When</div>
                 <div className={styles.__inputBoxGroup}>
                     <select
                         className={`${styles.__select} ${styles.__date}`}
@@ -118,20 +114,22 @@ const SearchBox = () => {
                     >
                         <option value="">Departure Date</option>
                         {dates &&
-                        dates.map((date) => {
-                            const { dpt_datetime, id } = date;
+                            dates.map((date) => {
+                                const { dpt_datetime, id } = date;
 
-                            return (
-                                <option
-                                    key={id}
-                                    value={dpt_datetime.replace(/-/g, '').substring(0, 8)}
-                                >
-                                    {dpt_datetime.replace(/-/g, '/').substring(0, 10)}
-                                </option>
-                            );
-                        })}
+                                return (
+                                    <option
+                                        key={id}
+                                        value={dpt_datetime.replace(/-/g, '').substring(0, 8)}
+                                    >
+                                        {dpt_datetime.replace(/-/g, '/').substring(0, 10)}
+                                    </option>
+                                );
+                            })}
                     </select>
-                    <button className={styles.__button} onClick={() => alert('Clicked')}>See flights</button>
+                    <button className={styles.__button} onClick={() => alert('Clicked')}>
+                        See flights
+                    </button>
                 </div>
             </div>
         </div>

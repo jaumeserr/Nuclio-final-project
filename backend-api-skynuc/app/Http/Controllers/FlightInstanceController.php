@@ -87,10 +87,7 @@ class FlightInstanceController extends Controller {
         return response()->json($flightinstance);
     }
 
-
-
-
-    /** //FIXME description
+    /**
      * Show a list of all of the application's airlines
      * with their corresponding flight consts
      * and the corresponding flight instances of these flight consts
@@ -99,7 +96,7 @@ class FlightInstanceController extends Controller {
      */
     public function flightCardData()
     {
-        Log::info('BLABLABLARetrieving all flight instances with the flight consts they belong to and the corresp. airlines they belong to');
+        Log::info('Retrieving all flight instances with the flight consts they belong to and the corresp. airlines these flight consts belong to');
         $flightinstance = FlightInstance::with('flightConst.airline')->get();
         return response()->json($flightinstance);
     }

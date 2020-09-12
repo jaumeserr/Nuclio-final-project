@@ -12,14 +12,13 @@ import Footer from '../../components/footer/footer.view';
             <Navbar/>   
             <Landing/>   
             <Footer/> 
+
+
         </div>
     );
-
-}
+};
 
 export default Home;
-
-
 
 
 
@@ -37,6 +36,7 @@ export default Home;
     Flight List
 </button>
 </Link> */}
+
 
 
 
