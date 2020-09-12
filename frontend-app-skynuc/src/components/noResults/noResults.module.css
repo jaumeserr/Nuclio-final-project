@@ -1,0 +1,26 @@
+.__container {
+    height: 400px;
+    width: auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.__container img {
+    margin-bottom: 30px;
+}
+
+.__container h1 {
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    color: #17385c;
+    margin-bottom: 20px;
+}
+
+.__container p {
+    font-size: 12px;
+    color: #5e6d7c;
+}

@@ -1,8 +1,8 @@
 import Button from 'components/button/button.view';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import logoSkyreader from '../../assets/images/logo_skyreader.svg';
-import { HOME, LOGIN, REGISTER, USER_PROFILE } from '../../routes/routes';
+import logoSkyreader from 'assets/images/logo_skyreader.svg';
+import { HOME, LOGIN, REGISTER, USER_PROFILE } from 'routes/routes';
 import styles from './navbar.module.css';
 
 const Navbar = () => {
@@ -17,7 +17,7 @@ const Navbar = () => {
             <Link to={HOME}>
                 <img src={logoSkyreader} alt="Logo Skyreader" />
             </Link>
-            <div className={styles.__navlinks}>
+            <div className={styles.__links__container}>
                 {!isLoggedIn && (
                     <>
                         <Link to={LOGIN}>
