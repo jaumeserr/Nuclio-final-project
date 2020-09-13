@@ -8,7 +8,7 @@ const Home = () => {
     return (
         <div className={styles.__wrapper}>
             <div className={styles.__container}>
-                <h1>Find the best flight and save</h1>
+                <h1>Find the best flight and save up</h1>
                 <SearchBox />
                 <img src={piclanding} alt="pic landing" className={styles.__image} />
             </div>
