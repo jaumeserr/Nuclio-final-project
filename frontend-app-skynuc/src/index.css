@@ -15,4 +15,6 @@ code {
     src: local('Quicksand'), url(./assets/fonts/Quicksand/Quicksand-VariableFont_wght.ttf) format('truetype');
   } */
 
-@import url('https://fonts.googleapis.com/css?family=Quicksand:400,500,600,700&subset=latin-ext');
+/* @import url('https://fonts.googleapis.com/css?family=Quicksand:400,500,600,700&subset=latin-ext'); */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat');
