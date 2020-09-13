@@ -1,44 +1,22 @@
+import piclanding from 'assets/images/piclanding.png';
+import Footer from 'components/footer/footer.view';
+import SearchBox from 'components/searchBox/searchBox.view';
 import React from 'react';
 import styles from './home.module.css';
-import Navbar from '../../components/navbar/navbar.view';
-import Landing from '../../components/landing/landing.view';
-import Footer from '../../components/footer/footer.view';
 
-
-    const Home = () => {
-        return (
-            
+const Home = () => {
+    return (
         <div className={styles.__wrapper}>
-            <Navbar/>   
-            <Landing/>   
-            <Footer/> 
-
-
+            <div className={styles.__container}>
+                <h1>Find the best flight and save</h1>
+                <SearchBox />
+                <img src={piclanding} alt="pic landing" className={styles.__image} />
+            </div>
+            <div className={styles.__footer}>
+                <Footer />
+            </div>
         </div>
     );
 };
 
 export default Home;
-
-
-
-
-
-
-{/* <Link to={FLIGHT_LIST}>
-<button
-    type="submit"
-    className="button button--blue"
-    style={{
-        border: '1px solid',
-    }}
->
-    Flight List
-</button>
-</Link> */}
-
-
-
-
-
-
