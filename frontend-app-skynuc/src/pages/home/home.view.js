@@ -6,8 +6,8 @@ import styles from './home.module.css';
 
 const Home = () => {
     return (
-        <>
-            <div className={styles.__wrapper}>
+        <div className={styles.__wrapper}>
+            <div className={styles.__container}>
                 <h1>Find the best flight and save</h1>
                 <SearchBox />
                 <img src={piclanding} alt="pic landing" className={styles.__image} />
@@ -15,7 +15,7 @@ const Home = () => {
             <div className={styles.__footer}>
                 <Footer />
             </div>
-        </>
+        </div>
     );
 };
 

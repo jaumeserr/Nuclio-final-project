@@ -5,7 +5,7 @@
     align-items: center;
     background-color: rgba(53, 187, 111, 0.39); /* FIXME: Línea por borrar */
     width: 100%;
-    height: 220px;
+    height: 210px;
 }
 
 .__container__footer img {
@@ -26,7 +26,7 @@
 }
 
 .__container__icons {
-    background-color: pink; /* FIXME: Línea por borrar */
+    background-color: rgb(153, 32, 32); /* FIXME: Línea por borrar */
     display: flex;
     justify-content: space-around;
     align-items: center;

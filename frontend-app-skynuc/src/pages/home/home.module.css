@@ -1,7 +1,12 @@
 .__wrapper {
-    height: calc(100vh - 220px);
-    border: 3px dotted red; /* FIXME: Línea por borrar */
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.__container {
+    flex: 1 0 auto;
+    border: 4px dotted red; /* FIXME: Línea por borrar */
     background-color: rgba(255, 0, 242, 0.171); /* FIXME: Línea por borrar */
     display: flex;
     flex-direction: column;
@@ -9,7 +14,7 @@
     align-items: center;
 }
 
-.__wrapper h1 {
+.__container h1 {
     color: #000000;
     margin-bottom: 20px;
     background-color: lightcoral; /* FIXME: Línea por borrar */
@@ -19,14 +24,10 @@
     background-color: blueviolet; /* FIXME: Línea por borrar */
     width: 35vh;
     height: auto;
-    margin-top: 2px;
-    margin-bottom: 2px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .__footer {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 220px;
+    flex-shrink: 0;
 }
