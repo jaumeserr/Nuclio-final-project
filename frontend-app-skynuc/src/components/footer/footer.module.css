@@ -3,18 +3,19 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgba(53, 187, 111, 0.39); /* FIXME: Línea por borrar */
     width: 100%;
     height: 210px;
+    /* FIXME: Borrar línea abajo cuando HOME sea final */
+    /* background-color: rgba(53, 187, 111, 0.39); */
 }
 
 .__container__footer img {
-    background-color: lightskyblue; /* FIXME: Línea por borrar */
     transform: scale(0.8);
+    /* FIXME: Borrar línea abajo cuando HOME sea final */
+    /* background-color: lightskyblue; */
 }
 
 .__container__footer p {
-    background-color: yellow; /* FIXME: Línea por borrar */
     font-family: 'Montserrat', sans-serif;
     color: rgba(31, 32, 65, 0.75);
     text-align: center;
@@ -23,13 +24,16 @@
     width: 60%;
     margin-top: 25px;
     margin-bottom: 25px;
+    /* FIXME: Borrar línea abajo cuando HOME sea final */
+    /* background-color: yellow; */
 }
 
 .__container__icons {
-    background-color: rgb(153, 32, 32); /* FIXME: Línea por borrar */
     display: flex;
     justify-content: space-around;
     align-items: center;
     cursor: pointer;
     width: 110px;
+    /* FIXME: Borrar línea abajo cuando HOME sea final */
+    /* background-color: rgb(153, 32, 32); */
 }
