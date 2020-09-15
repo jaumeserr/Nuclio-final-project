@@ -15,9 +15,12 @@ import styles from './navbar.module.css';
 const Navbar = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-    const toggleLoggedIn = () => {
-        setIsLoggedIn(!isLoggedIn);
-    };
+    // // DO NOT DELETE!
+    // // TO BE USED IN A NEAR FUTURE, once we implement authentication:
+    //
+    // const toggleLoggedIn = () => {
+    //     setIsLoggedIn(!isLoggedIn);
+    // };
 
     return (
         <div className={styles.__container}>

@@ -3,7 +3,7 @@ import moment from 'moment';
 import PropTypes from 'prop-types';
 import React from 'react';
 import flight_arrow from '../../assets/images/flight_arrow.png';
-import './flightCard.scss';
+import './flightCard.css';
 
 const FlightCard = ({
     dpt_datetime,
@@ -100,7 +100,7 @@ const FlightCard = ({
                             <p style={{ fontSize: '24px', fontWeight: 'bold' }}>{price_eur} €</p>
                             <Button
                                 content={'See flight'}
-                                style={'blue__solid'}
+                                color={'blue__solid'}
                                 action={myonclickaction}
                             />
                         </div>
