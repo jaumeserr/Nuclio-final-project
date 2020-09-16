@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useForm } from 'react-hook-form';
 import './loginAndRegister.css';
 
 // import styles from './loginAndRegister.module.css';
@@ -15,61 +14,6 @@ const LoginAndRegister = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
-
-    function validate() {
-        let input = this.state.input;
-        let errors = {};
-        let isValid = true;
-
-        if (!input['name']) {
-            isValid = false;
-            errors['name'] = 'Please enter your name.';
-        }
-
-        if (!input['email']) {
-            isValid = false;
-            errors['email'] = 'Please enter your email Address.';
-        }
-
-        if (typeof input['email'] !== 'undefined') {
-            var pattern = new RegExp(
-                /^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i,
-            );
-            if (!pattern.test(input['email'])) {
-                isValid = false;
-                errors['email'] = 'Please enter a valid email address.';
-            }
-        }
-
-        if (!input['password']) {
-            isValid = false;
-            errors['password'] = 'Please enter your password.';
-        }
-
-        if (!input['confirm_password']) {
-            isValid = false;
-            errors['confirm_password'] = 'Please enter your confirm password.';
-        }
-
-        if (
-            typeof input['password'] !== 'undefined' &&
-            typeof input['confirm_password'] !== 'undefined'
-        ) {
-            if (input['password'] !== input['confirm_password']) {
-                isValid = false;
-                errors['password'] = "Passwords don't match.";
-            }
-        }
-
-        this.setState({
-            errors: errors,
-        });
-
-        return isValid;
-    }
-
-    const { register, watch, errors, handleSubmit } = useForm(); // initialize the hook
 
     function validateLoginForm() {
         return email.length > 0 && password.length > 0;
@@ -83,12 +27,6 @@ const LoginAndRegister = () => {
         console.log('You have successfully registered!');
     };
 
-    const onSubmit = (data) => {
-        console.log(data);
-    };
-
-    let passVal = watch('password');
-
     return (
         <div class="my-wrapper">
             <div
@@ -96,14 +34,15 @@ const LoginAndRegister = () => {
                 className={`container ${isRegistered ? '' : 'right-panel-active'} `}
             >
                 <div class="form-container sign-up-container">
-                    <form action="#" onSubmit={handleSubmit(onSubmit)}>
+                    <form action="#">
                         <h1>SIGN UP (Reg)</h1>
                         {/* <h1>Create Account</h1> */}
 
                         <input
                             type="text"
                             placeholder="Name"
-                            // required
+                            name="name"
+                            required
                             value={name}
                             onChange={(e) => setName(e.target.value)}
                             autoFocus={true}
@@ -111,6 +50,8 @@ const LoginAndRegister = () => {
                         <input
                             type="email"
                             placeholder="Email"
+                            name="email"
+                            required
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                         />
@@ -118,35 +59,12 @@ const LoginAndRegister = () => {
                             type="password"
                             placeholder="Password"
                             name="password"
+                            required
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                         />
-                        <input
-                            type="password"
-                            placeholder="Confirm password"
-                            name="confirm_password"
-                            required
-                            value={confirmPassword}
-                            onChange={(e) => setConfirmPassword(e.target.value)}
-                            // ref={register({
-                            //     validate: (value) => {
-                            //         return value === watch('password1');
-                            //     },
-                            // })}
-                            ref={register({
-                                validate: (value) => {
-                                    return value === passVal || "Passwords don't match.";
-                                },
-                            })}
-                        />
-                        {/* <div style={{ color: 'red' }}>
-                            {errors.confirm_password && "Passwords don't match. Please try again"}
-                        </div> */}
 
-                        <button
-                            // onClick={submitRegistrationData}
-                            disabled={!validateLoginForm()}
-                        >
+                        <button onClick={submitRegistrationData} disabled={!validateLoginForm()}>
                             Sign Up active
                         </button>
 
