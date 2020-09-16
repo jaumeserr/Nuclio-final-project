@@ -10,9 +10,13 @@ const FlightListPage = () => {
     const [infoFlights, setInfoFlights] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
+    const baseUrl = process.env.REACT_APP_API_URL
+
     useEffect(() => {
         axios
-            .get('http://localhost/api/flight_instances/flightcarddata')
+            // .get('http://localhost/api/flight_instances/flightcarddata')
+            .get(`${baseUrl}/flight_instances/flightcarddata`)
+
             .then((res) => {
                 console.log('Retrieve flights from DB');
                 console.log(res.data);
@@ -28,7 +32,7 @@ const FlightListPage = () => {
 
 
             <div className={styles.__container}>
-            
+
                 <div className={styles.__aside}>LEFT</div>
                 <FilterAirlines/>
                 <div className={styles.__center}>
