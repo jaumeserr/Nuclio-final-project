@@ -3,7 +3,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import AdminUserProfile from './components/adminUserProfile/adminUserProfile.view';
-import Login from './components/login/login.view';
+import Login from './components/loginAndRegister/loginAndRegister.view';
 import Register from './components/register/register.view';
 import UserProfile from './components/userProfile/userProfile.view';
 import FlightListPage from './pages/flightListPage/flightListPage.view';

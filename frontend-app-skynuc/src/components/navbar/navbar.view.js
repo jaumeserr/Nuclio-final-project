@@ -1,5 +1,5 @@
 import Button from 'components/button/button.view';
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import logoSkyreader from '../../assets/images/logo_skyreader.svg';
 import {
@@ -13,14 +13,17 @@ import {
 import styles from './navbar.module.css';
 
 const Navbar = () => {
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
-
+    //
     // // DO NOT DELETE!
     // // TO BE USED IN A NEAR FUTURE, once we implement authentication:
+    //
+    // const [isLoggedIn, setIsLoggedIn] = useState(false);
     //
     // const toggleLoggedIn = () => {
     //     setIsLoggedIn(!isLoggedIn);
     // };
+
+    const isLoggedIn = false;
 
     return (
         <div className={styles.__container}>
@@ -37,10 +40,10 @@ const Navbar = () => {
                 {!isLoggedIn && (
                     <>
                         <Link to={LOGIN}>
-                            <Button content={'Login'} color={'blue__outline'} disabled={true} />
+                            <Button content={'Login'} color={'blue__outline'} />
                         </Link>
                         <Link to={REGISTER}>
-                            <Button content={'Register'} color={'blue__outline'} />
+                            <Button content={'Register'} color={'blue__outline'} disabled={true} />
                         </Link>
                     </>
                 )}
