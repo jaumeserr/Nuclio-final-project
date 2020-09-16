@@ -19,12 +19,16 @@ const LoginAndRegister = () => {
         return email.length > 0 && password.length > 0;
     }
 
+    function validateRegistrationForm() {
+        return name.length > 0 && email.length > 0 && password.length > 0;
+    }
+
     const submitLoginData = () => {
-        console.log('You have successfully logged in!');
+        console.log('Login data sent to DB - needs to be validated first!!!');
     };
 
     const submitRegistrationData = () => {
-        console.log('You have successfully registered!');
+        console.log('Registration data sent to DB - needs to be validated first!!!');
     };
 
     return (
@@ -35,13 +39,13 @@ const LoginAndRegister = () => {
             >
                 <div class="form-container sign-up-container">
                     <form action="#">
-                        <h1>SIGN UP (Reg)</h1>
+                        <h1>Sign Up (Reg)</h1>
                         {/* <h1>Create Account</h1> */}
 
                         <input
                             type="text"
                             placeholder="Name"
-                            name="name"
+                            // name="name"
                             required
                             value={name}
                             onChange={(e) => setName(e.target.value)}
@@ -50,7 +54,7 @@ const LoginAndRegister = () => {
                         <input
                             type="email"
                             placeholder="Email"
-                            name="email"
+                            // name="email"
                             required
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
@@ -58,26 +62,29 @@ const LoginAndRegister = () => {
                         <input
                             type="password"
                             placeholder="Password"
-                            name="password"
+                            // name="password"
                             required
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                         />
 
-                        <button onClick={submitRegistrationData} disabled={!validateLoginForm()}>
-                            Sign Up active
+                        <button
+                            onClick={submitRegistrationData}
+                            disabled={!validateRegistrationForm()}
+                        >
+                            Submit
                         </button>
 
                         <span>Already registered?</span>
 
-                        <button onClick={toggleForm} id="signUp" class="ghostblackinner">
-                            Sign Up Switch INNER
+                        <button onClick={toggleForm} id="signUp" class="ghost__outline">
+                            Log In
                         </button>
                     </form>
                 </div>
                 <div class="form-container sign-in-container">
                     <form action="#">
-                        <h1>Sign in</h1>
+                        <h1>Log in</h1>
 
                         <input
                             type="email"
@@ -99,13 +106,13 @@ const LoginAndRegister = () => {
                         /> */}
 
                         <button onClick={submitLoginData} disabled={!validateLoginForm()}>
-                            Sign In Active
+                            Submit
                         </button>
 
                         <span>Need to register?</span>
 
-                        <button onClick={toggleForm} id="signIn" class="ghostblackinner">
-                            Sign In Switch INNER
+                        <button onClick={toggleForm} id="signIn" class="ghost__outline">
+                            Sign Up
                         </button>
                     </form>
                 </div>
@@ -118,7 +125,7 @@ const LoginAndRegister = () => {
                                 button below
                             </p>
                             <button class="ghost" id="signIn" onClick={toggleForm}>
-                                Sign In Switch
+                                Log In
                             </button>
                         </div>
                         <div class="overlay-panel overlay-right">
@@ -135,7 +142,7 @@ const LoginAndRegister = () => {
                             /> */}
 
                             <button onClick={toggleForm} id="signUp" class="ghost">
-                                Sign Up Switch
+                                Sign Up
                             </button>
                         </div>
                     </div>

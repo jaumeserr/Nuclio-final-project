@@ -15,8 +15,8 @@
 
 @media screen and (max-width: 768px) {
     .my-wrapper {
-        padding-top: 150px;
-        background-color: purple;
+        padding-top: 90px;
+        /* background-color: purple; */
     }
 }
 
@@ -41,7 +41,7 @@ span {
 }
 @media screen and (min-width: 768px) {
     span {
-        /* display: none; */
+        display: none;
     }
 }
 
@@ -76,13 +76,13 @@ button.ghost {
     border-color: #ffffff;
 }
 
-button.ghostblackinner {
+button.ghost__outline {
     background-color: transparent;
     color: #17385c;
 }
 @media screen and (min-width: 768px) {
-    button.ghostblackinner {
-        /* display: none; */
+    button.ghost__outline {
+        display: none;
     }
 }
 
@@ -109,6 +109,12 @@ input:focus {
     outline: none;
     box-shadow: 0 0 4px 0 #17385c;
     background-color: #fff;
+}
+input:first-of-type {
+    margin-top: 35px;
+}
+input:last-of-type {
+    margin-bottom: 35px;
 }
 
 .container {
