@@ -18,8 +18,8 @@
 }
 
 .blue__outline {
-    border: 1.5px solid #0770e3;
-    color: #0770e3;
+    border: 1.5px solid #3182ce;
+    color: #3182ce;
     font-weight: normal;
 }
 .blue__outline:disabled {
@@ -28,7 +28,7 @@
     cursor: default;
 }
 .blue__outline:not(:disabled):hover {
-    background-color: #0770e3;
+    background-color: #3182ce;
     color: #ffffff;
 }
 

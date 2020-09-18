@@ -52,16 +52,16 @@ const AdminUserProfile = () => {
                                         <div className="profile-card-inf__txt">Flights added</div>
                                     </div>
                                 </div>
-                                <Button content={'List my flights'} style={'blue__solid'} />
+                                <Button content={'List my flights'} color={'blue__solid'} />
                             </div>
                             <div className="profile-card-ctr-box">
                                 <Button
                                     content={'Add flight'}
-                                    style={'green__solid'}
+                                    color={'green__solid'}
                                     action={togglePopUp}
                                 />
-                                <Button content={'Modify flight'} style={'yellow__solid'} />
-                                <Button content={'Delete flight'} style={'red__solid'} />
+                                <Button content={'Modify flight'} color={'yellow__solid'} />
+                                <Button content={'Delete flight'} color={'red__solid'} />
                             </div>
                         </div>
                     </div>
