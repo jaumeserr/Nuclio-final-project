@@ -20,12 +20,13 @@
     }
 }
 
-h1 {
-    font-weight: bold;
-    margin: 0;
+.form-container h1 {
+    color: #17385c;
+    /* font-weight: bold; */
+    /* margin: 0; */
 }
 
-p {
+.overlay-panel p {
     font-size: 14px;
     font-weight: 300;
     line-height: 20px;
@@ -33,19 +34,19 @@ p {
     margin: 30px 0px 40px 0px;
 }
 
-span {
+.form-container span {
     font-size: 14px;
     line-height: 20px;
     margin: 30px 0px 20px 0px;
     color: #17385c;
 }
 @media screen and (min-width: 768px) {
-    span {
+    .form-container span {
         display: none;
     }
 }
 
-button {
+.container button {
     border-radius: 20px;
     border: 1px solid #17385c;
     background-color: #17385c;
@@ -58,35 +59,35 @@ button {
     transition: transform 80ms ease-in;
 }
 
-button:active {
+.container button:active {
     transform: scale(0.95);
 }
 
-button:focus {
+.container button:focus {
     outline: none;
 }
 
-button:disabled {
+.container button:disabled {
     background-color: rgba(17, 17, 17, 0.48);
     border: none;
 }
 
-button.ghost {
+.container button.ghost {
     background-color: transparent;
     border-color: #ffffff;
 }
 
-button.ghost__outline {
+.container button.ghost__outline {
     background-color: transparent;
     color: #17385c;
 }
 @media screen and (min-width: 768px) {
-    button.ghost__outline {
+    .container button.ghost__outline {
         display: none;
     }
 }
 
-form {
+.form-container form {
     background-color: #ffffff;
     display: flex;
     align-items: center;
@@ -97,7 +98,7 @@ form {
     text-align: center;
 }
 
-input {
+.form-container input {
     background-color: #eee;
     border: none;
     border-radius: 4px;
@@ -105,15 +106,15 @@ input {
     margin: 8px 0;
     width: 100%;
 }
-input:focus {
+.form-container input:focus {
     outline: none;
     box-shadow: 0 0 4px 0 #17385c;
     background-color: #fff;
 }
-input:first-of-type {
+.form-container input:first-of-type {
     margin-top: 35px;
 }
-input:last-of-type {
+.form-container input:last-of-type {
     margin-bottom: 35px;
 }
 
@@ -152,7 +153,7 @@ input:last-of-type {
     }
 }
 
-/* SIGN-IN (Log In) ------------------------- */
+/* Sign In (Log In) ------------------------- */
 /* ------------------------------------------ */
 
 .sign-in-container {
@@ -170,7 +171,7 @@ input:last-of-type {
     transform: translateX(100%);
 }
 
-/* SIGN-UP (Register) ----------------------- */
+/* Sign Up (Register) ----------------------- */
 /* ------------------------------------------ */
 
 .sign-up-container {
@@ -321,4 +322,37 @@ input:last-of-type {
     .container.right-panel-active .overlay-right {
         transform: translateY(20%);
     }
+}
+
+/* Messages: Error and Success -------------- */
+/* ------------------------------------------ */
+
+.__error__message__box {
+    border: 1px solid red;
+    padding: 10px;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.__error__message__box p {
+    color: red;
+    font-size: 12px;
+    line-height: 17px;
+    letter-spacing: 0.5px;
+    width: 100%;
+}
+
+.__success__message__box {
+    border: 1px solid #17385c;
+    padding: 10px;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.__success__message__box p {
+    color: #17385c;
+    font-size: 12px;
+    line-height: 17px;
+    letter-spacing: 0.5px;
+    width: 100%;
 }

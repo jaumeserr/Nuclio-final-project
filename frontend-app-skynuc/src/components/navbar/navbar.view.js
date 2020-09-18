@@ -6,8 +6,7 @@ import {
     ADMIN_USER_PROFILE,
     FLIGHT_LIST,
     HOME,
-    LOGIN,
-    REGISTER,
+    LOGIN_AND_REGISTER,
     USER_PROFILE,
 } from '../../routes/routes';
 import styles from './navbar.module.css';
@@ -39,18 +38,15 @@ const Navbar = () => {
             <div className={styles.__navlinks}>
                 {!isLoggedIn && (
                     <>
-                        <Link to={LOGIN}>
-                            <Button content={'Login'} color={'blue__outline'} />
-                        </Link>
-                        <Link to={REGISTER}>
-                            <Button content={'Register'} color={'blue__outline'} disabled={true} />
+                        <Link to={LOGIN_AND_REGISTER}>
+                            <Button content={'Login / Register'} color={'blue__outline'} />
                         </Link>
                     </>
                 )}
                 {isLoggedIn && (
                     <>
                         <Link to={HOME}>
-                            <Button content={'Logout'} color={'blue__outline'} />
+                            <Button content={'Logout'} color={'blue__outline'} disabled={true} />
                         </Link>
                         <Link to={USER_PROFILE}>
                             <Button content={'Profile'} color={'blue__outline'} />

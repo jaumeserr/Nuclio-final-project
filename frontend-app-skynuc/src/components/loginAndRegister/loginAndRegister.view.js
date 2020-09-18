@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import checkIfEmptyObject from 'utils/checkIfEmptyObject';
 import './loginAndRegister.css';
 
 // import styles from './loginAndRegister.module.css';
@@ -14,22 +16,21 @@ const LoginAndRegister = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [submitSuccessful, isSubmitSuccessful] = useState(false);
 
-    function validateLoginForm() {
-        return email.length > 0 && password.length > 0;
+    function validateForm() {
+        const basicValidation = email.length > 0 && password.length > 0;
+        return !basicValidation ? false : isRegistered ? true : basicValidation && name.length > 0;
     }
 
-    function validateRegistrationForm() {
-        return name.length > 0 && email.length > 0 && password.length > 0;
+    const { register, handleSubmit, getValues, errors } = useForm();
+
+    function onSubmit(data) {
+        console.log('Data submitted: ', data);
+        isSubmitSuccessful(true);
     }
 
-    const submitLoginData = () => {
-        console.log('Login data sent to DB - needs to be validated first!!!');
-    };
-
-    const submitRegistrationData = () => {
-        console.log('Registration data sent to DB - needs to be validated first!!!');
-    };
+    console.log(errors);
 
     return (
         <div class="my-wrapper">
@@ -38,42 +39,71 @@ const LoginAndRegister = () => {
                 className={`container ${isRegistered ? '' : 'right-panel-active'} `}
             >
                 <div class="form-container sign-up-container">
-                    <form action="#">
+                    <form action="#" onSubmit={handleSubmit(onSubmit)} noValidate>
                         <h1>Sign Up (Reg)</h1>
-                        {/* <h1>Create Account</h1> */}
 
                         <input
                             type="text"
                             placeholder="Name"
-                            // name="name"
-                            required
+                            name="name"
                             value={name}
                             onChange={(e) => setName(e.target.value)}
                             autoFocus={true}
+                            ref={register}
                         />
                         <input
                             type="email"
                             placeholder="Email"
-                            // name="email"
-                            required
+                            name="email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
+                            ref={register({
+                                required: 'Enter your e-mail',
+                                pattern: {
+                                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                                    message: 'Enter a valid e-mail address',
+                                },
+                            })}
                         />
                         <input
                             type="password"
                             placeholder="Password"
-                            // name="password"
-                            required
+                            name="password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
+                            ref={register}
+                        />
+                        <input
+                            type="password"
+                            placeholder="Confirm password"
+                            name="confirm_password"
+                            ref={register({
+                                required: 'Please confirm your password',
+                                validate: (value) => {
+                                    if (value === getValues()['password']) {
+                                        return true;
+                                    } else {
+                                        return 'Passwords do not match';
+                                    }
+                                },
+                            })}
                         />
 
-                        <button
-                            onClick={submitRegistrationData}
-                            disabled={!validateRegistrationForm()}
-                        >
-                            Submit
-                        </button>
+                        <button disabled={!validateForm()}>Submit</button>
+
+                        {!checkIfEmptyObject(errors) && (
+                            <div class="__error__message__box">
+                                {errors.email && <p className="error">{errors.email.message}</p>}
+                                {errors.confirm_password && (
+                                    <p className="error">{errors.confirm_password.message}</p>
+                                )}
+                            </div>
+                        )}
+                        {submitSuccessful && (
+                            <div class="__success__message__box">
+                                <p>You have been successfully registered!</p>
+                            </div>
+                        )}
 
                         <span>Already registered?</span>
 
@@ -83,7 +113,7 @@ const LoginAndRegister = () => {
                     </form>
                 </div>
                 <div class="form-container sign-in-container">
-                    <form action="#">
+                    <form action="#" onSubmit={handleSubmit(onSubmit)} noValidate>
                         <h1>Log in</h1>
 
                         <input
@@ -105,9 +135,7 @@ const LoginAndRegister = () => {
                             action={toggleForm}
                         /> */}
 
-                        <button onClick={submitLoginData} disabled={!validateLoginForm()}>
-                            Submit
-                        </button>
+                        <button disabled={!validateForm()}>Submit</button>
 
                         <span>Need to register?</span>
 
