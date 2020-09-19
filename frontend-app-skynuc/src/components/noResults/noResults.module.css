@@ -16,7 +16,7 @@
     font-family: 'Noto Sans', sans-serif;
     font-weight: bold;
     font-size: 18px;
-    color: #17385c;
+    color: var(--clr-blue-dark);
     margin-bottom: 20px;
 }
 

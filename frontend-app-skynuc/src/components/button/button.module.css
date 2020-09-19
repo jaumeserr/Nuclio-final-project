@@ -11,15 +11,15 @@
 }
 
 .blue__solid {
-    background-color: #3182ce;
+    background-color: var(--clr-blue-medium);
 }
 .blue__solid:hover {
-    background-color: #2a6fb0;
+    background-color: var(--clr-blue-medium);
 }
 
 .blue__outline {
-    border: 1.5px solid #3182ce;
-    color: #3182ce;
+    border: 1.5px solid var(--clr-blue-medium);
+    color: var(--clr-blue-medium);
     font-weight: normal;
 }
 .blue__outline:disabled {
@@ -28,12 +28,9 @@
     cursor: default;
 }
 .blue__outline:not(:disabled):hover {
-    background-color: #3182ce;
+    background-color: var(--clr-blue-medium);
     color: #ffffff;
 }
-
-
-
 
 .green__solid {
     background: linear-gradient(45deg, #217008, #0ead31);

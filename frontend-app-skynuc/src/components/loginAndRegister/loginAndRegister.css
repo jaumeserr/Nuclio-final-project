@@ -21,7 +21,7 @@
 }
 
 .form-container h1 {
-    color: #17385c;
+    color: var(--clr-blue-dark);
     /* font-weight: bold; */
     /* margin: 0; */
 }
@@ -38,7 +38,7 @@
     font-size: 14px;
     line-height: 20px;
     margin: 30px 0px 20px 0px;
-    color: #17385c;
+    color: var(--clr-blue-dark);
 }
 @media screen and (min-width: 768px) {
     .form-container span {
@@ -48,8 +48,8 @@
 
 .container button {
     border-radius: 20px;
-    border: 1px solid #17385c;
-    background-color: #17385c;
+    border: 1px solid var(--clr-blue-dark);
+    background-color: var(--clr-blue-dark);
     color: #ffffff;
     font-size: 12px;
     font-weight: bold;
@@ -79,7 +79,7 @@
 
 .container button.ghost__outline {
     background-color: transparent;
-    color: #17385c;
+    color: var(--clr-blue-dark);
 }
 @media screen and (min-width: 768px) {
     .container button.ghost__outline {
@@ -108,7 +108,7 @@
 }
 .form-container input:focus {
     outline: none;
-    box-shadow: 0 0 4px 0 #17385c;
+    box-shadow: 0 0 4px 0 var(--clr-blue-dark);
     background-color: #fff;
 }
 .form-container input:first-of-type {
@@ -144,7 +144,7 @@
     position: absolute;
     top: 0;
     height: 100%;
-    transition: all 0.6s ease-out;
+    transition: all 0.6s ease-in-out;
 }
 
 @media screen and (max-width: 768px) {
@@ -246,7 +246,7 @@
 }
 
 .overlay {
-    background: #17385c;
+    background: var(--clr-blue-dark);
     background-size: cover;
     background-position: 0 0;
     color: #ffffff;
@@ -343,14 +343,14 @@
 }
 
 .__success__message__box {
-    border: 1px solid #17385c;
+    border: 1px solid var(--clr-blue-dark);
     padding: 10px;
     margin-top: 10px;
     width: 100%;
 }
 
 .__success__message__box p {
-    color: #17385c;
+    color: var(--clr-blue-dark);
     font-size: 12px;
     line-height: 17px;
     letter-spacing: 0.5px;

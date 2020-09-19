@@ -1,3 +1,14 @@
+:root {
+    --clr-blue-dark: #17385c;
+    --clr-blue-medium: #3182ce;
+    --clr-blue-medium-hover: #2a6fb0;
+
+
+}
+/* USAGE example:
+    background: var(--clr-blue-dark);
+*/
+
 * {
     margin: 0;
     padding: 0;
