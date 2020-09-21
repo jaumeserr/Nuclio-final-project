@@ -20,6 +20,7 @@ const AdminUserLogin = () => {
         isSubmitSuccessful(true);
     }
 
+    const emailFromDB = 'admin@vueling.com';
     const passwordFromDB = '12345';
 
     return (
@@ -27,7 +28,7 @@ const AdminUserLogin = () => {
             <div className="container">
                 <div class="form-container">
                     <form action="#" onSubmit={handleSubmit(onSubmitLogin)} noValidate>
-                        <h1>Admin Log in</h1>
+                        <h1>Admin User Login</h1>
                         <input
                             type="email"
                             placeholder="Email"
@@ -35,6 +36,13 @@ const AdminUserLogin = () => {
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             ref={register({
+                                validate: (value) => {
+                                    if (value === emailFromDB) {
+                                        return true;
+                                    } else {
+                                        return 'Email not registered';
+                                    }
+                                },
                                 pattern: {
                                     value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
                                     message: 'Please enter a valid e-mail address',
@@ -47,14 +55,12 @@ const AdminUserLogin = () => {
                             name="loginPassword"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
-                            // ref={register}
                             ref={register({
-                                // validate: (value) => value === '1234',
                                 validate: (value) => {
                                     if (value === passwordFromDB) {
                                         return true;
                                     } else {
-                                        return 'Please enter you password again';
+                                        return 'Password not registered';
                                     }
                                 },
                             })}
