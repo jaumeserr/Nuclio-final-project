@@ -2,13 +2,7 @@ import logoSkyreader from 'assets/images/logo_skyreader.svg';
 import Button from 'components/button/button.view';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {
-    ADMIN_USER_PROFILE,
-    FLIGHT_LIST,
-    HOME,
-    LOGIN_AND_REGISTER,
-    USER_PROFILE,
-} from 'routes/routes';
+import { ADMIN_USER_LOGIN, ADMIN_USER_PROFILE, FLIGHT_LIST, HOME } from '../../routes/routes';
 import styles from './navbar.module.css';
 
 const Navbar = () => {
@@ -38,8 +32,8 @@ const Navbar = () => {
             <div className={styles.__links__container}>
                 {!isLoggedIn && (
                     <>
-                        <Link to={LOGIN_AND_REGISTER}>
-                            <Button content={'Login / Register'} color={'blue__outline'} />
+                        <Link to={ADMIN_USER_LOGIN}>
+                            <Button content={'Admin User Login'} color={'blue__outline'} />
                         </Link>
                     </>
                 )}
@@ -48,8 +42,8 @@ const Navbar = () => {
                         <Link to={HOME}>
                             <Button content={'Logout'} color={'blue__outline'} disabled={true} />
                         </Link>
-                        <Link to={USER_PROFILE}>
-                            <Button content={'Profile'} color={'blue__outline'} />
+                        <Link to={ADMIN_USER_PROFILE}>
+                            <Button content={'Admin User Profile'} color={'blue__outline'} />
                         </Link>
                     </>
                 )}
