@@ -48,7 +48,7 @@ const LoginAndRegister = () => {
                             name="name"
                             value={name}
                             onChange={(e) => setName(e.target.value)}
-                            autoFocus={true}
+                            // autoFocus={true}
                             ref={register}
                         />
                         <input
@@ -121,7 +121,7 @@ const LoginAndRegister = () => {
                             placeholder="Email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
-                            autoFocus={true}
+                            // autoFocus={true}
                         />
                         <input
                             type="password"

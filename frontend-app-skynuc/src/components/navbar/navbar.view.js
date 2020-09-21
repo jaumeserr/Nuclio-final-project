@@ -1,7 +1,7 @@
+import logoSkyreader from 'assets/images/logo_skyreader.svg';
 import Button from 'components/button/button.view';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logoSkyreader from 'assets/images/logo_skyreader.svg';
 import {
     ADMIN_USER_PROFILE,
     FLIGHT_LIST,

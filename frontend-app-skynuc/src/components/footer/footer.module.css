@@ -16,8 +16,8 @@
 }
 
 .__container__footer p {
-    font-family: 'Montserrat', sans-serif;
-    color: rgba(31, 32, 65, 0.75);
+    font-family: var(--font-tertiary);
+    color: var(--clr-text-medium);
     text-align: center;
     font-size: 14px;
     line-height: 24px;

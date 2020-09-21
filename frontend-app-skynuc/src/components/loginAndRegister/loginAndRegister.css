@@ -59,17 +59,15 @@
     transition: transform 80ms ease-in;
 }
 
-.container button:active {
-    transform: scale(0.95);
-}
-
 .container button:focus {
     outline: none;
 }
 
 .container button:disabled {
-    background-color: rgba(17, 17, 17, 0.48);
-    border: none;
+    /* background-color: rgba(17, 17, 17, 0.48); */
+    background-color: var(--clr-icons-light);
+    border: 1px solid var(--clr-icons-light);
+    color: var(--clr-text-light-1);
 }
 
 .container button.ghost {
@@ -121,7 +119,8 @@
 .container {
     background-color: #fff;
     border-radius: 10px;
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    /* box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); */
+    box-shadow: 0px 8px 60px -10px rgba(13, 28, 39, 0.6);
     position: relative;
     overflow: hidden;
     width: 768px;
@@ -230,6 +229,7 @@
     transition: transform 0.6s ease-in-out;
     z-index: 100;
 }
+
 @media screen and (max-width: 768px) {
     .overlay-container {
         display: none;
@@ -285,6 +285,11 @@
     .overlay-panel {
         transform: translateY(0);
     }
+}
+
+.overlay-panel h1,
+.overlay-panel p {
+    color: #ffffff;
 }
 
 .overlay-left {

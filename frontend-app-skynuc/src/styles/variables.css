@@ -1,0 +1,35 @@
+/*  =================================================================
+
+*   This file contains any CSS variables that will be used
+
+*   USAGE example:
+        background: var(--clr-blue-dark);
+
+/*  ================================================================= */
+
+:root {
+    /* Font types
+    ---------------------------------------------------- */
+    --font-primary: 'Roboto', sans-serif;
+    --font-secondary: 'Noto Sans', sans-serif;
+    --font-tertiary: 'Montserrat', sans-serif;
+
+    /* Colors
+    ---------------------------------------------------- */
+    --clr-background-blue-light: #eef6ff;
+
+    --clr-blue-dark: #17385c;
+    --clr-blue-medium: #3182ce;
+    --clr-blue-medium-hover: #2a6fb0;
+
+    --clr-text-dark: #000000;
+    --clr-text-medium: rgba(31, 32, 65, 0.75); /* Equivalent to: #1F2041 75% */
+    --clr-text-light-1: #5e6d7c;
+    --clr-text-light-2: #818181;
+    --clr-text-light-3: rgba(17, 17, 17, 0.48);
+
+    --clr-icons-light: #c0c3c7;
+
+    --clr-green: #16a086;
+    --clr-green-hover: #128872;
+}
