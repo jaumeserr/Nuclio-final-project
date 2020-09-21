@@ -21,7 +21,7 @@ const AdminUserLogin = () => {
     }
 
     const emailFromDB = 'admin@vueling.com';
-    const passwordFromDB = '12345';
+    const passwordFromDB = 'vueling';
 
     return (
         <div class="my-wrapper">
