@@ -6,7 +6,7 @@ import {
     ADMIN_USER_PROFILE,
     FLIGHT_LIST,
     HOME,
-    LOGIN_AND_REGISTER,
+    USER_LOGIN_AND_REGISTER,
     USER_PROFILE,
 } from '../../routes/routes';
 import styles from './navbar.module.css';
@@ -38,7 +38,7 @@ const Navbar = () => {
             <div className={styles.__navlinks}>
                 {!isLoggedIn && (
                     <>
-                        <Link to={LOGIN_AND_REGISTER}>
+                        <Link to={USER_LOGIN_AND_REGISTER}>
                             <Button content={'Login / Register'} color={'blue__outline'} />
                         </Link>
                     </>

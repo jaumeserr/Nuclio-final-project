@@ -1,21 +1,25 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import checkIfEmptyObject from 'utils/checkIfEmptyObject';
-import './loginAndRegister.css';
+import './userLoginAndRegister.css';
 
 // import styles from './loginAndRegister.module.css';
 
 // className={styles.__container}
 
-const LoginAndRegister = () => {
+const UserLoginAndRegister = () => {
     const [isRegistered, setIsRegistered] = useState(true);
     const toggleForm = () => {
         setIsRegistered(!isRegistered);
     };
 
+    const [loginEmail, setLoginEmail] = useState('');
+    const [loginPassword, setLoginPassword] = useState('');
+
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
     const [submitSuccessful, isSubmitSuccessful] = useState(false);
 
     function validateForm() {
@@ -23,10 +27,20 @@ const LoginAndRegister = () => {
         return !basicValidation ? false : isRegistered ? true : basicValidation && name.length > 0;
     }
 
+    function validateLoginForm() {
+        const basicValidation = loginEmail.length > 0 && loginPassword.length > 0;
+        return !basicValidation ? false : true;
+    }
+
     const { register, handleSubmit, getValues, errors } = useForm();
 
     function onSubmit(data) {
-        console.log('Data submitted: ', data);
+        console.log('REG Data submitted: ', data);
+        isSubmitSuccessful(true);
+    }
+
+    function onSubmitLogin(data) {
+        console.log('LOGIN Data submitted: ', data);
         isSubmitSuccessful(true);
     }
 
@@ -42,13 +56,14 @@ const LoginAndRegister = () => {
                     <form action="#" onSubmit={handleSubmit(onSubmit)} noValidate>
                         <h1>Sign Up (Reg)</h1>
 
+                        {/* --------------- SIGN UP --------------- */}
+
                         <input
                             type="text"
                             placeholder="Name"
                             name="name"
                             value={name}
                             onChange={(e) => setName(e.target.value)}
-                            autoFocus={true}
                             ref={register}
                         />
                         <input
@@ -113,21 +128,35 @@ const LoginAndRegister = () => {
                     </form>
                 </div>
                 <div class="form-container sign-in-container">
-                    <form action="#" onSubmit={handleSubmit(onSubmit)} noValidate>
+                    <form action="#" onSubmit={handleSubmit(onSubmitLogin)} noValidate>
                         <h1>Log in</h1>
+
+                        {/* --------------- LOG IN --------------- */}
 
                         <input
                             type="email"
                             placeholder="Email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            autoFocus={true}
+                            name="loginEmail"
+                            value={loginEmail}
+                            onChange={(e) => setLoginEmail(e.target.value)}
+                            ref={register({
+                                // required: 'Enter your e-mail',
+                                pattern: {
+                                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                                    message: 'Enter a valid e-mail address',
+                                },
+                            })}
                         />
                         <input
                             type="password"
                             placeholder="Password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
+                            name="loginPassword"
+                            value={loginPassword}
+                            onChange={(e) => setLoginPassword(e.target.value)}
+                            ref={register}
+                            // ref={register({
+                            //     validate: (value) => value === '1234',
+                            // })}
                         />
                         {/* <Button
                             content={'TEST SIGN IN'}
@@ -135,7 +164,23 @@ const LoginAndRegister = () => {
                             action={toggleForm}
                         /> */}
 
-                        <button disabled={!validateForm()}>Submit</button>
+                        <button disabled={!validateLoginForm()}>Submit</button>
+
+                        {!checkIfEmptyObject(errors) && isRegistered && (
+                            <div class="__error__message__box">
+                                {errors.loginEmail && (
+                                    <p className="error">{errors.loginEmail.message}</p>
+                                )}
+                                {errors.loginPassword && (
+                                    <p className="error">{errors.loginPassword.message}</p>
+                                )}
+                            </div>
+                        )}
+                        {submitSuccessful && (
+                            <div class="__success__message__box">
+                                <p>You have been successfully logged in!</p>
+                            </div>
+                        )}
 
                         <span>Need to register?</span>
 
@@ -180,7 +225,7 @@ const LoginAndRegister = () => {
     );
 };
 
-export default LoginAndRegister;
+export default UserLoginAndRegister;
 
 // SOURCE: Sliding Sign In & Sign Up Form
 // https://www.youtube.com/watch?v=mUdo6w87rh4

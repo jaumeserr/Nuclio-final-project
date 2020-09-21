@@ -3,11 +3,11 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import AdminUserProfile from './components/adminUserProfile/adminUserProfile.view';
-import LoginAndRegister from './components/loginAndRegister/loginAndRegister.view';
+import UserLoginAndRegister from './components/userLoginAndRegister/userLoginAndRegister.view';
 import UserProfile from './components/userProfile/userProfile.view';
 import FlightListPage from './pages/flightListPage/flightListPage.view';
 import Home from './pages/home/home.view';
-import { ADMIN_USER_PROFILE, FLIGHT_LIST, LOGIN_AND_REGISTER, USER_PROFILE } from './routes/routes';
+import { ADMIN_USER_PROFILE, FLIGHT_LIST, USER_LOGIN_AND_REGISTER, USER_PROFILE } from './routes/routes';
 
 function App() {
     return (
@@ -20,8 +20,8 @@ function App() {
                 <Route path={FLIGHT_LIST}>
                     <FlightListPage />
                 </Route>
-                <Route path={LOGIN_AND_REGISTER}>
-                    <LoginAndRegister />
+                <Route path={USER_LOGIN_AND_REGISTER}>
+                    <UserLoginAndRegister />
                 </Route>
                 <Route path={ADMIN_USER_PROFILE}>
                     <AdminUserProfile />
