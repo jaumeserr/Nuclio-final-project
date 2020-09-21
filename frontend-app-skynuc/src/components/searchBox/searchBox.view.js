@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styles from './searchBox.module.css';
+import {useHistory} from "react-router";
 
 const SearchBox = () => {
     const [origins, setOrigins] = useState('');
@@ -8,6 +9,8 @@ const SearchBox = () => {
     const [destinationIata, setDestinationIata] = useState('');
     const [dates, setDates] = useState('');
     const [selectDate, setSelectDate] = useState('');
+
+    const history = useHistory();
 
     useEffect(() => {
         const url = 'http://localhost/api/airports';
@@ -127,7 +130,7 @@ const SearchBox = () => {
                                 );
                             })}
                     </select>
-                    <button className={styles.__button} onClick={() => alert('Clicked')}>
+                    <button className={styles.__button} onClick={() => history.push(`/flights/${originIata}/${destinationIata}/${selectDate}`)}>
                         See flights
                     </button>
                 </div>
