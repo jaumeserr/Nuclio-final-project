@@ -1,22 +1,22 @@
 import axios from 'axios';
+import FilterAirlines from 'components/filterAirlines/filterAirlines.view';
 import Navbar from 'components/navbar/navbar.view';
 import NoResults from 'components/noResults/noResults.view';
-import FilterAirlines from 'components/filterAirlines/filterAirlines.view';
 import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router';
 import FlightCard from '../../components/flightcard/flightCard.view';
 import Loader from '../../components/loader/loader.view';
 import styles from './flightListPage.module.css';
-import {useParams} from "react-router";
 
 const FlightListPage = () => {
     const [infoFlights, setInfoFlights] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
-    const {dpt, arr, date} = useParams();
-
-    const baseUrl = process.env.REACT_APP_API_URL
+    const { dpt, arr, date } = useParams();
 
     useEffect(() => {
+        const baseUrl = process.env.REACT_APP_API_URL;
+
         axios
             // .get('http://localhost/api/flight_instances/flightcarddata')
             // .get(`${baseUrl}/flight_instances/flightcarddata`)
@@ -29,25 +29,24 @@ const FlightListPage = () => {
                 setIsLoading(false);
             })
             .catch((err) => console.log(err));
-    }, []);
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
         <>
             <Navbar />
 
-
             <div className={styles.__container}>
-
                 <div className={styles.__aside}>LEFT</div>
-                <FilterAirlines/>
+                <FilterAirlines />
                 <div className={styles.__center}>
                     SEARCHBAR
                     <p className={styles.__foundText}>
                         We have found {infoFlights.length} flights for you
                     </p>
                     {isLoading && <Loader />}
-                    {!isLoading && infoFlights.length === 0 && <NoResults/>}
-                    {!isLoading && infoFlights.length !== 0 &&
+                    {!isLoading && infoFlights.length === 0 && <NoResults />}
+                    {!isLoading &&
+                        infoFlights.length !== 0 &&
                         infoFlights.map((data) => {
                             return (
                                 <FlightCard
