@@ -29,7 +29,7 @@ const FlightListPage = () => {
                 setIsLoading(false);
             })
             .catch((err) => console.log(err));
-    }, []);
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
         <>
