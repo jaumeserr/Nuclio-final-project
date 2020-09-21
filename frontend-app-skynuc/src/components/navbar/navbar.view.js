@@ -29,7 +29,7 @@ const Navbar = () => {
             <Link to={ADMIN_USER_PROFILE}>
                 <Button content={'ADMIN USER PROFILE'} color={'blue__solid'} />
             </Link>
-            <div className={styles.__navlinks}>
+            <div className={styles.__links__container}>
                 {!isLoggedIn && (
                     <>
                         <Link to={ADMIN_USER_LOGIN}>

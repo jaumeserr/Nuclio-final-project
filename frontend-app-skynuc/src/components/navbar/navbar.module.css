@@ -11,30 +11,9 @@
     padding: 15px 20px 15px 30px;
 }
 
-.__navlinks {
+.__links__container {
     display: flex;
     justify-content: space-around;
     align-items: center;
     width: 200px;
-}
-
-.__logo {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.__logo p {
-    font-family: 'Noto Sans', sans-serif;
-    color: black;
-    font-weight: bold;
-    text-decoration: none;
-    text-transform: uppercase;
-}
-
-.__logo img {
-    width: 30px;
-    height: auto;
-    margin: 0px 5px 10px 0px;
-    padding: 15px auto;
 }
