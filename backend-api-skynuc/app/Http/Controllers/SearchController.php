@@ -12,7 +12,7 @@ class SearchController extends Controller
         $results = array();
         $date = "miercoles de mierda";
 
-        Log::info("[SearchController] Searching by DEP:{$dpt} ARR:{$arr} DATE:{$date}");
+        Log::info("[SearchController] Searching by DPT:{$dpt} ARR:{$arr} DATE:{$date}");
         $flightInstances = FlightInstance::with('flightConst.airline')->get();
 
         foreach ($flightInstances as $flightInstance)

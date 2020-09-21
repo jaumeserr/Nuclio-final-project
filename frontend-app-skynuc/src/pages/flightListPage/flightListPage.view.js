@@ -1,5 +1,6 @@
 import axios from 'axios';
 import Navbar from 'components/navbar/navbar.view';
+import NoResults from 'components/noResults/noResults.view';
 import FilterAirlines from 'components/filterAirlines/filterAirlines.view';
 import React, { useEffect, useState } from 'react';
 import FlightCard from '../../components/flightcard/flightCard.view';
@@ -41,7 +42,8 @@ const FlightListPage = () => {
                         We have found {infoFlights.length} flights for you
                     </p>
                     {isLoading && <Loader />}
-                    {infoFlights &&
+                    {!isLoading && infoFlights.lenght === 0 && <NoResults/>}
+                    {!isLoading && infoFlights.lenght !== 0 &&
                         infoFlights.map((data) => {
                             return (
                                 <FlightCard
