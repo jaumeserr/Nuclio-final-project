@@ -54,12 +54,31 @@ class FlightConst extends Model {
         return $this->hasMany('App\FlightInstance');
     }
 
-    /**   ??????????? // FIXME
-     * Get the airports that own the flight const.
-     * It says: One flight const belongs to many airports
+    /** //FIXME - Revisar relaciones - Facundo
+     * Get the departure airport for the given flight const.
+     * It says: One flight const has one departure airport
      */
-    public function airports()
+    public function dptAirport()
     {
-        return $this->belongsToMany('App\Airport');
+        return $this->hasOne('App\Airport', 'dpt_airport_iata');
     }
+
+    /** //FIXME - Revisar relaciones - Facundo
+     * Get the arrival airport for the given flight const.
+     * It says: One flight const has one arrival airport
+     */
+    public function arrAirport()
+    {
+        return $this->hasOne('App\Airport', 'arr_airport_iata');
+    }
+
+//    public function isArrival($arrival)
+//    {
+//        return $this->arrAirport()->
+//    }
+//
+//    public function isDeparture($departure)
+//    {
+//
+//    }
 }

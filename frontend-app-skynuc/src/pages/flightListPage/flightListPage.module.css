@@ -1,0 +1,21 @@
+.__container {
+    background-color: var(--clr-background-blue-light);
+    display: flex;
+    height: 100vh;
+    padding-top: 250px;
+}
+
+.__aside {
+    width: 300px;
+}
+
+.__center {
+    width: 842px;
+}
+
+.__foundText {
+    font-size: 12px;
+    margin: 25px 0 17px;
+}
+
+

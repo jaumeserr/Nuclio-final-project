@@ -1,6 +1,6 @@
-import PopUpContentAddFlight from 'components/popUpContentAddFlight/popUpContentAddFlight.view';
 import React from 'react';
 import UseKeyPress from '../../utils/useKeyPress';
+import PopUpContentAddFlight from '../popUpContentAddFlight/popUpContentAddFlight.view';
 import './popUpBox.css';
 
 const PopUpBox = ({ handleClose }) => {

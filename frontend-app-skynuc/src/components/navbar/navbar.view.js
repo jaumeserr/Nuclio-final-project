@@ -1,26 +1,53 @@
-import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import logoSkyreader from 'assets/images/logo_skyreader.svg';
+import Button from 'components/button/button.view';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../../assets/images/logo.png';
-import { HOME, LOGIN, REGISTER, USER_PROFILE } from '../../routes/routes';
+import { ADMIN_USER_LOGIN, ADMIN_USER_PROFILE, FLIGHT_LIST, HOME } from '../../routes/routes';
 import styles from './navbar.module.css';
 
 const Navbar = () => {
+    //
+    // // DO NOT DELETE!
+    // // TO BE USED IN A NEAR FUTURE, once we implement authentication:
+    //
+    // const [isLoggedIn, setIsLoggedIn] = useState(false);
+    //
+    // const toggleLoggedIn = () => {
+    //     setIsLoggedIn(!isLoggedIn);
+    // };
+
+    const isLoggedIn = false;
+
     return (
         <div className={styles.__container}>
             <Link to={HOME}>
-                <img src={logo} alt="logo" className={styles.__logo} />
+                <img src={logoSkyreader} alt="Logo Skyreader" />
             </Link>
-            <Link to={LOGIN}>
-                <button className="button button-primary">Login</button>
+            <Link to={FLIGHT_LIST}>
+                <Button content={'FLIGHT LIST'} color={'blue__solid'} />
             </Link>
-            <Link to={REGISTER}>
-                <button className="button button-primary">Register</button>
+            <Link to={ADMIN_USER_PROFILE}>
+                <Button content={'ADMIN USER PROFILE'} color={'blue__solid'} />
             </Link>
-            <Link to={USER_PROFILE}>
-                <FontAwesomeIcon icon={faUserCircle} size="3x" />
-            </Link>
+            <div className={styles.__links__container}>
+                {!isLoggedIn && (
+                    <>
+                        <Link to={ADMIN_USER_LOGIN}>
+                            <Button content={'Admin User Login'} color={'blue__outline'} />
+                        </Link>
+                    </>
+                )}
+                {isLoggedIn && (
+                    <>
+                        <Link to={HOME}>
+                            <Button content={'Logout'} color={'blue__outline'} disabled={true} />
+                        </Link>
+                        <Link to={ADMIN_USER_PROFILE}>
+                            <Button content={'Admin User Profile'} color={'blue__outline'} />
+                        </Link>
+                    </>
+                )}
+            </div>
         </div>
     );
 };

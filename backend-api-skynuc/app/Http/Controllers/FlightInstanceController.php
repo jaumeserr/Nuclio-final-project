@@ -28,8 +28,6 @@ class FlightInstanceController extends Controller {
      * @param $id
      * @return Jsonresponse
      */
-
-
     public function getById($id)
     {
         Log::info('Retrieving flight instance by id: '.$id);
@@ -43,8 +41,6 @@ class FlightInstanceController extends Controller {
      * @param $dpt_datetime
      * @return Jsonresponse
      */
-
-
     public function getByDptDatetime($dpt_datetime)
     {
         Log::info('Retrieving flight instance by dpt datetime: '.$dpt_datetime);
@@ -58,8 +54,6 @@ class FlightInstanceController extends Controller {
      * @param $arr_datetime
      * @return Jsonresponse
      */
-
-
     public function getByArrDatetime($arr_datetime)
     {
         Log::info('Retrieving flight instance by arr datetime: '.$arr_datetime);
@@ -70,15 +64,13 @@ class FlightInstanceController extends Controller {
     /**
      * Return a given flight instance by flight num
      *
-     * @param $flight_consts_flight_num
+     * @param $flight_const_flight_num
      * @return Jsonresponse
      */
-
-
-    public function getByFlightNum($flight_consts_flight_num)
+    public function getByFlightNum($flight_const_flight_num)
     {
-        Log::info('Retrieving flight instance by flight num: '.$flight_consts_flight_num);
-        $flightinstance = FlightInstance::where('flight_consts_flight_num', $flight_consts_flight_num)->first();
+        Log::info('Retrieving flight instance by flight num: '.$flight_const_flight_num);
+        $flightinstance = FlightInstance::where('flight_const_flight_num', $flight_const_flight_num)->first();
         return response()->json($flightinstance);
     }
 
@@ -88,8 +80,6 @@ class FlightInstanceController extends Controller {
      * @param $price_eur
      * @return Jsonresponse
      */
-
-
     public function getByPrice($price_eur)
     {
         Log::info('Retrieving flight instance by price: '.$price_eur);
@@ -97,4 +87,17 @@ class FlightInstanceController extends Controller {
         return response()->json($flightinstance);
     }
 
+    /**
+     * Show a list of all of the application's airlines
+     * with their corresponding flight consts
+     * and the corresponding flight instances of these flight consts
+     *
+     * @return JsonResponse
+     */
+    public function flightCardData()
+    {
+        Log::info('Retrieving all flight instances with the flight consts they belong to and the corresp. airlines these flight consts belong to');
+        $flightinstance = FlightInstance::with('flightConst.airline')->get();
+        return response()->json($flightinstance);
+    }
 }

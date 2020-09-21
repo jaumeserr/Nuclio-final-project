@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <!-- SOURCE: https://codepen.io/JavaScriptJunkie/pen/jvRGZy -->
+
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>My profile</title>
+        <meta name="description" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="./userProfileCard.css" />
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="profile-card js-profile-card">
+                <div class="profile-card__img">
+                    <img src="../../assets/images/user-profile-picture.png" alt="profile card" />
+                </div>
+
+                <div class="profile-card__cnt js-profile-cnt">
+                    <div class="profile-card__name">Karina Erdem</div>
+                    <div class="profile-card__txt">
+                        Flight Administrator from <strong>Vueling</strong>
+                    </div>
+
+                    <div class="profile-card-ctr">
+                        <div class="profile-card-ctr-box">
+                            <div class="profile-card-inf">
+                                <div class="profile-card-inf__item">
+                                    <div class="profile-card-inf__number">16</div>
+                                    <div class="profile-card-inf__txt">Flights added</div>
+                                </div>
+                            </div>
+                            <button class="profile-card__button button--blue-solid">
+                                List my flights
+                            </button>
+                        </div>
+
+                        <div class="profile-card-ctr-box">
+                            <button class="profile-card__button button--green js-message-btn">
+                                Add flight
+                            </button>
+                            <button class="profile-card__button button--yellow js-message-btn">
+                                Modify flight
+                            </button>
+                            <button class="profile-card__button button--red js-message-btn">
+                                Delete flight
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profile-card-message js-message">
+                    <form class="profile-card-form">
+                        <div class="profile-card-form__container">
+                            <!-- <label for="mytextarea">My text area:</label><br />
+                            <textarea
+                                id="mytextarea"
+                                placeholder="Type your message here"
+                            ></textarea> -->
+                            <label for="dpt-datetime">Departure date and time:</label>
+                            <input
+                                type="datetime-local"
+                                id="dpt-datetime"
+                                name="dpt-datetime"
+                                min="2020-08-01T00:00"
+                                max="2020-12-31T00:00"
+                            />
+                            <label for="dpt-city">Departure city:</label>
+                            <select name="dpt-city" id="dpt-city">
+                                <option value="BCN">BCN</option>
+                                <option value="MAD">MAD</option>
+                            </select>
+                            <label for="arr-datetime">Arrival date and time:</label>
+                            <input
+                                type="datetime-local"
+                                id="arr-datetime"
+                                name="arr-datetime"
+                                min="2020-08-01T00:00"
+                                max="2020-12-31T00:00"
+                            />
+                            <label for="arr-city">Arrival city:</label>
+                            <select name="arr-city" id="arr-city">
+                                <option value="BCN">BCN</option>
+                                <option value="MAD">MAD</option>
+                            </select>
+                            <label for="price">Price (€):</label>
+                            <input
+                                type="number"
+                                id="price"
+                                name="price"
+                                min="1"
+                                max="1500"
+                                value="0"
+                                step=".01"
+                            />
+                        </div>
+
+                        <div class="profile-card-form__bottom">
+                            <button
+                                class="profile-card__button form__button button--blue-solid js-message-close"
+                            >
+                                Send
+                            </button>
+
+                            <button
+                                class="profile-card__button form__button button--gray js-message-close"
+                            >
+                                Cancel
+                            </button>
+                        </div>
+                    </form>
+
+                    <div class="profile-card__overlay js-message-close"></div>
+                </div>
+            </div>
+        </div>
+
+        <script src="./userProfileCard.js" async defer></script>
+    </body>
+</html>

@@ -1,0 +1,311 @@
+/* Design inspiration:  https://dribbble.com/shots/1978243-Latest-News */
+/* Design inspiration:  https://codepen.io/jsarachan/pen/XeaZLR */
+/* Design inspiration:  https://codepen.io/jamiehalvorson/embed/KNyRNV?default-tab=result&theme-id=0 */
+
+
+#flight_card_container {
+    height: 300px;
+    margin: 10px 10px 60px 10px;
+    color: #324e63;
+    background: white;
+
+    border: 0.01px;
+    border-style: solid;
+    border-radius: 25px;
+
+    /* box-shadow: 5px 5px 5px 5px darken(transparent, 0%); */
+    transition: 0.25s;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+}
+
+#flight_card_container:hover {
+    box-shadow: 1px 1px 1px 1px darken(grey, 1%);
+    /* cursor: pointer; */
+    transform: translate(5px, 0);
+}
+
+#box_top_airline {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left: 0px;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+
+    height: 50px;
+    flex-grow: 1;
+}
+
+#box_top_airline img {
+    width: auto;
+    height: 50px;
+    margin-left: 40px;
+    filter: brightness(0) invert(1);
+}
+
+#box_bottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    /* height: 220px; // FIXME */
+    flex-grow: 3;
+}
+
+#box_left_container,
+#box_right_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#box_left_container {
+    /* order: 1; */
+    flex-grow: 2;
+    border: none;
+    border-right: 0.01px;
+    border-right-style: solid;
+    border-color: #d4d4d4;
+    border-bottom-left-radius: 25px;
+}
+
+#box_right_container {
+    /* order: 2; */
+    flex-grow: 1;
+
+    /* height: 100%; */
+    /* min-height: 100%; */
+    border-bottom-right-radius: 25px;
+}
+
+#box_left,
+#box_right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+
+    height: 90%;
+    /* display: block; */
+    /* height: 215px; */
+}
+
+#box_left {
+    display: flex;
+    flex-direction: row;
+
+    /* height: 90%; */
+
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; */
+
+
+    /* justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    height: 220px; */
+    /* FIXME height */
+}
+
+#box_right {
+    height: auto;
+    /* height: 200px; */
+
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-basis: 10%; */
+}
+
+#box_left p {
+    /* height: 50%; */
+
+    /* padding: 10px 10px 10px 10px;
+    margin: 5px 5px 5px 5px; */
+
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; */
+}
+
+#box_right p {
+    padding: 10px 10px 10px 10px;
+    margin: 10px 10px 10px 10px;
+
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; */
+}
+
+#box_left_left {
+    /* order: 2; */
+    flex-grow: 1;
+    margin-right: 45px;
+    /* height: 100%;
+    min-height: 100%; */
+}
+
+#box_left_left img {
+    width: auto;
+    height: 50px;
+}
+
+#box_left_right {
+    flex-grow: 5;
+    height: 90%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#box_left_right_inner {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+    /* FIXME padding */
+    padding: 10px 10px 10px 10px;
+    margin: 10px 10px 10px 10px;
+
+    height: 90%;
+    width: 320px;
+}
+
+#box_left_right_inner p {
+    /* padding: 10px 5px; */
+}
+
+#box_left_right_inner_dpt {
+    /* padding: 10px 10px 10px 10px; */
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    /* flex-basis: 10%; */
+    height: 70%;
+}
+
+#box_left_right_inner_duration {
+    /* padding: 10px 10px 10px 10px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 60%;
+}
+
+#box_left_right_inner_duration img {
+    width: 100px;
+    height: auto;
+}
+
+#box_left_right_inner_arr {
+    /* padding: 10px 10px 10px 10px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 70%;
+}
+
+/* _____________________________ */
+/* __MAQUETACIÓN: Descomentar___ */
+/* _____________________________ */
+
+/* #flight_card_container,
+#box_top_airline,
+#box_bottom,
+#box_left_container,
+#box_right_container,
+#box_left,
+#box_right,
+#box_left_left,
+#box_left_right,
+#box_left_right_inner,
+#box_left_right_inner_dpt,
+#box_left_right_inner_duration,
+#box_left_right_inner_arr,
+p {
+    border: 0.5px;
+    border-style: solid;
+    border-color: #000;
+    border-radius: 25px;
+}
+
+#flight_card_container {
+    background: grey;
+}
+
+#box_top_airline img {
+    background: pink;
+}
+
+#box_bottom {
+    background-color: red;
+}
+
+#box_left_container {
+    background-color: lightgoldenrodyellow;
+}
+
+#box_right_container {
+    background-color: rgb(6, 77, 82);
+}
+
+#box_left {
+    background-color: aqua;
+}
+
+#box_right {
+    background-color: lightblue;
+}
+
+#box_left_left {
+    background-color: pink;
+}
+
+#box_left_right {
+    background-color: lightgreen;
+}
+
+#box_left_right_inner {
+    background-color: palevioletred;
+}
+
+#box_left_right_inner_dpt {
+    background-color: lightgrey;
+}
+
+#box_left_right_inner_dpt p,
+#box_left_right_inner_duration p,
+#box_left_right_inner_arr p {
+    background-color: darkgreen;
+    color: white;
+}
+
+#box_left_right_inner_duration {
+    background-color: lightgrey;
+}
+
+#box_left_right_inner_arr {
+    background-color: lightgrey;
+}
+
+#box_right p {
+    background-color: darkred;
+    color: white;
+} */

@@ -38,12 +38,21 @@ class Airport extends Model {
         'iata', 'city_name',
     ];
 
-    /**   ??????????? // FIXME
-     * Get the flight consts for the given airport.
-     * It says: One airport has many flight consts
+    /** //FIXME - Revisar relaciones - Facundo
+     * Get the flight consts that owns the departure airport.
+     * It says: One departure airport belongs to many flight consts
      */
     public function flightConsts2()
     {
-        return $this->hasMany('App\FlightConsts');
+        return $this->belongsToMany('App\FlightConsts', 'iata');
+    }
+
+    /** //FIXME - Revisar relaciones - Facundo
+     * Get the flight consts that owns the departure airport.
+     * It says: One departure airport belongs to many flight consts
+     */
+    public function flightConsts3()
+    {
+        return $this->belongsToMany('App\FlightConsts', 'iata');
     }
 }
