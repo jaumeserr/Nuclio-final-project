@@ -1,0 +1,176 @@
+/* ------------------------------------------ */
+/* WRAPPER ---------------------------------- */
+/* ------------------------------------------ */
+
+.my-wrapper {
+    box-sizing: border-box;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    padding-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+@media screen and (max-width: 768px) {
+    .my-wrapper {
+        padding-top: 90px;
+    }
+}
+
+/* ------------------------------------------ */
+/* CONTAINER -------------------------------- */
+/* ------------------------------------------ */
+
+.container {
+    border-radius: 10px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    position: relative;
+    overflow: hidden;
+    width: 400px;
+    max-width: 100%;
+    min-height: 480px;
+}
+@media screen and (max-width: 768px) {
+    .container {
+        box-shadow: none;
+        border-radius: 0px;
+        min-height: 100%;
+    }
+}
+
+/* ------------------------------------------ */
+/* FORM CONTAINER --------------------------- */
+/* ------------------------------------------ */
+
+.form-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.form-container form {
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 50px;
+    height: 100%;
+    text-align: center;
+}
+@media screen and (max-width: 768px) {
+    .form-container form {
+        background-color: #eef6ff;
+    }
+}
+
+.form-container h1 {
+    color: #17385c;
+}
+
+.form-container input {
+    background-color: #eee;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    padding: 12px 15px;
+    margin: 8px 0;
+    width: 100%;
+}
+.form-container input:focus {
+    outline: none;
+    border: 1px solid #17385c;
+    border-radius: 4px;
+    background-color: #fff;
+}
+.form-container input:first-of-type {
+    margin-top: 35px;
+}
+.form-container input:last-of-type {
+    margin-bottom: 35px;
+}
+
+.form-container span {
+    font-size: 14px;
+    line-height: 20px;
+    margin: 20px 0px 0px 0px;
+    color: #17385c;
+}
+
+/* ------------------------------------------ */
+/* BUTTONS ---------------------------------- */
+/* ------------------------------------------ */
+
+.container button {
+    border-radius: 20px;
+    border: 1px solid #17385c;
+    background-color: #17385c;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 12px 45px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: transform 80ms ease-in;
+}
+
+.container button:active {
+    transform: scale(0.95);
+}
+
+.container button:focus {
+    outline: none;
+}
+
+.container button:disabled {
+    background-color: rgba(17, 17, 17, 0.48);
+    border: none;
+}
+
+.container button.ghost {
+    background-color: transparent;
+    border-color: #ffffff;
+}
+
+.container button.ghost__outline {
+    background-color: transparent;
+    color: #17385c;
+}
+
+/* ------------------------------------------ */
+/* MESSAGES: ERROR AND SUCCESS -------------- */
+/* ------------------------------------------ */
+
+.__message__box {
+    padding: 10px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.__message__box p {
+    font-size: 12px;
+    line-height: 17px;
+    letter-spacing: 0.5px;
+    width: 100%;
+}
+
+.__error {
+    border: 1px solid red;
+}
+
+.__error p {
+    color: red;
+}
+
+.__success {
+    border: 1px solid #17385c;
+}
+
+.__success p {
+    color: #17385c;
+}

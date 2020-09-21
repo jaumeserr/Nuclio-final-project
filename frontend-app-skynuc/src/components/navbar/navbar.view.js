@@ -3,10 +3,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import logoSkyreader from '../../assets/images/logo_skyreader.svg';
 import {
+    ADMIN_USER_LOGIN,
     ADMIN_USER_PROFILE,
     FLIGHT_LIST,
     HOME,
-    USER_LOGIN_AND_REGISTER,
     USER_PROFILE,
 } from '../../routes/routes';
 import styles from './navbar.module.css';
@@ -38,8 +38,8 @@ const Navbar = () => {
             <div className={styles.__navlinks}>
                 {!isLoggedIn && (
                     <>
-                        <Link to={USER_LOGIN_AND_REGISTER}>
-                            <Button content={'Login / Register'} color={'blue__outline'} />
+                        <Link to={ADMIN_USER_LOGIN}>
+                            <Button content={'Admin User Login'} color={'blue__outline'} />
                         </Link>
                     </>
                 )}
