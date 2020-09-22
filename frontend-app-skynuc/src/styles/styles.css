@@ -1,0 +1,31 @@
+@import 'variables.css';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-primary);
+    color: var(--clr-text-dark);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: var(--clr-background-blue-light);
+}
+
+a,
+a:hover {
+    text-decoration: none;
+}
+
+/* .global_wrapper {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    padding: 50px 20px;
+    color: red;
+} */

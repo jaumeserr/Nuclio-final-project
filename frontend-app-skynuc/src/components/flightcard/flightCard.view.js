@@ -1,8 +1,9 @@
+import Button from 'components/button/button.view';
 import moment from 'moment';
 import PropTypes from 'prop-types';
 import React from 'react';
 import flight_arrow from '../../assets/images/flight_arrow.png';
-import './flightCard.scss';
+import './flightCard.css';
 
 const FlightCard = ({
     dpt_datetime,
@@ -41,6 +42,10 @@ const FlightCard = ({
         return timeString;
     };
 
+    const myonclickaction = () => {
+        alert('action test');
+    };
+
     return (
         <>
             <div
@@ -67,7 +72,7 @@ const FlightCard = ({
                                 <div id="box_left_right_inner">
                                     <div id="box_left_right_inner_dpt">
                                         <p style={{ fontWeight: 'bold', fontSize: '34px' }}>
-                                            {moment(dpt_datetime).format("HH:mm")}
+                                            {moment(dpt_datetime).format('HH:mm')}
                                         </p>
                                         <p style={{ textAlign: 'right', fontSize: '20px' }}>
                                             {dpt_airport_iata}
@@ -80,7 +85,7 @@ const FlightCard = ({
                                     </div>
                                     <div id="box_left_right_inner_arr">
                                         <p style={{ fontWeight: 'bold', fontSize: '34px' }}>
-                                            {moment(arr_datetime).format("HH:mm")}
+                                            {moment(arr_datetime).format('HH:mm')}
                                         </p>
                                         <p style={{ textAlign: 'left', fontSize: '20px' }}>
                                             {arr_airport_iata}
@@ -93,27 +98,11 @@ const FlightCard = ({
                     <div id="box_right_container">
                         <div id="box_right">
                             <p style={{ fontSize: '24px', fontWeight: 'bold' }}>{price_eur} €</p>
-                            <p
-                                style={{
-                                    fontSize: '18px',
-                                    fontWeight: 'bold',
-                                    backgroundColor: '#d4d4d4',
-                                    color: 'black',
-                                    borderRadius: 25,
-                                }}
-                            >
-                                See flight &rarr;
-                            </p>
-                            {/* <a
-                                className="button button--gray-soft-shadow"
-                                target="_blank"
-                                href={'http://www.google.es'}
-                                style={{
-                                    border: '5 px solid',
-                                }}
-                            >
-                                See flight &rarr;
-                            </a> */}
+                            <Button
+                                content={'See flight'}
+                                color={'blue__solid'}
+                                action={myonclickaction}
+                            />
                         </div>
                     </div>
                 </div>
