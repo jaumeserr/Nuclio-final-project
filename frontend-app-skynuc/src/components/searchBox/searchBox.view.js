@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styles from './searchBox.module.css';
+import {useHistory} from "react-router";
+import axios from "axios";
 
 const SearchBox = () => {
     const [origins, setOrigins] = useState('');
@@ -9,59 +11,33 @@ const SearchBox = () => {
     const [dates, setDates] = useState('');
     const [selectDate, setSelectDate] = useState('');
 
-    useEffect(() => {
-        const url = 'http://localhost/api/airports';
-        const options = {
-            method: 'GET',
-            header: new Headers(),
-            mode: 'cors',
-        };
-
-        fetch(url, options)
-            .then((response) => {
-                if (response.status >= 200 || response.status < 300) {
-                    console.log(`Status: ${response.status}`);
-                    return response.json();
-                }
-                return Promise.reject(response.status);
-            })
-            .then((payload) => {
-                console.log(payload);
-                setOrigins(payload);
-                setDestinations(payload);
-            })
-            .catch((error) => console.log(error));
-    }, []);
+    const history = useHistory();
 
     useEffect(() => {
-        const url = 'http://localhost/api/flight_instances';
-        const options = {
-            method: 'GET',
-            header: new Headers(),
-            mode: 'cors',
-        };
+        const baseUrl = process.env.REACT_APP_API_URL;
 
-        fetch(url, options)
-            .then((response) => {
-                if (response.status >= 200 || response.status < 300) {
-                    console.log(`Status: ${response.status}`);
-                    return response.json();
-                }
-                return Promise.reject(response.status);
+        axios
+            .get(`${baseUrl}/airports`)
+            .then((res) => {
+                console.log(res.data);
+                setOrigins(res.data);
+                setDestinations(res.data);
             })
-            .then((payload) => {
-                console.log(payload);
-                setDates(payload);
+            .catch((err) => console.log(err));
+
+        axios
+            .get(`${baseUrl}/flight_instances`)
+            .then((res) => {
+                console.log(res.data);
+                setDates(res.data);
             })
-            .catch((error) => console.log(error));
-    }, []);
+            .catch((err) => console.log(err));
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
         <div className={styles.__container}>
             <div>
-                <div className={styles.__label}>
-                    Where
-                </div>
+                <div className={styles.__label}>Where</div>
                 <div className={styles.__inputBoxGroup}>
                     <select
                         className={styles.__select}
@@ -72,15 +48,15 @@ const SearchBox = () => {
                     >
                         <option value="">From</option>
                         {origins &&
-                        origins.map((origin) => {
-                            const { city_name, iata } = origin;
+                            origins.map((origin) => {
+                                const { city_name, iata } = origin;
 
-                            return (
-                                <option key={iata} value={iata}>
-                                    {city_name} ({iata})
-                                </option>
-                            );
-                        })}
+                                return (
+                                    <option key={iata} value={iata}>
+                                        {city_name} ({iata})
+                                    </option>
+                                );
+                            })}
                     </select>
                     <div className={styles.__separator}></div>
                     <select
@@ -92,22 +68,20 @@ const SearchBox = () => {
                     >
                         <option value="">To</option>
                         {destinations &&
-                        destinations.map((destination) => {
-                            const { city_name, iata } = destination;
+                            destinations.map((destination) => {
+                                const { city_name, iata } = destination;
 
-                            return (
-                                <option key={iata} value={iata}>
-                                    {city_name} ({iata})
-                                </option>
-                            );
-                        })}
+                                return (
+                                    <option key={iata} value={iata}>
+                                        {city_name} ({iata})
+                                    </option>
+                                );
+                            })}
                     </select>
                 </div>
             </div>
             <div>
-                <div className={styles.__label}>
-                    When
-                </div>
+                <div className={styles.__label}>When</div>
                 <div className={styles.__inputBoxGroup}>
                     <select
                         className={`${styles.__select} ${styles.__date}`}
@@ -118,20 +92,22 @@ const SearchBox = () => {
                     >
                         <option value="">Departure Date</option>
                         {dates &&
-                        dates.map((date) => {
-                            const { dpt_datetime, id } = date;
+                            dates.map((date) => {
+                                const { dpt_datetime, id } = date;
 
-                            return (
-                                <option
-                                    key={id}
-                                    value={dpt_datetime.replace(/-/g, '').substring(0, 8)}
-                                >
-                                    {dpt_datetime.replace(/-/g, '/').substring(0, 10)}
-                                </option>
-                            );
-                        })}
+                                return (
+                                    <option
+                                        key={id}
+                                        value={dpt_datetime.replace(/-/g, '').substring(0, 8)}
+                                    >
+                                        {dpt_datetime.replace(/-/g, '/').substring(0, 10)}
+                                    </option>
+                                );
+                            })}
                     </select>
-                    <button className={styles.__button} onClick={() => alert('Clicked')}>See flights</button>
+                    <button className={styles.__button} onClick={() => history.push(`/flights/${originIata}/${destinationIata}/${selectDate}`)}>
+                        See flights
+                    </button>
                 </div>
             </div>
         </div>
