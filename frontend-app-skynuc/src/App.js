@@ -7,10 +7,12 @@ import AdminUserProfile from './components/adminUserProfile/adminUserProfile.vie
 import FlightListPage from './pages/flightListPage/flightListPage.view';
 import Home from './pages/home/home.view';
 import { ADMIN_USER_LOGIN, ADMIN_USER_PROFILE, FLIGHT_LIST } from './routes/routes';
+import {InfoFlightsContextProvider} from "./contexts/infoFlights.context";
 
 function App() {
     return (
-        <Router>
+        // <InfoFlightsContextProvider>
+            <Router>
             <Navbar />
             <Switch>
                 <Route exact path="/">
@@ -27,6 +29,7 @@ function App() {
                 </Route>
             </Switch>
         </Router>
+        // </InfoFlightsContextProvider>
     );
 }
 

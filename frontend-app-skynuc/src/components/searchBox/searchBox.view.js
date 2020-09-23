@@ -3,10 +3,9 @@ import styles from './searchBox.module.css';
 import {useHistory} from "react-router";
 
 const SearchBox = () => {
-    const [origins, setOrigins] = useState('');
-    const [originIata, setOriginIata] = useState('');
-    const [destinations, setDestinations] = useState('');
-    const [destinationIata, setDestinationIata] = useState('');
+    const [airports, setAirports] = useState('');
+    const [departureIata, setDepartureIata] = useState('');
+    const [arrivalIata, setArrivalIata] = useState('');
     const [dates, setDates] = useState('');
     const [selectDate, setSelectDate] = useState('');
 
@@ -30,8 +29,7 @@ const SearchBox = () => {
             })
             .then((payload) => {
                 console.log(payload);
-                setOrigins(payload);
-                setDestinations(payload);
+                setAirports(payload);
             })
             .catch((error) => console.log(error));
     }, []);
@@ -66,15 +64,15 @@ const SearchBox = () => {
                 <div className={styles.__inputBoxGroup}>
                     <select
                         className={styles.__select}
-                        value={originIata}
+                        value={departureIata}
                         onChange={(e) => {
-                            setOriginIata(e.target.value);
+                            setDepartureIata(e.target.value);
                         }}
                     >
                         <option value="">From</option>
-                        {origins &&
-                            origins.map((origin) => {
-                                const { city_name, iata } = origin;
+                        {airports &&
+                            airports.map((airport) => {
+                                const { city_name, iata } = airport;
 
                                 return (
                                     <option key={iata} value={iata}>
@@ -86,22 +84,22 @@ const SearchBox = () => {
                     <div className={styles.__separator}></div>
                     <select
                         className={styles.__select}
-                        value={destinationIata}
+                        value={arrivalIata}
                         onChange={(e) => {
-                            setDestinationIata(e.target.value);
+                            setArrivalIata(e.target.value);
                         }}
                     >
                         <option value="">To</option>
-                        {destinations &&
-                            destinations.map((destination) => {
-                                const { city_name, iata } = destination;
+                        {airports &&
+                        airports.map((airport) => {
+                            const { city_name, iata } = airport;
 
-                                return (
-                                    <option key={iata} value={iata}>
-                                        {city_name} ({iata})
-                                    </option>
-                                );
-                            })}
+                            return (
+                                <option key={iata} value={iata}>
+                                    {city_name} ({iata})
+                                </option>
+                            );
+                        })}
                     </select>
                 </div>
             </div>
@@ -130,7 +128,7 @@ const SearchBox = () => {
                                 );
                             })}
                     </select>
-                    <button className={styles.__button} onClick={() => history.push(`/flights/${originIata}/${destinationIata}/${selectDate}`)}>
+                    <button className={styles.__button} onClick={() => history.push(`/flights/${departureIata}/${arrivalIata}/${selectDate}`)}>
                         See flights
                     </button>
                 </div>
