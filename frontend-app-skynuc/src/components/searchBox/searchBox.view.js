@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import styles from './searchBox.module.css';
-import {useHistory} from "react-router";
+import { useHistory } from "react-router";
+import { InfoFlightsContext } from 'contexts/infoFlights.context';
 
 const SearchBox = () => {
     const [airports, setAirports] = useState('');
-    const [departureIata, setDepartureIata] = useState('');
-    const [arrivalIata, setArrivalIata] = useState('');
     const [dates, setDates] = useState('');
-    const [selectDate, setSelectDate] = useState('');
+
+    const { state, dispatch } = React.useContext(InfoFlightsContext);
 
     const history = useHistory();
 
@@ -64,9 +64,9 @@ const SearchBox = () => {
                 <div className={styles.__inputBoxGroup}>
                     <select
                         className={styles.__select}
-                        value={departureIata}
+                        value={state.dptAirportIata}
                         onChange={(e) => {
-                            setDepartureIata(e.target.value);
+                            dispatch({type: 'DEPARTURE_IATA', iata: e.target.value});
                         }}
                     >
                         <option value="">From</option>
@@ -84,9 +84,9 @@ const SearchBox = () => {
                     <div className={styles.__separator}></div>
                     <select
                         className={styles.__select}
-                        value={arrivalIata}
+                        value={state.arrAirportIata}
                         onChange={(e) => {
-                            setArrivalIata(e.target.value);
+                            dispatch({type: 'ARRIVAL_IATA', iata: e.target.value});
                         }}
                     >
                         <option value="">To</option>
@@ -108,9 +108,9 @@ const SearchBox = () => {
                 <div className={styles.__inputBoxGroup}>
                     <select
                         className={`${styles.__select} ${styles.__date}`}
-                        value={selectDate}
+                        value={state.dptDatetime}
                         onChange={(e) => {
-                            setSelectDate(e.target.value);
+                            dispatch({type: 'DEPARTURE_DATE', dptTime: e.target.value});
                         }}
                     >
                         <option value="">Departure Date</option>
@@ -128,7 +128,12 @@ const SearchBox = () => {
                                 );
                             })}
                     </select>
-                    <button className={styles.__button} onClick={() => history.push(`/flights/${departureIata}/${arrivalIata}/${selectDate}`)}>
+                    <button
+                        className={styles.__button}
+                        onClick={
+                            () => history.push(`/flights/${state.dptAirportIata}/${state.arrAirportIata}/${state.dptDatetime}`)
+                        }
+                    >
                         See flights
                     </button>
                 </div>

@@ -2,7 +2,7 @@ import logoSkyreader from 'assets/images/logo_skyreader.svg';
 import Button from 'components/button/button.view';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ADMIN_USER_LOGIN, ADMIN_USER_PROFILE, FLIGHT_LIST, HOME } from '../../routes/routes';
+import { ADMIN_USER_LOGIN, ADMIN_USER_PROFILE, HOME } from '../../routes/routes';
 import styles from './navbar.module.css';
 
 const Navbar = () => {
@@ -22,9 +22,6 @@ const Navbar = () => {
         <div className={styles.__container}>
             <Link to={HOME}>
                 <img src={logoSkyreader} alt="Logo Skyreader" />
-            </Link>
-            <Link to={FLIGHT_LIST}>
-                <Button content={'FLIGHT LIST'} color={'blue__solid'} />
             </Link>
             <Link to={ADMIN_USER_PROFILE}>
                 <Button content={'ADMIN USER PROFILE'} color={'blue__solid'} />
