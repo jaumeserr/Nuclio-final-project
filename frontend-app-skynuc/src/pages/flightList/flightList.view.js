@@ -5,11 +5,10 @@ import { useParams } from 'react-router';
 import FlightCard from 'components/flightcard/flightCard.view';
 import Loader from 'components/loader/loader.view';
 import styles from './flightList.module.css';
-import { InfoFlightsContext } from 'contexts/infoFlights.context';
+import SearchBar from "components/searchBar/searchBar.view";
 
 const FlightList = () => {
 
-    const { state } = React.useContext(InfoFlightsContext);
     const [infoFlights, setInfoFlights] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
@@ -34,7 +33,7 @@ const FlightList = () => {
         <div className={styles.__container}>
             <div className={styles.__aside}>LEFT</div>
             <div className={styles.__center}>
-                SEARCHBAR {state.dptAirportIata}
+                <SearchBar />
                 <p className={styles.__foundText}>
                     We have found {infoFlights.length} flights for you
                 </p>
@@ -56,9 +55,9 @@ const FlightList = () => {
                                     data.flight_const.airline_two_letter_code
                                 }
                             />
-                        );
+                        )
                     })
-                };
+                }
             </div>
             <div className={styles.__aside}>RIGHT</div>
         </div>
@@ -66,3 +65,4 @@ const FlightList = () => {
 };
 
 export default FlightList;
+
