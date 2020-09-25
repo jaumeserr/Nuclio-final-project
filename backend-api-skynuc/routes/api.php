@@ -108,6 +108,6 @@ Route::group([
 
 ], function ($router) {
 
-    Route::get('{dpt}/{arr}', 'SearchController@search');
+    Route::get('{dpt}/{arr}/{date}', 'SearchController@search');
 
 });

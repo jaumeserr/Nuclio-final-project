@@ -4,16 +4,19 @@
 namespace App\Http\Controllers;
 
 use App\FlightInstance;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Log;
 
 class SearchController extends Controller
 {
-    public function search($dpt, $arr) {
+    public function search($dpt, $arr, $date) {
         $results = array();
-        $date = "miercoles de mierda";
+        $date = Carbon::createFromFormat('Ymd', $date);
 
         Log::info("[SearchController] Searching by DPT:{$dpt} ARR:{$arr} DATE:{$date}");
-        $flightInstances = FlightInstance::with('flightConst.airline')->get();
+        $flightInstances = FlightInstance::with('flightConst.airline')
+            ->whereDate('dpt_datetime', $date)
+            ->get();
 
         foreach ($flightInstances as $flightInstance)
         {

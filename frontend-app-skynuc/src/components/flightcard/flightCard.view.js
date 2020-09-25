@@ -14,6 +14,7 @@ const FlightCard = ({
     logo_url,
     airline_two_letter_code,
 }) => {
+    console.log(moment(dpt_datetime).format('dddd, Do MMMM'))
     const mySwitchAirlineColor = (airline_two_letter_code) => {
         switch (airline_two_letter_code) {
             case 'KL':
