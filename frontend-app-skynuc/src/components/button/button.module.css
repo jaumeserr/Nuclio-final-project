@@ -28,7 +28,7 @@
     cursor: default;
 }
 .blue__outline:not(:disabled):hover {
-    background-color: var(--clr-blue-medium-hover);
+    background-color: var(--clr-blue-medium);
     color: #ffffff;
 }
 

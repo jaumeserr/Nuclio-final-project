@@ -1,40 +1,39 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useHistory } from 'react-router-dom';
+import { HOME } from 'routes/routes';
 import checkIfEmptyObject from 'utils/checkIfEmptyObject';
-import './adminUserLogin.css';
-// import styles from './adminUserLogin.module.css';
+import styles from './adminUserLogin.module.css';
 
 const AdminUserLogin = () => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
     const [submitSuccessful, isSubmitSuccessful] = useState(false);
 
-    function validateLoginForm() {
-        return email.length > 0 && password.length > 0;
-    }
+    const { register, handleSubmit, watch, errors } = useForm();
 
-    const { register, handleSubmit, errors } = useForm();
+    const watchShowEmail = watch('showEmail', false);
+    const watchShowPassword = watch('showPassword', false);
+
+    const history = useHistory();
 
     function onSubmitLogin(data) {
         console.log('Login data submitted: ', data);
         isSubmitSuccessful(true);
+        setTimeout(() => history.push(HOME), 3000);
     }
 
     const emailFromDB = 'admin@vueling.com';
     const passwordFromDB = 'vueling';
 
     return (
-        <div class="my-wrapper">
-            <div className="container">
-                <div class="form-container">
+        <div className={styles.__wrapper}>
+            <div className={styles.__container}>
+                <div className={styles.__form__container}>
                     <form action="#" onSubmit={handleSubmit(onSubmitLogin)} noValidate>
                         <h1>Admin User Login</h1>
                         <input
                             type="email"
                             placeholder="Email"
-                            name="email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
+                            name="showEmail"
                             ref={register({
                                 validate: (value) => {
                                     if (value === emailFromDB) {
@@ -52,15 +51,13 @@ const AdminUserLogin = () => {
                         <input
                             type="password"
                             placeholder="Password"
-                            name="loginPassword"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
+                            name="showPassword"
                             ref={register({
                                 validate: (value) => {
                                     if (value === passwordFromDB) {
                                         return true;
                                     } else {
-                                        return 'Password not registered';
+                                        return 'Incorrect password';
                                     }
                                 },
                             })}
@@ -71,28 +68,33 @@ const AdminUserLogin = () => {
                             action={contactUs}
                         /> */}
 
-                        <button disabled={!validateLoginForm()}>Submit</button>
+                        <button disabled={!(!!watchShowEmail && !!watchShowPassword)}>
+                            Submit
+                        </button>
 
                         {!checkIfEmptyObject(errors) && (
-                            <div class="__message__box __error">
-                                {errors.email && <p className="error">{errors.email.message}</p>}
+                            <div className={`${styles.__message__box} ${styles.__error}`}>
+                                {/* <div className={cx(styles.__message__box, styles.__error)}> */}
+                                {errors.email && (
+                                    <p className={styles.__error}>{errors.email.message}</p>
+                                )}
                                 {errors.loginPassword && (
-                                    <p className="error">{errors.loginPassword.message}</p>
+                                    <p className={styles.__error}>{errors.loginPassword.message}</p>
                                 )}
                             </div>
                         )}
                         {submitSuccessful && (
-                            <div class="__message__box __success">
+                            <div className={`${styles.__message__box} ${styles.__success}`}>
                                 <p>You have been successfully logged in!</p>
                             </div>
                         )}
 
                         <span>
                             In order to obtain your login credentials, please email us at
-                            support@skyreader.com
+                            <strong> support@skyreader.com</strong>
                         </span>
 
-                        {/* <button onClick={contactUs} class="ghost__outline">
+                        {/* <button onClick={contactUs} className="ghost__outline">
                             Contact Us
                         </button> */}
                     </form>
