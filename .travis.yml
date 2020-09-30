@@ -7,7 +7,7 @@ services:
     - mysql
 
 before_script:
-    - cd backend-api
+    - cd backend-api-skynuc
     # - cp .env.travis .env
     - mysql -e 'create database laravel_test;'
     - composer self-update
