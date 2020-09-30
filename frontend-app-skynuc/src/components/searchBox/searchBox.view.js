@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { DatePicker } from 'antd';
 import styles from './searchBox.module.css';
+import 'antd/dist/antd.css';
 import { useHistory } from "react-router";
 import { InfoFlightsContext } from 'contexts/infoFlights.context';
 
@@ -34,29 +36,6 @@ const SearchBox = () => {
             .catch((error) => console.log(error));
     }, []);
 
-    useEffect(() => {
-        const url = 'http://localhost/api/flight_instances';
-        const options = {
-            method: 'GET',
-            header: new Headers(),
-            mode: 'cors',
-        };
-
-        fetch(url, options)
-            .then((response) => {
-                if (response.status >= 200 || response.status < 300) {
-                    console.log(`Status: ${response.status}`);
-                    return response.json();
-                }
-                return Promise.reject(response.status);
-            })
-            .then((payload) => {
-                console.log(payload);
-                setDates(payload);
-            })
-            .catch((error) => console.log(error));
-    }, []);
-
     return (
         <div className={styles.__container}>
             <div>
@@ -64,9 +43,10 @@ const SearchBox = () => {
                 <div className={styles.__inputBoxGroup}>
                     <select
                         className={styles.__select}
-                        value={state.dptAirportIata}
+                        value={`${state.dptAirportIata}#${state.dptAirportCityName}`}
                         onChange={(e) => {
-                            dispatch({type: 'DEPARTURE_IATA', iata: e.target.value});
+                            const parsedValue = e.target.value.split('#');
+                            dispatch({type: 'DEPARTURE_IATA', data: {iata: parsedValue[0], cityName:parsedValue[1]}});
                         }}
                     >
                         <option value="">From</option>
@@ -75,7 +55,7 @@ const SearchBox = () => {
                                 const { city_name, iata } = airport;
 
                                 return (
-                                    <option key={iata} value={iata}>
+                                    <option key={iata} value={`${iata}#${city_name}`}>
                                         {city_name} ({iata})
                                     </option>
                                 );
@@ -84,9 +64,10 @@ const SearchBox = () => {
                     <div className={styles.__separator}></div>
                     <select
                         className={styles.__select}
-                        value={state.arrAirportIata}
+                        value={`${state.arrAirportIata}#${state.arrAirportCityName}`}
                         onChange={(e) => {
-                            dispatch({type: 'ARRIVAL_IATA', iata: e.target.value});
+                            const parsedValue = e.target.value.split('#');
+                            dispatch({type: 'ARRIVAL_IATA', data: {iata: parsedValue[0], cityName:parsedValue[1]}});
                         }}
                     >
                         <option value="">To</option>
@@ -95,7 +76,7 @@ const SearchBox = () => {
                             const { city_name, iata } = airport;
 
                             return (
-                                <option key={iata} value={iata}>
+                                <option key={iata} value={`${iata}#${city_name}`}>
                                     {city_name} ({iata})
                                 </option>
                             );
@@ -106,28 +87,13 @@ const SearchBox = () => {
             <div>
                 <div className={styles.__label}>When</div>
                 <div className={styles.__inputBoxGroup}>
-                    <select
-                        className={`${styles.__select} ${styles.__date}`}
-                        value={state.dptDatetime}
-                        onChange={(e) => {
-                            dispatch({type: 'DEPARTURE_DATE', dptTime: e.target.value});
+                    <DatePicker
+                        onChange={(date, datestring) => {
+                            dispatch({type: 'DEPARTURE_DATE', dptTime: datestring.replace(/-/g, '')});
                         }}
-                    >
-                        <option value="">Departure Date</option>
-                        {dates &&
-                            dates.map((date) => {
-                                const { dpt_datetime, id } = date;
-
-                                return (
-                                    <option
-                                        key={id}
-                                        value={dpt_datetime.replace(/-/g, '').substring(0, 8)}
-                                    >
-                                        {dpt_datetime.replace(/-/g, '/').substring(0, 10)}
-                                    </option>
-                                );
-                            })}
-                    </select>
+                        placeholder={'Departure Date'}
+                        style={{borderRadius: 4, width: 174, height: 40, fontSize: 15, color: 'red'}}
+                    />
                     <button
                         className={styles.__button}
                         onClick={
