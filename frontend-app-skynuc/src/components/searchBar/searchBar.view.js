@@ -11,9 +11,9 @@ const SearchBar = () => {
         <div className={styles.__container}>
             <div className={styles.__img}></div>
             <div className={styles.__routeBlock}>
-                <span>Barcelona ({state.dptAirportIata})</span>
+                <span>{state.dptAirportCityName} ({state.dptAirportIata})</span>
                 <div className={styles.__separator}></div>
-                <span>Alicante ({state.arrAirportIata})</span>
+                <span>{state.arrAirportCityName} ({state.arrAirportIata})</span>
             </div>
             <div className={styles.__spaceGrow}></div>
             <div>{moment(state.dptDatetime).format('ddd, Do MMMM')}</div>
