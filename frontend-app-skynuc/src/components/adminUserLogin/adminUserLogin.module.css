@@ -66,7 +66,7 @@
 }
 @media screen and (max-width: 768px) {
     .__form__container form {
-        background-color: #eef6ff;
+        /* background-color: #eef6ff; */
     }
 }
 
@@ -146,32 +146,28 @@
 /* MESSAGES: ERROR AND SUCCESS -------------- */
 /* ------------------------------------------ */
 
-.__message__box {
+.__error__box {
     padding: 10px;
     margin-top: 20px;
     width: 100%;
     border: 1px solid red;
 }
 
-.__message__box p {
+.__error__box p {
+    color: red;
     font-size: 12px;
     line-height: 17px;
     letter-spacing: 0.5px;
     width: 100%;
+    margin-bottom: 0em;
+    /* FIXME: margin-bottom for p is 1em somewhere, yet could not be found! */
 }
 
-.__error {
-    /* border: 1px solid red; */
+.__success__box {
+    margin-top: 10vh;
 }
-
-.__error p {
-    color: red;
-}
-
-.__success {
-    border: 1px solid #17385c;
-}
-
-.__success p {
-    color: #17385c;
+@media screen and (max-width: 768px) {
+    .__success__box {
+        margin-top: 15vh;
+    }
 }
