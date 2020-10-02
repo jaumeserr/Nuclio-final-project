@@ -1,5 +1,5 @@
 .__container {
-    background-color: red;
+    padding: 0 70px 0 40px;
 }
 
 .__title {
@@ -17,5 +17,5 @@
 
 .__hours {
     font-size: 10px;
-    color: 5E6D7C;
+    color: #5E6D7C;
 }
