@@ -6,6 +6,7 @@ import FlightCard from 'components/flightcard/flightCard.view';
 import Loader from 'components/loader/loader.view';
 import styles from './flightList.module.css';
 import SearchBar from "components/searchBar/searchBar.view";
+import CheckBoxFilter from 'components/checkBoxFilter/checkBoxFilter.view';
 
 const FlightList = () => {
 
@@ -31,7 +32,9 @@ const FlightList = () => {
 
     return (
         <div className={styles.__container}>
-            <div className={styles.__aside}>LEFT</div>
+            <div className={styles.__aside}>LEFT
+            <CheckBoxFilter/>
+            </div>
             <div className={styles.__center}>
                 <SearchBar />
                 <p className={styles.__foundText}>
