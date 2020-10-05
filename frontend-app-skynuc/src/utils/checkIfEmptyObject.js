@@ -1,8 +1,6 @@
 function CheckIfEmptyObject(obj) {
-    for (var key in obj) {
-        if (obj.hasOwnProperty(key)) return false;
-    }
-    return true;
+    const keys = Object.keys(obj);
+    return keys.length === 0;
 }
 
 export default CheckIfEmptyObject;

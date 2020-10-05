@@ -12,9 +12,17 @@
 
 .blue__solid {
     background-color: var(--clr-blue-medium);
+    border: 1.5px solid var(--clr-blue-medium);
 }
-.blue__solid:hover {
+.blue__solid:disabled {
+    background: none;
+    border: 1.5px solid var(--clr-text-light-3);
+    color: var(--clr-text-light-3);
+    cursor: default;
+}
+.blue__solid:not(:disabled):hover {
     background-color: var(--clr-blue-medium-hover);
+    color: #ffffff;
 }
 
 .blue__outline {
@@ -28,7 +36,7 @@
     cursor: default;
 }
 .blue__outline:not(:disabled):hover {
-    background-color: var(--clr-blue-medium-hover);
+    background-color: var(--clr-blue-medium);
     color: #ffffff;
 }
 
