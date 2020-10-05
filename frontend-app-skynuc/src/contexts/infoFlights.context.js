@@ -15,14 +15,14 @@ const reducer = (state, action) => {
         case "DEPARTURE_IATA":
             return {
                 ...state,
-                dptAirportIata: action.iata,
-                dptAirportCityName: action.cityName,
+                dptAirportIata: action.data.iata,
+                dptAirportCityName: action.data.cityName,
             };
         case "ARRIVAL_IATA":
             return {
                 ...state,
-                arrAirportIata: action.iata,
-                arrAirportCityName: action.cityName,
+                arrAirportIata: action.data.iata,
+                arrAirportCityName: action.data.cityName,
 
             };
         case "DEPARTURE_DATE":
