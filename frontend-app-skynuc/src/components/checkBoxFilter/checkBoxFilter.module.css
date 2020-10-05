@@ -12,7 +12,7 @@
 }
 
 .__title{
-    size: 16;
+    size: 14;
     font-weight: bold;
     /* background-color: chartreuse; */
 }
@@ -20,7 +20,7 @@
 .__check{
     width: 200px;
     height: 30px;
-    margin-top: 10px;
+    margin-top: 12px;
    
 }
 
@@ -28,6 +28,7 @@
     padding-left: 8px;
     margin-top: 12px;
     size: 12;
+    margin-left: 10px;
     
 }
 
