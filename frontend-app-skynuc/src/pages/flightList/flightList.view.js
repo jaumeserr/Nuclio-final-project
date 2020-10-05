@@ -6,6 +6,7 @@ import FlightCard from 'components/flightcard/flightCard.view';
 import Loader from 'components/loader/loader.view';
 import styles from './flightList.module.css';
 import SearchBar from "components/searchBar/searchBar.view";
+import CheckBoxFilter from 'components/checkBoxFilter/checkBoxFilter.view';
 import DepartureRange from 'components/departureRange/departureRange.view';
 import PriceRange from 'components/priceRange/priceRange.view';
 import Button from 'components/button/button.view';
@@ -33,10 +34,13 @@ const FlightList = () => {
     }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
+
         <div className={styles.__container}>
+
             <div className={styles.__aside}>
                 <DepartureRange />
                 <PriceRange />
+                <CheckBoxFilter/>
                 <Button content={'Apply Filters'} color={'blue__outline'} />
             </div>
             <div className={styles.__center}>
@@ -67,9 +71,8 @@ const FlightList = () => {
                 }
             </div>
             <div className={styles.__aside}>RIGHT</div>
-        </div>
+       </div>
     );
 };
 
 export default FlightList;
-
