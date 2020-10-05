@@ -1,20 +1,14 @@
 .__container{
     display: flex;
-    /* background-color: chocolate;  */
     flex-direction: column-reverse; 
     padding: 15px;   
 
 }
 
-.__inputBox{
-     /* background-color: yellowgreen; 
-        */
-}
 
 .__title{
-    size: 14;
+    size: 16;
     font-weight: bold;
-    /* background-color: chartreuse; */
 }
 
 .__check{
