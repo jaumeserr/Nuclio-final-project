@@ -62,7 +62,6 @@ const CheckBoxFilter = () => {
                                 return (
                                     <div className={styles.__check}>
                                         <Checkbox onChange={onChange} value={item.two_letter_code}>{item.name}</Checkbox>
-                                        {/* <input type="checkbox" value={item.two_letter_code} onChange={handleChangeCheckbox}/> */}
                                     </div>
                                 );
                             })
