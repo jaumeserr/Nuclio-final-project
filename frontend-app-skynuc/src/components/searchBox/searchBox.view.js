@@ -1,19 +1,21 @@
 import { DatePicker } from 'antd';
 import 'antd/dist/antd.css';
+import Button from 'components/button/button.view';
 import { InfoFlightsContext } from 'contexts/infoFlights.context';
 import useFetch from 'hooks/useFetch';
-import React, { useState } from 'react';
+import React from 'react';
 import { useHistory } from 'react-router';
 import styles from './searchBox.module.css';
 
 const SearchBox = () => {
-    const [dates, setDates] = useState('');
-
+    
     const { state, dispatch } = React.useContext(InfoFlightsContext);
-
     const history = useHistory();
-
     const { data, isLoading, hasEverLoadedData } = useFetch('airports', 'GET');
+
+    const pushParamsToUrl = () => {
+        history.push(`/flights/${state.dptAirportIata}/${state.arrAirportIata}/${state.dptDatetime}`)
+    }
 
     return (
         <div className={styles.__container}>
@@ -44,7 +46,8 @@ const SearchBox = () => {
                                         {city_name} ({iata})
                                     </option>
                                 );
-                            })}
+                            })
+                        }
                     </select>
                     <div className={styles.__separator}></div>
                     <select
@@ -71,7 +74,8 @@ const SearchBox = () => {
                                         {city_name} ({iata})
                                     </option>
                                 );
-                            })}
+                            })
+                        }
                     </select>
                 </div>
             </div>
@@ -94,16 +98,7 @@ const SearchBox = () => {
                             color: 'red',
                         }}
                     />
-                    <button
-                        className={styles.__button}
-                        onClick={() =>
-                            history.push(
-                                `/flights/${state.dptAirportIata}/${state.arrAirportIata}/${state.dptDatetime}`,
-                            )
-                        }
-                    >
-                        See flights
-                    </button>
+                    <Button content={'See flights'} color={'blue__solid'} style={{marginLeft: 50}} action={pushParamsToUrl} />
                 </div>
             </div>
         </div>
