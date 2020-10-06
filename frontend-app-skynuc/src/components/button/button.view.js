@@ -6,6 +6,7 @@ const Button = ({
     action,
     content,
     color,
+    style,
     disabled = false
 }) => {
     return (
@@ -14,6 +15,7 @@ const Button = ({
             disabled = {disabled}
             className = { cx(styles.button, styles.[color])}
             onClick = {action}
+            style={style}
         >
         {content}
         </button>
