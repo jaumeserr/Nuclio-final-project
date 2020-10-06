@@ -24,7 +24,7 @@ const Button = ({
 
 export default Button;
 
-// USAGE:
-// <Button content={'Text'} color={'blue__outline'} action={submitData} disabled={true} />
+// USAGE EXAMPLE (not all props are mandatory!):
+// <Button content={'Text'} color={'blue__outline'} action={submitData} disabled={true} style={{marginLeft: 50}} />
 
 //FIXME: styles.[style] - It works but "identifyer expected"

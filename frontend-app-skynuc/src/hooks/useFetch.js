@@ -25,6 +25,7 @@ const useFetch = (path, method, body = {}) => {
 
             const methodsWithBody = ['POST', 'PUT', 'PATCH'];
             if (methodsWithBody.includes(method)) {
+                // Line below to be deleted once we try one of the 3 methodsWithBody
                 // if (method === ('POST' || method === 'PUT' || method === 'PATCH')) {
                 options.body = JSON.stringify(body);
             }
