@@ -21,5 +21,9 @@ class FlightConstController extends Controller {
         Log::info('Retrieving all flight consts');
         return response()->json(FlightConst::all());
     }
-
+    public function getByAirline($two_letter_code)
+    {
+        Log::info ('Retrieving all flight byAirline');
+        $flights=FlightConst::where('two_letter_code', $two_letter_code)->get();
+    }
 }

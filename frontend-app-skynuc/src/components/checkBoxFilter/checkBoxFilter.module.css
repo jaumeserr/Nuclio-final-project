@@ -1,0 +1,28 @@
+.__container{
+    display: flex;
+    flex-direction: column-reverse; 
+    padding: 15px;   
+
+}
+
+
+.__title{
+    size: 16;
+    font-weight: bold;
+}
+
+.__check{
+    width: 200px;
+    height: 30px;
+    margin-top: 12px;
+   
+}
+
+.__checkbox{
+    padding-left: 8px;
+    margin-top: 12px;
+    size: 12;
+    margin-left: 10px;
+    
+}
+

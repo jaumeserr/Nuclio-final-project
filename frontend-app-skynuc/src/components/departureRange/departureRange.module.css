@@ -1,0 +1,21 @@
+.__container {
+    margin-bottom: 30px;
+}
+
+.__title {
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.__subtitle {
+    font-size: 12px;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}
+
+.__hours {
+    font-size: 10px;
+    color: #5E6D7C;
+}
