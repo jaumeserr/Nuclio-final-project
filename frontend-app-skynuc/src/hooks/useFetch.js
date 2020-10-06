@@ -1,16 +1,5 @@
 import { useEffect, useState } from 'react';
 
-// USAGE EXAMPLE:
-
-// GET
-// const { data, error } = useFetch('airlines', 'GET');
-
-// POST:
-// const { data, error } = useFetch('users', 'POST', {
-//     username: 'admin@vueling.com',
-//     password: 'vueling',
-// });
-
 const useFetch = (path, method, body = {}) => {
     const [hasEverLoadedData, setHasEverLoadedData] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
@@ -36,7 +25,7 @@ const useFetch = (path, method, body = {}) => {
 
             const methodsWithBody = ['POST', 'PUT', 'PATCH'];
             if (methodsWithBody.includes(method)) {
-            // if (method === ('POST' || method === 'PUT' || method === 'PATCH')) {
+                // if (method === ('POST' || method === 'PUT' || method === 'PATCH')) {
                 options.body = JSON.stringify(body);
             }
 
@@ -69,3 +58,15 @@ const useFetch = (path, method, body = {}) => {
 };
 
 export default useFetch;
+
+// USAGE EXAMPLE:
+// --------------------------------------------
+
+// --> GET
+// const { data, error } = useFetch('airlines', 'GET');
+
+// --> POST:
+// const { data, error } = useFetch('users', 'POST', {
+//     username: 'admin@vueling.com',
+//     password: 'vueling',
+// });
