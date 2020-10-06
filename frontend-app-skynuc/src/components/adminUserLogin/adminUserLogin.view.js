@@ -24,7 +24,7 @@ const AdminUserLogin = () => {
             className: styles.__success__box,
         });
 
-        setTimeout(() => history.push(HOME), 3000);
+        setTimeout(() => history.push(HOME), 4000);
     }
 
     const emailFromDB = 'admin@vueling.com';
