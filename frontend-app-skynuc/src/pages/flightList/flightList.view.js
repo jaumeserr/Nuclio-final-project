@@ -5,6 +5,7 @@ import SearchBar from 'components/searchBar/searchBar.view';
 import useFetch from 'hooks/useFetch';
 import React from 'react';
 import { useParams } from 'react-router';
+import pluralizeStringIfNeeded from 'utils/pluralizeStringIfNeeded';
 import styles from './flightList.module.css';
 
 const FlightList = () => {
@@ -17,10 +18,17 @@ const FlightList = () => {
             <div className={styles.__aside}>LEFT</div>
             <div className={styles.__center}>
                 <SearchBar />
-                <p className={styles.__foundText}>We have found {data.length} flights for you</p>
-                {isLoading && !hasEverLoadedData && <Loader />}
-                {!isLoading && hasEverLoadedData && data.length === 0 && <NoResults />}
-                {!isLoading &&
+                {!hasEverLoadedData && isLoading && <Loader />}
+
+                {/* FIXME: "hasEverLoadedData && !isLoading" --> 3 different cases! improve syntaxis, but how? */}
+                {hasEverLoadedData && !isLoading && (
+                    <p className={styles.__foundText}>
+                        We have found {pluralizeStringIfNeeded(data.length, 'flight')} for you
+                    </p>
+                )}
+                {hasEverLoadedData && !isLoading && data.length === 0 && <NoResults />}
+                {hasEverLoadedData &&
+                    !isLoading &&
                     data.length !== 0 &&
                     data.map((flight) => {
                         return (
