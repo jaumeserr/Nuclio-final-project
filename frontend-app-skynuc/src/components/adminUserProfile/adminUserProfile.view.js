@@ -1,6 +1,5 @@
 import userProfilePicture from 'assets/images/user_profile_avatars/user_profile_avatar_1.png';
 import Button from 'components/button/button.view';
-import Navbar from 'components/navbar/navbar.view';
 import PopUpBox from 'components/popUpBox/popUpBox.view.js';
 import React, { useState } from 'react';
 import './adminUserProfile.css';
@@ -24,8 +23,6 @@ const AdminUserProfile = () => {
         <>
             {/* {isOpen && <PopUpForm handleClose={closePopUp} handleSendData={sendFlightDataToDB} />} */}
             {isOpen && <PopUpBox handleClose={togglePopUp} />}
-
-            <Navbar />
 
             <div className="wrapper">
                 {/* <div className="profile-card js-profile-card"> */}
@@ -60,8 +57,11 @@ const AdminUserProfile = () => {
                                     color={'green__solid'}
                                     action={togglePopUp}
                                 />
-                                <Button content={'Modify flight'} color={'yellow__solid'} />
-                                <Button content={'Delete flight'} color={'red__solid'} />
+                                <Button
+                                    content={'Add flight instance'}
+                                    color={'green__solid'}
+                                    action={togglePopUp}
+                                />
                             </div>
                         </div>
                     </div>
