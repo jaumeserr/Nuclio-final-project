@@ -1,12 +1,9 @@
-import React, {useState} from 'react';
+import React from 'react';
 import styles from './departureRange.module.css';
 import { Slider } from 'antd';
 import 'antd/dist/antd.css';
 
-const DepartureRange = () => {
-
-    const [startTime, setStartTime] = useState('7');
-    const [endTime, setEndTime] = useState('18');
+const DepartureRange = ({startTime, setStartTime, endTime, setEndTime}) => {
 
     const onChange = (value) => {
         setStartTime(value[0]);
