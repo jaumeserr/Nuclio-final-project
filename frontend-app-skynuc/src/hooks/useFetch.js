@@ -64,10 +64,10 @@ export default useFetch;
 // --------------------------------------------
 
 // --> GET
-// const { data, error } = useFetch('airlines', 'GET');
+// const { data, error, isLoading, hasEverLoadedData, resetFetch } = useFetch('airlines', 'GET');
 
 // --> POST:
-// const { data, error } = useFetch('users', 'POST', {
+// const { data, error, isLoading, hasEverLoadedData, resetFetch } = useFetch('users', 'POST', {
 //     username: 'admin@vueling.com',
 //     password: 'vueling',
 // });
