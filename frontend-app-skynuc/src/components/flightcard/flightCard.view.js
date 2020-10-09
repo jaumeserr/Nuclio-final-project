@@ -2,8 +2,9 @@ import Button from 'components/button/button.view';
 import moment from 'moment';
 import PropTypes from 'prop-types';
 import React from 'react';
-import flight_arrow from '../../assets/images/flight_arrow.png';
-import './flightCard.css';
+import flight from '../../assets/images/flightCard/flight.svg';
+// import './flightCard.css';
+import styles from './flightCard.module.css';
 
 const FlightCard = ({
     dpt_datetime,
@@ -48,67 +49,46 @@ const FlightCard = ({
     };
 
     return (
-        <>
-            <div
-                id="flight_card_container"
-                style={{
-                    borderColor: mySwitchAirlineColor(airline_two_letter_code),
-                }}
-            >
-                <div
-                    id="box_top_airline"
-                    style={{
-                        backgroundColor: mySwitchAirlineColor(airline_two_letter_code),
-                    }}
-                >
-                    <img src={logo_url} alt="airline logo 1" />
+        <div className={styles.__container}>
+            <div 
+                className={styles.__topCard}
+                style={{backgroundColor: mySwitchAirlineColor(airline_two_letter_code)}}>
+            </div>
+            <div className={styles.__bottomCard}>
+                <div>
+                    <img className={styles.__logo} src={logo_url} alt="Logo" />
                 </div>
-                <div id="box_bottom">
-                    <div id="box_left_container">
-                        <div id="box_left">
-                            <div id="box_left_left">
-                                <img src={logo_url} alt="airline logo 2" />
-                            </div>
-                            <div id="box_left_right">
-                                <div id="box_left_right_inner">
-                                    <div id="box_left_right_inner_dpt">
-                                        <p style={{ fontWeight: 'bold', fontSize: '34px' }}>
-                                            {moment(dpt_datetime).format('HH:mm')}
-                                        </p>
-                                        <p style={{ textAlign: 'right', fontSize: '20px' }}>
-                                            {dpt_airport_iata}
-                                        </p>
-                                    </div>
-                                    <div id="box_left_right_inner_duration">
-                                        <p>{calculateDuration()}</p>
-                                        <img src={flight_arrow} alt="Flight arrow" />
-                                        <p>Direct</p>
-                                    </div>
-                                    <div id="box_left_right_inner_arr">
-                                        <p style={{ fontWeight: 'bold', fontSize: '34px' }}>
-                                            {moment(arr_datetime).format('HH:mm')}
-                                        </p>
-                                        <p style={{ textAlign: 'left', fontSize: '20px' }}>
-                                            {arr_airport_iata}
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                <div className={styles.__scheduleBlock}>
+                    <div className={styles.__infoFlight}>
+                        <span className={styles.__time}>{moment(dpt_datetime).format('HH:mm')}</span>
+                        <span className={styles.__iata}>{dpt_airport_iata}</span>
                     </div>
-                    <div id="box_right_container">
-                        <div id="box_right">
-                            <p style={{ fontSize: '24px', fontWeight: 'bold' }}>{price_eur} €</p>
-                            <Button
-                                content={'See flight'}
-                                color={'blue__solid'}
-                                action={myonclickaction}
-                            />
-                        </div>
+                    <div className={styles.__flight}>
+                        <span>{calculateDuration()}</span>
+                        <img src={flight} alt="Flight" />
+                        <span>DIRECT</span>
                     </div>
+                    <div className={styles.__infoFlight}>
+                        <span className={styles.__time}>{moment(arr_datetime).format('HH:mm')}</span>
+                        <span className={styles.__iata}>{arr_airport_iata}</span>
+                    </div>
+                </div>
+                <div className={styles.__priceBlock}>
+                    <p className={styles.__price}>{price_eur}€</p>
+                    <Button
+                        content={'See flight'}
+                        color={'blue__solid'}
+                        action={myonclickaction}
+                    />
                 </div>
             </div>
-        </>
+        </div>
+        
+        
+        
+        
+        
+        
     );
 };
 
