@@ -1,43 +1,51 @@
-import React, { useState } from 'react';
+import { message } from 'antd';
+import React from 'react';
 import { useForm } from 'react-hook-form';
+import { useHistory } from 'react-router-dom';
+import { HOME } from 'routes/routes';
 import checkIfEmptyObject from 'utils/checkIfEmptyObject';
-import './adminUserLogin.css';
-// import styles from './adminUserLogin.module.css';
+import styles from './adminUserLogin.module.css';
+// import Button from 'components/button/button.view';
 
 const AdminUserLogin = () => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [submitSuccessful, isSubmitSuccessful] = useState(false);
+    const { register, handleSubmit, watch, errors } = useForm();
 
-    function validateLoginForm() {
-        return email.length > 0 && password.length > 0;
-    }
+    const watchShowEmail = watch('showEmail', false);
+    const watchShowPassword = watch('showPassword', false);
 
-    const { register, handleSubmit, errors } = useForm();
+    const history = useHistory();
 
     function onSubmitLogin(data) {
         console.log('Login data submitted: ', data);
-        isSubmitSuccessful(true);
+
+        message.success({
+            content: 'Successfully logged in!',
+            duration: 3,
+            className: styles.__success__box,
+        });
+
+        setTimeout(() => history.push(HOME), 4000);
     }
 
     const emailFromDB = 'admin@vueling.com';
     const passwordFromDB = 'vueling';
 
+    // console.log(value);
+
     return (
-        <div class="my-wrapper">
-            <div className="container">
-                <div class="form-container">
+        <div className={styles.__wrapper}>
+            <div className={styles.__container}>
+                <div className={styles.__form__container}>
                     <form action="#" onSubmit={handleSubmit(onSubmitLogin)} noValidate>
                         <h1>Admin User Login</h1>
                         <input
                             type="email"
                             placeholder="Email"
-                            name="email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
+                            name="showEmail"
                             ref={register({
                                 validate: (value) => {
-                                    if (value === emailFromDB) {
+                                    // FIXME: " 'Email not registered' when email value goes back to 0"
+                                    if (value === emailFromDB && value.length !== 0) {
                                         return true;
                                     } else {
                                         return 'Email not registered';
@@ -52,49 +60,37 @@ const AdminUserLogin = () => {
                         <input
                             type="password"
                             placeholder="Password"
-                            name="loginPassword"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
+                            name="showPassword"
                             ref={register({
                                 validate: (value) => {
                                     if (value === passwordFromDB) {
                                         return true;
                                     } else {
-                                        return 'Password not registered';
+                                        return 'Incorrect password';
                                     }
                                 },
                             })}
                         />
+                        {/* FIXME: "Button component not working here" */}
                         {/* <Button
-                            content={'TEST SIGN IN'}
-                            color={'blue__outline'}
-                            action={contactUs}
+                            content={'Submit (component)'}
+                            color={'blue__solid'}
+                            disabled={!(!!watchShowEmail && !!watchShowPassword)}
+                            action={onSubmitLogin}
                         /> */}
-
-                        <button disabled={!validateLoginForm()}>Submit</button>
-
+                        <button disabled={!(!!watchShowEmail && !!watchShowPassword)}>
+                            Submit
+                        </button>
                         {!checkIfEmptyObject(errors) && (
-                            <div class="__message__box __error">
-                                {errors.email && <p className="error">{errors.email.message}</p>}
-                                {errors.loginPassword && (
-                                    <p className="error">{errors.loginPassword.message}</p>
-                                )}
+                            <div className={styles.__error__box}>
+                                {errors.showEmail && <p>{errors.showEmail.message}</p>}
+                                {errors.showPassword && <p>{errors.showPassword.message}</p>}
                             </div>
                         )}
-                        {submitSuccessful && (
-                            <div class="__message__box __success">
-                                <p>You have been successfully logged in!</p>
-                            </div>
-                        )}
-
                         <span>
                             In order to obtain your login credentials, please email us at
-                            support@skyreader.com
+                            <strong> support@skyreader.com</strong>
                         </span>
-
-                        {/* <button onClick={contactUs} class="ghost__outline">
-                            Contact Us
-                        </button> */}
                     </form>
                 </div>
             </div>

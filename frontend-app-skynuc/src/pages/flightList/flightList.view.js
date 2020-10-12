@@ -1,9 +1,10 @@
-import axios from 'axios';
-import NoResults from 'components/noResults/noResults.view';
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
 import FlightCard from 'components/flightcard/flightCard.view';
 import Loader from 'components/loader/loader.view';
+import NoResults from 'components/noResults/noResults.view';
+import useFetch from 'hooks/useFetch';
+import React from 'react';
+import { useParams } from 'react-router';
+import pluralizeStringIfNeeded from 'utils/pluralizeStringIfNeeded';
 import styles from './flightList.module.css';
 import SearchBar from "components/searchBar/searchBar.view";
 import CheckBoxFilter from 'components/checkBoxFilter/checkBoxFilter.view';
@@ -12,26 +13,9 @@ import PriceRange from 'components/priceRange/priceRange.view';
 import Button from 'components/button/button.view';
 
 const FlightList = () => {
-
-    const [infoFlights, setInfoFlights] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
-
     const { dpt, arr, date } = useParams();
 
-    useEffect(() => {
-        const baseUrl = process.env.REACT_APP_API_URL;
-
-        axios
-            .get(`${baseUrl}/search/${dpt}/${arr}/${date}`)
-
-            .then((res) => {
-                console.log('Retrieve flights from DB');
-                console.log(res.data);
-                setInfoFlights(res.data);
-                setIsLoading(false);
-            })
-            .catch((err) => console.log(err));
-    }, []); // eslint-disable-line react-hooks/exhaustive-deps
+    const { data, isLoading, hasEverLoadedData } = useFetch(`search/${dpt}/${arr}/${date}`, 'GET');
 
     return (
 
@@ -45,30 +29,34 @@ const FlightList = () => {
             </div>
             <div className={styles.__center}>
                 <SearchBar />
-                <p className={styles.__foundText}>
-                    We have found {infoFlights.length} flights for you
-                </p>
-                {isLoading && <Loader />}
-                {!isLoading && infoFlights.length === 0 && <NoResults />}
-                {!isLoading &&
-                    infoFlights.length !== 0 &&
-                    infoFlights.map((data) => {
+                {!hasEverLoadedData && isLoading && <Loader />}
+
+                {/* FIXME: "hasEverLoadedData && !isLoading" --> 3 different cases! improve syntaxis, but how? */}
+                {hasEverLoadedData && !isLoading && (
+                    <p className={styles.__foundText}>
+                        We have found {pluralizeStringIfNeeded(data.length, 'flight')} for you
+                    </p>
+                )}
+                {hasEverLoadedData && !isLoading && data.length === 0 && <NoResults />}
+                {hasEverLoadedData &&
+                    !isLoading &&
+                    data.length !== 0 &&
+                    data.map((flight) => {
                         return (
                             <FlightCard
-                                key={data.id}
-                                dpt_datetime={data.dpt_datetime}
-                                arr_datetime={data.arr_datetime}
-                                price_eur={parseFloat(data.price_eur)}
-                                dpt_airport_iata={data.flight_const.dpt_airport_iata}
-                                arr_airport_iata={data.flight_const.arr_airport_iata}
-                                logo_url={data.flight_const.airline.logo_url}
+                                key={flight.id}
+                                dpt_datetime={flight.dpt_datetime}
+                                arr_datetime={flight.arr_datetime}
+                                price_eur={parseFloat(flight.price_eur)}
+                                dpt_airport_iata={flight.flight_const.dpt_airport_iata}
+                                arr_airport_iata={flight.flight_const.arr_airport_iata}
+                                logo_url={flight.flight_const.airline.logo_url}
                                 airline_two_letter_code={
-                                    data.flight_const.airline_two_letter_code
+                                    flight.flight_const.airline_two_letter_code
                                 }
                             />
-                        )
-                    })
-                }
+                        );
+                    })}
             </div>
             <div className={styles.__aside}>RIGHT</div>
        </div>

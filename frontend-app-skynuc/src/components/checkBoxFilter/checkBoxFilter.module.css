@@ -1,33 +1,28 @@
 .__container{
     display: flex;
-    /* background-color: chocolate;  */
     flex-direction: column-reverse; 
     padding: 15px;   
 
 }
 
-.__inputBox{
-     /* background-color: yellowgreen; 
-        */
-}
 
 .__title{
     size: 16;
     font-weight: bold;
-    /* background-color: chartreuse; */
 }
 
 .__check{
     width: 200px;
     height: 30px;
-    margin-top: 10px;
+    margin-top: 12px;
    
 }
 
 .__checkbox{
     padding-left: 8px;
     margin-top: 12px;
-    size: 14;
+    size: 12;
+    margin-left: 10px;
     
 }
 

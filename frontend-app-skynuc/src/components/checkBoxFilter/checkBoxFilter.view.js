@@ -2,11 +2,12 @@ import React,  { useEffect, useState } from 'react';
 import styles from './checkBoxFilter.module.css';
 import 'antd/dist/antd.css';
 import { Checkbox } from 'antd';
+import useFetch from 'hooks/useFetch';
 
 
 const CheckBoxFilter = () => {
 
-    const [data, setData]= useState ([]);
+    // const [data, setData]= useState ([]);
     const [airlineChecked, setAirlineChecked] = useState([]);
 
     function onChange(event) {
@@ -26,30 +27,9 @@ const CheckBoxFilter = () => {
         console.log('checked = ', airlineChecked);
       }
       
-    
-    useEffect(() => {
-        const url = 'http://localhost/api/airlines';
-        const options = {
-            method: 'GET',
-            header: new Headers(),
-            mode: 'cors',
-        };
+      const { data, error, isLoading, hasEverLoadedData, resetFetch } = useFetch('airlines', 'GET');
 
-        fetch(url, options)
-            .then((response) => {
-                if (response.status >= 200 || response.status < 300) {
-                    console.log(`Status: ${response.status}`);
-                    return response.json();
-                }
-                return Promise.reject(response.status);
-            })
-            .then((payload) => {
-                console.log(payload);
-                setData(payload);
-                
-            })
-            .catch((error) => console.log(error));
-    }, []);
+
 
     return (
         <div className={styles.__container}>
