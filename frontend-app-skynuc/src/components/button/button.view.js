@@ -11,7 +11,6 @@ const Button = ({
 }) => {
     return (
         <button
-            type = "button"
             disabled = {disabled}
             className = { cx(styles.button, styles.[color])}
             onClick = {action}

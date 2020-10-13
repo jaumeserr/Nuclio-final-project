@@ -17,49 +17,49 @@ const AdminUserProfile = () => {
 
     const userName = 'Karom Germaine';
     const userAirline = 'Vueling';
-    const flightsAdded = '16';
+    const flightCount = '16';
 
     return (
         <>
             {/* {isOpen && <PopUpForm handleClose={closePopUp} handleSendData={sendFlightDataToDB} />} */}
             {isOpen && <PopUpBox handleClose={togglePopUp} />}
 
-            <div className="wrapper">
-                {/* <div className="profile-card js-profile-card"> */}
-                <div className={`profile-card ${isOpen ? 'active' : ''} js-profile-card`}>
-                    <div className="profile-card__img">
+            <div className="__wrapper">
+                <div className={`__container ${isOpen ? 'active' : ''}`}>
+                    <div className="__image">
                         <img
                             src={userProfilePicture}
-                            alt="profile card"
+                            alt="user profile picture"
                             title="Business vector created by Freepik.com"
                         />
                     </div>
-                    <div className="profile-card__cnt js-profile-cnt">
-                        <div className="profile-card__name">{userName}</div>
-                        <div className="profile-card__txt">
+                    <div className="__content">
+                        <div className="__userName">{userName}</div>
+                        <div className="__userDescription">
                             Flight Administrator from <b>{userAirline}</b>
                         </div>
                         <div className="profile-card-ctr">
                             <div className="profile-card-ctr-box">
-                                <div className="profile-card-inf">
-                                    <div className="profile-card-inf__item">
+                                {/* <div className="profile-card-inf"> */}
+                                    {/* <div className="profile-card-inf__item"> */}
                                         <div className="profile-card-inf__number">
-                                            {flightsAdded}
+                                            {flightCount}
                                         </div>
                                         <div className="profile-card-inf__txt">Flights added</div>
-                                    </div>
-                                </div>
-                                <Button content={'List my flights'} color={'blue__solid'} />
+                                        <Button content={'List my flights'} color={'blue__outline'} />
+                                    {/* </div> */}
+                                {/* </div> */}
+                                {/* <Button content={'List my flights'} color={'blue__outline'} /> */}
                             </div>
                             <div className="profile-card-ctr-box">
                                 <Button
                                     content={'Add flight'}
-                                    color={'green__solid'}
+                                    color={'blue__solid'}
                                     action={togglePopUp}
                                 />
                                 <Button
                                     content={'Add flight instance'}
-                                    color={'green__solid'}
+                                    color={'blue__solid'}
                                     action={togglePopUp}
                                 />
                             </div>

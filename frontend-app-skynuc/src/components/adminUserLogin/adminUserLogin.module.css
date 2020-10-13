@@ -105,7 +105,7 @@
 /* ------------------------------------------ */
 /* BUTTONS ---------------------------------- */
 /* ------------------------------------------ */
-
+/*
 .__container button {
     border-radius: 20px;
     border: 1px solid #17385c;
@@ -140,7 +140,7 @@
 .__container button.ghost__outline {
     background-color: transparent;
     color: #17385c;
-}
+} */
 
 /* ------------------------------------------ */
 /* MESSAGES: ERROR AND SUCCESS -------------- */
