@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './departureRange.module.css';
 import { Slider } from 'antd';
 import 'antd/dist/antd.css';
+import { useLocation } from 'react-router-dom';
 
 const DepartureRange = ({startTime, setStartTime, endTime, setEndTime}) => {
 

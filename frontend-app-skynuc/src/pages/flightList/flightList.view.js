@@ -11,10 +11,16 @@ import CheckBoxFilter from 'components/checkBoxFilter/checkBoxFilter.view';
 import DepartureRange from 'components/departureRange/departureRange.view';
 import PriceRange from 'components/priceRange/priceRange.view';
 import Button from 'components/button/button.view';
-import { useHistory } from 'react-router';
+import { useHistory, useLocation } from 'react-router';
 
 const FlightList = () => {
     const { dpt, arr, date } = useParams();
+
+    function useQuery() {
+        return new URLSearchParams(useLocation().search);
+    }
+
+    let query = useQuery();
 
     const { data, isLoading, hasEverLoadedData } = useFetch(`search/${dpt}/${arr}/${date}`, 'GET');
 
@@ -24,18 +30,19 @@ const FlightList = () => {
     const [endPrice, setEndPrice] = useState('300');
     const history = useHistory();
 
-    // const pushQueryStringToUrl = () => {
-    //     history.push(`search/${dpt}/${arr}/${date}?startTime=${startTime}&endTime=${endTime}&minPrice=${startPrice}&maxPrice=${endPrice}`);
-    // }
+    const pushQueryStringToUrl = () => {
+        history.push({
+            search: `?startTime=${startTime}&endTime=${endTime}&minPrice=${startPrice}&maxPrice=${endPrice}`
+        })   
+    }
 
     return (
-
         <div className={styles.__container}>
             <div className={styles.__aside}>
                 <DepartureRange startTime={startTime} setStartTime={setStartTime} endTime={endTime} setEndTime={setEndTime} />
                 <PriceRange startPrice={startPrice} setStartPrice={setStartPrice} endPrice={endPrice} setEndPrice={setEndPrice} />
                 <CheckBoxFilter/>
-                <Button content={'Apply Filters'} color={'blue__outline'} />
+                <Button content={'Apply Filters'} color={'blue__outline'} action={pushQueryStringToUrl} />
             </div>
             <div className={styles.__center}>
                 <SearchBar />
