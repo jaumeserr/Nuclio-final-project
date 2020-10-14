@@ -2,8 +2,8 @@ import FlightCard from 'components/flightcard/flightCard.view';
 import Loader from 'components/loader/loader.view';
 import NoResults from 'components/noResults/noResults.view';
 import useFetch from 'hooks/useFetch';
-import React, {useState} from 'react';
-import { useParams } from 'react-router';
+import { useQueryParams } from 'hooks/useQueryStringParams';
+import React, { useEffect, useState } from 'react';
 import pluralizeStringIfNeeded from 'utils/pluralizeStringIfNeeded';
 import styles from './flightList.module.css';
 import SearchBar from "components/searchBar/searchBar.view";
@@ -11,23 +11,27 @@ import CheckBoxFilter from 'components/checkBoxFilter/checkBoxFilter.view';
 import DepartureRange from 'components/departureRange/departureRange.view';
 import PriceRange from 'components/priceRange/priceRange.view';
 import Button from 'components/button/button.view';
-import { useHistory, useLocation } from 'react-router';
+import { useHistory, useLocation, useParams } from 'react-router';
 
 const FlightList = () => {
     const { dpt, arr, date } = useParams();
 
-    function useQuery() {
-        return new URLSearchParams(useLocation().search);
-    }
+    const query = useQueryParams();
+    const queryStartTime = query.get('startTime');
+    const queryEndTime = query.get('endTime');
+    const queryMinPrice = query.get('minPrice');
+    const queryMaxPrice = query.get('maxPrice');
+    
+    // console.log('queryStrings: ', queryStartTime, queryEndTime, queryMinPrice, queryMaxPrice);
 
-    let query = useQuery();
+    const location = useLocation();
+    
+    const { data, isLoading, hasEverLoadedData } = useFetch(`search/${dpt}/${arr}/${date}${location.search}`, 'GET');
 
-    const { data, isLoading, hasEverLoadedData } = useFetch(`search/${dpt}/${arr}/${date}`, 'GET');
-
-    const [startTime, setStartTime] = useState('7');
-    const [endTime, setEndTime] = useState('18');
-    const [startPrice, setStartPrice] = useState('150');
-    const [endPrice, setEndPrice] = useState('300');
+    const [startTime, setStartTime] = useState( queryStartTime ? queryStartTime : '7' );
+    const [endTime, setEndTime] = useState( queryEndTime ? queryEndTime : '18' );
+    const [startPrice, setStartPrice] = useState( queryMinPrice ? queryMinPrice : '150' );
+    const [endPrice, setEndPrice] = useState( queryMaxPrice ? queryMaxPrice : '300' );
     const history = useHistory();
 
     const pushQueryStringToUrl = () => {
