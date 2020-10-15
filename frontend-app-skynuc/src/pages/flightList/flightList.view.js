@@ -22,30 +22,34 @@ const FlightList = () => {
     const queryMinPrice = query.get('minPrice');
     const queryMaxPrice = query.get('maxPrice');
     
-    // console.log('queryStrings: ', queryStartTime, queryEndTime, queryMinPrice, queryMaxPrice);
-
     const location = useLocation();
     
-    const { data, isLoading, hasEverLoadedData } = useFetch(`search/${dpt}/${arr}/${date}${location.search}`, 'GET');
+    const { data, isLoading, hasEverLoadedData, resetFetch } = useFetch(`search/${dpt}/${arr}/${date}${location.search}`, 'GET');
 
     const [startTime, setStartTime] = useState( queryStartTime ? queryStartTime : '7' );
     const [endTime, setEndTime] = useState( queryEndTime ? queryEndTime : '18' );
     const [startPrice, setStartPrice] = useState( queryMinPrice ? queryMinPrice : '150' );
     const [endPrice, setEndPrice] = useState( queryMaxPrice ? queryMaxPrice : '300' );
+    const [airlineChecked, setAirlineChecked] = useState([]);
+    
     const history = useHistory();
 
     const pushQueryStringToUrl = () => {
         history.push({
-            search: `?startTime=${startTime}&endTime=${endTime}&minPrice=${startPrice}&maxPrice=${endPrice}`
+            search: `?startTime=${startTime}&endTime=${endTime}&minPrice=${startPrice}&maxPrice=${endPrice}&airlines=${airlineChecked}`
         })   
     }
+
+    useEffect(() => {
+        resetFetch();
+    }, [location.search])
 
     return (
         <div className={styles.__container}>
             <div className={styles.__aside}>
                 <DepartureRange startTime={startTime} setStartTime={setStartTime} endTime={endTime} setEndTime={setEndTime} />
                 <PriceRange startPrice={startPrice} setStartPrice={setStartPrice} endPrice={endPrice} setEndPrice={setEndPrice} />
-                <CheckBoxFilter/>
+                <CheckBoxFilter airlineChecked={airlineChecked} setAirlineChecked={setAirlineChecked} />
                 <Button content={'Apply Filters'} color={'blue__outline'} action={pushQueryStringToUrl} />
             </div>
             <div className={styles.__center}>

@@ -5,6 +5,5 @@ export const useQueryParams = () => {
     const location = useLocation();
     const search = location.search;
     const searchObject = new URLSearchParams(search);
-    console.log('usequeryparams: ', location, search, searchObject.get('startTime'));
     return searchObject;
 };
