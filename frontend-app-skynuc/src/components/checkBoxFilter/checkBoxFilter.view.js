@@ -27,9 +27,9 @@ const CheckBoxFilter = () => {
         console.log('checked = ', airlineChecked);
       }
       
-      const { data, error, isLoading, hasEverLoadedData, resetFetch } = useFetch('airlines', 'GET');
+      const { data} = useFetch('airlines', 'GET');
 
-
+ 
 
     return (
         <div className={styles.__container}>
