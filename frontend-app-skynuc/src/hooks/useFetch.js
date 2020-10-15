@@ -43,7 +43,7 @@ const useFetch = (path, method, body = {}) => {
                     return Promise.reject(response.status);
                 })
                 .then((payload) => {
-                    console.log(payload);
+                    console.log('Payload: ',payload);
                     setData(payload);
                     setHasEverLoadedData(true);
                     setIsLoading(false);
