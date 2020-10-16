@@ -2,16 +2,13 @@ import React,  { useEffect, useState } from 'react';
 import styles from './checkBoxFilter.module.css';
 import 'antd/dist/antd.css';
 import { Checkbox } from 'antd';
+import useFetch from 'hooks/useFetch';
 
 
-const CheckBoxFilter = () => {
-
-    const [data, setData]= useState ([]);
-    const [airlineChecked, setAirlineChecked] = useState([]);
+const CheckBoxFilter = ({ airlineChecked, setAirlineChecked }) => {
 
     function onChange(event) {
         
-    
         if (event.target.checked === true) {
             airlineChecked.push(event.target.value);
             setAirlineChecked(airlineChecked);
@@ -24,44 +21,21 @@ const CheckBoxFilter = () => {
         }
 
         console.log('checked = ', airlineChecked);
-      }
+    }
       
-    
-    useEffect(() => {
-        const url = 'http://localhost/api/airlines';
-        const options = {
-            method: 'GET',
-            header: new Headers(),
-            mode: 'cors',
-        };
-
-        fetch(url, options)
-            .then((response) => {
-                if (response.status >= 200 || response.status < 300) {
-                    console.log(`Status: ${response.status}`);
-                    return response.json();
-                }
-                return Promise.reject(response.status);
-            })
-            .then((payload) => {
-                console.log(payload);
-                setData(payload);
-                
-            })
-            .catch((error) => console.log(error));
-    }, []);
+    const { data: airline } = useFetch(`airlines`, 'GET');
 
     return (
         <div className={styles.__container}>
             <div>
                 <p className={styles.__title}>Airlines</p>
                 <div className={styles.__inputBox}>
-                        {data &&
-                            data.map((item)=> {
-                              
+                        {airline &&
+                            airline.map((item)=> {
+                                const { two_letter_code, name } = item;
                                 return (
                                     <div className={styles.__check}>
-                                        <Checkbox onChange={onChange} value={item.two_letter_code}>{item.name}</Checkbox>
+                                        <Checkbox onChange={onChange} key={two_letter_code} value={two_letter_code}>{name}</Checkbox>
                                     </div>
                                 );
                             })
