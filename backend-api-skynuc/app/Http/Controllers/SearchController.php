@@ -13,10 +13,11 @@ class SearchController extends Controller
     public function search(Request $request, $dpt, $arr, $date) {
         $results = array();
         $date = Carbon::createFromFormat('Ymd', $date);
-        $startTime = $request->query('startTime');
-        $endTime = $request->query('endTime');
+        $startTime = Carbon::createFromTime($request->query('startTime'))->toTimeString();
+        $endTime = Carbon::createFromTime($request->query('endTime'))->toTimeString();
         $minPrice = $request->query('minPrice');
         $maxPrice = $request->query('maxPrice');
+        $airlines = $request->query('airlines');
 
         Log::info("[SearchController] Searching by DPT:{$dpt} ARR:{$arr} DATE:{$date}");
         $flightInstances = FlightInstance::with('flightConst.airline')
@@ -26,7 +27,7 @@ class SearchController extends Controller
         foreach ($flightInstances as $flightInstance)
         {
             $filtersOk = true;
-            
+
             Log::info("[SearchController] Filtering Flight -> {$flightInstance->flightConst}");
 
             if (!($flightInstance->flightConst->dpt_airport_iata == $dpt
@@ -44,9 +45,27 @@ class SearchController extends Controller
                 $filtersOk = false;
             }
 
+            /*if (!(is_null($startTime)) && !($flightInstance->dpt_datetime >= $startTime)) {
+                $filtersOk = false;
+            }
+
+            if (!(is_null($endTime)) && !($flightInstance->dpt_datetime <= $endTime)) {
+                $filtersOk = false;
+            }*/
+
+            $dt2 = new Carbon($flightInstance->dpt_datetime);
+            $dt2->toTimeString();
+            Log::info("[SearchController] Time String -> {$dt2}");
+
             Log::info("[SearchController] Min Price -> {$minPrice}");
             Log::info("[SearchController] Max Price -> {$maxPrice}");
             Log::info("[SearchController] Price -> {$flightInstance->price_eur}");
+            Log::info("[SearchController] Airlines -> {$airlines}");
+            Log::info("[SearchController] Start Time -> {$startTime}");
+            Log::info("[SearchController] Dpt Time -> {$flightInstance->dpt_datetime}");
+            Log::info("[SearchController] End Time -> {$endTime}");
+            Log::info("[SearchController] Arr Time -> {$flightInstance->arr_datetime}");
+            //Log::info("[SearchController] Dpt Time Form DB -> {$dptTime}");
 
             if ($filtersOk) {
                 array_push($results, $flightInstance);
