@@ -39,19 +39,12 @@ const AdminUserProfile = () => {
                             Flight Administrator from <b>{userAirline}</b>
                         </div>
                         <div className="profile-card-ctr">
-                            <div className="profile-card-ctr-box">
-                                {/* <div className="profile-card-inf"> */}
-                                    {/* <div className="profile-card-inf__item"> */}
-                                        <div className="profile-card-inf__number">
-                                            {flightCount}
-                                        </div>
-                                        <div className="profile-card-inf__txt">Flights added</div>
-                                        <Button content={'List my flights'} color={'blue__outline'} />
-                                    {/* </div> */}
-                                {/* </div> */}
-                                {/* <Button content={'List my flights'} color={'blue__outline'} /> */}
+                            <div className="profile-card-ctr-box leftBox">
+                                <div className="profile-card-inf__number">{flightCount}</div>
+                                <div className="profile-card-inf__txt">Flights added</div>
+                                <Button content={'List my flights'} color={'blue__outline'} />
                             </div>
-                            <div className="profile-card-ctr-box">
+                            <div className="profile-card-ctr-box rightBox">
                                 <Button
                                     content={'Add flight'}
                                     color={'blue__solid'}
@@ -74,21 +67,3 @@ const AdminUserProfile = () => {
 export default AdminUserProfile;
 
 // SOURCE: https://codepen.io/JavaScriptJunkie/pen/jvRGZy
-
-// var messageBox = document.querySelector('.js-message');
-// var btn = document.querySelector('.js-message-btn');
-// var card = document.querySelector('.js-profile-card');
-// var closeBtn = document.querySelectorAll('.js-message-close');
-
-// btn.addEventListener('click', function (e) {
-//     e.preventDefault();
-//     card.classList.add('active');
-// });
-
-// closeBtn.forEach(function (element, index) {
-//     console.log(element);
-//     element.addEventListener('click', function (e) {
-//         e.preventDefault();
-//         card.classList.remove('active');
-//     });
-// });

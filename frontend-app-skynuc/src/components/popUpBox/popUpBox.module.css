@@ -12,7 +12,7 @@
     position: relative;
     margin-top: calc(100vh - 53vh - 40px);
     background: #fff;
-    background: red;
+    /* background: red; */
     overflow: auto;
     height: auto;
     box-shadow: 0 4px 30px rgba(15, 22, 56, 0.35);
@@ -63,7 +63,7 @@
 }
 
 .__formContainer {
-    background-color: lime;
+    /* background-color: lime; */
     height: auto;
     position: relative;
     display: flex;
@@ -86,7 +86,7 @@
 .__formContainer input,
 .__formContainer label,
 .__formContainer select {
-    background-color: lightskyblue;
+    /* background-color: lightskyblue; */
     margin: 15px 5px;
     padding: 3px 3px;
     font-weight: 500;
@@ -104,9 +104,11 @@
     height: 30px;
 }
 
-.__formContainer input,
 .__formContainer select {
-    min-width: 140px;
+    min-width: 152px;
+}
+.__formContainer input {
+    width: 100px;
 }
 
 /* Hide arrows for input*/
@@ -128,7 +130,7 @@
 }
 
 .__formItem {
-    background-color: lightsalmon;
+    /* background-color: lightsalmon; */
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -136,7 +138,7 @@
 }
 
 .__formItem > label {
-    background-color: lightgrey;
+    /* background-color: lightgrey; */
     width: 110px;
     margin-right: 19px;
     text-align: right;
@@ -149,16 +151,16 @@
 }
 
 .__formBottom {
-    background-color: lightyellow;
+    /* background-color: lightyellow; */
     display: flex;
     justify-content: space-between;
-    width: 51%;
+    width: 54%;
     margin: auto;
 }
 @media screen and (max-width: 576px) {
     .__formBottom {
         flex-wrap: wrap;
-        width: 54%;
+        width: 55%;
     }
 }
 

@@ -1,67 +1,95 @@
 import { message } from 'antd';
 import Button from 'components/button/button.view';
 import useFetch from 'hooks/useFetch';
-import React, { useState } from 'react';
-import { useForm } from 'react-hook-form';
+import React, { useEffect, useState } from 'react';
+// import { useForm } from 'react-hook-form';
 import UseKeyPress from 'utils/useKeyPress';
-import './popUpBox.css';
+import styles from './popUpBox.module.css';
+// import useFetch from 'hooks/useFetch';
 
 const PopUpBox = ({ handleClose }) => {
     const keyPress = UseKeyPress('Escape');
 
-    const { data: dataFetch, isLoading, hasEverLoadedData } = useFetch('airports', 'GET');
+    const { data: dataGet, isLoading, hasEverLoadedData } = useFetch('airports', 'GET');
 
-    const { register, handleSubmit, watch, errors } = useForm();
+    // FIXME: Passar auth a true quan tinguem JWT implementat:
+    // const { data: dataPost, resetFetch} = useFetch({ path: 'flight_const', method: 'POST', body, auth: false });
 
-    const [dataToSubmit, setDataToSubmit] = useState([]);
-    const watchFlightNum = watch('flightnum', false);
+    // const { register, handleSubmit, watch, errors } = useForm();
+    // const watchFlightNum = watch('flightnum', false);
 
-    const onSubmitFlight = (dataToSubmit) => {
-        console.log('Login data submitted: ', dataToSubmit);
-        setDataToSubmit(dataToSubmit);
+    // const [dataToSubmit, setDataToSubmit] = useState([]);
+    const [flightNum, setFlightNum] = useState();
+    const [arrCity, setArrCity] = useState({});
+    const [dptCity, setDptCity] = useState({});
+    const [airlineTwoLetterCode, setairlineTwoLetterCode] = useState('VY');
+
+    const [body, setBody] = useState({});
+
+    useEffect(() => {
+        setBody({
+            flight_num: flightNum,
+            airline_two_letter_code: airlineTwoLetterCode,
+            dpt_airport_iata: dptCity,
+            arr_airport_iata: arrCity.iata,
+        });
+    }, [flightNum, airlineTwoLetterCode, arrCity, dptCity]);
+
+    console.log(body);
+
+    const onSubmitFlight = (body) => {
+        console.log('Data submitted: ', body);
+        setBody(body);
         message.success({
-            content: 'Flight successfully created!',
+            content: 'Flight successfully added!',
             duration: 3,
             className: '__messageBox',
         });
     };
 
-    const validation = () => {
-        console.log('Incorrect flight number');
-        message.error({
-            // content: 'Flight number must be a 4-digit number!',
-            content: errors.flightnum,
-            duration: 3,
-            className: '__messageBox',
-        });
-    };
+    function flightNumValidation() {
+        return flightNum.length === 4 ? true : false;
+    }
+
+    // const validation = () => {
+    //     console.log('Validating');
+    //     message.error({
+    //         content: 'Flight number must be a 4-digit number!',
+    //         content: errors.flightnum,
+    //         duration: 3,
+    //         className: '__messageBox',
+    //     });
+    // };
 
     return (
         <>
             {keyPress && handleClose()}
 
-            <div className="__popupBox">
-                <div className="__box">
-                    <div className="__titleBar">
+            <div className={styles.__wrapper}>
+                <div className={styles.__popupBox}>
+                    <div className={styles.__titleBar}>
                         <p>Add flight</p>
                     </div>
-                    <div className="__mycontent">
-                        <form action="#" onSubmit={handleSubmit(onSubmitFlight)} noValidate>
-                            <div className="__formContainer">
-                                <div className="__formItem">
+                    <div className={styles.__mycontent}>
+                        {/* <form action="#" onSubmit={handleSubmit(onSubmitFlight)} noValidate> */}
+                        <form action="#">
+                            <div className={styles.__formContainer}>
+                                <div className={styles.__formItem}>
                                     <label htmlFor="dpt-city">Departure city:</label>
                                     <select
                                         name="dpt-city"
                                         id="dpt-city"
                                         disabled={!hasEverLoadedData && isLoading}
+                                        value={dptCity}
+                                        onChange={(e) => setDptCity(e.target.value)}
                                     >
                                         <option value="">
                                             {!hasEverLoadedData && isLoading
                                                 ? 'Loading...'
                                                 : 'From'}
                                         </option>
-                                        {dataFetch &&
-                                            dataFetch.map((airport) => {
+                                        {dataGet &&
+                                            dataGet.map((airport) => {
                                                 const { city_name, iata } = airport;
 
                                                 return (
@@ -75,39 +103,69 @@ const PopUpBox = ({ handleClose }) => {
                                             })}{' '}
                                     </select>
                                 </div>
-                                <div className="__formItem">
+                                <div className={styles.__formItem}>
                                     <label htmlFor="arr-city">Arrival city:</label>
-                                    <select name="arr-city" id="arr-city">
-                                        <option value="BCN">Barcelona</option>
-                                        <option value="MAD">Madrid</option>
+                                    <select
+                                        name="arr-city"
+                                        id="arr-city"
+                                        disabled={!hasEverLoadedData && isLoading}
+                                        value={arrCity}
+                                        onChange={(e) => {
+                                            const parsedValue = e.target.value.split('#');
+                                            setArrCity({
+                                                iata: parsedValue[0],
+                                                cityName: parsedValue[1],
+                                            });
+                                        }}
+                                    >
+                                        <option value="">
+                                            {!hasEverLoadedData && isLoading ? 'Loading...' : 'To'}
+                                        </option>
+                                        {dataGet &&
+                                            dataGet.map((airport) => {
+                                                const { city_name, iata } = airport;
+
+                                                return (
+                                                    <option
+                                                        key={iata}
+                                                        value={`${iata}#${city_name}`}
+                                                    >
+                                                        {city_name} ({iata})
+                                                    </option>
+                                                );
+                                            })}{' '}
                                     </select>
                                 </div>
-                                <div className="__formItem">
+                                <div className={styles.__formItem}>
                                     <label htmlFor="flightnum">Flight number:</label>
                                     <input
-                                        type="text"
+                                        type="number"
+                                        min="1000"
+                                        max="9999"
                                         id="flightnum"
                                         name="flightnum"
                                         placeholder="Ex: 1111"
-                                        minlength="4"
-                                        maxlength="4"
-                                        ref={register({
-                                            required: true,
-                                            minLength: 4,
-                                            pattern: {
-                                                value: [0 - 9],
-                                                message: 'Please enter a valid flight number',
-                                            },
-                                        })}
+                                        value={flightNum}
+                                        onChange={(e) => setFlightNum(e.target.value)}
+                                        // ref={register({
+                                        //     required: true,
+                                        //     minLength: 4,
+                                        //     pattern: {
+                                        //         value: [0 - 9],
+                                        //         message: 'Please enter a valid flight number',
+                                        //     },
+                                        // })}
                                     />
                                 </div>
-                                {errors.flightnum && validation}
+                                {/* {errors.flightnum && validation} */}
                             </div>
-                            <div className="__formBottom">
+                            <div className={styles.__formBottom}>
                                 <Button
                                     content={'Send'}
                                     color={'blue__solid'}
-                                    disabled={!!!watchFlightNum}
+                                    // // disabled={!!!watchFlightNum}
+                                    // disabled={flightNumValidation()}
+                                    // disabled={!flightNumValidation()}
                                     action={onSubmitFlight}
                                 />
                                 <Button
@@ -119,11 +177,11 @@ const PopUpBox = ({ handleClose }) => {
                         </form>
                     </div>
 
-                    <span className="__closeIcon" onClick={handleClose}>
+                    {/* <span className={styles.__closeIcon} onClick={handleClose}>
                         x
-                    </span>
+                    </span> */}
                 </div>
-                <div class="__overlay" onClick={handleClose}></div>
+                <div className={styles.__overlay} onClick={handleClose}></div>
             </div>
         </>
     );

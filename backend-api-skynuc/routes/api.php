@@ -70,6 +70,7 @@ Route::group([
 ], function ($router) {
 
     Route::get('', 'FlightConstController@all');
+    Route::post('', 'FlightConstController@create');
 
 });
 

@@ -70,7 +70,7 @@
     border-radius: 50%;
 }
 .__content {
-    background-color: mediumorchid;
+    /* background-color: mediumorchid; */
     margin-top: -35px;
     text-align: center;
     padding: 0 20px;
@@ -78,7 +78,7 @@
     transition: all 0.3s;
 }
 .__userName {
-    background-color: mediumturquoise;
+    /* background-color: mediumturquoise; */
     font-weight: 700;
     font-size: 24px;
     color: #0169df;
@@ -90,7 +90,7 @@
     }
 }
 .__userDescription {
-    background-color: yellow;
+    /* background-color: yellow; */
     font-size: 18px;
     font-weight: 500;
     margin-bottom: 15px;
@@ -104,42 +104,25 @@
     }
 }
 
-.profile-card-inf {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    align-items: center;
-    /* margin: 15px; */
-}
-.profile-card-inf__item {
-    background-color: red;
-    min-width: 150px;
-}
-@media screen and (max-width: 768px) {
-    .profile-card-inf__item {
-        padding: 10px 20px;
-        min-width: 120px;
-    }
-}
-
 .profile-card-inf__number {
-    background-color: lightcyan;
+    /* background-color: lightcyan; */
     font-weight: 700;
     font-size: 27px;
 }
 .profile-card-inf__txt {
-    background-color: lightpink;
+    /* background-color: lightpink; */
     font-weight: 500;
     margin-bottom: 10px;
 }
 @media screen and (max-width: 768px) {
     .profile-card-inf__txt {
         font-weight: 500;
+        margin-bottom: 20px;
     }
 }
 
 .profile-card-ctr {
-    background-color: blue;
+    /* background-color: blue; */
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -149,27 +132,36 @@
 @media screen and (max-width: 576px) {
     .profile-card-ctr {
         margin-top: 30px;
+        width: 60%;
+        margin: auto;
     }
 }
 
 .profile-card-ctr-box {
-    background-color: lime;
+    /* background-color: lime; */
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
     margin: auto;
     height: 20vh;
-}
-@media screen and (max-width: 576px) {
-    .profile-card-ctr-box:last-child {
-        margin: 10px;
-    }
+    padding: 10px 0px;
 }
 
-/* .form__button {
-    min-width: 410px;
-} */
+.profile-card-ctr-box.leftBox {
+    /* background-color: red; */
+    /* justify-content: center; */
+}
+
+.profile-card-ctr-box.rightBox {
+    /* background-color: pink; */
+    padding: 20px 0px 0px 0px;
+}
+@media screen and (max-width: 576px) {
+    .profile-card-ctr-box.rightBox {
+        padding-top: 5px;
+    }
+}
 
 /** MESSAGE **/
 
