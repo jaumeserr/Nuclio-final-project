@@ -31,6 +31,7 @@ const useFetch = (path, method, body = {}) => {
                 // Line below to be deleted once we try one of the 3 methodsWithBody
                 // if (method === ('POST' || method === 'PUT' || method === 'PATCH')) {
                 options.body = JSON.stringify(body);
+                console.log('Entered methodsWithBody');
             }
 
             console.log('Fetch is being done:', '\n', 'url -->', url, '\n', 'options -->', options);
@@ -91,3 +92,6 @@ export default useFetch;
 // useEffect(() => {
 //     setJwt(data.access_token);
 // }, data);
+
+// FIXME: Passar auth a true quan tinguem JWT implementat:
+// const { data: dataPost, resetFetch} = useFetch({ path: 'flight_const', method: 'POST', body, auth: false });

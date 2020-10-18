@@ -1,7 +1,7 @@
 import FlightCard from 'components/flightcard/flightCard.view';
 import Loader from 'components/loader/loader.view';
 import useFetch from 'hooks/useFetch';
-import React, { useState } from 'react';
+import React from 'react';
 // import { useForm } from 'react-hook-form';
 import UseKeyPress from 'utils/useKeyPress';
 import styles from './popUpListMyFlights.module.css';

@@ -44,17 +44,17 @@ const AdminUserProfile = () => {
                         <div className="__userDescription">
                             Flight Administrator from <b>{userAirline}</b>
                         </div>
-                        <div className="profile-card-ctr">
-                            <div className="profile-card-ctr-box">
-                                <div className="profile-card-inf__number">{flightCount}</div>
-                                <div className="profile-card-inf__txt">Flights added</div>
+                        <div className="__actionPanel">
+                            <div className="__actionPanelBox">
+                                <div className="__FlightCountNumber">{flightCount}</div>
+                                <div className="__FlightCountText">Flights added</div>
                                 <Button
                                     content={'List my flights'}
                                     color={'blue__outline'}
                                     action={togglePopUpListMyFlights}
                                 />
                             </div>
-                            <div className="profile-card-ctr-box">
+                            <div className="__actionPanelBox">
                                 <Button
                                     content={'Add flight'}
                                     color={'blue__solid'}

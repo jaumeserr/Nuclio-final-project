@@ -1,3 +1,7 @@
+/* ------------------------------------------ */
+/* WRAPPER ---------------------------------- */
+/* ------------------------------------------ */
+
 .__wrapper {
     position: fixed;
     background: #00000050;
@@ -8,7 +12,11 @@
     z-index: 30;
 }
 
-.__popupBox {
+/* ------------------------------------------ */
+/* POPUP ADD FLIGHT ------------------------- */
+/* ------------------------------------------ */
+
+.__popupAddFlight {
     position: relative;
     margin-top: calc(100vh - 53vh - 40px);
     background: #fff;
@@ -26,7 +34,7 @@
     transition-delay: 0.1s;
 }
 @media screen and (max-width: 768px) {
-    .__popupBox {
+    .__popupAddFlight {
         margin-top: calc(100vh - 52vh - 40px);
         max-width: 85%;
         padding: 0px;
@@ -34,13 +42,9 @@
     }
 }
 
-@media screen and (max-width: 576px) {
-    .__mycontent {
-        overflow: scroll;
-        height: 300px;
-        margin-top: 30px;
-    }
-}
+/* ------------------------------------------ */
+/* TITLE BAR -------------------------------- */
+/* ------------------------------------------ */
 
 .__titleBar {
     height: 55px;
@@ -61,6 +65,22 @@
     margin-bottom: 0em;
     /* FIXME: margin-bottom for p is 1em somewhere, yet could not be found! */
 }
+
+/* ------------------------------------------ */
+/* CONTENT ---------------------------------- */
+/* ------------------------------------------ */
+
+@media screen and (max-width: 576px) {
+    .__content {
+        overflow: scroll;
+        height: 300px;
+        margin-top: 30px;
+    }
+}
+
+/* ------------------------------------------ */
+/* FORM CONTAINER --------------------------- */
+/* ------------------------------------------ */
 
 .__formContainer {
     /* background-color: lime; */
@@ -127,6 +147,10 @@
     border-color: var(--clr-blue-medium);
 }
 
+/* ------------------------------------------ */
+/* FORM ITEM -------------------------------- */
+/* ------------------------------------------ */
+
 .__formItem {
     /* background-color: lightsalmon; */
     display: flex;
@@ -148,6 +172,10 @@
     }
 }
 
+/* ------------------------------------------ */
+/* FORM BOTTOM ------------------------------ */
+/* ------------------------------------------ */
+
 .__formBottom {
     /* background-color: lightyellow; */
     display: flex;
@@ -161,6 +189,10 @@
         width: 55%;
     }
 }
+
+/* ------------------------------------------ */
+/* OVERLAY ---------------------------------- */
+/* ------------------------------------------ */
 
 .__overlay {
     width: 100%;
@@ -176,35 +208,4 @@
     opacity: 1;
     pointer-events: auto;
     transition-delay: 0.1s;
-}
-
-.__messageBox {
-    margin-top: 10vh;
-}
-@media screen and (max-width: 768px) {
-    .__messageBox {
-        margin-top: 15vh;
-    }
-}
-
-.__closeIcon {
-    content: 'x';
-    cursor: pointer;
-    position: fixed;
-    right: calc(36% - 7px);
-    top: calc(100vh - 53vh - 50px);
-    background: #ededed;
-    width: 27px;
-    height: 27px;
-    border-radius: 50%;
-    line-height: 20px;
-    text-align: center;
-    border: 1px solid #999;
-    font-size: 21px;
-}
-@media screen and (max-width: 768px) {
-    .__closeIcon {
-        right: calc(18% - 50px);
-        top: calc(100vh - 53vh - 45px);
-    }
 }
