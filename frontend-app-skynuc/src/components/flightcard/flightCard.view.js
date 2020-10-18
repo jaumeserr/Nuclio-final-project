@@ -33,14 +33,10 @@ const FlightCard = ({
     };
 
     const calculateDuration = () => {
-        let timeString = moment
-            .utc(
-                moment(arr_datetime, 'YYYY/MM/DD HH:mm:ss').diff(
-                    moment(dpt_datetime, 'YYYY/MM/DD HH:mm:ss'),
-                ),
-            )
-            .format('H[h ]mm[min]');
-        return timeString;
+        const arr = moment(arr_datetime, 'YYYY/MM/DD HH:mm:ss');
+        const dpt = moment(dpt_datetime, 'YYYY/MM/DD HH:mm:ss');
+        const duration = moment.utc(arr.diff(dpt)).format('H[h ]mm[min]');
+        return duration;
     };
 
     const myonclickaction = () => {
@@ -49,17 +45,19 @@ const FlightCard = ({
 
     return (
         <div className={styles.__container}>
-            <div 
+            <div
                 className={styles.__topCard}
-                style={{backgroundColor: mySwitchAirlineColor(airline_two_letter_code)}}>
-            </div>
+                style={{ backgroundColor: mySwitchAirlineColor(airline_two_letter_code) }}
+            ></div>
             <div className={styles.__bottomCard}>
                 <div>
                     <img className={styles.__logo} src={logo_url} alt="Logo" />
                 </div>
                 <div className={styles.__scheduleBlock}>
                     <div className={styles.__infoFlight}>
-                        <span className={styles.__time}>{moment(dpt_datetime).format('HH:mm')}</span>
+                        <span className={styles.__time}>
+                            {moment(dpt_datetime).format('HH:mm')}
+                        </span>
                         <span className={styles.__iata}>{dpt_airport_iata}</span>
                     </div>
                     <div className={styles.__flight}>
@@ -68,26 +66,18 @@ const FlightCard = ({
                         <span>DIRECT</span>
                     </div>
                     <div className={styles.__infoFlight}>
-                        <span className={styles.__time}>{moment(arr_datetime).format('HH:mm')}</span>
+                        <span className={styles.__time}>
+                            {moment(arr_datetime).format('HH:mm')}
+                        </span>
                         <span className={styles.__iata}>{arr_airport_iata}</span>
                     </div>
                 </div>
                 <div className={styles.__priceBlock}>
                     <p className={styles.__price}>{price_eur}€</p>
-                    <Button
-                        content={'See flight'}
-                        color={'blue__solid'}
-                        action={myonclickaction}
-                    />
+                    <Button content={'See flight'} color={'blue__solid'} action={myonclickaction} />
                 </div>
             </div>
         </div>
-        
-        
-        
-        
-        
-        
     );
 };
 

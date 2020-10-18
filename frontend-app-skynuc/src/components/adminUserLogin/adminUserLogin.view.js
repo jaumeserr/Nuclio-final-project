@@ -1,22 +1,32 @@
 import { message } from 'antd';
-import React from 'react';
+import Button from 'components/button/button.view';
+import useFetch from 'hooks/useFetch';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
 import { HOME } from 'routes/routes';
 import checkIfEmptyObject from 'utils/checkIfEmptyObject';
 import styles from './adminUserLogin.module.css';
-// import Button from 'components/button/button.view';
 
 const AdminUserLogin = () => {
     const { register, handleSubmit, watch, errors } = useForm();
 
-    const watchShowEmail = watch('showEmail', false);
-    const watchShowPassword = watch('showPassword', false);
+    const watchEmail = watch('email', false);
+    const watchPassword = watch('password', false);
+
+    const [data, setData] = useState([]);
+    const [error, setError] = useState(null);
 
     const history = useHistory();
 
     function onSubmitLogin(data) {
         console.log('Login data submitted: ', data);
+
+        // const { data, error: errorLogin } = useFetch('airlines', 'GET');
+
+        setData(data);
+        // setError(errorLogin);
+        setError(error);
 
         message.success({
             content: 'Successfully logged in!',
@@ -30,8 +40,6 @@ const AdminUserLogin = () => {
     const emailFromDB = 'admin@vueling.com';
     const passwordFromDB = 'vueling';
 
-    // console.log(value);
-
     return (
         <div className={styles.__wrapper}>
             <div className={styles.__container}>
@@ -41,14 +49,14 @@ const AdminUserLogin = () => {
                         <input
                             type="email"
                             placeholder="Email"
-                            name="showEmail"
+                            name="email"
                             ref={register({
                                 validate: (value) => {
                                     // FIXME: " 'Email not registered' when email value goes back to 0"
-                                    if (value === emailFromDB && value.length !== 0) {
-                                        return true;
+                                    if (value.length === 0) {
+                                        return 'Email is required';
                                     } else {
-                                        return 'Email not registered';
+                                        return true;
                                     }
                                 },
                                 pattern: {
@@ -60,31 +68,31 @@ const AdminUserLogin = () => {
                         <input
                             type="password"
                             placeholder="Password"
-                            name="showPassword"
+                            name="password"
                             ref={register({
                                 validate: (value) => {
                                     if (value === passwordFromDB) {
                                         return true;
+                                    } else if (value.length === 0) {
+                                        return 'Password is required';
                                     } else {
                                         return 'Incorrect password';
                                     }
                                 },
                             })}
                         />
-                        {/* FIXME: "Button component not working here" */}
-                        {/* <Button
-                            content={'Submit (component)'}
+                        <Button
+                            content={'Submit'}
                             color={'blue__solid'}
-                            disabled={!(!!watchShowEmail && !!watchShowPassword)}
-                            action={onSubmitLogin}
-                        /> */}
-                        <button disabled={!(!!watchShowEmail && !!watchShowPassword)}>
-                            Submit
-                        </button>
+                            disabled={!(!!watchEmail && !!watchPassword)}
+                            onClick={onSubmitLogin}
+                        />
+
                         {!checkIfEmptyObject(errors) && (
                             <div className={styles.__error__box}>
-                                {errors.showEmail && <p>{errors.showEmail.message}</p>}
-                                {errors.showPassword && <p>{errors.showPassword.message}</p>}
+                                {errors.email && <p>{errors.email.message}</p>}
+                                {errors.password && <p>{errors.password.message}</p>}
+                                {/* {errorLogin && <p> error message de BE</p>} */}
                             </div>
                         )}
                         <span>

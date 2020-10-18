@@ -1,0 +1,210 @@
+.__wrapper {
+    position: fixed;
+    background: #00000050;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 30;
+}
+
+.__popupBox {
+    position: relative;
+    margin-top: calc(100vh - 53vh - 40px);
+    background: #fff;
+    /* background: red; */
+    overflow: auto;
+    height: auto;
+    box-shadow: 0 4px 30px rgba(15, 22, 56, 0.35);
+    max-width: 50vh;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    padding: 25px;
+    z-index: 3;
+    transition: all 0.3s;
+    transition-delay: 0.1s;
+}
+@media screen and (max-width: 768px) {
+    .__popupBox {
+        margin-top: calc(100vh - 52vh - 40px);
+        max-width: 85%;
+        padding: 0px;
+        height: 55%;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .__mycontent {
+        overflow: scroll;
+        height: 300px;
+        margin-top: 30px;
+    }
+}
+
+.__titleBar {
+    height: 55px;
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: var(--clr-blue-medium);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.__titleBar p {
+    color: #fff;
+    font-weight: 600;
+    font-size: 17px;
+    margin-bottom: 0em;
+    /* FIXME: margin-bottom for p is 1em somewhere, yet could not be found! */
+}
+
+.__formContainer {
+    /* background-color: lime; */
+    height: auto;
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 65px auto 20px auto;
+
+    /* overflow-y: scroll; */
+    overflow: auto;
+}
+@media screen and (max-width: 576px) {
+    .__formContainer {
+        flex-direction: column;
+    }
+}
+
+.__formContainer input,
+.__formContainer label,
+.__formContainer select {
+    /* background-color: lightskyblue; */
+    margin: 15px 5px;
+    padding: 3px 3px;
+    font-weight: 500;
+    font-size: 15px;
+    color: #324e63;
+    transition: all 0.3s;
+    /* min-width: 110px; */
+}
+
+.__formContainer input,
+.__formContainer select {
+    border: 2px solid #dcdcdc;
+    border-radius: 10px;
+    outline: none;
+    height: 30px;
+}
+
+.__formContainer select {
+    min-width: 152px;
+}
+.__formContainer input {
+    width: 100px;
+}
+
+/* Hide arrows for input*/
+/* Chrome, Safari, Edge, Opera */
+.__formContainer input::-webkit-outer-spin-button,
+.__formContainer input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+/* Firefox */
+.__formContainer input[type='number'] {
+    -moz-appearance: textfield;
+}
+
+.__formContainer input:focus,
+.__formContainer select:focus {
+    outline: none;
+    border-color: var(--clr-blue-medium);
+}
+
+.__formItem {
+    /* background-color: lightsalmon; */
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+}
+
+.__formItem > label {
+    /* background-color: lightgrey; */
+    width: 110px;
+    margin-right: 19px;
+    text-align: right;
+    margin-left: 36px;
+}
+@media screen and (max-width: 768px) {
+    .__formItem > label {
+        margin-left: 30px;
+    }
+}
+
+.__formBottom {
+    /* background-color: lightyellow; */
+    display: flex;
+    justify-content: space-between;
+    width: 54%;
+    margin: auto;
+}
+@media screen and (max-width: 576px) {
+    .__formBottom {
+        flex-wrap: wrap;
+        width: 55%;
+    }
+}
+
+.__overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: auto;
+    opacity: 0;
+    background: rgba(22, 33, 72, 0.35);
+    border-radius: 12px;
+    transition: all 0.3s;
+    opacity: 1;
+    pointer-events: auto;
+    transition-delay: 0.1s;
+}
+
+.__messageBox {
+    margin-top: 10vh;
+}
+@media screen and (max-width: 768px) {
+    .__messageBox {
+        margin-top: 15vh;
+    }
+}
+
+.__closeIcon {
+    content: 'x';
+    cursor: pointer;
+    position: fixed;
+    right: calc(36% - 7px);
+    top: calc(100vh - 53vh - 50px);
+    background: #ededed;
+    width: 27px;
+    height: 27px;
+    border-radius: 50%;
+    line-height: 20px;
+    text-align: center;
+    border: 1px solid #999;
+    font-size: 21px;
+}
+@media screen and (max-width: 768px) {
+    .__closeIcon {
+        right: calc(18% - 50px);
+        top: calc(100vh - 53vh - 45px);
+    }
+}

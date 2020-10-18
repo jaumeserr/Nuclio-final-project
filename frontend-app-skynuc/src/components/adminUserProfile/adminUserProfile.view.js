@@ -1,14 +1,19 @@
 import userProfilePicture from 'assets/images/user_profile_avatars/user_profile_avatar_1.png';
 import Button from 'components/button/button.view';
 import PopUpBox from 'components/popUpBox/popUpBox.view.js';
+import PopUpListMyFlights from 'components/popUpListMyFlights/popUpListMyFlights';
 import React, { useState } from 'react';
 import './adminUserProfile.css';
 
 const AdminUserProfile = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [listMyFlights, setListMyFlights] = useState(false);
 
     const togglePopUp = () => {
         setIsOpen(!isOpen);
+    };
+    const togglePopUpListMyFlights = () => {
+        setListMyFlights(!listMyFlights);
     };
 
     // const sendFlightDataToDB = () => {
@@ -17,49 +22,47 @@ const AdminUserProfile = () => {
 
     const userName = 'Karom Germaine';
     const userAirline = 'Vueling';
-    const flightsAdded = '16';
+    const flightCount = '16';
 
     return (
         <>
             {/* {isOpen && <PopUpForm handleClose={closePopUp} handleSendData={sendFlightDataToDB} />} */}
             {isOpen && <PopUpBox handleClose={togglePopUp} />}
+            {listMyFlights && <PopUpListMyFlights handleClose={togglePopUpListMyFlights} />}
 
-            <div className="wrapper">
-                {/* <div className="profile-card js-profile-card"> */}
-                <div className={`profile-card ${isOpen ? 'active' : ''} js-profile-card`}>
-                    <div className="profile-card__img">
+            <div className="__wrapper">
+                <div className={`__container ${isOpen ? 'active' : ''}`}>
+                    <div className="__image">
                         <img
                             src={userProfilePicture}
-                            alt="profile card"
+                            alt="user profile picture"
                             title="Business vector created by Freepik.com"
                         />
                     </div>
-                    <div className="profile-card__cnt js-profile-cnt">
-                        <div className="profile-card__name">{userName}</div>
-                        <div className="profile-card__txt">
+                    <div className="__content">
+                        <div className="__userName">{userName}</div>
+                        <div className="__userDescription">
                             Flight Administrator from <b>{userAirline}</b>
                         </div>
                         <div className="profile-card-ctr">
-                            <div className="profile-card-ctr-box">
-                                <div className="profile-card-inf">
-                                    <div className="profile-card-inf__item">
-                                        <div className="profile-card-inf__number">
-                                            {flightsAdded}
-                                        </div>
-                                        <div className="profile-card-inf__txt">Flights added</div>
-                                    </div>
-                                </div>
-                                <Button content={'List my flights'} color={'blue__solid'} />
+                            <div className="profile-card-ctr-box leftBox">
+                                <div className="profile-card-inf__number">{flightCount}</div>
+                                <div className="profile-card-inf__txt">Flights added</div>
+                                <Button
+                                    content={'List my flights'}
+                                    color={'blue__outline'}
+                                    action={togglePopUpListMyFlights}
+                                />
                             </div>
-                            <div className="profile-card-ctr-box">
+                            <div className="profile-card-ctr-box rightBox">
                                 <Button
                                     content={'Add flight'}
-                                    color={'green__solid'}
+                                    color={'blue__solid'}
                                     action={togglePopUp}
                                 />
                                 <Button
                                     content={'Add flight instance'}
-                                    color={'green__solid'}
+                                    color={'blue__solid'}
                                     action={togglePopUp}
                                 />
                             </div>
@@ -74,21 +77,3 @@ const AdminUserProfile = () => {
 export default AdminUserProfile;
 
 // SOURCE: https://codepen.io/JavaScriptJunkie/pen/jvRGZy
-
-// var messageBox = document.querySelector('.js-message');
-// var btn = document.querySelector('.js-message-btn');
-// var card = document.querySelector('.js-profile-card');
-// var closeBtn = document.querySelectorAll('.js-message-close');
-
-// btn.addEventListener('click', function (e) {
-//     e.preventDefault();
-//     card.classList.add('active');
-// });
-
-// closeBtn.forEach(function (element, index) {
-//     console.log(element);
-//     element.addEventListener('click', function (e) {
-//         e.preventDefault();
-//         card.classList.remove('active');
-//     });
-// });

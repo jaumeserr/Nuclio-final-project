@@ -8,14 +8,16 @@ import { useHistory } from 'react-router';
 import styles from './searchBox.module.css';
 
 const SearchBox = () => {
-    
     const { state, dispatch } = React.useContext(InfoFlightsContext);
     const history = useHistory();
+    // const { data, isLoading, hasEverLoadedData } = useFetch({ path: 'airports', method: 'GET' });
     const { data, isLoading, hasEverLoadedData } = useFetch('airports', 'GET');
 
     const pushParamsToUrl = () => {
-        history.push(`/flights/${state.dptAirportIata}/${state.arrAirportIata}/${state.dptDatetime}`)
-    }
+        history.push(
+            `/flights/${state.dptAirportIata}/${state.arrAirportIata}/${state.dptDatetime}`,
+        );
+    };
 
     return (
         <div className={styles.__container}>
@@ -46,8 +48,7 @@ const SearchBox = () => {
                                         {city_name} ({iata})
                                     </option>
                                 );
-                            })
-                        }
+                            })}
                     </select>
                     <div className={styles.__separator}></div>
                     <select
@@ -74,8 +75,7 @@ const SearchBox = () => {
                                         {city_name} ({iata})
                                     </option>
                                 );
-                            })
-                        }
+                            })}
                     </select>
                 </div>
             </div>
@@ -98,7 +98,12 @@ const SearchBox = () => {
                             color: 'red',
                         }}
                     />
-                    <Button content={'See flights'} color={'blue__solid'} style={{marginLeft: 50}} action={pushParamsToUrl} />
+                    <Button
+                        content={'See flights'}
+                        color={'blue__solid'}
+                        style={{ marginLeft: 50 }}
+                        action={pushParamsToUrl}
+                    />
                 </div>
             </div>
         </div>
