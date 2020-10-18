@@ -95,7 +95,7 @@ const PopUpBox = ({ handleClose }) => {
                                                 return (
                                                     <option
                                                         key={iata}
-                                                        value={`${iata}#${city_name}`}
+                                                        value={iata}
                                                     >
                                                         {city_name} ({iata})
                                                     </option>
@@ -110,13 +110,7 @@ const PopUpBox = ({ handleClose }) => {
                                         id="arr-city"
                                         disabled={!hasEverLoadedData && isLoading}
                                         value={arrCity}
-                                        onChange={(e) => {
-                                            const parsedValue = e.target.value.split('#');
-                                            setArrCity({
-                                                iata: parsedValue[0],
-                                                cityName: parsedValue[1],
-                                            });
-                                        }}
+                                        onChange={(e) => {setArrCity(e.target.value)}}
                                     >
                                         <option value="">
                                             {!hasEverLoadedData && isLoading ? 'Loading...' : 'To'}
@@ -128,7 +122,7 @@ const PopUpBox = ({ handleClose }) => {
                                                 return (
                                                     <option
                                                         key={iata}
-                                                        value={`${iata}#${city_name}`}
+                                                        value={iata}
                                                     >
                                                         {city_name} ({iata})
                                                     </option>
