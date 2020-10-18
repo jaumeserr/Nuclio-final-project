@@ -59,36 +59,24 @@ class FlightConstController extends Controller {
             'airline_two_letter_code' => ['required', 'string', 'max:2'],
             'dpt_airport_iata' => ['required', 'string', 'max:3'],
             'arr_airport_iata' => ['required', 'string', 'max:3'],
-
         ]);
 
         if($flightConstValidator->fails()) {
             $errors = $flightConstValidator->errors()->getMessages();
             $code = Response::HTTP_NOT_ACCEPTABLE; // 406
             return response()->json(['error' => $errors, 'code' => $code], $code);
-        }
-
-        /** // FIXME: AIXÒ NO SÉ SI ESTÀ BÉ !!! */
-        try {
-            $airline = Airline::where('two_letter_code', $request->airline_two_letter_code)->firstOrFail();
+        } else {
+            //$airline = Airline::where('two_letter_code', $request->airline_two_letter_code)->firstOrFail();
             $flightConst = FlightConst::create([
-                'airline_two_letter_code' => $airline->two_letter_code,
+                'airline_two_letter_code' => $request->airline_two_letter_code,
                 'flight_num' => $request->flight_num,
-                'dpt_airport_iata' => $airline->dpt_airport_iata,
-                'arr_airport_iata' => $airline->dpt_airport_iata,
+                'dpt_airport_iata' => $request->dpt_airport_iata,
+                'arr_airport_iata' => $request->arr_airport_iata,
             ]);
 
             /** Después de crear la flightConst, la guarda en la DB */
             $flightConst->save();
             return response()->json(["FlightConst created and saved", $flightConst], 201);
-
-
-        } catch (Exception $e) {
-            $code = Response::HTTP_NOT_ACCEPTABLE;
-            return response()->json(['error' => 'Airline two letter code does not exist', 'code' => $code], $code);
         }
-
-
-
     }
 }
