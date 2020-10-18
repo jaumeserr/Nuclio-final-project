@@ -31,12 +31,12 @@ const AdminUserProfile = () => {
             {listMyFlights && <PopUpListMyFlights handleClose={togglePopUpListMyFlights} />}
 
             <div className="__wrapper">
-                <div className={`__container ${isOpen ? 'active' : ''}`}>
+                <div className="__container">
                     <div className="__image">
                         <img
                             src={userProfilePicture}
-                            alt="user profile picture"
-                            title="Business vector created by Freepik.com"
+                            alt="user profile"
+                            // title="Business vector created by Freepik.com"
                         />
                     </div>
                     <div className="__content">
@@ -45,7 +45,7 @@ const AdminUserProfile = () => {
                             Flight Administrator from <b>{userAirline}</b>
                         </div>
                         <div className="profile-card-ctr">
-                            <div className="profile-card-ctr-box leftBox">
+                            <div className="profile-card-ctr-box">
                                 <div className="profile-card-inf__number">{flightCount}</div>
                                 <div className="profile-card-inf__txt">Flights added</div>
                                 <Button
@@ -54,7 +54,7 @@ const AdminUserProfile = () => {
                                     action={togglePopUpListMyFlights}
                                 />
                             </div>
-                            <div className="profile-card-ctr-box rightBox">
+                            <div className="profile-card-ctr-box">
                                 <Button
                                     content={'Add flight'}
                                     color={'blue__solid'}

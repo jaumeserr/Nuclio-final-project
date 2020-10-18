@@ -5,7 +5,6 @@ import React, { useEffect, useState } from 'react';
 // import { useForm } from 'react-hook-form';
 import UseKeyPress from 'utils/useKeyPress';
 import styles from './popUpBox.module.css';
-// import useFetch from 'hooks/useFetch';
 
 const PopUpBox = ({ handleClose }) => {
     const keyPress = UseKeyPress('Escape');
@@ -22,8 +21,9 @@ const PopUpBox = ({ handleClose }) => {
     const [flightNum, setFlightNum] = useState();
     const [arrCity, setArrCity] = useState({});
     const [dptCity, setDptCity] = useState({});
-    const [airlineTwoLetterCode, setairlineTwoLetterCode] = useState('VY');
+    // const [airlineTwoLetterCode, setairlineTwoLetterCode] = useState('VY');
 
+    const airlineTwoLetterCode = 'VY';
     const [body, setBody] = useState({});
 
     useEffect(() => {
@@ -35,11 +35,51 @@ const PopUpBox = ({ handleClose }) => {
         });
     }, [flightNum, airlineTwoLetterCode, arrCity, dptCity]);
 
-    console.log(body);
+    console.log('Body before submit:', body);
+
+    // FETCH normal
+    const domain = process.env.REACT_APP_API_DOMAIN;
+    const submitFlightData = () => {
+        const url = `${domain}/flight_consts`;
+        const options = {
+            method: 'POST',
+            headers: new Headers({
+                'Content-type': 'application/json',
+            }),
+            mode: 'cors',
+            body: JSON.stringify(body),
+        };
+
+        console.log('Body after submit:', body);
+        console.log('-------');
+        console.log(options);
+
+        fetch(url, options)
+            .then((response) => {
+                if (response.status === 200 || response.status === 201) {
+                    return response.json();
+                }
+                return Promise.reject(response.status);
+            })
+            .then((payload) => {
+                // setSuccess('Your flight has been created'); // NOTE - Auth Create Pin
+                console.log('New flight added to DB =>', payload);
+            })
+            .catch((error) => console.log(error));
+        debugger;
+        message.success({
+            content: 'Flight successfully added!',
+            duration: 3,
+            className: '__messageBox',
+        });
+    };
 
     const onSubmitFlight = (body) => {
-        console.log('Data submitted: ', body);
         setBody(body);
+        console.log('Data submitted: ', body);
+
+        // NO FUNCIONA HOOK ...
+        // const { data: dataPost} = useFetch('flight_const', 'POST', body);
         message.success({
             content: 'Flight successfully added!',
             duration: 3,
@@ -93,10 +133,7 @@ const PopUpBox = ({ handleClose }) => {
                                                 const { city_name, iata } = airport;
 
                                                 return (
-                                                    <option
-                                                        key={iata}
-                                                        value={iata}
-                                                    >
+                                                    <option key={iata} value={iata}>
                                                         {city_name} ({iata})
                                                     </option>
                                                 );
@@ -110,7 +147,9 @@ const PopUpBox = ({ handleClose }) => {
                                         id="arr-city"
                                         disabled={!hasEverLoadedData && isLoading}
                                         value={arrCity}
-                                        onChange={(e) => {setArrCity(e.target.value)}}
+                                        onChange={(e) => {
+                                            setArrCity(e.target.value);
+                                        }}
                                     >
                                         <option value="">
                                             {!hasEverLoadedData && isLoading ? 'Loading...' : 'To'}
@@ -120,10 +159,7 @@ const PopUpBox = ({ handleClose }) => {
                                                 const { city_name, iata } = airport;
 
                                                 return (
-                                                    <option
-                                                        key={iata}
-                                                        value={iata}
-                                                    >
+                                                    <option key={iata} value={iata}>
                                                         {city_name} ({iata})
                                                     </option>
                                                 );
@@ -160,7 +196,9 @@ const PopUpBox = ({ handleClose }) => {
                                     // // disabled={!!!watchFlightNum}
                                     // disabled={flightNumValidation()}
                                     // disabled={!flightNumValidation()}
-                                    action={onSubmitFlight}
+
+                                    // action={onSubmitFlight}
+                                    action={submitFlightData}
                                 />
                                 <Button
                                     content={'Cancel'}

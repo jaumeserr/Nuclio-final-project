@@ -30,19 +30,7 @@
         /* max-height: 90%; */
     }
 }
-.__container.active .__content {
-    filter: blur(6px);
-}
-.__container.active .profile-card-message,
-.__container.active {
-    opacity: 1;
-    pointer-events: auto;
-    transition-delay: 0.1s;
-}
-.__container.active .profile-card-form {
-    transform: none;
-    transition-delay: 0.1s;
-}
+
 .__image {
     width: 150px;
     height: 150px;
@@ -148,17 +136,13 @@
     padding: 10px 0px;
 }
 
-.profile-card-ctr-box.leftBox {
-    /* background-color: red; */
-    /* justify-content: center; */
-}
 
-.profile-card-ctr-box.rightBox {
-    /* background-color: pink; */
+.profile-card-ctr-box:last-child {
+    background-color: pink;
     padding: 20px 0px 0px 0px;
 }
 @media screen and (max-width: 576px) {
-    .profile-card-ctr-box.rightBox {
+    .profile-card-ctr-box:last-child {
         padding-top: 5px;
     }
 }
@@ -223,3 +207,25 @@
     outline: none;
     border-color: #8a979e;
 }
+
+/* ------------------------------------------ */
+/* ACTIVATE FOR BLURRY BACKGROUND ----------- */
+/* ------------------------------------------ */
+
+/* IMPORTANT: add this line to adminUserProfile.view.js:
+    <div className={`__container ${isOpen ? 'active' : ''}`}>
+ */
+
+/* .__container.active .__content {
+    filter: blur(6px);
+}
+.__container.active .profile-card-message,
+.__container.active {
+    opacity: 1;
+    pointer-events: auto;
+    transition-delay: 0.1s;
+}
+.__container.active .profile-card-form {
+    transform: none;
+    transition-delay: 0.1s;
+} */

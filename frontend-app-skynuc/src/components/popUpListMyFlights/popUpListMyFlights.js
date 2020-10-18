@@ -9,7 +9,7 @@ import styles from './popUpListMyFlights.module.css';
 const PopUpListMyFlights = ({ handleClose }) => {
     const keyPress = UseKeyPress('Escape');
 
-    const [airlineTwoLetterCode, setairlineTwoLetterCode] = useState('VY');
+    // const [airlineTwoLetterCode, setairlineTwoLetterCode] = useState('VY');
 
     const { data: dataGet, isLoading, hasEverLoadedData } = useFetch(
         'flight_instances/flightcarddata',
