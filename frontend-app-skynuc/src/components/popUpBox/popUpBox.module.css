@@ -67,7 +67,6 @@
     height: auto;
     position: relative;
     display: flex;
-    /* flex-direction: column; */
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
@@ -75,7 +74,6 @@
 
     /* overflow-y: scroll; */
     overflow: auto;
-    height: auto;
 }
 @media screen and (max-width: 576px) {
     .__formContainer {

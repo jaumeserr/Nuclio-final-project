@@ -1,14 +1,19 @@
 import userProfilePicture from 'assets/images/user_profile_avatars/user_profile_avatar_1.png';
 import Button from 'components/button/button.view';
 import PopUpBox from 'components/popUpBox/popUpBox.view.js';
+import PopUpListMyFlights from 'components/popUpListMyFlights/popUpListMyFlights';
 import React, { useState } from 'react';
 import './adminUserProfile.css';
 
 const AdminUserProfile = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [listMyFlights, setListMyFlights] = useState(false);
 
     const togglePopUp = () => {
         setIsOpen(!isOpen);
+    };
+    const togglePopUpListMyFlights = () => {
+        setListMyFlights(!listMyFlights);
     };
 
     // const sendFlightDataToDB = () => {
@@ -23,6 +28,7 @@ const AdminUserProfile = () => {
         <>
             {/* {isOpen && <PopUpForm handleClose={closePopUp} handleSendData={sendFlightDataToDB} />} */}
             {isOpen && <PopUpBox handleClose={togglePopUp} />}
+            {listMyFlights && <PopUpListMyFlights handleClose={togglePopUpListMyFlights} />}
 
             <div className="__wrapper">
                 <div className={`__container ${isOpen ? 'active' : ''}`}>
@@ -42,7 +48,11 @@ const AdminUserProfile = () => {
                             <div className="profile-card-ctr-box leftBox">
                                 <div className="profile-card-inf__number">{flightCount}</div>
                                 <div className="profile-card-inf__txt">Flights added</div>
-                                <Button content={'List my flights'} color={'blue__outline'} />
+                                <Button
+                                    content={'List my flights'}
+                                    color={'blue__outline'}
+                                    action={togglePopUpListMyFlights}
+                                />
                             </div>
                             <div className="profile-card-ctr-box rightBox">
                                 <Button

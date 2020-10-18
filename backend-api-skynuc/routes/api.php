@@ -95,6 +95,7 @@ Route::group([
     Route::get('price_eur/{price_eur}', 'FlightInstanceController@getByPrice');
     Route::get('flightcarddata', 'FlightInstanceController@flightCardData');
 
+    Route::get('flightcarddata/{two_letter_code}', 'FlightInstanceController@flightCardDataByAirline');
 });
 
 /*
