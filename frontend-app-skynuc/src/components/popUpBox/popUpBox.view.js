@@ -31,7 +31,7 @@ const PopUpBox = ({ handleClose }) => {
             flight_num: flightNum,
             airline_two_letter_code: airlineTwoLetterCode,
             dpt_airport_iata: dptCity,
-            arr_airport_iata: arrCity.iata,
+            arr_airport_iata: arrCity,
         });
     }, [flightNum, airlineTwoLetterCode, arrCity, dptCity]);
 
