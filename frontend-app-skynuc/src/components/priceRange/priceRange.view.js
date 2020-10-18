@@ -19,7 +19,7 @@ const PriceRange = ({startPrice, setStartPrice, endPrice, setEndPrice}) => {
                 range
                 step={50}
                 min={50}
-                max={500}
+                max={2000}
                 tipFormatter={null}
                 onChange={onChange}
                 defaultValue={[100, 300]}

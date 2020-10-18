@@ -3,7 +3,9 @@
 
 namespace App\Http\Controllers;
 
+use App\FlightConst;
 use App\FlightInstance;
+use App\Airline;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
@@ -13,22 +15,37 @@ class SearchController extends Controller
     public function search(Request $request, $dpt, $arr, $date) {
         $results = array();
         $date = Carbon::createFromFormat('Ymd', $date);
-        $startTime = Carbon::createFromTime($request->query('startTime'))->toTimeString();
-        $endTime = Carbon::createFromTime($request->query('endTime'))->toTimeString();
+        $startTime = $request->query('startTime');
+        $endTime = $request->query('endTime');
         $minPrice = $request->query('minPrice');
         $maxPrice = $request->query('maxPrice');
         $airlines = $request->query('airlines');
 
+        $typeOfAirlines = gettype($airlines);
+        Log::info("[SearchController] TypeOf? :{$typeOfAirlines}");
+
         Log::info("[SearchController] Searching by DPT:{$dpt} ARR:{$arr} DATE:{$date}");
-        $flightInstances = FlightInstance::with('flightConst.airline')
-            ->whereDate('dpt_datetime', $date)
-            ->get();
+        $flightInstanceQuery = FlightInstance::with('flightConst.airline')
+            ->whereDate('dpt_datetime', $date);
+
+        if (!(is_null($startTime))) {
+            $startTime = Carbon::createFromTime($startTime);
+            $flightInstanceQuery->whereTime('dpt_datetime', '>=', $startTime);
+        }
+        if (!(is_null($endTime))) {
+            $endTime = Carbon::createFromTime($endTime)->toTimeString();
+            $flightInstanceQuery->whereTime('dpt_datetime', '<=', $endTime);
+        }
+
+        /*if (!(is_null($airlines))) {
+            $flightInstanceQuery->whereIn('two_letter_code', 'AF');
+        }*/
+
+        $flightInstances = $flightInstanceQuery->get();
 
         foreach ($flightInstances as $flightInstance)
         {
             $filtersOk = true;
-
-            Log::info("[SearchController] Filtering Flight -> {$flightInstance->flightConst}");
 
             if (!($flightInstance->flightConst->dpt_airport_iata == $dpt
             && $flightInstance->flightConst->arr_airport_iata == $arr))
@@ -45,17 +62,7 @@ class SearchController extends Controller
                 $filtersOk = false;
             }
 
-            /*if (!(is_null($startTime)) && !($flightInstance->dpt_datetime >= $startTime)) {
-                $filtersOk = false;
-            }
-
-            if (!(is_null($endTime)) && !($flightInstance->dpt_datetime <= $endTime)) {
-                $filtersOk = false;
-            }*/
-
-            $dt2 = new Carbon($flightInstance->dpt_datetime);
-            $dt2->toTimeString();
-            Log::info("[SearchController] Time String -> {$dt2}");
+            Log::info("[SearchController] Airlines FlightConst -> {$flightInstance->flightConst->airline_two_letter_code}");
 
             Log::info("[SearchController] Min Price -> {$minPrice}");
             Log::info("[SearchController] Max Price -> {$maxPrice}");
@@ -65,7 +72,6 @@ class SearchController extends Controller
             Log::info("[SearchController] Dpt Time -> {$flightInstance->dpt_datetime}");
             Log::info("[SearchController] End Time -> {$endTime}");
             Log::info("[SearchController] Arr Time -> {$flightInstance->arr_datetime}");
-            //Log::info("[SearchController] Dpt Time Form DB -> {$dptTime}");
 
             if ($filtersOk) {
                 array_push($results, $flightInstance);
