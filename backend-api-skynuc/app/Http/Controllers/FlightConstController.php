@@ -52,7 +52,6 @@ class FlightConstController extends Controller {
          * luego lo valida
          */
 
-        /** // FIXME: AIXÒ NO SÉ SI ESTÀ BÉ - types??? !!! */
         $body = $request->all();
         $flightConstValidator = Validator::make($body, [
             'flight_num' => ['required', 'string', 'max:4'],
@@ -79,4 +78,54 @@ class FlightConstController extends Controller {
             return response()->json(["FlightConst created and saved", $flightConst], 201);
         }
     }
+
+    // FIXME: Try/catch
+    // CREATE HECHO CON TRY/CATCH - No funciona, pero convendría adaptarlo:
+    // -----------------------------------------------------------------------
+
+    //     public function create(Request $request)
+    // {
+        /**
+         * Validate the request with Laravel VALIDATORS
+         * Primero lo crea, lo guarda en una variable y
+         * luego lo valida
+         */
+
+
+        // $body = $request->all();
+        // $flightConstValidator = Validator::make($body, [
+        //     'flight_num' => ['required', 'string', 'max:4'],
+        //     'airline_two_letter_code' => ['required', 'string', 'max:2'],
+        //     'dpt_airport_iata' => ['required', 'string', 'max:3'],
+        //     'arr_airport_iata' => ['required', 'string', 'max:3'],
+
+        // ]);
+
+        // if($flightConstValidator->fails()) {
+        //     $errors = $flightConstValidator->errors()->getMessages();
+        //     $code = Response::HTTP_NOT_ACCEPTABLE; // 406
+        //     return response()->json(['error' => $errors, 'code' => $code], $code);
+        // }
+
+        // try {
+        //     $airline = Airline::where('two_letter_code', $request->airline_two_letter_code)->firstOrFail();
+        //     $flightConst = FlightConst::create([
+        //         'airline_two_letter_code' => $airline->two_letter_code,
+        //         'flight_num' => $request->flight_num,
+        //         'dpt_airport_iata' => $airline->dpt_airport_iata,
+        //         'arr_airport_iata' => $airline->arr_airport_iata,
+        //     ]);
+
+            /** Después de crear la flightConst, la guarda en la DB */
+            // $flightConst->save();
+            // return response()->json(["FlightConst created and saved", $flightConst], 201);
+
+
+        // } catch (Exception $e) {
+        //     $code = Response::HTTP_NOT_ACCEPTABLE;
+        //     return response()->json(['error' => 'Airline two letter code does not exist', 'code' => $code], $code);
+        // }
+
+    // }
+
 }
