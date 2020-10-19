@@ -1,9 +1,7 @@
-
 /* html {
     position: relative;
     overflow-x: hidden !important;
 } */
-
 
 .wrapper {
     top: 0;
@@ -20,7 +18,6 @@
         padding-top: 190px;
     }
 }
-
 
 .icon {
     display: inline-block;
@@ -85,6 +82,7 @@
     border-radius: 50%;
 }
 .profile-card__cnt {
+    background-color: mediumorchid;
     margin-top: -35px;
     text-align: center;
     padding: 0 20px;
@@ -92,12 +90,14 @@
     transition: all 0.3s;
 }
 .profile-card__name {
+    background-color: mediumturquoise;
     font-weight: 700;
     font-size: 24px;
     color: #0169df;
     margin-bottom: 15px;
 }
 .profile-card__txt {
+    background-color: yellow;
     font-size: 18px;
     font-weight: 500;
     margin-bottom: 15px;
@@ -115,6 +115,7 @@
 }
 .profile-card-inf__item {
     min-width: 150px;
+    background-color: red;
 }
 @media screen and (max-width: 768px) {
     .profile-card-inf__item {
@@ -123,10 +124,12 @@
     }
 }
 .profile-card-inf__number {
+    background-color: lightcyan;
     font-weight: 700;
     font-size: 27px;
 }
 .profile-card-inf__txt {
+    background-color: lightpink;
     font-weight: 500;
     margin-top: 7px;
 }
@@ -145,9 +148,10 @@
 }
 
 .profile-card-ctr-box {
+    background-color: lime;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     margin: auto;
 }
@@ -156,9 +160,7 @@
     min-width: 410px;
 } */
 
-
 /** MESSAGE **/
-
 
 .profile-card-message {
     width: 100%;
@@ -199,7 +201,6 @@
         padding: 20px;
     }
 }
-
 
 .profile-card textarea {
     width: 100%;

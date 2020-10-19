@@ -1,13 +1,10 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import styles from './priceRange.module.css';
 import { Slider } from 'antd';
 import 'antd/dist/antd.css';
 
-const PriceRange = () => {
-
-    const [startPrice, setStartPrice] = useState('150');
-    const [endPrice, setEndPrice] = useState('300');
-
+const PriceRange = ({startPrice, setStartPrice, endPrice, setEndPrice}) => {
+    
     const onChange = (value) => {
         setStartPrice(value[0]);
         setEndPrice(value[1]);
