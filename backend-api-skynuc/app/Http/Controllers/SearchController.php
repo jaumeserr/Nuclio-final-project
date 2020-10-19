@@ -7,6 +7,7 @@ use App\FlightConst;
 use App\FlightInstance;
 use App\Airline;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
 
@@ -21,9 +22,6 @@ class SearchController extends Controller
         $maxPrice = $request->query('maxPrice');
         $airlines = $request->query('airlines');
 
-        $typeOfAirlines = gettype($airlines);
-        Log::info("[SearchController] TypeOf? :{$typeOfAirlines}");
-
         Log::info("[SearchController] Searching by DPT:{$dpt} ARR:{$arr} DATE:{$date}");
         $flightInstanceQuery = FlightInstance::with('flightConst.airline')
             ->whereDate('dpt_datetime', $date);
@@ -32,14 +30,11 @@ class SearchController extends Controller
             $startTime = Carbon::createFromTime($startTime);
             $flightInstanceQuery->whereTime('dpt_datetime', '>=', $startTime);
         }
+
         if (!(is_null($endTime))) {
             $endTime = Carbon::createFromTime($endTime)->toTimeString();
             $flightInstanceQuery->whereTime('dpt_datetime', '<=', $endTime);
         }
-
-        /*if (!(is_null($airlines))) {
-            $flightInstanceQuery->whereIn('two_letter_code', 'AF');
-        }*/
 
         $flightInstances = $flightInstanceQuery->get();
 
@@ -62,8 +57,11 @@ class SearchController extends Controller
                 $filtersOk = false;
             }
 
-            Log::info("[SearchController] Airlines FlightConst -> {$flightInstance->flightConst->airline_two_letter_code}");
+            if (!(is_null($airlines)) && !in_array($flightInstance->flightConst->airline_two_letter_code, explode(",", $airlines))) {
+                $filtersOk = false;
+            }
 
+            Log::info("[SearchController] Airlines FlightConst -> {$flightInstance->flightConst->airline_two_letter_code}");
             Log::info("[SearchController] Min Price -> {$minPrice}");
             Log::info("[SearchController] Max Price -> {$maxPrice}");
             Log::info("[SearchController] Price -> {$flightInstance->price_eur}");
@@ -80,5 +78,10 @@ class SearchController extends Controller
 
         Log::info("[SearchController] Results -> " . count($results));
         return response()->json($results);
+    }
+
+    public function getAirlineCodes()
+    {
+        return ['TP','VY', 'IB', 'KL', 'AF'];
     }
 }
