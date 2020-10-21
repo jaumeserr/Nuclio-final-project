@@ -13,6 +13,7 @@ class SearchController extends Controller
     public function search(Request $request, $dpt, $arr, $date) {
         $results = array();
         $date = Carbon::createFromFormat('Ymd', $date);
+        dd($date);
         $startTime = $request->query('startTime');
         $endTime = $request->query('endTime');
         $minPrice = $request->query('minPrice');
@@ -26,7 +27,7 @@ class SearchController extends Controller
         foreach ($flightInstances as $flightInstance)
         {
             $filtersOk = true;
-            
+
             Log::info("[SearchController] Filtering Flight -> {$flightInstance->flightConst}");
 
             if (!($flightInstance->flightConst->dpt_airport_iata == $dpt
