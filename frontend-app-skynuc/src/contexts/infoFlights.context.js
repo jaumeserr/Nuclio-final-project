@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 
 export const InfoFlightsContext = React.createContext();
 
@@ -36,13 +36,13 @@ const reducer = (state, action) => {
 };
 
 export const InfoFlightsContextProvider = ({ children }) => {
-    const [state, dispatch] = React.useReducer(reducer, initialState);
+    const [ state, dispatch ] = React.useReducer(reducer, initialState);
 
     return (
         <InfoFlightsContext.Provider
             value={{
                 state,
-                dispatch,
+                dispatch
             }}
         >
             {children}
