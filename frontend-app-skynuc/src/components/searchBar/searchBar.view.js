@@ -7,34 +7,11 @@ import {useParams} from "react-router";
 const SearchBar = () => {
 
     const { dpt, arr, date } = useParams();
-    const [ cities, setCities ] = useState([]);
 
-    //Perque no cridem al useContext??
     const { state, dispatch } = React.useContext(InfoFlightsContext);
     console.log(state);
 
     useEffect(()=> {
-        const url = 'http://localhost/api/airports';
-        const options = {
-            method: 'GET',
-            header: new Headers(),
-        };
-
-        fetch(url, options)
-            .then(response => {
-                if (response.status >= 200 || response.status < 300) {
-                    // console.log(`Status: ${response.status}`);
-                    return response.json();
-                }
-                return Promise.reject(response.status);
-            })
-            .then(payload => {
-                setCities(payload);
-                console.log(payload);
-
-            })
-            .catch(error => console.log(error));
-
         if(state.arrAirportCityName === undefined) {
             dispatch({
                 type: 'DEPARTURE_IATA',
