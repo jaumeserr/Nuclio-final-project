@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Airline extends Model {
+class Airline extends BaseModel {
 
     /**
      * The primary key associated with the table.

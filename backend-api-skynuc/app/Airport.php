@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Airport extends Model {
+class Airport extends BaseModel {
 
 
      /**

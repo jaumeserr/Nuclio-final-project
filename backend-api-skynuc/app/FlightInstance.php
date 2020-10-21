@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class FlightInstance extends Model {
+class FlightInstance extends BaseModel {
 
     /**
      * The attributes that are mass assignable.
