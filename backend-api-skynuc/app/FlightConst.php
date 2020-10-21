@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class FlightConst extends BaseModel {
+class FlightConst extends Model {
 
     /**
      * The primary key associated with the table.
