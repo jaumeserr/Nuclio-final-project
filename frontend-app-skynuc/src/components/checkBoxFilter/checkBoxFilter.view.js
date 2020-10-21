@@ -5,14 +5,10 @@ import { Checkbox } from 'antd';
 import useFetch from 'hooks/useFetch';
 
 
-const CheckBoxFilter = () => {
-
-    // const [data, setData]= useState ([]);
-    const [airlineChecked, setAirlineChecked] = useState([]);
+const CheckBoxFilter = ({ airlineChecked, setAirlineChecked }) => {
 
     function onChange(event) {
         
-    
         if (event.target.checked === true) {
             airlineChecked.push(event.target.value);
             setAirlineChecked(airlineChecked);
@@ -25,23 +21,21 @@ const CheckBoxFilter = () => {
         }
 
         console.log('checked = ', airlineChecked);
-      }
+    }
       
-      const { data, error, isLoading, hasEverLoadedData, resetFetch } = useFetch('airlines', 'GET');
-
-
+    const { data: airline } = useFetch(`airlines`, 'GET');
 
     return (
         <div className={styles.__container}>
             <div>
                 <p className={styles.__title}>Airlines</p>
                 <div className={styles.__inputBox}>
-                        {data &&
-                            data.map((item)=> {
-                              
+                        {airline &&
+                            airline.map((item)=> {
+                                const { two_letter_code, name } = item;
                                 return (
                                     <div className={styles.__check}>
-                                        <Checkbox onChange={onChange} value={item.two_letter_code}>{item.name}</Checkbox>
+                                        <Checkbox onChange={onChange} key={two_letter_code} value={two_letter_code}>{name}</Checkbox>
                                     </div>
                                 );
                             })

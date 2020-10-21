@@ -1,11 +1,8 @@
+/* ------------------------------------------ */
+/* WRAPPER ---------------------------------- */
+/* ------------------------------------------ */
 
-/* html {
-    position: relative;
-    overflow-x: hidden !important;
-} */
-
-
-.wrapper {
+.__wrapper {
     top: 0;
     left: 0;
     width: 100%;
@@ -14,24 +11,18 @@
     padding: 190px 20px 50px 20px;
 }
 @media screen and (max-width: 768px) {
-    .wrapper {
+    .__wrapper {
         height: auto;
         min-height: 100vh;
         padding-top: 190px;
     }
 }
 
+/* ------------------------------------------ */
+/* CONTAINER -------------------------------- */
+/* ------------------------------------------ */
 
-.icon {
-    display: inline-block;
-    width: 1em;
-    height: 1em;
-    stroke-width: 0;
-    stroke: currentColor;
-    fill: currentColor;
-}
-
-.profile-card {
+.__container {
     width: 100%;
     min-height: 460px;
     margin: auto;
@@ -42,24 +33,17 @@
     position: relative;
 }
 @media screen and (max-width: 768px) {
-    .profile-card {
+    .__container {
         max-width: 400px;
+        /* max-height: 90%; */
     }
 }
-.profile-card.active .profile-card__cnt {
-    filter: blur(6px);
-}
-.profile-card.active .profile-card-message,
-.profile-card.active .profile-card__overlay {
-    opacity: 1;
-    pointer-events: auto;
-    transition-delay: 0.1s;
-}
-.profile-card.active .profile-card-form {
-    transform: none;
-    transition-delay: 0.1s;
-}
-.profile-card__img {
+
+/* ------------------------------------------ */
+/* IMAGE ---------------------------------- */
+/* ------------------------------------------ */
+
+.__image {
     width: 150px;
     height: 150px;
     margin-left: auto;
@@ -69,69 +53,94 @@
     overflow: hidden;
     position: relative;
     z-index: 40;
-    box-shadow: 0px 5px 50px 0px #0169df, 0px 0px 0px 7px #5191da;
+    /* box-shadow: 0px 5px 50px 0px #0169df, 0px 0px 0px 7px #5191da; */
+    box-shadow: 0px 5px 50px 0px var(--clr-blue-medium), 0px 0px 0px 7px #5191da;
 }
 @media screen and (max-width: 576px) {
-    .profile-card__img {
+    .__image {
         width: 120px;
         height: 120px;
     }
 }
-.profile-card__img img {
+.__image img {
     display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 50%;
 }
-.profile-card__cnt {
+
+/* ------------------------------------------ */
+/* CONTENT ---------------------------------- */
+/* ------------------------------------------ */
+
+.__content {
+    /* background-color: mediumorchid; */
     margin-top: -35px;
     text-align: center;
     padding: 0 20px;
     padding-bottom: 40px;
     transition: all 0.3s;
 }
-.profile-card__name {
+
+/* ------------------------------------------ */
+/* USER NAME and DESCRIPTION ---------------- */
+/* ------------------------------------------ */
+
+.__userName {
+    /* background-color: mediumturquoise; */
     font-weight: 700;
     font-size: 24px;
     color: #0169df;
-    margin-bottom: 15px;
+    margin-bottom: 7px;
 }
-.profile-card__txt {
+@media screen and (max-width: 768px) {
+    .__userName {
+        font-size: 20px;
+    }
+}
+.__userDescription {
+    /* background-color: yellow; */
     font-size: 18px;
     font-weight: 500;
     margin-bottom: 15px;
 }
-.profile-card__txt strong {
+.__userDescription strong {
     font-weight: 700;
 }
-
-.profile-card-inf {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    align-items: center;
-    margin: 15px;
-}
-.profile-card-inf__item {
-    min-width: 150px;
-}
 @media screen and (max-width: 768px) {
-    .profile-card-inf__item {
-        padding: 10px 20px;
-        min-width: 120px;
+    .__userDescription {
+        font-size: 14px;
     }
 }
-.profile-card-inf__number {
+
+/* ------------------------------------------ */
+/* FLIGHT COUNT NUMBER and TEXT ------------- */
+/* ------------------------------------------ */
+
+.__FlightCountNumber {
+    /* background-color: lightcyan; */
     font-weight: 700;
     font-size: 27px;
 }
-.profile-card-inf__txt {
+.__FlightCountText {
+    /* background-color: lightpink; */
     font-weight: 500;
-    margin-top: 7px;
+    margin-bottom: 10px;
+}
+@media screen and (max-width: 768px) {
+    .__FlightCountText {
+        font-weight: 500;
+        margin-bottom: 20px;
+    }
 }
 
-.profile-card-ctr {
+/* ------------------------------------------ */
+/* ACTION PANEL and BOX --------------------- */
+/* ------------------------------------------ */
+
+.__actionPanel {
+    /* background-color: blue; */
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -139,95 +148,53 @@
     margin-top: 60px;
 }
 @media screen and (max-width: 576px) {
-    .profile-card-ctr {
-        /* flex-wrap: wrap; */
+    .__actionPanel {
+        margin-top: 30px;
+        width: 60%;
+        margin: auto;
     }
 }
 
-.profile-card-ctr-box {
+.__actionPanelBox {
+    /* background-color: lime; */
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     margin: auto;
+    height: 20vh;
+    padding: 10px 0px;
 }
 
-/* .form__button {
-    min-width: 410px;
-} */
-
-
-/** MESSAGE **/
-
-
-.profile-card-message {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding-top: 130px;
-    padding-bottom: 100px;
-    opacity: 0;
-    pointer-events: none;
-    transition: all 0.3s;
-}
-
-/* traslladada parcialment a box */
-.profile-card-form {
-    box-shadow: 0 4px 30px rgba(15, 22, 56, 0.35);
-    max-width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-    height: 100%;
-    background: #fff;
-    border-radius: 10px;
-    padding: 35px;
-    transform: scale(0.8);
-    position: relative;
-    z-index: 3;
-    transition: all 0.3s;
-}
-@media screen and (max-width: 768px) {
-    .profile-card-form {
-        max-width: 90%;
-        height: auto;
-    }
+.__actionPanelBox:last-child {
+    /* background-color: pink; */
+    padding: 20px 0px 0px 0px;
 }
 @media screen and (max-width: 576px) {
-    .profile-card-form {
-        padding: 20px;
+    .__actionPanelBox:last-child {
+        padding-top: 5px;
     }
 }
 
 
-.profile-card textarea {
-    width: 100%;
-    resize: none;
-    height: 210px;
-    margin-bottom: 20px;
-    border: 2px solid #dcdcdc;
-    border-radius: 10px;
-    padding: 15px 20px;
-    color: #324e63;
-    font-weight: 500;
-    font-family: 'Quicksand', sans-serif;
-    outline: none;
-    transition: all 0.3s;
+/* ------------------------------------------ */
+/* ACTIVATE FOR BLURRY BACKGROUND ----------- */
+/* ------------------------------------------ */
+
+/* IMPORTANT: add this line to adminUserProfile.view.js:
+    <div className={`__container ${isOpen ? 'active' : ''}`}>
+ */
+
+/* .__container.active .__content {
+    filter: blur(6px);
 }
-.profile-card textarea:focus {
-    outline: none;
-    border-color: #8a979e;
-}
-.profile-card__overlay {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
+.__container.active .profile-card-message,
+.__container.active {
+    opacity: 1;
     pointer-events: auto;
-    opacity: 0;
-    background: rgba(22, 33, 72, 0.35);
-    border-radius: 12px;
-    transition: all 0.3s;
+    transition-delay: 0.1s;
 }
+.__container.active .profile-card-form {
+    transform: none;
+    transition-delay: 0.1s;
+} */

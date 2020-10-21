@@ -100,4 +100,26 @@ class FlightInstanceController extends Controller {
         $flightinstance = FlightInstance::with('flightConst.airline')->get();
         return response()->json($flightinstance);
     }
+
+    /*  FIXME: FlightCardData by Airline ---> HOW TO??? It works but info is incomplete... */
+    /**
+     * Show a list of all of one single airline
+     * with its corresponding flight consts
+     * and their corresponding flight instances
+     *
+     * @param $two_letter_code
+     * @return JsonResponse
+     */
+    public function flightCardDataByAirline($two_letter_code)
+    {
+        Log::info('Retrieving info for flightCard filtered by airline two letter code');
+        $flightinstance = FlightInstance::whereHas('flightConst', function ($query) use ($two_letter_code)
+        {
+            $query->where('airline_two_letter_code', $two_letter_code);
+        })->get();
+
+        // $flightinstanceFiltered = FlightInstance::with('flightConst.airline') && FlightInstance::where('id', $flightinstance->id)->get();
+
+        return response()->json($flightinstanceFiltered);
+    }
 }
