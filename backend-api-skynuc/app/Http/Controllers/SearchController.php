@@ -20,7 +20,7 @@ class SearchController extends Controller
 
         Log::info("[SearchController] Searching by DPT:{$dpt} ARR:{$arr} DATE:{$date}");
         $flightInstances = FlightInstance::with('flightConst.airline')
-            ->whereDate('dpt_datetime', $date->timestamp . $date->milli)
+            ->whereDate('dpt_datetime', $date->timestamp)
             ->get();
 
         foreach ($flightInstances as $flightInstance)
