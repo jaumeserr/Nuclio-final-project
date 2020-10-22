@@ -1,11 +1,17 @@
 .__container {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    padding-top: 70px;
     background-color: var(--clr-background-blue-light);
     display: flex;
-    padding-top: 70px;
 }
 
 .__aside {
     padding: 0 40px;
+    width: 260px;
 }
 
 .__center {
@@ -16,5 +22,3 @@
     font-size: 12px;
     margin: 25px 0 17px;
 }
-
-
