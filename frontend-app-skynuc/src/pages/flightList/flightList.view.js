@@ -83,7 +83,7 @@ const FlightList = () => {
                         );
                     })}
             </div>
-            <div className={styles.__aside}>RIGHT</div>
+            <div className={styles.__aside}></div>
        </div>
     );
 };

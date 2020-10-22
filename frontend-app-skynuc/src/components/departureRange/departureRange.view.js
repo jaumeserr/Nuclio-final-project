@@ -13,7 +13,7 @@ const DepartureRange = ({startTime, setStartTime, endTime, setEndTime}) => {
 
     return (
         <div className={styles.__container}>
-            <p className={styles.__title}>Depature times</p>
+            <p className={styles.__title}>Departure time</p>
             <p className={styles.__subtitle}>Outbound</p>
             <p className={styles.__hours}>{`${startTime}:00`} - {`${endTime}:00`}</p>
             <Slider
