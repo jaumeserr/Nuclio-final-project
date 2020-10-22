@@ -1,14 +1,11 @@
-import React,  { useEffect, useState } from 'react';
-import styles from './checkBoxFilter.module.css';
-import 'antd/dist/antd.css';
 import { Checkbox } from 'antd';
+import 'antd/dist/antd.css';
 import useFetch from 'hooks/useFetch';
-
+import React from 'react';
+import styles from './checkBoxFilter.module.css';
 
 const CheckBoxFilter = ({ airlineChecked, setAirlineChecked }) => {
-
     function onChange(event) {
-        
         if (event.target.checked === true) {
             airlineChecked.push(event.target.value);
             setAirlineChecked(airlineChecked);
@@ -22,30 +19,33 @@ const CheckBoxFilter = ({ airlineChecked, setAirlineChecked }) => {
 
         console.log('checked = ', airlineChecked);
     }
-      
-    const { data: airline } = useFetch(`airlines`, 'GET');
+
+    const { data: airline } = useFetch('airlines', 'GET');
 
     return (
         <div className={styles.__container}>
             <div>
                 <p className={styles.__title}>Airlines</p>
-                <div className={styles.__inputBox}>
-                        {airline &&
-                            airline.map((item)=> {
-                                const { two_letter_code, name } = item;
-                                return (
-                                    <div className={styles.__check}>
-                                        <Checkbox onChange={onChange} key={two_letter_code} value={two_letter_code}>{name}</Checkbox>
-                                    </div>
-                                );
-                            })
-                        }
-                
+                <div>
+                    {airline &&
+                        airline.map((item) => {
+                            const { two_letter_code, name } = item;
+                            return (
+                                <div className={styles.__check}>
+                                    <Checkbox
+                                        onChange={onChange}
+                                        key={two_letter_code}
+                                        value={two_letter_code}
+                                    >
+                                        {name}
+                                    </Checkbox>
+                                </div>
+                            );
+                        })}
                 </div>
             </div>
         </div>
-
     );
-}
+};
 
 export default CheckBoxFilter;
