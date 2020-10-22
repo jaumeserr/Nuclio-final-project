@@ -1,6 +1,6 @@
 import { message } from 'antd';
 import Button from 'components/button/button.view';
-import useFetch from 'hooks/useFetch';
+// import useFetch from 'hooks/useFetch';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
@@ -14,7 +14,7 @@ const AdminUserLogin = () => {
     const watchEmail = watch('email', false);
     const watchPassword = watch('password', false);
 
-    const [data, setData] = useState([]);
+    // const [data, setData] = useState([]);
     const [error, setError] = useState(null);
 
     const history = useHistory();
@@ -22,9 +22,9 @@ const AdminUserLogin = () => {
     function onSubmitLogin(data) {
         console.log('Login data submitted: ', data);
 
-        // const { data, error: errorLogin } = useFetch('airlines', 'GET');
+        // const { data, error: errorLogin } = useFetch('login', 'GET');
 
-        setData(data);
+        // setData(data);
         // setError(errorLogin);
         setError(error);
 
@@ -37,7 +37,7 @@ const AdminUserLogin = () => {
         setTimeout(() => history.push(HOME), 4000);
     }
 
-    const emailFromDB = 'admin@vueling.com';
+    // const emailFromDB = 'admin@vueling.com';
     const passwordFromDB = 'vueling';
 
     return (

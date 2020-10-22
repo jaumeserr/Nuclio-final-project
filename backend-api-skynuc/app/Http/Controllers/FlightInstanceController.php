@@ -122,4 +122,51 @@ class FlightInstanceController extends Controller {
 
         return response()->json($flightinstanceFiltered);
     }
+
+    /**
+     * Create a new flight instance.
+     *
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function create(Request $request)
+    {
+        /**
+         * Validate the request with Laravel VALIDATORS
+         * Primero lo crea, lo guarda en una variable y
+         * luego lo valida
+         */
+
+        $body = $request->all();
+        $flightInstanceValidator = Validator::make($body, [
+            // 'dpt_datetime' => ['required', 'date_format:YYYY-MM-DD HH:mm:ss'],
+            // 'arr_datetime' => ['required', 'date_format:YYYY-MM-DD HH:mm:ss'],
+            // 'flight_const_flight_num' => ['required', 'numeric', 'max:4'],
+            'price_eur' => ['required', 'numeric'],
+
+        ]);
+
+        if($flightInstanceValidator->fails()) {
+            $errors = $flightInstanceValidator->errors()->getMessages();
+            $code = Response::HTTP_NOT_ACCEPTABLE; // 406
+            return response()->json(['error' => $errors, 'code' => $code], $code);
+        } else {
+            $flightInstance = FlightInstance::create([
+                'dpt_datetime' => $request->dpt_datetime,
+                'arr_datetime' => $request->arr_datetime,
+                'flight_const_flight_num' => $request->flight_const_flight_num,
+                'price_eur' => $request->price_eur,
+            ]);
+
+            /** Después de crear la flight instance, la guarda en la DB */
+            $flightInstance->save();
+            return response()->json(["Flight instance created and saved", $flightInstance], 201);
+        }
+    }
+
+    // FIXME: Pasar este CREATE de arriba a Try/catch!
+
+
+
+
 }

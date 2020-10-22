@@ -115,27 +115,6 @@
 }
 
 /* ------------------------------------------ */
-/* FLIGHT COUNT NUMBER and TEXT ------------- */
-/* ------------------------------------------ */
-
-.__FlightCountNumber {
-    /* background-color: lightcyan; */
-    font-weight: 700;
-    font-size: 27px;
-}
-.__FlightCountText {
-    /* background-color: lightpink; */
-    font-weight: 500;
-    margin-bottom: 10px;
-}
-@media screen and (max-width: 768px) {
-    .__FlightCountText {
-        font-weight: 500;
-        margin-bottom: 20px;
-    }
-}
-
-/* ------------------------------------------ */
 /* ACTION PANEL and BOX --------------------- */
 /* ------------------------------------------ */
 
@@ -176,12 +155,33 @@
     }
 }
 
+/* ------------------------------------------ */
+/* FLIGHT COUNT NUMBER and TEXT ------------- */
+/* ------------------------------------------ */
+
+.__flightCountNumber {
+    /* background-color: lightcyan; */
+    font-weight: 700;
+    font-size: 27px;
+}
+.__flightCountText {
+    /* background-color: lightpink; */
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+@media screen and (max-width: 768px) {
+    .__flightCountText {
+        font-weight: 500;
+        margin-bottom: 20px;
+    }
+}
 
 /* ------------------------------------------ */
 /* ACTIVATE FOR BLURRY BACKGROUND ----------- */
 /* ------------------------------------------ */
 
-/* IMPORTANT: add this line to adminUserProfile.view.js:
+/* IMPORTANT: add these lines to adminUserProfile.view.js:
+    const [isOpen, setIsOpen] = useState(false);
     <div className={`__container ${isOpen ? 'active' : ''}`}>
  */
 
