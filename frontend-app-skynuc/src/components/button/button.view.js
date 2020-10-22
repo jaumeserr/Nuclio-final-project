@@ -12,8 +12,11 @@ const Button = ({
     return (
         <button
             disabled = {disabled}
-            className = { cx(styles.button, styles.[color])}
-            onClick = {action}
+            className = { cx(styles.button, styles[color])}
+            onClick = {(event) => {
+                event.preventDefault();
+                action();
+            }}
             style={style}
         >
         {content}
