@@ -4,12 +4,7 @@
         "es2020": true
     },
     "parser": "babel-eslint",
-    "extends": [
-        "plugin:react/recommended",
-        "airbnb",
-        "prettier",
-        "prettier/react"
-    ],
+    "extends": ["plugin:react/recommended", "airbnb", "prettier", "prettier/react"],
     "parserOptions": {
         "ecmaFeatures": {
             "jsx": true
@@ -17,25 +12,34 @@
         "ecmaVersion": 11,
         "sourceType": "module"
     },
-    "plugins": [
-        "react",
-        "prettier"
-    ],
+    "plugins": ["react", "prettier"],
     "rules": {
         "react/jsx-filename-extension": [
             "error",
             {
-                "extensions": [
-                    ".js"
-                ]
+                "extensions": [".js"]
             }
         ],
         "no-param-reassign": "off",
         "no-underscore-dangle": "off",
         "prettier/prettier": "error",
         "arrow-parens": "off",
-        "object-curly-newline": ["error", {"ImportDeclaration": { "consistent": true }, "ExportDeclaration": { "consistent": true }}],
+        "object-curly-newline": [
+            "error",
+            {
+                "ImportDeclaration": { "consistent": true },
+                "ExportDeclaration": { "consistent": true }
+            }
+        ],
         "sort-vars": "error",
-        "import/no-extraneous-dependencies": "off"
+        "import/no-extraneous-dependencies": "off",
+        "no-useless-rename": [
+            "error",
+            {
+                "ignoreDestructuring": true,
+                "ignoreImport": false,
+                "ignoreExport": false
+            }
+        ]
     }
 }

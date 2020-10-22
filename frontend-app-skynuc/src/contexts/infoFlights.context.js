@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 
 export const InfoFlightsContext = React.createContext();
 
@@ -36,13 +36,40 @@ const reducer = (state, action) => {
 };
 
 export const InfoFlightsContextProvider = ({ children }) => {
-    const [state, dispatch] = React.useReducer(reducer, initialState);
+    const [ state, dispatch ] = React.useReducer(reducer, initialState);
+    const [ cities, setCities ] = useState([]);
+
+    useEffect(()=> {
+        const url = 'http://localhost/api/airports';
+        const options = {
+            method: 'GET',
+            header: new Headers(),
+        };
+
+        fetch(url, options)
+            .then(response => {
+                if (response.status >= 200 || response.status < 300) {
+                    // console.log(`Status: ${response.status}`);
+                    return response.json();
+                }
+                return Promise.reject(response.status);
+            })
+            .then(payload => {
+                setCities(payload);
+                console.log(payload);
+
+            })
+            .catch(error => console.log(error));
+
+
+    },[]);
 
     return (
         <InfoFlightsContext.Provider
             value={{
                 state,
                 dispatch,
+                cities
             }}
         >
             {children}

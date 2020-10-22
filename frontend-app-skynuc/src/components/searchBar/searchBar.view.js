@@ -1,11 +1,39 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from './searchBar.module.css';
 import moment from 'moment';
 import { InfoFlightsContext } from 'contexts/infoFlights.context';
+import {useParams} from "react-router";
 
 const SearchBar = () => {
 
-    const { state } = React.useContext(InfoFlightsContext);
+    const { dpt, arr, date } = useParams();
+
+    const { state, dispatch, cities } = React.useContext(InfoFlightsContext);
+    //console.log('cities: ',cities);
+
+    /*useEffect(() => {if(cities.lenght > 0) {
+        const cityDpt = cities.find(cityObject => cityObject.iata === dpt);
+        //console.log('cityName: ', cityDpt.city_name);
+    }}, [cities])*/
+
+    useEffect(()=> {
+        if(state.arrAirportCityName === undefined) {
+            dispatch({
+                type: 'DEPARTURE_IATA',
+                data: { iata: dpt, cityName: 'fsd' },
+            });
+            dispatch({
+                type: 'ARRIVAL_IATA',
+                data: { iata: arr, cityName: 'asd' },
+            });
+            dispatch({
+                type: 'DEPARTURE_DATE',
+                dptTime: date,
+            });
+        }
+    },[])
+
+
 
     return (
         <div className={styles.__container}>

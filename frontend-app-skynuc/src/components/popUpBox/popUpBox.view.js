@@ -1,4 +1,3 @@
-import { message } from 'antd';
 import Button from 'components/button/button.view';
 import useFetch from 'hooks/useFetch';
 import React, { useEffect, useState } from 'react';
@@ -28,23 +27,23 @@ const PopUpBox = ({ handleClose }) => {
 
     console.log('Body building up before submit:', body);
 
-    const onSubmitFlight = (body) => {
-        setBody(body);
-        console.log('Data submitted: ', body);
+    // const onSubmitFlight = (body) => {
+    //     setBody(body);
+    //     console.log('Data submitted: ', body);
 
-        // NO FUNCIONA HOOK ...
-        // const { data: dataPost} = useFetch('flight_const', 'POST', body);
+    //     // NO FUNCIONA HOOK ...
+    //     // const { data: dataPost} = useFetch('flight_const', 'POST', body);
 
-        message.success({
-            content: 'Flight successfully added!',
-            duration: 3,
-            className: '__messageBox',
-        });
-    };
+    //     message.success({
+    //         content: 'Flight successfully added!',
+    //         duration: 3,
+    //         className: '__messageBox',
+    //     });
+    // };
 
-    function flightNumValidation() {
-        return flightNum.length === 4 ? true : false;
-    }
+    // function flightNumValidation() {
+    //     return flightNum.length === 4 ? true : false;
+    // }
 
     return (
         <>
@@ -58,7 +57,7 @@ const PopUpBox = ({ handleClose }) => {
                     <div className={styles.__content}>
                         <form action="#">
                             <div className={styles.__formContainer}>
-                                <div className={styles.__formItem}>
+                                <div className={styles.__formRow}>
                                     <label htmlFor="dpt-city">Departure city:</label>
                                     <select
                                         name="dpt-city"
@@ -83,7 +82,7 @@ const PopUpBox = ({ handleClose }) => {
                                             })}{' '}
                                     </select>
                                 </div>
-                                <div className={styles.__formItem}>
+                                <div className={styles.__formRow}>
                                     <label htmlFor="arr-city">Arrival city:</label>
                                     <select
                                         // name="arr-city"
@@ -108,12 +107,11 @@ const PopUpBox = ({ handleClose }) => {
                                             })}{' '}
                                     </select>
                                 </div>
-                                <div className={styles.__formItem}>
+                                <div className={styles.__formRow}>
                                     <label htmlFor="flightnum">Flight number:</label>
                                     <input
                                         type="number"
                                         // FIXME: min i max només serveixen amb les arrows
-                                        min="1000"
                                         max="9999"
                                         id="flightnum"
                                         name="flightnum"
@@ -160,38 +158,3 @@ const PopUpBox = ({ handleClose }) => {
 export default PopUpBox;
 
 // SOURCE (Esc key): https://medium.com/@pppped/build-a-simple-responsive-modal-with-react-and-jss-updated-with-hooks-8cf821b1e205
-
-// <label htmlFor="dpt-datetime">Departure date and time:</label>
-// <input
-//     type="datetime-local"
-//     id="dpt-datetime"
-//     name="dpt-datetime"
-//     min="2020-08-01T00:00"
-//     max="2020-12-31T00:00"
-// />
-
-//  <label htmlFor="arr-datetime">Arrival date and time:</label>
-//                         <input
-//                             type="datetime-local"
-//                             id="arr-datetime"
-//                             name="arr-datetime"
-//                             min="2020-08-01T00:00"
-//                             max="2020-12-31T00:00"
-//                         />
-
-//  <label htmlFor="price">Price (€):</label>
-//                         <input
-//                             type="number"
-//                             id="price"
-//                             name="price"
-//                             min={1}
-//                             max={1500}
-//                             defaultValue={0}
-//                             step=".01"
-//                         />
-
-//      <div className="profile-card-form-arr">
-// </div>
-
-//      <div className="profile-card-form-flightnum_price">
-// </div>

@@ -16,7 +16,7 @@
 /* POPUP ADD FLIGHT ------------------------- */
 /* ------------------------------------------ */
 
-.__popupAddFlight {
+.__popupAddFlightInstance {
     position: relative;
     margin-top: calc(100vh - 53vh - 40px);
     background: #fff;
@@ -24,7 +24,7 @@
     overflow: auto;
     height: auto;
     box-shadow: 0 4px 30px rgba(15, 22, 56, 0.35);
-    max-width: 50vh;
+    max-width: 90vh;
     margin-left: auto;
     margin-right: auto;
     border-radius: 10px;
@@ -34,7 +34,7 @@
     transition-delay: 0.1s;
 }
 @media screen and (max-width: 768px) {
-    .__popupAddFlight {
+    .__popupAddFlightInstance {
         margin-top: calc(100vh - 52vh - 40px);
         max-width: 85%;
         padding: 0px;
@@ -122,11 +122,15 @@
     height: 30px;
 }
 
-.__formContainer select {
-    min-width: 152px;
-}
 .__formContainer input {
-    width: 100px;
+    width: 191px;
+}
+.__formContainer select {
+    width: 144px;
+}
+input[name='price'] {
+    width: 144px;
+    /* width: 125px; */
 }
 
 /* Hide arrows for input*/
@@ -154,9 +158,15 @@
 .__formRow {
     /* background-color: lightsalmon; */
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+    .__formRow {
+        flex-wrap: wrap;
+    }
 }
 
 .__formRow > label {
@@ -164,11 +174,12 @@
     width: 110px;
     margin-right: 19px;
     text-align: right;
-    margin-left: 36px;
+    /* margin-left: 36px; */
 }
 @media screen and (max-width: 768px) {
     .__formRow > label {
-        margin-left: 30px;
+        width: 79px;
+        margin-left: 10px;
     }
 }
 
@@ -180,7 +191,7 @@
     /* background-color: lightyellow; */
     display: flex;
     justify-content: space-between;
-    width: 54%;
+    width: 27%;
     margin: auto;
 }
 @media screen and (max-width: 576px) {

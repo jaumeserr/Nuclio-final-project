@@ -96,6 +96,9 @@ Route::group([
     Route::get('flightcarddata', 'FlightInstanceController@flightCardData');
 
     Route::get('flightcarddata/{two_letter_code}', 'FlightInstanceController@flightCardDataByAirline');
+
+    Route::post('', 'FlightInstanceController@create');
+
 });
 
 /*

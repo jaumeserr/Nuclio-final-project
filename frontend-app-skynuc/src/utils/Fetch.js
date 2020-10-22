@@ -1,7 +1,9 @@
 import { message } from 'antd';
 import 'styles/styles.css';
 
+// eslint-disable-next-line
 function Fetch({ method: method, path: path, body: body, successMessage: successMessage }) {
+    // function Fetch({method, path, body, successMessage}) {
     const domain = process.env.REACT_APP_API_DOMAIN;
     const url = `${domain}/${path}`;
     const options = {
@@ -33,12 +35,12 @@ function Fetch({ method: method, path: path, body: body, successMessage: success
 
     fetch(url, options)
         .then((response) => {
-            if (response.status >= 200 || response.status < 300) {
+            if (response.status >= 200 && response.status < 300) {
                 // console.log(`Status: ${response.status}`);
                 // console.log('-----------------------');
                 return response.json();
             }
-            return Promise.reject(response.status);
+            return Promise.reject(response);
         })
         .then((payload) => {
             // console.log('Data added to DB =>', payload);
