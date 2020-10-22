@@ -3,7 +3,7 @@
 
 
 # Description
-SkyReader is an original and the authentic app (the one) to find flights across the europe. 
+SkyReader is an original and the authentic app (the one) to find flights across the europe. We can find flights with the major europe airlines.
 
 
 # Used Language
@@ -32,6 +32,8 @@ SkyReader is an original and the authentic app (the one) to find flights across 
 
 
 # Authors
-- Jaume [GitHub](https://github.com/jaumeserr)
+- Ruth C. Morata Gil [GitHub](https://github.com/achtur)
+- Jaume Serradell [GitHub](https://github.com/jaumeserr)
+
 
 
