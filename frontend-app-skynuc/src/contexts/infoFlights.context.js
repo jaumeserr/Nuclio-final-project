@@ -62,7 +62,7 @@ export const InfoFlightsContextProvider = ({ children }) => {
             .catch(error => console.log(error));
 
 
-    },[cities]);
+    },[]);
 
     return (
         <InfoFlightsContext.Provider

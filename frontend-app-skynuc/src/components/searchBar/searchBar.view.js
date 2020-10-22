@@ -8,8 +8,13 @@ const SearchBar = () => {
 
     const { dpt, arr, date } = useParams();
 
-    const { state, dispatch } = React.useContext(InfoFlightsContext);
-    console.log(state);
+    const { state, dispatch, cities } = React.useContext(InfoFlightsContext);
+    //console.log('cities: ',cities);
+
+    /*useEffect(() => {if(cities.lenght > 0) {
+        const cityDpt = cities.find(cityObject => cityObject.iata === dpt);
+        //console.log('cityName: ', cityDpt.city_name);
+    }}, [cities])*/
 
     useEffect(()=> {
         if(state.arrAirportCityName === undefined) {
@@ -28,8 +33,7 @@ const SearchBar = () => {
         }
     },[])
 
-    /*const cityDpt = cities.find(cityObject => cityObject.iata === dpt);
-    console.log('Find: ',cityDpt.city_name);*/
+
 
     return (
         <div className={styles.__container}>
