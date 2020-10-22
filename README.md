@@ -1,4 +1,4 @@
-# LOCATIONS
+# SkyReader
 
 ## [Live demo](https://skyreader.netlify.app)
 
