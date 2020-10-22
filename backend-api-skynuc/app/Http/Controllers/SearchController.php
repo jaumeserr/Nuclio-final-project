@@ -14,6 +14,7 @@ use Illuminate\Http\Request;
 class SearchController extends Controller
 {
     public function search(Request $request, $dpt, $arr, $date) {
+
         $results = array();
         $date = Carbon::createFromFormat('Ymd', $date);
         $startTime = $request->query('startTime');
