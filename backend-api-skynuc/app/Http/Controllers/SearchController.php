@@ -43,6 +43,8 @@ class SearchController extends Controller
         {
             $filtersOk = true;
 
+            Log::info("[SearchController] Filtering Flight -> {$flightInstance->flightConst}");
+
             if (!($flightInstance->flightConst->dpt_airport_iata == $dpt
             && $flightInstance->flightConst->arr_airport_iata == $arr))
             {
