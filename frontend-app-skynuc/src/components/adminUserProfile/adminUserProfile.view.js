@@ -1,24 +1,25 @@
 import userProfilePicture from 'assets/images/user_profile_avatars/user_profile_avatar_1.png';
 import Button from 'components/button/button.view';
+import PopUpAddFlightInstance from 'components/popUpAddFlightInstance/popUpAddFlightInstance.view';
 import PopUpBox from 'components/popUpBox/popUpBox.view.js';
 import PopUpListMyFlights from 'components/popUpListMyFlights/popUpListMyFlights';
 import React, { useState } from 'react';
 import './adminUserProfile.css';
 
 const AdminUserProfile = () => {
-    const [isOpen, setIsOpen] = useState(false);
     const [listMyFlights, setListMyFlights] = useState(false);
+    const [addFlight, setAddFlight] = useState(false);
+    const [addFlightInstance, setAddFlightInstance] = useState(false);
 
-    const togglePopUp = () => {
-        setIsOpen(!isOpen);
-    };
     const togglePopUpListMyFlights = () => {
         setListMyFlights(!listMyFlights);
     };
-
-    // const sendFlightDataToDB = () => {
-    //     alert ("Here goes POST fetch to DB - PARENT COMPONENT")
-    // };
+    const togglePopUpAddFlight = () => {
+        setAddFlight(!addFlight);
+    };
+    const togglePopUpAddFlightInstance = () => {
+        setAddFlightInstance(!addFlightInstance);
+    };
 
     const userName = 'Karom Germaine';
     const userAirline = 'Vueling';
@@ -26,9 +27,9 @@ const AdminUserProfile = () => {
 
     return (
         <>
-            {/* {isOpen && <PopUpForm handleClose={closePopUp} handleSendData={sendFlightDataToDB} />} */}
-            {isOpen && <PopUpBox handleClose={togglePopUp} />}
             {listMyFlights && <PopUpListMyFlights handleClose={togglePopUpListMyFlights} />}
+            {addFlight && <PopUpBox handleClose={togglePopUpAddFlight} />}
+            {addFlightInstance && <PopUpAddFlightInstance handleClose={togglePopUpAddFlightInstance} />}
 
             <div className="__wrapper">
                 <div className="__container">
@@ -46,8 +47,8 @@ const AdminUserProfile = () => {
                         </div>
                         <div className="__actionPanel">
                             <div className="__actionPanelBox">
-                                <div className="__FlightCountNumber">{flightCount}</div>
-                                <div className="__FlightCountText">Flights added</div>
+                                <div className="__flightCountNumber">{flightCount}</div>
+                                <div className="__flightCountText">Flights added</div>
                                 <Button
                                     content={'List my flights'}
                                     color={'blue__outline'}
@@ -58,12 +59,12 @@ const AdminUserProfile = () => {
                                 <Button
                                     content={'Add flight'}
                                     color={'blue__solid'}
-                                    action={togglePopUp}
+                                    action={togglePopUpAddFlight}
                                 />
                                 <Button
                                     content={'Add flight instance'}
                                     color={'blue__solid'}
-                                    action={togglePopUp}
+                                    action={togglePopUpAddFlightInstance}
                                 />
                             </div>
                         </div>
