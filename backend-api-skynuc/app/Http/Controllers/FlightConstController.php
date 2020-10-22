@@ -54,7 +54,7 @@ class FlightConstController extends Controller {
 
         $body = $request->all();
         $flightConstValidator = Validator::make($body, [
-            'flight_num' => ['required', 'string', 'max:4'],
+            'flight_num' => ['required', 'string', 'max:4', 'unique:flight_consts'],
             'airline_two_letter_code' => ['required', 'string', 'max:2'],
             'dpt_airport_iata' => ['required', 'string', 'max:3'],
             'arr_airport_iata' => ['required', 'string', 'max:3'],
