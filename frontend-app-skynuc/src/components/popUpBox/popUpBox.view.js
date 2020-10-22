@@ -113,7 +113,6 @@ const PopUpBox = ({ handleClose }) => {
                                     <input
                                         type="number"
                                         // FIXME: min i max només serveixen amb les arrows
-                                        min="1000"
                                         max="9999"
                                         id="flightnum"
                                         name="flightnum"
