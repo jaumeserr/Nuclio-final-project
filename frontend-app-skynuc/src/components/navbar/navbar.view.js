@@ -23,9 +23,9 @@ const Navbar = () => {
             <Link to={HOME}>
                 <img src={logoSkyreader} alt="Logo Skyreader" />
             </Link>
-            <Link to={ADMIN_USER_PROFILE}>
-                <Button content={'ADMIN USER PROFILE'} color={'blue__solid'} />
-            </Link>
+            {/* <Link to={ADMIN_USER_PROFILE}>
+                <Button content={'Admin User Profile'} color={'blue__solid'} />
+            </Link> */}
             <div className={styles.__links__container}>
                 {!isLoggedIn && (
                     <>
