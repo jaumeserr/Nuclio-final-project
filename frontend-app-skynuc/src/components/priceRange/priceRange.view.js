@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import styles from './priceRange.module.css';
 import { Slider } from 'antd';
 import 'antd/dist/antd.css';
@@ -18,7 +18,7 @@ const PriceRange = ({startPrice, setStartPrice, endPrice, setEndPrice}) => {
             <Slider
                 range
                 step={50}
-                min={50}
+                min={0}
                 max={1300}
                 tipFormatter={null}
                 onChange={onChange}
