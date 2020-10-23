@@ -8,6 +8,9 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
+use Exception;
+use Validator;
+
 
 class FlightInstanceController extends Controller {
 

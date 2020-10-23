@@ -4,7 +4,7 @@ import Button from 'components/button/button.view';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
-import { HOME } from 'routes/routes';
+import { ADMIN_USER_PROFILE } from 'routes/routes';
 import checkIfEmptyObject from 'utils/checkIfEmptyObject';
 import styles from './adminUserLogin.module.css';
 
@@ -29,15 +29,15 @@ const AdminUserLogin = () => {
         setError(error);
 
         message.success({
-            content: 'Successfully logged in!',
-            duration: 3,
+            content: "Let's pretend you just logged in! Woohoo!",
+            duration: 5,
             className: styles.__success__box,
         });
 
-        setTimeout(() => history.push(HOME), 4000);
+        setTimeout(() => history.push(ADMIN_USER_PROFILE), 6000);
     }
 
-    // const emailFromDB = 'admin@vueling.com';
+    const emailFromDB = 'admin@vueling.com';
     const passwordFromDB = 'vueling';
 
     return (
@@ -52,11 +52,13 @@ const AdminUserLogin = () => {
                             name="email"
                             ref={register({
                                 validate: (value) => {
-                                    // FIXME: " 'Email not registered' when email value goes back to 0"
-                                    if (value.length === 0) {
+                                    // FIXME: Validation against BE and FE are separate stories
+                                    if (value === emailFromDB) {
+                                        return true;
+                                    } else if (value.length === 0) {
                                         return 'Email is required';
                                     } else {
-                                        return true;
+                                        return 'Incorrect email';
                                     }
                                 },
                                 pattern: {
