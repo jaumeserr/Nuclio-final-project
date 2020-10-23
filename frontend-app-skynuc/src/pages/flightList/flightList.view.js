@@ -26,10 +26,10 @@ const FlightList = () => {
     
     const { data, isLoading, hasEverLoadedData, resetFetch } = useFetch(`search/${dpt}/${arr}/${date}${location.search}`, 'GET');
 
-    const [startTime, setStartTime] = useState( queryStartTime ? queryStartTime : '7' );
-    const [endTime, setEndTime] = useState( queryEndTime ? queryEndTime : '18' );
-    const [startPrice, setStartPrice] = useState( queryMinPrice ? queryMinPrice : '150' );
-    const [endPrice, setEndPrice] = useState( queryMaxPrice ? queryMaxPrice : '300' );
+    const [startTime, setStartTime] = useState( queryStartTime ? queryStartTime : '1' );
+    const [endTime, setEndTime] = useState( queryEndTime ? queryEndTime : '23' );
+    const [startPrice, setStartPrice] = useState( queryMinPrice ? queryMinPrice : '0' );
+    const [endPrice, setEndPrice] = useState( queryMaxPrice ? queryMaxPrice : '1300' );
     const [airlineChecked, setAirlineChecked] = useState([]);
     
     const history = useHistory();

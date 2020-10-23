@@ -14,15 +14,15 @@ const PriceRange = ({startPrice, setStartPrice, endPrice, setEndPrice}) => {
         <div className={styles.__container}>
             <p className={styles.__title}>Price</p>
             <p className={styles.__subtitle}>Range</p>
-            <p className={styles.__hours}>{startPrice} - {endPrice}</p>
+            <p className={styles.__hours}>{startPrice}€ - {endPrice}€</p>
             <Slider
                 range
                 step={50}
                 min={50}
-                max={2000}
+                max={1300}
                 tipFormatter={null}
                 onChange={onChange}
-                defaultValue={[100, 300]}
+                defaultValue={[0, 1300]}
             />
         </div>
     )
