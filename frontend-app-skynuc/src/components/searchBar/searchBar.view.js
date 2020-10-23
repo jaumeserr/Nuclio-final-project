@@ -6,32 +6,36 @@ import styles from './searchBar.module.css';
 
 const SearchBar = () => {
     const { dpt, arr, date } = useParams();
-    const { state, dispatch } = React.useContext(InfoFlightsContext);
+    const { state, dispatch, cities } = React.useContext(InfoFlightsContext);
     // const { state, dispatch, cities } = React.useContext(InfoFlightsContext);
     //console.log('cities: ',cities);
+    console.log(state);
+    console.log(cities);
 
-    /*useEffect(() => {if(cities.length > 0) {
+    //const cityDpt = cities.find(cityObject => cityObject.iata === dpt);
+    //console.log('cityDPT: ', cityDpt.city_name);
+
+
+
+    useEffect(() => {if(cities.length > 0) {
         const cityDpt = cities.find(cityObject => cityObject.iata === dpt);
-        //console.log('cityName: ', cityDpt.city_name);
-    }}, [cities])*/
+        const cityArr = cities.find(cityObject => cityObject.iata === arr);
 
-    useEffect(() => {
         if (state.arrAirportCityName === undefined) {
             dispatch({
                 type: 'DEPARTURE_IATA',
-                data: { iata: dpt, cityName: 'Departure' },
+                data: { iata: dpt, cityName: cityDpt.city_name },
             });
             dispatch({
                 type: 'ARRIVAL_IATA',
-                data: { iata: arr, cityName: 'Arrival' },
+                data: { iata: arr, cityName: cityArr.city_name },
             });
             dispatch({
                 type: 'DEPARTURE_DATE',
                 dptTime: date,
             });
         }
-    }, []);
-    // }, [arr, date, dispatch, dpt, state.arrAirportCityName]);
+    }}, [cities, arr, date, dispatch, dpt, state.arrAirportCityName])
 
     return (
         <div className={styles.__container}>

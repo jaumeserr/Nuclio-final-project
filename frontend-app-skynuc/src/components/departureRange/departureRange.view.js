@@ -23,7 +23,7 @@ const DepartureRange = ({ startTime, setStartTime, endTime, setEndTime }) => {
                 max={24}
                 tipFormatter={null}
                 onChange={onChange}
-                defaultValue={[7, 18]}
+                defaultValue={[1, 23]}
             />
         </div>
     );

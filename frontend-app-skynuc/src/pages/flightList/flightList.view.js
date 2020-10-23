@@ -29,10 +29,10 @@ const FlightList = () => {
         'GET',
     );
 
-    const [startTime, setStartTime] = useState(queryStartTime ? queryStartTime : '7');
-    const [endTime, setEndTime] = useState(queryEndTime ? queryEndTime : '18');
-    const [startPrice, setStartPrice] = useState(queryMinPrice ? queryMinPrice : '150');
-    const [endPrice, setEndPrice] = useState(queryMaxPrice ? queryMaxPrice : '300');
+    const [startTime, setStartTime] = useState(queryStartTime ? queryStartTime : '1');
+    const [endTime, setEndTime] = useState(queryEndTime ? queryEndTime : '23');
+    const [startPrice, setStartPrice] = useState(queryMinPrice ? queryMinPrice : '0');
+    const [endPrice, setEndPrice] = useState(queryMaxPrice ? queryMaxPrice : '1300');
     const [airlineChecked, setAirlineChecked] = useState([]);
 
     const history = useHistory();
@@ -44,7 +44,7 @@ const FlightList = () => {
     };
 
     useEffect(() => {
-        resetFetch();
+        resetFetch(); // eslint-disable-next-line
     }, [location.search]);
     // }, [location.search, resetFetch]);
 
